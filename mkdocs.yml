@@ -17,20 +17,60 @@ nav:
 # material主题
 theme:
   name: material
-  palette:
-    scheme: slate
-    primary: deep purple
-    accent: indigo
+  custom_dir: overrides
+  palette: 
+    - scheme: slate
+      primary: deep purple
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
   lang: zh
   favicon: libs/logos/favicon.png
   logo: libs/logos/favicon.png
   icon:
     repo: fontawesome/brands/github
+  markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  
   features:
     - navigation.tabs
     - navigation.instant
     - navigation.expand
-  repo_url: https://github.com/SUPERkelesss/superkelesss.github.io.git
-  repo_name: superkelesss/superkelesss.github.io
+    - search suggest
+    - search highlight
+    - search share
+    - navigation.footer
+
+
+  plugins:
+    - search:
+      - lang: zh
+
+#页脚
+extra:
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/SUPERkelesss
+      - icon: bilibili-fill
+        link: https://space.bilibili.com/334614292
+copyright: Copyright © 2025 by Kelesss is licensed under CC BY-NC-ND 4.0
+#页眉
+repo_url: https://github.com/SUPERkelesss/superkelesss.github.io.git
+repo_name: superkelesss.github.io
+
+
 extra_css:
   - stylesheets/extra.css
