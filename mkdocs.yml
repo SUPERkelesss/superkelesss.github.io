@@ -1,1 +1,7 @@
-site_name: Kelesss's Website
+site_name: 凯楽斯Kelesssの聖教空间
+nav:
+  - 首页:
+    - Home: "index.md"
+  - 数理:
+    - 数理方法: "Mathematic Method in Physics.md"
+theme: readthedocs
