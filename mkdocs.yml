@@ -14,7 +14,7 @@ nav:
     - aa: "test.md"
   - 日记:
     - aa: "test.md"
-    
+
 # material主题
 theme:
   name: material
@@ -37,8 +37,6 @@ theme:
   lang: zh
   favicon: libs/logos/favicon.png
   logo: libs/logos/favicon.png
-  icon:
-    repo: fontawesome/brands/github
   
   features:
     - navigation.tabs
@@ -54,6 +52,7 @@ plugins:
       lang: 
         - zh
         - en
+  - git-revision-date-localized
 
 #页脚
 extra:
