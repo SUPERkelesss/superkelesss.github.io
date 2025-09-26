@@ -1,5 +1,3 @@
-
-
 # Mathematic Method in Physics
 
 [TOC]
@@ -92,8 +90,10 @@ $$
 又有
 
 $$
-f(x+iy) = u(x,y)+iv(x,y)\\
-f^*(x-iy) = u(x,y)-iv(x,y)
+\begin{aligned}
+f(x+iy) &= u(x,y)+iv(x,y)\\
+f^*(x-iy) &= u(x,y)-iv(x,y)
+\end{aligned}
 $$
 
 于是

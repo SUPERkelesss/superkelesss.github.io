@@ -1,19 +1,19 @@
 site_name: 凯楽斯Kelesssの聖教园地
 # 导航栏
 nav:
-  - 关于:
-    - Home: "index.md"
+  - 首页:
+    - Home: index.md
   - 化学:
-    - aa: "test.md"
+    - 失重的魅力: "test.md"
   - 数理:
     - 数学:
-      - 数理方法: "Mathematic Method in Physics.md"
+      - 数理方法: "maphy/Mathematic Method in Physics.md"
   - 计算机:
     - aa: "test.md"
   - 杂货铺:
     - aa: "test.md"
   - 日记:
-    - aa: "test.md"
+    - blog/index.md
 
 # material主题
 theme:
@@ -46,6 +46,7 @@ theme:
     - search highlight
     - search share
     - navigation.footer
+    - navigation.indexes
 
 plugins:
   - search:
@@ -53,6 +54,8 @@ plugins:
         - zh
         - en
   - git-revision-date-localized
+  - meta
+  - blog
 
 #页脚
 extra:
@@ -67,7 +70,7 @@ extra:
         link: https://www.xiaohongshu.com/user/profile/659dd609000000002001ca3b
       - icon: zhihu
         link: https://www.zhihu.com/people/ke-le-kelesss
-copyright: Copyright © 2025 by Kelesss is licensed under CC BY-NC-ND 4.0
+copyright: Copyright © 2025 by Kelesss is licensed under CC BY-SA 4.0
 #页眉
 repo_url: https://github.com/SUPERkelesss/superkelesss.github.io.git
 repo_name: superkelesss.github.io
