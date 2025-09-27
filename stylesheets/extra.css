@@ -1,0 +1,13 @@
+/* 引入霞鹜文楷字体 */
+@font-face {
+    font-family: 'LXGW WenKai';
+    src: url('../fonts/LXGWWenKai-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* 优化加载时的显示效果:cite[6] */
+}
+
+/* 将字体应用到整个网站 */
+body {
+    font-family: 'LXGW WenKai', sans-serif;
+}
