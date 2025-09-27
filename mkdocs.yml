@@ -1,24 +1,33 @@
 site_name: 凯楽斯Kelesssの聖教园地
 # 导航栏
 nav:
-  - 首页:
-    - Home: index.md
-  - 化学:
-    - 失重的魅力: "test.md"
-  - 数理:
+  - 🏠首页:
+    - 关于本网站: index.md
+    - 最近更新: changelog.md
+  - 🧪化学:
+    - 化学-首页: "chem/index.md"
+    - 物理化学:
+      - 物理化学II笔记: "chem/physical/Physical Chemistry II.md"
+  - 🔢数理:
+    - 数理-首页: "maphy/index.md"
     - 数学:
-      - 数理方法: "maphy/Mathematic Method in Physics.md"
-  - 计算机:
-    - aa: "test.md"
-  - 杂货铺:
-    - aa: "test.md"
-  - 日记:
-    - blog/index.md
+      - 数理方法: "maphy/math/Mathematic Method in Physics.md"
+  - 🖥️计算机:
+    - 计算机-首页: "cs/index.md"
+  - ☕杂货铺:
+    - 杂货铺-首页: "lqbz/index.md"
+  - 📚资料:
+    - 资料-首页: refs/index.md
+  - 📓日记:
+    - 日记-首页: blog/index.md
 
 # material主题
 theme:
   name: material
   custom_dir: overrides
+
+  text: JetBrains Mono, LXGW WenKai Screen GB Screen 
+  code: JetBrains Mono, Consolas
 
   palette: 
     - scheme: slate
@@ -55,7 +64,10 @@ plugins:
         - en
   - git-revision-date-localized
   - meta
-  - blog
+  - blog: 
+      blog_toc: true
+      archive_date_format: MMMM yyyy
+  - changelog
 
 #页脚
 extra:
@@ -70,7 +82,7 @@ extra:
         link: https://www.xiaohongshu.com/user/profile/659dd609000000002001ca3b
       - icon: zhihu
         link: https://www.zhihu.com/people/ke-le-kelesss
-copyright: Copyright © 2025 by Kelesss is licensed under CC BY-SA 4.0
+copyright: Copyright © 2025 by <a href="https://github.com/SUPERkelesss" target="_blank">Kelesss</a> is licensed under CC BY-SA 4.0
 #页眉
 repo_url: https://github.com/SUPERkelesss/superkelesss.github.io.git
 repo_name: superkelesss.github.io
@@ -84,6 +96,10 @@ extra_javascript:
 
 extra_css:
 #  - https://unpkg.com/katex@0/dist/katex.min.css
+  - stylesheets/extra.css
+  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
 
 markdown_extensions:
   - pymdownx.emoji:

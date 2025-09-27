@@ -1,7 +1,7 @@
 # 欢迎来到**聖·凯楽斯kelesss**的网站！
 ![homepage](imgs\homepage.jpeg)
 
-<center>天地玄黄，宇宙洪荒。溯游从之，宛在水中央。</center>
+<center><i>天地玄黄，宇宙洪荒。溯游从之，宛在水中央。</i></center>
 
 ---
 
@@ -10,13 +10,53 @@
 这是我（凯楽斯kelesss）在2025年9月25日想不开建立的一个个人网站，储存一些关于自己的笔记及想法，也欢迎大家查看或转载。你可以点击**上方标签页（或移动端左上方选项）**切换栏目：
 
 <div class="grid cards" markdown>
+-   :simple-moleculer:   __化学__ 
 
-- :chemistry: __化学__ 包括但不限于物化，结构等内容
-- :math: __数理__ 关于数学和物理的基础知识
-- :comp: __计算机__ 算法，数据结构以及各种应用
-- :lqbz: __杂货铺__ 游戏，音乐，以及各种爱好
-- :diary: __日记__  单纯就是我个人发疯的场所
+    ---
 
+    包括但不限于物化，结构等内容
+
+    [:octicons-arrow-right-24: 点击了解](chem/index.md)
+
+-   :material-function-variant:   __数理__
+
+    ---
+
+    关于数学和物理的基础知识
+
+    [:octicons-arrow-right-24: 点击了解](maphy/index.md)
+
+-   :fontawesome-solid-computer:   __计算机__ 
+
+    ---
+
+    算法，数据结构以及各种应用
+
+    [:octicons-arrow-right-24: 点击了解](cs/index.md)
+
+-   :material-coffee:   __杂货铺__ 
+
+    ---
+
+    游戏，音乐，以及各种爱好
+
+    [:octicons-arrow-right-24: 点击了解](lqbz/index.md)
+    
+-   :simple-bookstack:   __资料__  
+
+    ---
+
+    存放收集的网站，链接，文件等等
+    
+    [:octicons-arrow-right-24: 点击了解](refs/index.md)
+    
+-   :material-book-edit:   __日记__  
+
+    ---
+
+    单纯就是我个人发疯的场所
+
+    [:octicons-arrow-right-24: 点击了解](blog/index.md)
 </div>
 
 如果你有兴趣，可以访问这个网站的[Github仓库](https://github.com/SUPERkelesss/superkelesss.github.io.git)查看本网站的制作工具及代码。
@@ -25,7 +65,7 @@
 
 现在是一名普通的pku大二学生，目前修读化学专业。以下是我的一些联系方式：
 
-- [我的Github主页](https://github.com/SUPERkelesss)（事实上我根本没法过什么）
+- [我的Github主页](https://github.com/SUPERkelesss)（事实上我根本没发过什么）
 - [我的Bilibili主页](https://space.bilibili.com/334614292)
 - [我的个人q群](https://qm.qq.com/q/YXattqg3Kg)（虽然很早创立，但几乎没什么人）
 - [我的知乎首页](https://www.zhihu.com/people/ke-le-kelesss)
