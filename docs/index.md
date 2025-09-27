@@ -7,15 +7,15 @@
 
 ## 这是什么？
 
-这是我（凯楽斯kelesss）在2025年9月25日想不开建立的一个个人网站，储存一些关于自己的笔记及想法，也欢迎大家查看或转载。你可以点击上方标签页切换栏目：
+这是我（凯楽斯kelesss）在2025年9月25日想不开建立的一个个人网站，储存一些关于自己的笔记及想法，也欢迎大家查看或转载。你可以点击**上方标签页（或移动端左上方选项）**切换栏目：
 
 <div class="grid cards" markdown>
 
-- :math: __HTML__ for content and structure
-- :fontawesome-brands-js: __JavaScript__ for interactivity
-- :computer: __CSS__ for text running out of boxes
-- :fontawesome-brands-internet-explorer: __Internet Explorer__ ... huh?
-- :diary:
+- :chemistry: __化学__ 包括但不限于物化，结构等内容
+- :math: __数理__ 关于数学和物理的基础知识
+- :comp: __计算机__ 算法，数据结构以及各种应用
+- :lqbz: __杂货铺__ 游戏，音乐，以及各种爱好
+- :diary: __日记__  单纯就是我个人发疯的场所
 
 </div>
 
@@ -23,15 +23,24 @@
 
 ## kelesss是谁？
 
+现在是一名普通的pku大二学生，目前修读化学专业。以下是我的一些联系方式：
 
+- [我的Github主页](https://github.com/SUPERkelesss)（事实上我根本没法过什么）
+- [我的Bilibili主页](https://space.bilibili.com/334614292)
+- [我的个人q群](https://qm.qq.com/q/YXattqg3Kg)（虽然很早创立，但几乎没什么人）
+- [我的知乎首页](https://www.zhihu.com/people/ke-le-kelesss)
 
+你也可以随时通过访问网站**最下方的栏目**获取这些信息。
 
 
 ## 我能做什么？
 
+- 本网站遵循**CC BY_SA 4.0协议**，这意味这你可以自由复制、分发、展示和演绎我的作品，只要你给予适当的署名，并在相同的许可证下分享衍生作品。
+- 你可以使用Github账号对本网站的任何页面进行**评论**，评论区一般位于网站最下方。
+- 通过我的**联系方式**，对本网站提出建设性意见。
+- **赞助**本网站的作者kelesss。喵呜♪(\^∇\^*)
 
-
-
+<center><img src="imgs\tips.png" alt="tips" style="zoom:25%;" /></center>
 
 ## 谢谢！
 
