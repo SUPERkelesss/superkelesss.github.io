@@ -16,6 +16,17 @@ nav:
     - 计算机-首页: "cs/index.md"
   - ☕杂货铺:
     - 杂货铺-首页: "lqbz/index.md"
+    - 弱智题大合集:
+      - 失重的魅力1: lqbz/sbprob/sz1.md
+      - 失重的魅力2: lqbz/sbprob/sz2.md
+      - 失重的魅力3: lqbz/sbprob/sz3.md
+      - 失重的魅力4: lqbz/sbprob/sz4.md
+      - 失重的魅力5: lqbz/sbprob/sz5.md
+      - 广义的热重分析: lqbz/sbprob/gyrz.md
+      - “汉神杯”元素推断大赛: lqbz/sbprb/hsb.md
+      - γChem 推断题选: lqbz/sbprob/ystd.md
+      - 如金 Ruby Gold: lqbz/sbprob/rubygold.md 
+
   - 📚资料:
     - 资料-首页: refs/index.md
   - 📓日记:
@@ -25,9 +36,6 @@ nav:
 theme:
   name: material
   custom_dir: overrides
-
-  text: JetBrains Mono, LXGW WenKai Screen GB Screen 
-  code: JetBrains Mono, Consolas
 
   palette: 
     - scheme: slate
