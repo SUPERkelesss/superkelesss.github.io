@@ -9,7 +9,9 @@
     - [失重的魅力3](sbprob/sz3.md)
     - [失重的魅力4](sbprob/sz4.md)
     - [失重的魅力5](sbprob/sz5.md)
-    - [广义的热重分析](sbprob/gysz.md)
+    - [广义的热重分析](sbprob/gyrz.md)
     - [“汉神杯”元素推断大赛](sbprob/hsb.md)
     - [γChem 推断题选](sbprob/td.md)
     - [“如金”Ruby Gold](sbprob/rubygold.md)
+- 锐评
+    - [锐评所有少女乐队番剧](rp/band.md)

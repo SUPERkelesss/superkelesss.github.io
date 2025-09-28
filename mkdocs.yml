@@ -23,12 +23,20 @@ nav:
       - 失重的魅力4: lqbz/sbprob/sz4.md
       - 失重的魅力5: lqbz/sbprob/sz5.md
       - 广义的热重分析: lqbz/sbprob/gyrz.md
-      - “汉神杯”元素推断大赛: lqbz/sbprb/hsb.md
+      - “汉神杯”元素推断大赛: lqbz/sbprob/hsb.md
       - γChem 推断题选: lqbz/sbprob/ystd.md
-      - 如金 Ruby Gold: lqbz/sbprob/rubygold.md 
+      - 如金 Ruby Gold: lqbz/sbprob/rubygold.md
+    - 锐评:
+      - 锐评所有少女乐队番剧: lqbz/rp/band.md
 
   - 📚资料:
     - 资料-首页: refs/index.md
+    - 化学相关书籍: 
+      - 物理化学: refs/cbook/phys.md
+      - 无机化学: refs/cbook/inorg.md
+      - 有机化学: refs/cbook/org.md
+      - 分析化学: refs/cbook/anal.md
+      - 其他书籍: refs/cbook/other.md
   - 📓日记:
     - 日记-首页: blog/index.md
 
