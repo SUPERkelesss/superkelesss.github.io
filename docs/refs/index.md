@@ -9,3 +9,5 @@
 	- [有机化学](cbook/org.md)
 	- [分析化学](cbook/anal.md)
 	- [其他书籍](cbook/other.md)
+- 化学竞赛题目
+	- [PKU&THU春联/金秋营试题](jsexam/pkuthu.md)

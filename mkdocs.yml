@@ -1,4 +1,4 @@
-site_name: 凯楽斯Kelesssの聖教园地
+site_name: 凯楽斯Kelesssの聖教天堂
 # 导航栏
 nav:
   - 🏠首页:
@@ -11,7 +11,7 @@ nav:
   - 🔢数理:
     - 数理-首页: "maphy/index.md"
     - 数学:
-      - 数理方法: "maphy/math/Mathematic Method in Physics.md"
+      - 数学物理方法: "maphy/math/Mathematic Method in Physics.md"
   - 🖥️计算机:
     - 计算机-首页: "cs/index.md"
   - ☕杂货铺:
@@ -37,6 +37,8 @@ nav:
       - 有机化学: refs/cbook/org.md
       - 分析化学: refs/cbook/anal.md
       - 其他书籍: refs/cbook/other.md
+    - 化学竞赛题目:
+      - PKU&THU春联/金秋营试题: refs/jsexam/pkuthu.md
   - 📓日记:
     - 日记-首页: blog/index.md
 
@@ -78,7 +80,8 @@ plugins:
       lang: 
         - zh
         - en
-  - git-revision-date-localized
+  - git-revision-date-localized:
+      enable_creation_date: true
   - meta
   - blog: 
       blog_toc: true
