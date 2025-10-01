@@ -16,6 +16,8 @@ nav:
     - 计算机-首页: "cs/index.md"
   - ☕杂货铺:
     - 杂货铺-首页: "lqbz/index.md"
+    - 聖教相关:
+      - 凯楽斯社会学教材: lqbz/holykelesss/social1.md
     - 弱智题大合集:
       - 失重的魅力1: lqbz/sbprob/sz1.md
       - 失重的魅力2: lqbz/sbprob/sz2.md
@@ -41,6 +43,8 @@ nav:
       - PKU&THU春联/金秋营试题: refs/jsexam/pkuthu.md
   - 📓日记:
     - 日记-首页: blog/index.md
+
+use_directory_urls: false
 
 # material主题
 theme:

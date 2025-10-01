@@ -16,7 +16,7 @@
 ??? Abstract "答案"
 	恒星内部的C-N-O循环，总反应式为：$\ce{4^1_1H -> ^4_2He + 2^0_1e+}$
 
-	<img src="../imgs/CNO.png" alt="CNO" style="zoom: 50%;" />
+	![img](hsb.assets/330px-CNO_Cycle.svg.png)
 
 ## 第三题
 

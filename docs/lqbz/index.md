@@ -3,6 +3,8 @@
 !!! abstract
 	储存关于我写的各种其他东西
 
+- 聖教相关
+    - [凯楽斯社会学教材](holykelesss/social1.md)
 - 弱智题大合集
     - [失重的魅力1](sbprob/sz1.md)
     - [失重的魅力2](sbprob/sz2.md)
