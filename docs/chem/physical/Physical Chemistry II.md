@@ -1,9 +1,5 @@
 # Physical Chemistry II
 
-midterm exam: Nov 4th
-
-[toc]
-
 ---
 
 ## Chapter 1 : Chemical and Electrochemical Equilibrium
@@ -80,24 +76,37 @@ that means: when $\Delta_rH^{\circ} < 0$, when $T$ decrease, $K$ increase. -Vice
 ### Equilibrium electrochemistry
 
 for rxn $\ce{H_2O <--> H_2 + O_2}$ we got half rxns:
+
 **Anode**: $\ce{H_2 - 2e^-<--> 2H^+}$
+
 **Cathode**: $\ce{0.5O_2 + 2H^+ + 2e^- <--> H_2O}$
 
+
+
 for non-electrochemistry states:
+
+
 $$
 Q_1 = \frac{a(\ce{H^+})^2}{(p(\ce{H_2})/p^{\circ})}, Q_2 = \frac{a(\ce{H2O})}{(p(\ce{O_2})^{1/2}/p^{\circ})a(\ce{H^+})^2}
 $$
 
+
+
 consider the **Electromotive Force(EMF)**
 
+
 $$
--\nu EF = \Delta_rG = \Delta_rG^{\circ} + RT\ln{Q} = \frac{\dd W_e}{\dd \xi}\\
-E = -\frac{\delta_rG_m^{\circ}}{\nu F} - \frac{RT}{\nu F} \ln{Q}
+\begin{aligned}
+-\nu EF = \Delta_rG &= \Delta_rG^{\circ} + RT\ln{Q} = \frac{\dd W_e}{\dd \xi}\\
+E &= -\frac{\delta_rG_m^{\circ}}{\nu F} - \frac{RT}{\nu F} \ln{Q}
+\end{aligned}
 $$
 
 this is called ***Nerst* Equation**.
 
 At eq: $0 = E^{\circ} - \frac{RT}{\nu F}\ln{K}$, so
+
+
 $$
 E^{\circ} = \frac{\nu FE^{\circ}}{RT}
 $$
@@ -135,6 +144,8 @@ $$
 so as $\mu = (\frac{\Delta G}{\Delta N})_{T,p,\varphi} = (\frac{\partial g}{\partial x})_{T, p, \varphi}$
 
 For a lattice as: 
+
+
 $$
 S' = (\frac{\partial S}{\partial x})_{T,p,\varphi} = k_B \frac{x}{1-x}
 $$
@@ -196,6 +207,8 @@ V_{RHE}^{\circ} = V_{SHE} - \frac{RT}{F} \ln{a(\ce{H^+})} = V_{SHE} + 0.059\math
 $$
 
 Eg: Water Electrolysis
+
+
 $$
 V_{SHE} = E^{\circ} - \frac{RT}{4F}\ln{\frac{1}{(p(\ce{O_2}/p^{\circ}))a(\ce{H^+})^4}}
 = E^{\circ} + \frac{RT}{F} \ln{a(\ce{H^+})} + \frac{RT}{4F} \ln{p(\ce{O_2})/p^{\circ}}
@@ -254,26 +267,41 @@ $$
 Pure Phase(A)  |   ……  |  Pure Phase(B)
 
 Ref:
+
+
 $$
 \dd G_R = (\frac{\partial G_R}{\partial T})\dd  T + (\frac{\partial G_R}{\partial p}) \dd p +(\frac{\partial G_R}{\partial n})\dd n
 $$
+
+
 Actual:
+
+
+
+
 $$
 \dd G_S = (\frac{\partial G_S}{\partial T})\dd  T + (\frac{\partial G_S}{\partial p}) \dd p +(\frac{\partial G_S}{\partial n})\dd n + (\frac{\partial G_S}{\partial A})\dd A
 $$
+
+
 we call $(\frac{\partial G_S}{\partial A})_{p,T,n} = \gamma$ as **Surface Tension**
 
 As p&T are const., we have:
+
+
 $$
 \dd G^\sigma = \dd G_S - \dd G_R = \sum_i \mu_i(\dd n_i^S - \dd n_i^R) + \gamma \dd A= \sum_i \mu_i\dd n_i^\sigma + \gamma \dd A
 $$
 for total differential:
+
+
 $$
 \dd G^\sigma = \sum_i \mu_i\dd n_i^\sigma + \sum_i n_i\dd \mu_i^\sigma + \gamma \dd A + A \dd\gamma
 $$
 
-
 As **Gibbs-Duham Relation** :
+
+
 $$
 A\dd \gamma + \sum_i n_i^\sigma \dd \mu_i = 0 \\
 -\dd \gamma = \sum_i \frac{n_i^\sigma}{A} \dd\mu_i = \sum_i \Gamma_i \dd\mu_i
@@ -287,6 +315,8 @@ $\Gamma$ is called **Surface excess concertation**(表面过剩浓度)
 Wire---Cu|Ag|AgCl(Ref)|   K+, Cl-,  M(ekectrolyte)   |(WE)Hg|Ni|Cu---Wire
 
 for Working Electrode :
+
+
 $$
 \begin{aligned}
 -\dd \gamma &= (\Gamma_{Hg}\dd\mu_{Hg} + \Gamma_{e}\dd\mu_{e})\\
@@ -444,6 +474,7 @@ $$
 
 ### Phenomenological Kinetics
 
+
 $$
 \ce{\nu_AA + \nu_BB -> \nu_YY + \nu_ZZ}
 $$
@@ -461,14 +492,19 @@ first/second order reactions ....
 - Reactant are in eq. with the activated complex(AC) or transition state
 - AC converts to product in a irreversible step
 
+
 $$
 \ce{A + B <=> [AB]^\ddagger -> P} \\
 K_c^\ddagger =\frac{[AB^\ddagger]c^{\circ}}{[A][B]}
 $$
 
+
+
 at eq $\mu_A + \mu_B = \mu_{AB^\ddagger}$
 
 from statistical mechanics:
+
+
 $$
 \mu = -RT(\frac{\partial \ln Q}{\partial N})_{VT} = -RT(\frac{\partial \ln {\frac{q^N}{N!}}}{\partial N})_{VT} = 
 -RT\ln{q/N} \\
@@ -476,7 +512,11 @@ $$
 \frac{N^\ddagger}{N_AN_B} = \frac{q^\ddagger}{q_Aq_B} \\
 K_c^\ddagger = \frac{\frac{q^\ddagger}{V}·c_0}{\frac{q_A}{V}\frac{q_B}{V}} = \exp(-\frac{\Delta^\ddagger G ^\circ}{RT})
 $$
+
+
 let $\nu_c$ be the freq. at which AC cross over the barrier
+
+
 $$
 \frac{d[P]}{dt} = \nu_c[AB^\ddagger] = k[A][B] \\
 k = \nu_c K_c^\ddagger /c^\circ
@@ -484,30 +524,138 @@ $$
 
 
 
+## Chapter 4: Chemical Kinetics (II)
 
 
 
+## Potential Energy Surface
+
+![image-20250930153118930](Physical Chemistry II.assets/image-20250930153118930.png)
+
+the top point of the surface is called **Saddle Point**
+
+at local minimum:
+
+$$
+\frac{\partial^2u}{\partial x^2} > 0, k>0, \nu = \sqrt{\frac{\mu}{k}} \text{ is real}
+$$
+
+at local maximum:
+
+$$
+\frac{\partial^2u}{\partial x^2} < 0, k<0, \nu = \sqrt{\frac{\mu}{k}} \text{ is imaginary}
+$$
+
+---
+
+### KIE
+
+#### Primary KIE
+
+**Zero Point Energy**: $E_0 = \frac 12 h\nu$ for ground state
+
+**Harmonic Approx.**: $\displaystyle{\nu = \frac 1{2\pi}\sqrt{\frac k\mu}}$
+
+$$
+\frac {\nu_{CH}}{\nu_{CD}} = \sqrt{\frac{m_Dm_C(m_D+m_C)}{m_Hm_C(m_H+m_C)}} \approx \sqrt2
+$$
+
+![image-20250930154307649](Physical Chemistry II.assets/image-20250930154307649.png)
+
+$$
+\begin{aligned}
+\ln(\frac{k'_{CH}}{k'_{CD}}) &= \ln{\frac {A_H}{A_D}} + \frac12 \frac{h(\nu_H-\nu_D)}{k_BT}\\
+\frac{k'_{CH}}{k'_{CD}} &= \exp({\frac12 \frac{h(\nu_H-\nu_D)}{k_BT}}) \approx 1-10
+\end{aligned}
+$$
+
+
+#### Secondary KIE
+
+![image-20250930155034421](Physical Chemistry II.assets/image-20250930155034421.png)
+
+KIE: $S_N1$ ~ 1.2, $S_N2$ ~ 1. why?
+
+$S_N1$ mechanism involves a temporary increase in the bond order of C-H(D)
+
+#### Early vs. Late TS
+
+![image-20250930155358406](Physical Chemistry II.assets/image-20250930155358406.png)
 
 
 
+### Postulates based on TST
 
+#### Bronsted-Evans-Polanyi principle (BEP)
 
+for a series of similar reactions:
+$$
+\Delta G_1^\ddagger - \Delta G_2^\ddagger = \alpha(\Delta G_1-\Delta G_2)
+$$
+or
+$$
+\ln(k_2/k_1) = \alpha\ln(K_2-K_1)
+$$
+where $0<\alpha<1$
 
+#### The Hammond Postulate
 
+![image-20250930161619872](Physical Chemistry II.assets/image-20250930161619872.png)
 
+more reactive rxn will produce AC more resembles the reactant, result in less selectivity (**Activity-Selectivity Principle**)
 
+#### The Curtin-Hammett Principle
 
+![image-20250930161911577](Physical Chemistry II.assets/image-20250930161911577.png)
 
+The ratio of products is determined by the relative heights of the highest energy barriers, leading to different products
 
+#### Microscopic Reversibility
 
+![image-20250930162025756](Physical Chemistry II.assets/image-20250930162025756.png){ style="display: block; margin: 0 auto;" }
 
+The forward and reverse rxns go identical path
 
+#### Kinetic vs Thermodynamic Control
 
+![image-20250930162821962](Physical Chemistry II.assets/image-20250930162821962.png){ style="display: block; margin: 0 auto;" }
 
+#### Quasi Steady Approx. (QSSA)
 
+Key assumptions:
 
+- Concentrations of intermediates are low (why)
 
+- Variations of concentrations of intermediates with time are negligible.
 
+consider rxn:
+$$
+\ce{A ->[k_1] B ->[k_2] C}
+$$
+we have:
+$$
+\begin{gathered}
+\frac{dx}{dt} = k_1x \quad \frac{dy}{dt} = k_1x-k_2y \quad \frac{dz}{dt} = k_2y \\
+\Rightarrow y = \frac{k_1}{k_2 - k_1}(e^{-k_1t} - e^{-k_2t}) \\
+\frac{dy}{dt} = 0 \Rightarrow t_{max} = \frac 1{k_2-k_1}\ln{\frac {k_2}{k_1}} \\
+y_{max} =  \frac {k_1}{k_2-k_1}[(\frac {k_2}{k_1})^{\frac {k_1}{k_2-k_1}} - (\frac {k_2}{k_1})^{\frac {k_2}{k_2-k_1}}]
+\end{gathered}
+$$
+as $k_2 \gg k_1 \Rightarrow t_{max} \to 0, y_{max} \to 0$
 
+![QSSA](Physical Chemistry II.assets/Consecutive_reactions_rate_constants_1-10.jpeg)
 
+for rxns with more than one intermediates:
+$$
+\ce{A->[k_1]I_1 ->[k_2]I_2->...->I_n->[k_{n+1}]B}
+$$
+all $\ce{I_n}$ can consider into one steady state.
+
+#### Pseudo-Equilibrium/ Rate limiting step
+
+ If one step has a significantly lower rate constant, then it is considered as RLS
+
+ Several steps in a row sequence could have low but comparable rate constants ⇒ kinetically relevant not RLS/RDS. 
+
+### Surface Mediate rxns
 

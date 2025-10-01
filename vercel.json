@@ -1,0 +1,23 @@
+{
+    "builds": [
+        {
+            "src": "mkdocs.yml",
+            "use": "@vercel/static-build",
+            "config": {
+                "disDir": "Site"
+            }
+        }
+    ],
+    "build": {
+        "env": {
+            "PYTHON_VERSION": "3.9"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/sute/$1"
+        }
+    ]
+
+}
