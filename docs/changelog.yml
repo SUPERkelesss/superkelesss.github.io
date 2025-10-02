@@ -1,4 +1,7 @@
 - "placeholder":
+  - "2025/10/02":
+    - "function": 加入heti插件，标题栏样式改为亚克力，更改目录样式（改死我了）
+    - "newpage": 新增投稿界面
   - "2025/10/01":
     - "function": 把代理搬到vercel上，访问速度加快了！并且连接到了新域名www.kelesss.art
     - "pageupdate": 解决了一些页面图片无法显示的问题

@@ -2,8 +2,9 @@ site_name: 凯楽斯Kelesssの聖教天堂
 # 导航栏
 nav:
   - 🏠首页:
-    - 关于本网站: index.md
-    - 最近更新: changelog.md
+    - ❔关于本网站: index.md
+    - ⏲️最近更新: changelog.md
+    - 🙋我要投稿！: commit.md
   - 🧪化学:
     - 化学-首页: "chem/index.md"
     - 物理化学:
@@ -86,11 +87,23 @@ plugins:
         - en
   - git-revision-date-localized:
       enable_creation_date: true
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
   - meta
   - blog: 
       blog_toc: true
       archive_date_format: MMMM yyyy
   - changelog
+  - heti:
+      disable_serve: true
+  - glightbox
+
+hooks:
+  - hooks/theme_override.py
+  - hooks/linkbackward.py
+  - hooks/toc.py
+  - hooks/tikzautomata.py
 
 #页脚
 extra:
@@ -120,6 +133,7 @@ extra_javascript:
 extra_css:
 #  - https://unpkg.com/katex@0/dist/katex.min.css
   - stylesheets/extra.css
+  - stylesheets/toc_extra.css
   - https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css

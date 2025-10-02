@@ -45,3 +45,19 @@ a:hover strong {
   margin-left: auto;
   margin-right: auto;
 }
+
+/*admonition字号统一*/
+.md-typeset .admonition, .md-typeset details {
+  font-size: inherit;
+}
+
+/*标题栏样式*/
+[data-md-color-scheme="slate"] .md-header, [data-md-color-scheme="slate"] .md-tabs {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+[data-md-color-scheme="default"] .md-header, [data-md-color-scheme="default"] .md-tabs {
+  background-color: rgba(148, 0, 211, 0.7);
+  backdrop-filter: blur(10px);
+}
