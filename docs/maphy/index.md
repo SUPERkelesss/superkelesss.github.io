@@ -2,5 +2,5 @@
 
 {{ BEGIN_TOC }}
 - 数学基础:
-    - 数学物理方法: "math/Mathematic Method in Physics.html"
+    - 数学物理方法: "math/Mathematic Method in Physics"
 {{ END_TOC }}

@@ -2,6 +2,6 @@
 
 {{ BEGIN_TOC }}
 - 物理化学:
-    - 物理化学II: "physical/Physical Chemistry II.html"
+    - 物理化学II: "physical/Physical Chemistry II"
 {{ END_TOC }}
 
