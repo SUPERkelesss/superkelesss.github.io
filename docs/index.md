@@ -1,5 +1,9 @@
+---
+statistics: True
+---
 # 欢迎来到**聖·凯楽斯kelesss**的网站！
-![homepage](imgs\homepage.jpeg)
+
+![homepage](imgs\homepage.jpeg){ loading=lazy }
 
 <center><i>天地玄黄，宇宙洪荒。溯游从之，宛在水中央。</i></center>
 

@@ -79,6 +79,7 @@ theme:
     - search share
     - navigation.footer
     - navigation.indexes
+    - content.code.copy
 
 plugins:
   - search:
@@ -98,6 +99,9 @@ plugins:
   - heti:
       disable_serve: true
   - glightbox
+  - statistics
+  - minify:
+      minify_html: true
 
 hooks:
   - hooks/theme_override.py
