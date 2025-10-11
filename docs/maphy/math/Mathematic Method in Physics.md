@@ -419,5 +419,240 @@ $$
 
 ### 复变积分
 
+#### 复变积分的定义
+
+复变积分就是**复平面上的第一类曲线积分**
+
+<img src="Mathematic Method in Physics.assets/image-20251006193822560.png" alt="image-20251006193822560" style="zoom:50%;" />
+
+$$
+\begin{aligned}
+\int_C f(z)dz &= \lim_{\abs{z_k-z_{k-1}}\to 0} \sum_{k=1}^n f(\zeta_k)(z_k - z_{k-1}) \\
+\end{aligned}
+$$
+
+其可以拆成两个线积分的组合：
+
+$$
+\begin{aligned}
+\int_C f(z)dz &= \int_C(u+iv)(dx+idy) \\
+&= \int_C(udx-vdy) + i\int_C(vdx+udy) 
+\end{aligned}
+$$
+
+于是如果$C$可求长，而$f(z)$在$C$上连续，则复变积分$\int_C f(z)dz$一定存在。
+
+!!! example "复变积分的直接求法"
+	**要求：**
+	
+	$$
+	\int_C z^ndz
+	$$
+	
+	**已知$n$为整数，$C$为以原点为原型，$r$为半径，夹角为$\theta_2-\theta_1$的圆弧。**
+	
+	可以得出：
+	
+	$$
+	\begin{aligned}
+	\int_C z^ndz &= \int_C r^n e^{in\theta}d(re^{i\theta}) \\
+	&= ir^{n+1} \int_C e^{in\theta}·e^{i\theta} d\theta \\
+	&= ir^{n+1} \int_C e^{i(n+1)\theta} d\theta
+	\end{aligned}
+	$$
+	
+	此处需要分类讨论。当$n=-1$时我们有：
+	
+	$$
+	\int_C z^ndz = i(\theta_2 - \theta_1)
+	$$
+	
+	在其他情况下：
+	
+	$$
+	\begin{aligned}
+	\int_C z^ndz &= ir^{n+1} \int_C e^{i(n+1)\theta} d\theta \\
+	&= ir^{n+1} (\frac{e^{i(n+1)\theta_2} - e^{i(n+1)\theta_1}}{i(n+1)}) \\
+	&= \frac{r^{n+1}}{n+1} (e^{i(n+1)\theta_2} - e^{i(n+1)\theta_1})
+	\end{aligned}
+	$$
+	
+	注意：如果对弧长微元取模：
+	
+	$$
+	\abs{dz} = rd\theta
+	$$
+	
+	则有
+	
+	$$
+	\int_C z^n\abs{dz} = r^{n+1} \int_C e^{in\theta} d\theta = 
+	\begin{cases}
+	r(\theta_2 - \theta_1),& n=0 \\
+	\displaystyle r^{n+1}\cdot\frac{e^{in\theta_2} - e^{in\theta_1}}{in},& n\neq0
+	\end{cases}
+	$$
+
+!!! example "复变积分的分解求法"
+    **求$\int_C zdz$, $C$为直线$0 \to 1+i$**
+
+    $$
+    \begin{aligned}
+    \int_C zdz &= \int_C(x+iy)d(dx + idy) \\
+    &= \int_C (xdx-ydy) + i\int_C (ydx + xdy) \\
+    &= \frac12 - \frac12 + i = i
+    \end{aligned}
+    $$
+    
+    事实上，这个积分是一个整函数，可以直接有：
+    
+    $$
+    \int_C zdz = \frac 12 z^2 \big|_0^{1+i} =i
+    $$
 
 
+复变积分的**所有基本性质与曲线积分类似**。
+
+---
+
+#### Cauchy定理与不定积分
+
+如果函数$f(z)$满足：
+
+1. 在有界单连通区域$G$内解析；
+1. 积分路径$C$为$G$内任意一条首尾相接的可求长曲线；
+
+则有：
+
+$$
+\boxed{\oint f(z)dz = 0}
+$$
+
+这被称为**Cauchy积分定理**。（证明略）
+
+!!! warning "注意"
+	单连通区域只能是有界区域，不能是绕$\infty$的无界区域。例如$f(z) = \frac 1z$沿$\infty$一周的积分不为0（即使是解析的）。
+	由于在$G$内解析，曲线$C$不可包含任何无定义或不可导点。
+
+!!! note "推论"
+	若$f(z)$在有界单连通区域$G$内解析，则对任意$C \subset G$有：
+	
+
+	$$
+	\int_C f(z)dz \quad \text{与路径无关}
+	$$
+
+!!! question
+	Cauchy定理和Cauchy-Reiman方程互为微分/积分形式。
+
+    这也提供了Cauchy定理的证明：由Green公式：
+    
+    $$
+    \begin{aligned}
+    \oint_C f(z)dz &= \int_C(udx-vdy) + i\int_C(udy + vdx) \\
+    &= \iint_D (- \frac {\partial v}{\partial x} - \frac {\partial u}{\partial y})
+    +i \iint_D (\frac {\partial u}{\partial x} - \frac {\partial v}{\partial y})
+    \end{aligned}
+    $$
+    
+    然后应用Cauchy-Reiman方程：
+    
+    $$
+    \frac {\partial v}{\partial x} = - \frac {\partial u}{\partial y}, \quad \frac {\partial v}{\partial y} = \frac {\partial u}{\partial x}
+    $$
+    
+    可知：
+    
+    $$
+    \oint_C f(z)dz = 0
+    $$
+
+由**Cauchy定理推论**，可以知道在有界单连通区域$G$内的函数：
+
+$$
+\boxed{\int_{z_0}^z f(\zeta)d\zeta = F(z)}
+$$
+
+为单值函数。这也被称作$f(z)$的**不定积分**。我们有：
+
+$$
+F'(z) = \frac{d}{dz}\int_{z_0}^z f(\zeta)d\zeta = f(z)
+$$
+
+$f(z)$被称为$F(z)$的**原函数**。（并不唯一，可以相差常数C）
+
+$$
+F(z) = \Phi(z) +C
+$$
+
+显然有：
+
+$$
+\begin{aligned}
+F(z_0) = \Phi(z_0) + C &= 0 \\
+C &= -\Phi(z_0) \\
+F(z) = \int_{z_0}^z f(\zeta)d\zeta = \Phi(z) +C &= \Phi(z) - \Phi(z_0)
+\end{aligned}
+$$
+
+!!! Warning "注意"
+	引用以上公式的时候必须首先说明$f(z)$在某一单连通区域内解析。
+
+---
+
+#### 多连通区域
+
+<img src="Mathematic Method in Physics.assets/image-20251008205200214.png" alt="image-20251008205200214" style="zoom: 67%;" />
+
+对于多连通区域，我们有：
+
+$$
+\boxed{\oint_{C_0} f(z)dz = \sum_{n} \oint_{C_i}f(z)dz}
+$$
+
+其中$C_0$为外部框线的环路积分，$C_i$为内部框线的环路积分（注意外部环路积分逆时针，内部环路积分顺时针）。
+
+证明可以通过构造下列割线形成单连通区域$G'$：
+
+<img src="Mathematic Method in Physics.assets/image-20251008205305415.png" alt="image-20251008205305415" style="zoom:67%;" />
+
+由于割线两岸积分相互抵消，整个$G'$的环路积分为0，移项可以得到结果。
+
+$$
+\oint_{C_0} f(z)dz - \sum_{n} \oint_{C_i}f(z)dz + \sum_n \int_{a_i}^{b_i} f(z)dz + \sum_n \int_{b_i}^{a_i} f(z)dz = 0
+$$
+
+!!! example "求环路积分"
+    **计算$\oint_C z^ndz$，其中$n \in \mathbb{R}$**
+
+    显然当$n \in \mathbb{N}$（$\mathbb{C}/\infty$内解析）和$C$内不含$z=0$时，有
+    
+    $$
+    \oint_C z^ndz =0
+    $$
+    
+    而当$n$为负整数且$C$内含有原点时：
+    
+    $$
+    \begin{aligned}
+    \oint_C z^ndz &= \int_{\abs{z} = \epsilon} z^ndz = i\epsilon^{n+1}\int_0^{2\pi} e^{in\theta} \cdot e^{i\theta} d\theta \\
+    &= i\epsilon^{n+1}\int_0^{2\pi} e^{i(n+1)\theta} d\theta =
+    \begin{cases}
+    2\pi i, &n=-1 \\
+    0, &n = -2,-3,-4, ...
+    \end{cases}
+    \end{aligned}
+    $$
+
+#### 小圆弧引理/Jordan引理 
+
+<img src="Mathematic Method in Physics.assets/image-20251008221247804.png" alt="image-20251008221247804" style="zoom:67%;" />
+
+$f(z)$在扇形区域内连续，令$z-a=re^{i\theta}$，且有一致收敛：
+$$
+(z-a)f(z) = re^{i\theta}f(a+re^{i\theta}) \rightrightarrows k
+$$
+则：
+$$
+\lim_{r\to0} \int_{C_r} f(z)dz = ik(\theta_2-\theta_1)
+$$

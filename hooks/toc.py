@@ -45,6 +45,7 @@ def on_page_markdown(
     toc_yml = markdown.split("{{ BEGIN_TOC }}")[1].split("{{ END_TOC }}")[0]
     toc = yaml.load(toc_yml, Loader=yaml.FullLoader)
     toc_items = _get_toc_items(toc, os.path.dirname(page.file.abs_src_path))
+    toc_items_html = _get_toc_items_html(toc, os.path.dirname(page.file.abs_src_path))
     toc_html = Template(TEMPLATE).render(items=toc_items)
     markdown = re.sub(
         r"\{\{ BEGIN_TOC \}\}.*\{\{ END_TOC \}\}",
@@ -71,6 +72,51 @@ def _get_toc_items(toc: dict, base: str) -> list:
         for d in part[list(part.keys())[0]]:
             key = list(d.keys())[0]
             value = d[key]
+            if key == "index":
+                item["link"] = value
+                continue
+            detail = dict()
+            t = key
+            detail["note"] = False
+            detail["lab"] = False
+            if "[note]" in t:
+                detail["note"] = True
+                t = t.replace("[note]", "")
+            if "[lab]" in t:
+                detail["lab"] = True
+                t = t.replace("[lab]", "")
+            detail["title"] = t
+            detail["link"] = value
+            detail["words"], detail["codes"], detail["read_time"] = get_statistics(
+                value, base
+            )
+            detail["update_time"] = get_update_time(value, base, IGNORE_COMMITS)
+            if "🔒" in t:
+                detail["lock"] = True
+            details.append(detail)
+        details.sort(key=lambda x: x["update_time"], reverse=True)
+        item["contents"] = details
+        ret.append(item)
+    return ret
+
+def _get_toc_items_html(toc: dict, base: str) -> list:
+    ret = []
+    for i, part in enumerate(toc):
+        item = dict()
+        item["n"] = i
+        title = list(part.keys())[0]
+        if "[note]" in title:
+            item["note"] = True
+            title = title.replace("[note]", "")
+        else:
+            item["note"] = False
+        item["title"] = title
+        details = []
+        for d in part[list(part.keys())[0]]:
+            key = list(d.keys())[0]
+            value = d[key]
+            if value and not value.startswith(('http://', 'https://', '#', '/')) and not value.endswith('.html'):
+                value = value + '.html'
             if key == "index":
                 item["link"] = value
                 continue

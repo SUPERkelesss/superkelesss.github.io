@@ -1,6 +1,3 @@
----
-statistics: True
----
 # 欢迎来到**聖·凯楽斯kelesss**的网站！
 
 ![homepage](imgs\homepage.jpeg){ loading=lazy }
@@ -17,9 +14,9 @@ statistics: True
 -   :simple-moleculer:   __化学__ 
 
     ---
-
+    
     包括但不限于物化，结构等内容
-
+    
     [:octicons-arrow-right-24: 点击了解](chem/index.md)
 
 -   :material-function-variant:   __数理__
