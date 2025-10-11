@@ -4,11 +4,5 @@
       "source": "/:path((?!.*\\.).*)", 
       "destination": "/:path.html"
     }
-  ],
-  "routes": [
-    {
-      "source": "/:path((?!.*\\.).*)", 
-      "dest": "/:path.html"
-    }
   ]
 }
