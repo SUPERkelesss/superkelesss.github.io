@@ -17,6 +17,8 @@
 
 - **教材**：[https://pan.baidu.com/s/1Zi8vVHgMGyNEj1v9ULFo-A?pwd=gama](https://pan.baidu.com/s/1Zi8vVHgMGyNEj1v9ULFo-A?pwd=gama)
 
+---
+
 ## 元素化学部分
 
 ### 无机化学（北师大版）（5th）
@@ -76,6 +78,8 @@
 （其中1-10册为新版，11-18册为旧版）
 
 - **教材（18册）**：[https://pan.baidu.com/s/1TvQxRstMVY4wCQLxyfiu9Q?pwd=gama](https://pan.baidu.com/s/1TvQxRstMVY4wCQLxyfiu9Q?pwd=gama)
+
+---
 
 ## 结构化学部分
 

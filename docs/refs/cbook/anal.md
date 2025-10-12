@@ -14,3 +14,7 @@
 
 - **教材**：[https://pan.baidu.com/s/1F_-wn7OJnF1vD-Fhx8691g?pwd=gama](https://pan.baidu.com/s/1F_-wn7OJnF1vD-Fhx8691g?pwd=gama)
 - **分析化学题解**：[https://pan.baidu.com/s/1SbctcFHJJtov0EGb-bpYeQ?pwd=gama](https://pan.baidu.com/s/1SbctcFHJJtov0EGb-bpYeQ?pwd=gama)
+
+### 定量化学分析简明教程（北大版）
+
+- **教材**：[https://pan.baidu.com/s/1WdDV0uOJYLzttJ-v8Frepw?pwd=gama](https://pan.baidu.com/s/1WdDV0uOJYLzttJ-v8Frepw?pwd=gama)

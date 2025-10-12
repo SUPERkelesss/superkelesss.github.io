@@ -1,5 +1,8 @@
 # 有机化学书籍
 
+!!! warning "注意"
+    福山题，思维进阶等试题性书籍在[其他书籍](other.md)分类中。
+
 ## 基础有机书籍
 
 ### Clayden（2nd）
@@ -73,11 +76,14 @@
 
 - **教材**：[https://pan.baidu.com/s/1jJv60d7v_oL48d-g3Xr1uw?pwd=gama](https://pan.baidu.com/s/1jJv60d7v_oL48d-g3Xr1uw?pwd=gama)
 
+---
+
 ## 人名反应书籍
 
 ### 有机反应100必备机理汇总
 
-- **教材**：[https://pan.baidu.com/s/106ssTzcR5DTqtHxxHeNrkA?pwd=gama](https://pan.baidu.com/s/106ssTzcR5DTqtHxxHeNrkA?pwd=gama)
+- **教材（en）**：[https://pan.baidu.com/s/106ssTzcR5DTqtHxxHeNrkA?pwd=gama](https://pan.baidu.com/s/106ssTzcR5DTqtHxxHeNrkA?pwd=gama)
+- **教材（ch）**：[https://pan.baidu.com/s/1eT2NFXYfsEfINAl56pLA7g?pwd=gama](https://pan.baidu.com/s/1eT2NFXYfsEfINAl56pLA7g?pwd=gama)
 
 ### 有机合成中命名反应的战略性应用
 
@@ -104,6 +110,8 @@
 （目前看来最全的有机反应整理，当然当工具书偶尔查阅就行了）
 
 - **教材**：[https://pan.baidu.com/s/1zybfF01uq6MhkICwvJDMOg?pwd=gama](https://pan.baidu.com/s/1zybfF01uq6MhkICwvJDMOg?pwd=gama)
+
+---
 
 ## 高等有机书籍
 
@@ -154,6 +162,8 @@
 - **教材（en）**：[https://pan.baidu.com/s/1ReqaRnQMvZY2T8yylv2vog?pwd=gama](https://pan.baidu.com/s/1ReqaRnQMvZY2T8yylv2vog?pwd=gama)
 - **习题解析（ch）**：[https://pan.baidu.com/s/1iCsXz6llyDQXUcc6wG3rwA?pwd=gama](https://pan.baidu.com/s/1iCsXz6llyDQXUcc6wG3rwA?pwd=gama)
 - **习题解析（en）**：[https://pan.baidu.com/s/10iZajoZJcr-f02zYKzrAew?pwd=gama](https://pan.baidu.com/s/10iZajoZJcr-f02zYKzrAew?pwd=gama)
+
+---
 
 ## _千万别看_
 
