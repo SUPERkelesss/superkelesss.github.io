@@ -9,6 +9,18 @@ nav:
     - 化学-首页: "chem/index.md"
     - 物理化学:
       - 物理化学II笔记: "chem/physical/Physical Chemistry II.md"
+    - 竞赛晶体进阶十讲:
+      - 0.前言: "chem/crystaljs/perface.md"
+      - 1.宏观晶体与对称性: "chem/crystaljs/lecture1.md"
+      - 2.晶体的表征、Bragg方程与系统消光: "chem/crystaljs/lecture2.md"
+      - 3.堆积、多面体与晶体构造: "chem/crystaljs/lecture3.md"
+      - 4.晶体与光电磁: "chem/crystaljs/lecture4.md"
+      - 5.单质晶体: "chem/crystaljs/lecture5.md"
+      - 6.八面体配位的晶体: "chem/crystaljs/lecture6.md"
+      - 7.四面体配位的晶体: "chem/crystaljs/lecture7.md"
+      - 8.体心立方: "chem/crystaljs/lecture8.md"
+      - 9.分子晶体及其他: "chem/crystaljs/lecture9.md"
+      - 10.晶体中的数学推导: "chem/crystaljs/lecture10.md"
   - 🔢数理:
     - 数理-首页: "maphy/index.md"
     - 数学:
@@ -80,6 +92,7 @@ theme:
     - navigation.footer
     - navigation.indexes
     - content.code.copy
+    - navigation.top
 
 plugins:
   - search:
@@ -102,12 +115,10 @@ plugins:
   - statistics
   - minify:
       minify_html: true
+  - mkdocs-jupyter
 
 hooks:
-  - hooks/theme_override.py
-  - hooks/linkbackward.py
   - hooks/toc.py
-  - hooks/tikzautomata.py
 
 #页脚
 extra:
@@ -133,6 +144,7 @@ extra_javascript:
 #  - javascripts/katex.js
 #  - https://unpkg.com/katex@0/dist/katex.min.js
 #  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - https://3Dmol.org/build/3Dmol-min.js
 
 extra_css:
 #  - https://unpkg.com/katex@0/dist/katex.min.css
@@ -166,3 +178,4 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
+    

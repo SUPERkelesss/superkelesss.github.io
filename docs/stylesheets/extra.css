@@ -58,6 +58,6 @@ a:hover strong {
 }
 
 [data-md-color-scheme="default"] .md-header, [data-md-color-scheme="default"] .md-tabs {
-  background-color: rgba(148, 0, 211, 0.7);
+  background-color: rgba(103, 0, 147, 0.7);
   backdrop-filter: blur(10px);
 }
