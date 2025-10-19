@@ -7,7 +7,8 @@ window.MathJax = {
     displayMath: [["\\[", "\\]"]],
     processEscapes: true,
     processEnvironments: true,
-    packages: {'[+]': ['physics','mhchem']}
+    packages: {'[+]': ['physics','mhchem']},
+    tags: 'ams'
   },
   options: {
     ignoreHtmlClass: ".*|",

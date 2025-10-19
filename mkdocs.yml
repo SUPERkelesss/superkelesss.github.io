@@ -138,22 +138,6 @@ copyright: Copyright © 2025 by <a href="https://github.com/SUPERkelesss" target
 repo_url: https://github.com/SUPERkelesss/superkelesss.github.io.git
 repo_name: superkelesss.github.io
 
-extra_javascript:
-  - javascripts/mathjax.js #改为对Katex的支持
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-#  - javascripts/katex.js
-#  - https://unpkg.com/katex@0/dist/katex.min.js
-#  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-  - https://3Dmol.org/build/3Dmol-min.js
-
-extra_css:
-#  - https://unpkg.com/katex@0/dist/katex.min.css
-  - stylesheets/extra.css
-  - stylesheets/toc_extra.css
-  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-
 markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -179,3 +163,19 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
     
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+#  - javascripts/katex.js
+#  - https://unpkg.com/katex@0/dist/katex.min.js
+#  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - https://3Dmol.org/build/3Dmol-min.js
+
+extra_css:
+#  - https://unpkg.com/katex@0/dist/katex.min.css
+  - stylesheets/extra.css
+  - stylesheets/toc_extra.css
+  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css

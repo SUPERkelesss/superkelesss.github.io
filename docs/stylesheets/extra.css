@@ -61,3 +61,33 @@ a:hover strong {
   background-color: rgba(103, 0, 147, 0.7);
   backdrop-filter: blur(10px);
 }
+
+.md-typeset__table {
+  min-width: 100%;
+}
+
+.md-typeset table:not([class]) {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 多图片排列通用样式 */
+.images-horizontal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.images-horizontal img {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
