@@ -48,10 +48,17 @@ nav:
     - 资料-首页: refs/index.md
     - 化学相关书籍: 
       - 物理化学: refs/cbook/phys.md
-      - 无机化学: refs/cbook/inorg.md
-      - 有机化学: refs/cbook/org.md
+      - 无机化学-热门🔥: refs/cbook/inorg.md
+      - 无机化学-拓展💥: refs/cbook/inorg2.md
+      - 有机化学-热门🔥: refs/cbook/org.md
+      - 有机化学-拓展💥: refs/cbook/org2.md
       - 分析化学: refs/cbook/anal.md
+      - 高分子物理和化学: refs/cbook/polymer.md
+      - 理论与计算化学: refs/cbook/quant.md
       - 其他书籍: refs/cbook/other.md
+    - 软件分享:
+      - 化学相关: refs/software/chemsoft.md
+      - 数学相关: refs/software/mathsoft.md
     - 化学竞赛题目:
       - PKU&THU春联/金秋营试题: refs/jsexam/pkuthu.md
   - 📓日记:

@@ -1,4 +1,6 @@
 - "placeholder":
+  - "2025/10/19":
+    - "pageupdate": 化学教材更新
   - "2025/10/18":
     - "function": 加入3dmol.js，现在支持对晶体学模型的演示
     - "newpage": 添加了竞赛晶体学讲义
