@@ -56,7 +56,7 @@ nav:
       - 高分子物理和化学: refs/cbook/polymer.md
       - 理论与计算化学: refs/cbook/quant.md
       - 其他书籍: refs/cbook/other.md
-    - 软件分享:
+    - 资源分享:
       - 化学相关: refs/software/chemsoft.md
       - 数学相关: refs/software/mathsoft.md
     - 化学竞赛题目:

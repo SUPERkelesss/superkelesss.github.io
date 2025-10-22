@@ -12,8 +12,9 @@
 
 <br/>
 
-### Physical Chemistry: A Molecular Approach (Donald A. McQuarrie, John D. Simon)
+### Physical Chemistry: A Molecular Approach - 物理化学: 一种分子途径 (Donald A. McQuarrie, John D. Simon)
 
+- **教材**：[https://pan.baidu.com/s/1CwA3n-GwbdEdZr5rKtqqyQ?pwd=gama](https://pan.baidu.com/s/1CwA3n-GwbdEdZr5rKtqqyQ?pwd=gama)
 - **教材**：[https://pan.baidu.com/s/1sZfgtd1AKi4DO0j56NZgtA?pwd=gama](https://pan.baidu.com/s/1sZfgtd1AKi4DO0j56NZgtA?pwd=gama)
 - **习题解析**：[https://pan.baidu.com/s/1jEduZAvDGAmGkcbkbY2ArA?pwd=gama](https://pan.baidu.com/s/1jEduZAvDGAmGkcbkbY2ArA?pwd=gama)
 

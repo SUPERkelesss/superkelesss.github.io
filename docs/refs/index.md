@@ -21,7 +21,7 @@
   - 高分子物理和化学: cbook/polymer
   - 理论与计算化学: cbook/quant
   - 其他书籍(生化，实验，试题，手册，数理): cbook/other
-- 软件分享:
+- 资源分享:
   - 化学相关: software/chemsoft
   - 数学相关: software/mathsoft
 - 化学竞赛题目:

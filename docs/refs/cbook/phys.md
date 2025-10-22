@@ -41,6 +41,6 @@
 >
 > 此外还有隐藏一些定性的结论也值得一看
 
-- **教材（新）**：我还在扫描
+- **教材（新）**：[https://pan.baidu.com/s/1vsjQz3q8yuLfJY_BIxI8dg?pwd=gama](https://pan.baidu.com/s/1vsjQz3q8yuLfJY_BIxI8dg?pwd=gama)
 - **教材（前代）**：[https://pan.baidu.com/s/1AKSjv6GovpsjPIqSdq71Dw?pwd=gama](https://pan.baidu.com/s/1AKSjv6GovpsjPIqSdq71Dw?pwd=gama)
 - **习题解析**：[https://pan.baidu.com/s/1xhBKYF_va8qySjHdOTFSHQ?pwd=gama](https://pan.baidu.com/s/1xhBKYF_va8qySjHdOTFSHQ?pwd=gama)
