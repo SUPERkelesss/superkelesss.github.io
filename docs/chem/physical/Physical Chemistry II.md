@@ -20,7 +20,7 @@ $$
 for
 
 $$
-\Delta_rG = \frac{\dd G}{\dd \xi} = \mu_B - \mu_A  = \mu_B^{\circ} - \mu_A^{\circ} + RT\ln{\frac{p_B}{p_A}}
+\Delta_rG = \dv{G}{\xi} = \mu_B - \mu_A  = \mu_B^{\circ} - \mu_A^{\circ} + RT\ln{\frac{p_B}{p_A}}
 $$
 
 def. **rxn quotient** $Q = \frac{p_B}{p_A}$
@@ -38,12 +38,10 @@ $$
 we get:
 
 $$
-\Delta_rG = \Delta_rG^{\circ} + RTlnQ = \Sigma_j \nu_j \Delta_fG^{\circ}(j) + RT\ln(\Pi_j a_j^{\nu_j})
+\Delta_rG = \Delta_rG^{\circ} + RTlnQ = \sum_j \nu_j \Delta_fG^{\circ}(j) + RT\ln(\prod_j a_j^{\nu_j})
 $$
 
 as $a_j$ remains **activity** or **fugacity**
-
-### Pressure
 
 Since $\delta _rG^{\circ}$ is defined as a single pressure, we have $(\frac{\partial K}{\partial p})_T = 0$
 
@@ -56,8 +54,10 @@ $$
 so we have:
 
 $$
-K = \frac{p_B^2}{p_A p^{\circ}} = \frac{x_B^2}{x_A} (\frac{p}{p^{\circ}}) = \frac{4\beta^2}{1-\beta^2}(\frac{p}{p^{\circ}})\\
+\begin{gathered}
+K = \frac{p_B^2}{p_A p^{\circ}} = \frac{x_B^2}{x_A} (\frac{p}{p^{\circ}}) = \frac{4\beta^2}{1-\beta^2}(\frac{p}{p^{\circ}}) \\
 \beta  = \frac{1}{(1+4 p/Kp^{\circ})^{1/2}}
+\end{gathered}
 $$
 
 as $p$ increase, $\beta$ decrease.
@@ -66,7 +66,11 @@ as $p$ increase, $\beta$ decrease.
 
 ### Response of equilibria to changes
 
-as $\ln{K} = -\frac{\Delta_rG^{\circ}}{RT} = -\frac{1}{R} (\frac{\partial \Delta_rG^{\circ}/T}{\partial T}) = \frac{\Delta_rH^{\circ}}{RT^2}$
+as
+
+$$
+\ln{K} = -\frac{\Delta_rG^{\circ}}{RT} = -\frac{1}{R} (\frac{\partial \Delta_rG^{\circ}/T}{\partial T}) = \frac{\Delta_rH^{\circ}}{RT^2}
+$$
 
 that is:
 
@@ -76,6 +80,8 @@ $$
 
 that means: when $\Delta_rH^{\circ} < 0$, when $T$ decrease, $K$ increase. *Vice Versa*
 
+---
+
 ### Equilibrium electrochemistry
 
 for rxn $\ce{H_2O <--> H_2 + O_2}$ we got half rxns:
@@ -84,8 +90,6 @@ for rxn $\ce{H_2O <--> H_2 + O_2}$ we got half rxns:
 
 **Cathode**: $\ce{0.5O_2 + 2H^+ + 2e^- <--> H_2O}$
 
-
-
 for non-electrochemistry states:
 
 
@@ -93,15 +97,13 @@ $$
 Q_1 = \frac{a(\ce{H^+})^2}{(p(\ce{H_2})/p^{\circ})}, Q_2 = \frac{a(\ce{H2O})}{(p(\ce{O_2})^{1/2}/p^{\circ})a(\ce{H^+})^2}
 $$
 
-
-
 consider the **Electromotive Force(EMF)**
 
 
 $$
 \begin{aligned}
--\nu EF = \Delta_rG &= \Delta_rG^{\circ} + RT\ln{Q} = \frac{\dd W_e}{\dd \xi}\\
-E &= -\frac{\delta_rG_m^{\circ}}{\nu F} - \frac{RT}{\nu F} \ln{Q}
+-\nu EF = \Delta_rG &= \Delta_rG^{\circ} + RT\ln{Q} = \dv{W_e}{\xi}\\
+E &= -\frac{\Delta_rG_m^{\circ}}{\nu F} - \frac{RT}{\nu F} \ln{Q}
 \end{aligned}
 $$
 
@@ -111,7 +113,7 @@ At eq: $0 = E^{\circ} - \frac{RT}{\nu F}\ln{K}$, so
 
 
 $$
-E^{\circ} = \frac{\nu FE^{\circ}}{RT}
+\ln K = \frac{\nu FE^{\circ}}{RT}
 $$
 
 ---
@@ -120,9 +122,9 @@ $$
 
 def. $N$ as *indistinguishable particles*, $N_0$ as *indistinguishable sites*
 
-as ***Boltzman* Entropy** $S = k_B \ln{\Omega}$, since $\Omega = \frac{N_0!}{(N_0 - N)!(N)!}$
+as ***Boltzman* Entropy** $S = k_B \ln{\Omega}$, since $\displaystyle \Omega = \frac{N_0!}{(N_0 - N)!(N)!}$
 
-let x = N/N_0, using ***Stiring* Approximation**:
+let $x = N/N_0$, using ***Stiring* Approximation**:
 
 $$
 S = -k_BN(x\ln{x} + (1-x)\ln{1-x})
@@ -134,6 +136,8 @@ $$
 S = -k_BN(\Sigma_n x_i\ln{x_i})
 $$
 
+---
+
 ### Electrochemical Potential
 
 $$
@@ -144,7 +148,7 @@ $$
 \Delta G = \Delta H - T\Delta S + \Delta(zeN)\varphi
 $$
 
-so as $\mu = (\frac{\Delta G}{\Delta N})_{T,p,\varphi} = (\frac{\partial g}{\partial x})_{T, p, \varphi}$
+so as $\displaystyle \mu = (\frac{\Delta G}{\Delta N})_{T,p,\varphi} = (\frac{\partial g}{\partial x})_{T, p, \varphi}$, def $g = G/N, h = H/N, S = S/N$
 
 For a lattice as:
 
@@ -159,10 +163,10 @@ $$
 \mu  = h' + k_BT\ln{\frac{x}{1-x}} + ze\varphi
 $$
 
-when $x \rightarrow 0$,
+in solution, when $x \rightarrow 0$,
 
 $$
-\mu = h' + k_BT\ln{x} + ze\varphi = k_BT\ln{x} + ze\varphi
+\mu = \underline{h' + k_BT\ln{x}} + ze\varphi = k_BT\ln{\gamma x} + ze\varphi
 $$
 
 that is called **Electrochemical Potential**
@@ -174,14 +178,14 @@ that is called **Electrochemical Potential**
 define *Standard Hydrogen Potential* as 0 V as the **Standard Hydrogen Electrode**:
 
 $$
-\ce{2H^+ + 2e^- -> H_2}
+\ce{2H^+ + 2e^- -> H_2} \quad E^\circ = \pu{0V}
 $$
 
-whereas happens Pt electrode and every species are at the standard state
+whereas happens Pt electrode and every species are at the standard state (形成铂黑结构增加催化位点，促进反应快速达到平衡。)
 
-eg: $\ce{2H_2 + O_2 -> 2H_2O}$, $E = 1.23\mathrm{V}$
+eg: $\ce{2H_2 + O_2 -> 2H_2O}$, $E = \pu{1.23V}$
 
-so $\ce{0.5O_2 + 2H^+ + 2e^- <--> H_2O}$, $E = 1.23 \mathrm{V}$
+so $\ce{0.5O_2 + 2H^+ + 2e^- <--> H_2O}$, $E = \pu{1.23V}$
 
 eg2: $\ce{AgCl + e <--> Ag + Cl^-}$
 
@@ -193,12 +197,12 @@ E &= E_{AgCl/Ag}^{\circ} - \frac{RT}{F} ln{a(\ce{Cl^-})} + \frac{RT}{F} ln{\frac
 \end{aligned}
 $$
 
-where $b$ stands **molality**, $\gamma$ stands **activity coefficient**
+where $b$ stands **molality**(质量摩尔浓度), $\gamma$ stands **activity coefficient**
 
 as ***Debye-Huckle* Formula** $\ln{\gamma} = cb^{1/2}$:
 
 $$
-E = E_{AgCl/Ag}^{\circ} - \frac{2RT}{F} \ln{b^2} +\frac{2RT}{F} cb^{1/2}
+E = E_{AgCl/Ag}^{\circ} - \frac{2RT}{F} \ln{b} +\frac{2RT}{F} cb^{1/2}
 $$
 
 ---
@@ -220,7 +224,7 @@ V_{SHE} &= E^{\circ} - \frac{RT}{4F}\ln{\frac{1}{(p(\ce{O_2}/p^{\circ}))a(\ce{H^
 \end{aligned}
 $$
 
-where $V_{RHE} = E^{\circ} + \frac{RT}{4F} \ln(p(\ce{O_2})/p^{\circ})$
+where $\displaystyle V_{RHE} = E^{\circ} + \frac{RT}{4F} \ln(p(\ce{O_2})/p^{\circ})$
 
 In real case, if we want to drive the rxn, need let $E > E^{\circ} = 1.23 \mathrm{V}$
 
@@ -233,8 +237,8 @@ In real case, if we want to drive the rxn, need let $E > E^{\circ} = 1.23 \mathr
 $$
 \begin{gathered}
 \Delta_rG^{\circ} = \Delta_rH^{\circ} - T\Delta_rS^{\circ} = -\nu FE^{\circ}\\
-\frac{\dd E^{\circ}}{\dd T} = \frac{\Delta_rS^{\circ}}{\nu F} \to \Delta_rS^{\circ} = \nu F\frac{\dd E^{\circ}}{\dd T}\\
-\Delta_rH^{\circ} = \Delta_rG^{\circ} + T\Delta_rS^{\circ} = -\nu F(E^{\circ} - T\frac{\dd E^{\circ}}{\dd T})
+\frac{\dd E^{\circ}}{\dd T} = \frac{\Delta_rS^{\circ}}{\nu F} \to \Delta_rS^{\circ} = \nu F\dv{E^{\circ}}{T}\\
+\Delta_rH^{\circ} = \Delta_rG^{\circ} + T\Delta_rS^{\circ} = -\nu F(E^{\circ} - T\dv{ E^{\circ}}{T})
 \end{gathered}
 $$
 
@@ -249,9 +253,21 @@ $$
 \end{gathered}
 $$
 
+---
+
 ![Screenshot_20250916_154624](Physical Chemistry II.assets/Screenshot_20250916_154624.jpg)
 
-![Screenshot_20250916_154643](Physical Chemistry II.assets/Screenshot_20250916_154643.jpg)
+MEA: 膜电极组件
+
+<img src="Physical Chemistry II.assets/Membrane_Electrode_Assembly_-_Electro-Chemical_Reaction_Diagram.jpg" alt="undefined" style="zoom: 67%;" />
+
+<img src="Physical Chemistry II.assets/1920px-SEM_micrograph_of_an_MEA_cross_section.jpg" alt="undefined" style="zoom: 25%;" />
+
+---
+
+### Rechargable batteries
+
+![image-20251103153747563](Physical Chemistry II.assets/image-20251103153747563.png)
 
 ---
 
@@ -266,9 +282,15 @@ $$
 
 ![Screenshot_20250916_160222](Physical Chemistry II.assets/Screenshot_20250916_160222.jpg)
 
+---
+
 ### Gouy-Chapman-Stern(GCS) Model
 
 ![Screenshot_20250916_162115](Physical Chemistry II.assets/Screenshot_20250916_162115.jpg)
+
+<img src="Physical Chemistry II.assets/EDLC-Potentialdistribution.png" alt="undefined" style="zoom:50%;" />
+
+<img src="Physical Chemistry II.assets/image-20251103161248999.png" alt="image-20251103161248999" style="zoom: 33%;" />
 
 ---
 
@@ -276,25 +298,29 @@ $$
 
 Pure Phase(A)  |   ……  |  Pure Phase(B)
 
-Ref:
+<img src="Physical Chemistry II.assets/1920px-Gibbs_image_3.png" alt="undefined" style="zoom: 25%;" />
+
+Reference System: （省略了偏摩尔量）
 
 $$
 \dd G_R = (\frac{\partial G_R}{\partial T})\dd  T + (\frac{\partial G_R}{\partial p}) \dd p +(\frac{\partial G_R}{\partial n})\dd n
 $$
 
-Actual:
+Actual system:
 
 $$
 \dd G_S = (\frac{\partial G_S}{\partial T})\dd  T + (\frac{\partial G_S}{\partial p}) \dd p +(\frac{\partial G_S}{\partial n})\dd n + (\frac{\partial G_S}{\partial A})\dd A
 $$
 
-we call $(\frac{\partial G_S}{\partial A})_{p,T,n} = \gamma$ as **Surface Tension**
+where $A$ indicates **interfacial area**, we call $\displaystyle(\frac{\partial G_S}{\partial A})_{p,T,n} = \gamma$ as **Surface Tension**
 
-As p&T are const., we have:
+As p&T are const., 认为所有物质均为纯态，即$\mu_i^R = \mu_i^S$，we have:
 
 $$
 \dd G^\sigma = \dd G_S - \dd G_R = \sum_i \mu_i(\dd n_i^S - \dd n_i^R) + \gamma \dd A= \sum_i \mu_i\dd n_i^\sigma + \gamma \dd A
 $$
+
+$n_i^\sigma$ is difference.
 
 for total differential:
 
@@ -302,39 +328,119 @@ $$
 \dd G^\sigma = \sum_i \mu_i\dd n_i^\sigma + \sum_i n_i\dd \mu_i^\sigma + \gamma \dd A + A \dd\gamma
 $$
 
-As **Gibbs-Duham Relation** :
+that is **Gibbs-Duham Relation** :
 
 $$
+\begin{gathered}
 A\dd \gamma + \sum_i n_i^\sigma \dd \mu_i = 0 \\
 -\dd \gamma = \sum_i \frac{n_i^\sigma}{A} \dd\mu_i = \sum_i \Gamma_i \dd\mu_i
+\end{gathered}
 $$
 
 $\Gamma$ is called **Surface excess concertation**(表面过剩浓度)
+
+上文所说的实际上是，相对表面过剩浓度$\Gamma_i^1$，即认为组分1的表面过剩为零的平面为划分面，其不依赖于选取的分界面的位置 :
+
+$$
+\Gamma^1_1 = 0, \quad \Gamma_i^1 = \Gamma_i - \Gamma_1 (\frac{C_i^\alpha - C_i^\beta}{C_1^\alpha - C_1^\beta}) = \Gamma_i - \Gamma_1 \frac{C_i^\sigma}{C_1^\sigma}
+$$
+
+we have：
+
+$$
+\begin{gathered}
+\dd\mu_i = RT\dd \ln fC_i \\
+\Gamma_i = -\frac{1}{RT}(\frac{\partial \gamma}{\partial \ln fC_i})_{T,p}
+\end{gathered}
+$$
 
 ---
 
 ### Electrocapillary Equation
 
-Wire---Cu|Ag|AgCl(Ref)|   K+, Cl-,  M(ekectrolyte)   |(WE)Hg|Ni|Cu---Wire
+$$
+\ce{Wire---Cu'|Ag|AgCl(Ref)|   K+, Cl-,  M(electrolyte)   |(WE)Hg|Ni|Cu---Wire}
+$$
 
 for Working Electrode :
 
 
 $$
 \begin{aligned}
--\dd \gamma &= (\Gamma_{Hg}\dd\mu_{Hg} + \Gamma_{e}\dd\mu_{e})\\
-&+(\Gamma_{K}\dd\mu_{K} + \Gamma_{Cl}\dd\mu_{Cl})\\
+-\dd \gamma &= (\Gamma_{Hg}\dd\mu_{Hg} + \Gamma_{e}\dd\mu_{e,Hg})\\
+&+(\Gamma_{K+}\dd\mu_{K+} + \Gamma_{Cl-}\dd\mu_{Cl-})\\
 &+(\Gamma_{M}\dd\mu_{M} + \Gamma_{H_2O}\dd\mu_{H_2O})
 \end{aligned}
 $$
 
-天书
+we have:
 
 $$
--\dd \gamma = \sigma_M \dd E + \Gamma_{K}(H_2O)\dd\mu_{KCl} + \Gamma_M(H_2O)\dd \mu_M  =\sigma_M \dd E +  C
+\begin{cases}
+(\Gamma_{Hg}\dd\mu_{Hg} + \Gamma_{e}\dd\mu_{e,Hg}) = \Gamma_{e}\dd\mu_{e}^{Cu} \\
+\dd \mu_{K+} + \dd \mu_{Cl-} = \dd \mu_{KCl}
+\end{cases}
 $$
 
-that is :
+for Ref Electrode :
+
+$$
+\ce{AgCl + e <--> Ag + Cl-}
+$$
+
+$$
+\mu_{\ce{AgCl}} + \mu_{e}^{Cu'} = \mu_{\ce{Ag}} + \mu_{\ce{Cl-}}
+$$
+
+ 做全微分：
+
+$$
+\dd \mu_{e}^{Cu} = \dd \mu_{\ce{Cl-}}
+$$
+
+代入原方程：
+
+$$
+\begin{aligned}
+-\dd \gamma &= \Gamma_{e}\dd \mu_{e}^{Cu} -(\Gamma_{K+} - \Gamma_{Cl-})\dd \mu_{e}^{Cu'} \\
+& +\Gamma_{K+}\dd\mu_{KCl} +(\Gamma_{M}\dd\mu_{M} + \Gamma_{H_2O}\dd\mu_{H_2O})
+\end{aligned}
+$$
+
+where $\sigma_M = -F\Gamma_e$, $\sigma_S = -F(\Gamma_{K+} - \Gamma_{Cl-})$ stand for excess charge on WE and EDL
+
+由于电中性：
+
+$$
+\sigma_M + \sigma_S = 0
+$$
+
+于是：
+
+$$
+\begin{aligned}
+-\dd \gamma &= -\sigma_M \frac{\dd \mu_{e}^{Cu}}{F} + \sigma_M \frac{\dd \mu_{e}^{Cu'}}{F} \\
+& +\Gamma_{K+}\dd\mu_{KCl} +(\Gamma_{M}\dd\mu_{M} + \Gamma_{H_2O}\dd\mu_{H_2O}) \\
+&= \sigma_M \dd E +\Gamma_{K+}\dd\mu_{KCl} + \Gamma_{M}\dd\mu_{M} + \Gamma_{H_2O}\dd\mu_{H_2O}
+\end{aligned}
+$$
+
+由G-D方程：
+
+$$
+\dd \mu_{\ce{H2O}} = - \frac{x_{KCl}}{x_{H2O}} \dd \mu_{KCl} - \frac{x_{M}}{x_{H2O}} \dd \mu_{M}
+$$
+
+代入：
+
+$$
+\begin{aligned}
+-\dd \gamma &= \sigma_M \dd E + (\Gamma_{K+} - \frac{x_{KCl}}{x_{H2O}})\dd\mu_{KCl} + (\Gamma_{M} - \frac{x_{M}}{x_{H2O}})\dd \mu_M\\
+&= \sigma_M \dd E + \Gamma_{K}(H_2O)\dd\mu_{KCl} + \Gamma_M(H_2O)\dd \mu_M \\ &=\sigma_M \dd E + C
+\end{aligned}
+$$
+
+that is **Lippmann's equation**:
 
 $$
 \boxed{\sigma_M =-\frac{\dd \gamma}{\dd E}}
@@ -344,7 +450,13 @@ $$
 
 ### Droping Mercury Electrode
 
+<img src="Physical Chemistry II.assets/image-20251103201920498.png" alt="image-20251103201920498" style="zoom:67%;" />
 
+<img src="Physical Chemistry II.assets/image-20251103202301647.png" alt="image-20251103202301647" style="zoom:67%;" />
+
+当且仅当导数为0时达到双电层净电荷平衡，前半段表面富集电子，排斥阴离子而吸引阳离子；后半段表面缺少电子，吸引阴离子。
+
+<img src="Physical Chemistry II.assets/image-20251103202855441.png" alt="image-20251103202855441" style="zoom:50%;" />
 
 ---
 
@@ -354,7 +466,7 @@ $$
 \begin{aligned}
 \mu_i^{Adsorption} &= \mu_i^{bulk}\\
 \mu_i^{\circ A} + RT\ln a_i^{A} &= \mu_i^{\circ b} + RT\ln a_i^b\\
-a_i^A &= a_i^be^{-\frac{\Delta G_i}{RT}}
+a_i^A &= a_i^be^{-\frac{\Delta G^\circ_i}{RT}}
 \end{aligned}
 $$
 
@@ -364,18 +476,26 @@ Assumptions:
 - No lateral interactions
 - A full coverage can be achieved
 
-def $a_i = \frac{\Gamma_i}{\Gamma_s-\Gamma_i}$, $\theta = \frac{\Gamma_i}{\Gamma_s}$
+def $a_i^A = \frac{\Gamma_i}{\Gamma_s-\Gamma_i}$, $\theta_i = \frac{\Gamma_i}{\Gamma_s}$
 
 that is:
 
 $$
-\frac{\theta}{1-\theta} = a_i^be^{-\frac{\Delta G_i}{RT}}\\
-\theta_i = \frac{a_i^be^{-\frac{\Delta G_i}{RT}}}{1+\sum_j^N a_j^be^{-\frac{\Delta G_i}{RT}}}
+\begin{gathered}
+\frac{\theta_i}{1-\sum\theta_i} = a_i^be^{-\frac{\Delta G_i}{RT}}\\
+\theta_i = \frac{a_i^be^{-\frac{\Delta G_i}{RT}}}{1+\sum_j^N a_j^be^{-\frac{\Delta G_i}{RT}}} = \frac{a_i^b K_i}{1+\sum_j^N a_j^b K_j}
+\end{gathered}
 $$
 
 this is **Langmuir Isotherm**
 
----
+*Including interaction among adsorbates*: **Frumkin isotherm**
+
+$$
+a_i^be^{-\frac{\Delta G_i}{RT}} = \frac{\theta_i}{1-\sum\theta_i} \exp (-\frac{2g\Gamma_i}{RT})
+$$
+
+其中$-2g\Gamma_i$代表相互作用项。
 
 ## Chapter 3 : Chemical Kinetics
 
@@ -388,6 +508,8 @@ $$
 Assume one molecule in a $abc$ box:
 
 ![image-20250923161117996](Physical Chemistry II.assets/image-20250923161117996.png)
+
+每次撞击动量改变为$2mu$，间隔时间为：
 
 $$
 \Delta t = \frac{2a}{u_{1x}}
@@ -424,6 +546,8 @@ $$
 h(u_x,u_y,u_z) = f(u_x) + f(u_y) + f(u_z)
 $$
 
+之后利用Boltzman公式，然后归一化概率密度函数：
+
 $$
 \begin{gathered}
 f(u_x) = \sqrt{\frac{m}{2\pi RT}} e^{\frac{Mu_x^2}{2RT}}\\
@@ -431,7 +555,7 @@ h(u_x,u_y,u_z) = \left( \frac{m}{2\pi RT} \right)^\frac 32 e^{-M(u_x^2 + u_y^2 +
 \end{gathered}
 $$
 
-as polar coordinate:
+as polar coordinate，转化为球坐标（即在薄球壳内认为$\times 4\pi u^2$）:
 
 $$
 \begin{gathered}
@@ -443,13 +567,31 @@ F(u)du = 4\pi \left( \frac{m}{2\pi RT} \right)^\frac 32 u^2 e^{-mu^2/2RT} du\\
 \end{gathered}
 $$
 
+求导可得最概然速率：
+
+$$
+u_p = \sqrt{\frac{2RT}{M}}
+$$
+
 ---
 
 ### Collision of gas
 
-assume collision in $dt$ in the oblique cylinder
+assume collision in $dt$ in the oblique cylinder，考虑能撞上面积A的分子数：
 
 ![image-20250923161327057](Physical Chemistry II.assets/image-20250923161327057.png)
+
+柱形内碰撞分子数等于$柱内分子数 \times 速度概率 \times 方向概率$
+
+$$
+\begin{aligned}
+\dd N_{coll} &= \rho(Audt)\cos\theta \cdot F(u)du \cdot \frac{\sin\theta \dd\theta \dd\varphi}{4\pi} \\
+\dd \xi_{coll} = \frac{\dd N_{coll}}{A \dd t} &= \rho u F(u)du \frac{\sin\theta\cos\theta \dd\theta \dd\varphi}{4\pi} \\
+\xi_{coll} &= \frac{\rho}{4} \left< u \right>
+\end{aligned}
+$$
+
+其中$\xi_{coll}$代表碰撞频率，即单位面积单位时间的碰撞次数。
 
 ---
 
@@ -487,7 +629,24 @@ $$
 
 **Collision theory**: $r \propto Z_{AB}$ and rxn only happen when $u_r > u_0$
 
+$$
+\begin{gathered}
+\dd Z_{AB} \propto u_rF(u_r) = u_r^3 \exp(-\frac{\mu u_r^2}{2k_BT}) \dd u_r = Au_rF(u_r) \\
+Z_{AB} = A\int_0^\infty u_rF(u_r) \to A = \sigma_{AB}\rho_A\rho_B(\frac{\mu}{k_BT})^\frac32(\frac2\pi)^\frac12
+\end{gathered}
+$$
 
+let $\epsilon_r = \frac12 \mu u_r^2$ :
+
+$$
+\begin{aligned}
+r = \int_{\epsilon_c}^\infty dz_{AB} &= \sigma_{AB}\rho_A\rho_B (\frac{1}{k_BT})^\frac32(\frac8{\pi\mu})^\frac12 \epsilon_r \exp(-\frac{\epsilon_r}{k_BT}) d\epsilon_r \\
+&= \sigma_{AB}\rho_A\rho_B(\frac{8k_BT}{\pi\mu})^\frac12(1+\frac{\epsilon_C}{k_BT})\epsilon_r \exp(-\frac{\epsilon_r}{k_BT}) \\
+&= A\exp(-\frac{\epsilon_r}{k_BT})\rho_A\rho_B
+\end{aligned}
+$$
+
+即为**Arrhenius Equation**
 
 ---
 
@@ -521,12 +680,9 @@ K_c^\ddagger =\frac{[AB^\ddagger]c^{\circ}}{[A][B]}
 \end{gathered}
 $$
 
-
-
 at eq $\mu_A + \mu_B = \mu_{AB^\ddagger}$
 
-from statistical mechanics:
-
+from statistical mechanics: $Q = q^N / N!$
 
 $$
 \begin{gathered}
@@ -549,11 +705,66 @@ k = \nu_c K_c^\ddagger /c^\circ
 \end{gathered}
 $$
 
+---
 
+### Normal mode for the rxn
+
+对于普通分子的三维配分函数：
+
+$$
+q_t = \frac{(2\pi mk_BT)^\frac32}{h^3} V
+$$
+
+对于AC，只有一维的平动坐标：
+
+$$
+q_t^\ddagger = \frac{(2\pi m^\ddagger k_BT)^\frac12}{h} \delta
+$$
+
+平衡常数
+
+$$
+\begin{gathered}
+K_c^\ddagger = \frac{(2\pi m^\ddagger k_BT)^\frac12}{h} \delta \frac{\frac{q^\ddagger_{other}}{V}·c_0}{\frac{q_A}{V}\frac{q_B}{V}} \\
+k = \frac{(2\pi m^\ddagger k_BT)^\frac12}{h} \delta\nu_C \frac{\frac{q^\ddagger_{other}}{V}·c_0}{\frac{q_A}{V}\frac{q_B}{V}} = \frac{(2\pi m^\ddagger k_BT)^\frac12}{h} \left< u_{AC} \right> \frac{\frac{q^\ddagger_{other}}{V}·c_0}{\frac{q_A}{V}\frac{q_B}{V}}
+\end{gathered}
+$$
+
+在一维坐标上积分速率得到
+
+$$
+\left< u_{AC} \right> = \sqrt{\frac{k_B T}{2\pi m^\ddagger}}
+$$
+
+代入即可得到：
+
+$$
+k = \frac{k_BT}{hc_0} K^\ddagger = \frac{k_BT}{hc_0} e^{-\frac{\Delta G^\ddagger}{RT}}
+$$
+
+---
+
+### Arrhenius Equation
+
+求导得：
+
+$$
+\begin{aligned}
+\dv{\ln k}{T} &= \frac 1T + \dv{\ln K_C^\ddagger}{T} \\
+&= \frac 1T + \dv{T}(\frac{\Delta G^\ddagger}{RT}) = \frac 1T + \frac{\Delta U^\ddagger}{RT^2} \\
+&= \frac 1T + \frac{\Delta H^\ddagger + RT}{RT^2} = \frac{\Delta H^\ddagger + 2RT}{RT^2}
+\end{aligned}
+$$
+
+由此即可得：
+
+$$
+E_a = \Delta H^\ddagger + 2RT
+$$
+
+---
 
 ## Chapter 4: Chemical Kinetics (II)
-
-
 
 ## Potential Energy Surface
 
@@ -581,7 +792,7 @@ $$
 
 **Zero Point Energy**: $E_0 = \frac 12 h\nu$ for ground state
 
-**Harmonic Approx.**: $\displaystyle{\nu = \frac 1{2\pi}\sqrt{\frac k\mu}}$
+**Harmonic Approx.**: $\displaystyle{\nu = \frac 1{2\pi}\sqrt{\frac k\mu}}, \tilde{v} = \frac 1{2\pi c}\sqrt{\frac k\mu}$
 
 $$
 \frac {\nu_{CH}}{\nu_{CD}} = \sqrt{\frac{m_Dm_C(m_D+m_C)}{m_Hm_C(m_H+m_C)}} \approx \sqrt2
@@ -592,7 +803,7 @@ $$
 $$
 \begin{aligned}
 \ln(\frac{k'_{CH}}{k'_{CD}}) &= \ln{\frac {A_H}{A_D}} + \frac12 \frac{h(\nu_H-\nu_D)}{k_BT}\\
-\frac{k'_{CH}}{k'_{CD}} &= \exp({\frac12 \frac{h(\nu_H-\nu_D)}{k_BT}}) \approx 1-10
+\frac{k'_{CH}}{k'_{CD}} &= \exp({\frac12 \frac{h(\nu_H-\nu_D)}{k_BT}}) \approx 1\sim10
 \end{aligned}
 $$
 
@@ -605,11 +816,17 @@ KIE: $S_N1$ ~ 1.2, $S_N2$ ~ 1. why?
 
 $S_N1$ mechanism involves a temporary increase in the bond order of C-H(D)
 
+---
+
 #### Early vs. Late TS
 
 ![image-20250930155358406](Physical Chemistry II.assets/image-20250930155358406.png)
 
+- Early TS: solvent interacts with IS&TS similarly ⇒ No solvent effect
 
+- Later TS: solvent interacts with IS&TS differently ⇒ expect solvent effects
+
+---
 
 ### Postulates based on TST
 
@@ -696,9 +913,23 @@ all $\ce{I_n}$ can consider into one steady state.
 
 ### Surface Mediate rxns
 
+转换频率（Turnover freq.）：
+
+$$
+TOF = \frac {r}{[L]}
+$$
+
+Most Abundant Reaction Intermediate (MARI):
+
+$$
+\theta_i \sim 1
+$$
+
 ---
 
 ## Chapter 5: Chemical Kinetics II
+
+### RDS
 
 <img src="Physical Chemistry II.assets/image-20251014152551774.png" alt="image-20251014152551774" style="zoom: 67%;" />
 
@@ -756,7 +987,7 @@ we can also define **Degreee of thermodynamic controlled** ：
 
 $$
 \begin{aligned}
-X_{RC,i} &=  (\frac{\partial \ln r}{\partial (\frac{-\Delta G_i}{RT})})_{k_{j \neq i}, K_i}
+X_{TC,i} &=  (\frac{\partial \ln r}{\partial (\frac{-\Delta G_i}{RT})})_{k_{j \neq i}, K_i}
 \end{aligned}
 $$
 
@@ -768,7 +999,7 @@ $$
 \begin{gathered}
 \ce{A + \ast <--> A\ast} &K_1 \\
 \ce{B + \ast <--> B\ast} &K_2 \\
-\ce{A\ast + B\ast -> AB\ast + \ast} &RDS, k_5\\
+\ce{A\ast + B\ast -> AB\ast + \ast} &RDS, k_3\\
 \ce{AB\ast <--> AB + \ast}
 
 \end{gathered}
@@ -782,25 +1013,26 @@ K_1 = \frac{\theta_A}{P_A \cdot \theta_X} \quad K_2 = \frac{\theta_B}{P_B \cdot 
 \theta_A + \theta_B + \theta_* = 1
 \]
 
+若A为MARI物种：
 \[
 \theta_* = \frac{1}{P_A K_1} \quad \theta_B = \frac{K_2 P_B}{K_1 P_A}
 \]
 
 \[
-\tau = k_3 \theta_A \theta_B = \frac{k_3 K_2}{K_1} \frac{P_B}{P_A}
+\tau = k_3 \theta_A \theta_B = \frac{k_3 K_2}{K_1} \frac{P_B}{P_A}= \frac{k_B T}{h} \exp \left[ -\frac{\Delta^\ddagger G_3^0 + \Delta G_2^0 - \Delta G_1^0}{RT} \right] \frac{P_B}{P_A}
 \]
 
 \[
-= \frac{k_B T}{h} \exp \left[ -\frac{\Delta^0 G_3^0 + \Delta G_2^0 - \Delta G_1^0}{RT} \right] \frac{P_B}{P_A}
+= \frac{k_B T}{h} \exp \left[ -\frac{\neq G_3^0 - \Delta G_1^0 - \Delta G_2^0 + \Delta G_2^0 - \Delta G_1^0}{RT} \right] \frac{P_B}{P_A}
 \]
 
 \[
-= \frac{k_B T}{h} \exp \left[ -\frac{\neq G_3^0 - \Delta G_1^0 - \Delta G_B^0 + \Delta G_B^0 - \Delta G_A^0}{RT} \right] \frac{P_B}{P_A}
+= \frac{k_B T}{h} \exp \left[ -\frac{\neq G_3^0 - 2G_A^0}{RT} \right] \frac{P_B}{P_A}
 \]
 
-\[
-\frac{k_B T}{h} \exp \left[ -\frac{\neq G_3^0 - 2G_A^0}{RT} \right] \frac{P_B}{P_A}
-\]
+可得$X_{A,RC} = -2$，为毒化剂作用
+
+$X_{\ddagger,RC} = 1$意味着RDS控制反应速率
 
 ---
 
@@ -845,5 +1077,178 @@ $$
 
 ### Kinetics in thermal dynamically non-ideal systems
 
-![image-20251014164815896](Physical Chemistry II.assets/image-20251014164815896.png)
+<img src="Physical Chemistry II.assets/image-20251014164815896.png" alt="image-20251014164815896" style="zoom:67%;" />
 
+$$
+\ce{A + B <--> X^\ddagger -> P}
+$$
+
+应用艾琳方程：
+
+$$
+r = \frac{k_BT}{h}c_x^\ddagger = \frac{k_BT}{h}k^\ddagger \frac{\gamma_A \gamma_B}{\gamma^\ddagger} c_Ac_B
+$$
+
+we have **Broused-Bjerrum relation**
+
+$$
+k = k_1\frac{\gamma_A \gamma_B}{\gamma^\ddagger}
+$$
+
+#### Reaction is dilute electrolytes
+
+$$
+\lg \frac{k}{k_0} = -cZ_A^2\sqrt{I}-cZ_B^2\sqrt{I}+c(Z_A+Z_B)^2\sqrt{I} = 2cZ_AZ_B\sqrt{I}
+$$
+
+if $Z_A$ or $Z_B = 0$ ，$k = k_0$
+
+#### 环己烯的氢气加成
+
+on Pt：
+
+```
+H₂(g) ⇌ H₂(l)          // 溶解
+H₂(l) ⇌ H₂(p)          // p: 物理吸附于表面
+H₂(p) + ** → 2H* (k₃)  // **RDS：氢分子解离**
+```
+
+$$
+\begin{aligned}
+r &= \frac{k_BT}{h} k^\ddagger \frac{\gamma_{H2}^p}{\gamma^\ddagger} c_{H2}^p \\
+&= \frac{k_BT}{h} K_Hk^\ddagger \frac{\gamma_{H2}^l}{\gamma^\ddagger} c_{H2}^l
+\end{aligned}
+$$
+
+由于放热步骤，可认为过渡态和H2活度系数相近。于是$r \propto K_H c^l_{H2}$依赖于溶剂。
+
+on Pd:
+
+```
+H₂(g) ⇌ H₂(l) ⇌ H₂(p) ⇌ 2H* (快速平衡)
+RH* + H* ⇌ X^\neq → RH₂** (k₆ₐ, **RDS：表面加氢**)
+```
+
+$$
+\begin{aligned}
+r &= \frac{k_BT}{h} k^\ddagger \frac{\gamma_{RH*}c_{RH*}\gamma_{H*}c_{H*}}{\gamma^\ddagger} \\
+&= L\frac{k_BT}{h} k^\ddagger \frac{\gamma_{RH*}}{\gamma^\ddagger}\sqrt{K_H^1p_{H2}a_{**}}
+\end{aligned}
+$$
+
+RH为MARI物种，其物理状态受金属表面作用支配而与溶剂无关。
+
+---
+
+### 补偿效应
+
+- 分解反应活化熵增加而活化焓也增加
+- 缩合反应活化熵减小而活化焓也减小
+
+焓熵相互补偿，导致$k$变化不大。考虑水合：
+
+![image-20251104032636742](Physical Chemistry II.assets/image-20251104032636742.png)
+
+---
+
+### 反应器
+
+#### 间歇式反应器 Batch
+
+- **系统类型**：**封闭系统**。
+- **混合方式**：投料时瞬间混合，反应过程中**无混合**。
+- **浓度特征**：所有组分的浓度**随时间不断变化**。不存在真正的稳态。
+- **应用**：常用于小批量、多品种的生产，如制药、精细化工。
+
+#### **连续搅拌釜式反应器** Continuously stirred tank reactor
+
+- **系统类型**：**开放系统**。
+- **混合方式**：**瞬间、全混**。进料一进入CSTR，其组成立即与釜内及出口物料完全相同。
+- **浓度特征**：釜内各处浓度均匀，且**不随时间变化（稳态）**，但等于**出口的低浓度**。
+- **应用**：适用于对返混要求不高的反应，易于控制温度和连续操作。
+
+#### **活塞流反应器**l Pug-flow reaction
+
+- **系统类型**：**开放系统**。
+- **混合方式**：在垂直于流动的方向上**无混合**；在沿流动的方向上**无混合**。流体像“活塞”一样向前推进。
+- **浓度特征**：反应物浓度**沿反应器长度方向逐渐降低**。在任一特定截面上，组成是均匀的。
+- **应用**：适用于要求高转化率的反应，因为它避免了返混导致的效率下降，是工业上最常用的反应器类型之一。
+
+---
+
+## Chapter 6 Electrode Kinetics
+
+### Electro Kinetics
+
+![image-20251104033850634](Physical Chemistry II.assets/image-20251104033850634.png)
+
+理想可极化电极：不允许电子通过，只能积累电荷，电极本身不发生电化学反应，如惰性电极
+
+理想不可极化电极：允许电子通过，反应快且电位基本不变，如参比电极
+
+实际存在过电位：
+$$
+\eta = E - E_{eq}
+$$
+![image-20251104034226193](Physical Chemistry II.assets/image-20251104034226193.png)
+
+#### Semi-empirical Steady-State Treatment
+
+扩散层：假定电极附近有一段无法搅拌的，厚度为$\delta$的停滞层（*stagnant layer*），其浓度是线性减小的：
+
+![image-20251104034605236](Physical Chemistry II.assets/image-20251104034605236.png)
+$$
+v_{mt} = D_O (\dv{C_O}{x})_{x=0} = D_O \frac{C_O^b - C_O}{\delta_O} = m_O(C_O^b - C_O)
+$$
+where $m = D / \delta$ stands for 质量传递系数（mass transfer coef.）. 若认为单位时间的扩散通量可用电流表示：
+$$
+\frac{i}{nFA} = m_O(C_O^b - C_O) = m_R(C_R - C_R^b)
+$$
+当$C_O = 0$时达到极限电流：
+$$
+i_l = nFAm_OC_O^b, \quad \frac{C_O}{C_b} = 1-\frac{i}{i_l}, \quad E = E^{\circ\prime} + \frac{RT}{nF}\ln\frac{i_l-i}{i_l}
+$$
+if R initially absent: 
+$$
+\begin{gathered}
+C^b_R = 0, C_R = \frac{i}{nAFm_R} \\
+C_O  = (1-\frac{i}{i_l})\frac{i_l}{nAFm_O} \\
+E = E^{\circ\prime} - \frac{RT}{nF} \ln \frac{m_O}{m_R} + \frac{RT}{nF} \ln \frac{i_l - i}{i_l}
+\end{gathered}
+$$
+令半波电位$i = i_l/2$：
+$$
+E_{1/2} = E^{\circ\prime} - \frac{RT}{nF} \ln \frac{m_O}{m_R} 
+$$
+可反映相对扩散速率
+
+id R is isolable:
+$$
+\begin{gathered}
+a_R = 1 \\
+E = E^{\circ\prime} + \frac{RT}{nF}\ln C_O = E^{\circ\prime} + \frac{RT}{nF}\ln\frac{i_l-i}{i_l} + \frac{RT}{nF}\ln{C_O^b}
+\end{gathered}
+$$
+when i=0, $C_O = C_O^b$:
+$$
+E_eq = E^{\circ\prime} +\frac{RT}{nF}\ln{C_O^b}
+$$
+于是过电位：
+$$
+\eta = |E-E_{eq}| = |\frac{RT}{nF}\ln\frac{i_l-i}{i_l}|
+$$
+<img src="Physical Chemistry II.assets/image-20251104041851343.png" alt="image-20251104041851343" style="zoom:67%;" />
+
+<img src="Physical Chemistry II.assets/image-20251104042004713.png" alt="image-20251104042004713" style="zoom:67%;" />
+
+### Electrode kinetics
+
+**Tafel Equation**:
+$$
+\eta = a+b\log i
+$$
+b：Tafel 斜率 (mV/dec)，表示电流增一数量级所需的电位变化
+
+***Bulter-Volmer Kinetics***
+
+​	

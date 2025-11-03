@@ -740,7 +740,7 @@ $$
 
 如果函数 $f(z)$ 满足：
 
-1. 在有界区域 $G$ 内解析，闭区域 $\overline{G}$ 内连续且边界 $\partial G$ 可求长；
+1. <u>在有界区域 $G$ 内解析</u>，闭区域 $\overline{G}$ 内连续且边界 $\partial G$ 可求长；
 2. $a \in G$
 
 就有：
@@ -796,6 +796,12 @@ $$
     $$
     f(a) = \frac{1}{2\pi i}\oint_{\partial G} \frac{f(z)}{z-a}dz + \lim_{z\to\infty}f(z) = \frac{1}{2\pi i}\oint_{\partial G} \frac{f(z)}{z-a}dz
     $$
+
+!!! warning "求Cauchy型积分"
+    一定注意该公式使用的前提是$f(z)$在区域$G$内解析！如果需要积分$\frac{\phi(z)}{(z-a)(z-b)}$：
+
+    - 如果$a \in G$，而$b \notin G$，可以将$a$作为外部的$(z-a)$项（避免奇点在区域内部）。
+    - 如果$a \in G$，且$b \in G$，可考虑分式分解成$\frac{A}{z-a} + \frac{B}{z-b}$。
 
 ---
 
