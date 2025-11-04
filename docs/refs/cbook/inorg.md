@@ -20,7 +20,7 @@
 > 国外经典的化学入门级教材，相比普化更重但也更容易阅读，如果对普化的一些概念阅读起来比较困难也可以阅读这本书。21年出了翻译版，翻译的也比较好。
 
 - **教材（cn，14th，全3册）**：[https://pan.baidu.com/s/1lAOvBrvQTekTbpFg0EdiTw?pwd=gama](https://pan.baidu.com/s/1lAOvBrvQTekTbpFg0EdiTw?pwd=gama)
-- **教材（en，15th）**：[https://pan.baidu.com/s/1xO25yX7nflzTkExgiaTRTw?pwd=gama](https://pan.baidu.com/s/1xO25yX7nflzTkExgiaTRTw?pwd=gama)
+- **教材（en，15th）**：[https://pan.baidu.com/s/1_M1iWNCYJt3VgieJpQpClQ?pwd=gama](https://pan.baidu.com/s/1_M1iWNCYJt3VgieJpQpClQ?pwd=gama)
 
 <br/>
 

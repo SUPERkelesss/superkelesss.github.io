@@ -550,8 +550,8 @@ $$
 
 $$
 \begin{gathered}
-f(u_x) = \sqrt{\frac{m}{2\pi RT}} e^{\frac{Mu_x^2}{2RT}}\\
-h(u_x,u_y,u_z) = \left( \frac{m}{2\pi RT} \right)^\frac 32 e^{-M(u_x^2 + u_y^2 + u_z^2)/2RT}
+f(u_x) = \sqrt{\frac{M}{2\pi RT}} e^{\frac{Mu_x^2}{2RT}}\\
+h(u_x,u_y,u_z) = \left( \frac{M}{2\pi RT} \right)^\frac 32 e^{-M(u_x^2 + u_y^2 + u_z^2)/2RT}
 \end{gathered}
 $$
 
@@ -559,11 +559,11 @@ as polar coordinate，转化为球坐标（即在薄球壳内认为$\times 4\pi 
 
 $$
 \begin{gathered}
-F(u)du = 4\pi \left( \frac{m}{2\pi RT} \right)^\frac 32 u^2 e^{-mu^2/2RT} du\\
+F(u)du = 4\pi \left( \frac{M}{2\pi RT} \right)^\frac 32 u^2 e^{-Mu^2/2RT} du\\
 \boxed{
-\langle u \rangle = 4\pi \left( \frac{m}{2\pi RT} \right)^\frac 32 \int u^3 e^{-mu^2/2RT} du = \sqrt{\frac{8RT}{\pi M}}
+\langle u \rangle = 4\pi \left( \frac{M}{2\pi RT} \right)^\frac 32 \int u^3 e^{-Mu^2/2RT} du = \sqrt{\frac{8RT}{\pi M}}
 }\\
-\langle u^2 \rangle = 4\pi \left( \frac{m}{2\pi RT} \right)^\frac 32 \int u^4 e^{-mu^2/2RT} du = \frac{3RT}{M}
+\langle u^2 \rangle = 4\pi \left( \frac{M}{2\pi RT} \right)^\frac 32 \int u^4 e^{-Mu^2/2RT} du = \frac{3RT}{M}
 \end{gathered}
 $$
 
@@ -603,7 +603,7 @@ molecules in the cylinder will be collided
 
 $$
 \begin{gathered}
-dN_{coll}  =\rho\pi d^2 \langle u \rangle dt \\
+dN_{coll}  =\rho\pi d^2 \langle u_r \rangle dt \\
 Z_A = \frac{dN_{coll}}{dt} = \rho\pi d^2\sqrt{\frac{8RT}{\pi \mu}} = \rho\pi d^2\sqrt{\frac{16RT}{\pi m}}
 \end{gathered}
 $$
@@ -841,7 +841,7 @@ $$
 or
 
 $$
-\ln(k_2/k_1) = \alpha\ln(K_2-K_1)
+\ln(k_2/k_1) = \alpha\ln(K_2/K_1)
 $$
 
 where $0<\alpha<1$
@@ -886,7 +886,7 @@ we have:
 
 $$
 \begin{gathered}
-\frac{dx}{dt} = k_1x \quad \frac{dy}{dt} = k_1x-k_2y \quad \frac{dz}{dt} = k_2y \\
+\frac{dx}{dt} = -k_1x \quad \frac{dy}{dt} = k_1x-k_2y \quad \frac{dz}{dt} = k_2y \\
 \Rightarrow y = \frac{k_1}{k_2 - k_1}(e^{-k_1t} - e^{-k_2t}) \\
 \frac{dy}{dt} = 0 \Rightarrow t_{max} = \frac 1{k_2-k_1}\ln{\frac {k_2}{k_1}} \\
 y_{max} =  \frac {k_1}{k_2-k_1}[(\frac {k_2}{k_1})^{\frac {k_1}{k_2-k_1}} - (\frac {k_2}{k_1})^{\frac {k_2}{k_2-k_1}}]
@@ -1006,7 +1006,7 @@ $$
 $$
 
 \[
-K_1 = \frac{\theta_A}{P_A \cdot \theta_X} \quad K_2 = \frac{\theta_B}{P_B \cdot \theta_B}
+K_1 = \frac{\theta_A}{P_A \cdot \theta_*} \quad K_2 = \frac{\theta_B}{P_B \cdot \theta_B}
 \]
 
 \[
@@ -1107,7 +1107,7 @@ if $Z_A$ or $Z_B = 0$ ，$k = k_0$
 
 on Pt：
 
-```
+```text
 H₂(g) ⇌ H₂(l)          // 溶解
 H₂(l) ⇌ H₂(p)          // p: 物理吸附于表面
 H₂(p) + ** → 2H* (k₃)  // **RDS：氢分子解离**
@@ -1124,7 +1124,7 @@ $$
 
 on Pd:
 
-```
+```text
 H₂(g) ⇌ H₂(l) ⇌ H₂(p) ⇌ 2H* (快速平衡)
 RH* + H* ⇌ X^\neq → RH₂** (k₆ₐ, **RDS：表面加氢**)
 ```
@@ -1187,9 +1187,11 @@ RH为MARI物种，其物理状态受金属表面作用支配而与溶剂无关�
 理想不可极化电极：允许电子通过，反应快且电位基本不变，如参比电极
 
 实际存在过电位：
+
 $$
 \eta = E - E_{eq}
 $$
+
 ![image-20251104034226193](Physical Chemistry II.assets/image-20251104034226193.png)
 
 #### Semi-empirical Steady-State Treatment
@@ -1197,18 +1199,25 @@ $$
 扩散层：假定电极附近有一段无法搅拌的，厚度为$\delta$的停滞层（*stagnant layer*），其浓度是线性减小的：
 
 ![image-20251104034605236](Physical Chemistry II.assets/image-20251104034605236.png)
+
 $$
 v_{mt} = D_O (\dv{C_O}{x})_{x=0} = D_O \frac{C_O^b - C_O}{\delta_O} = m_O(C_O^b - C_O)
 $$
+
 where $m = D / \delta$ stands for 质量传递系数（mass transfer coef.）. 若认为单位时间的扩散通量可用电流表示：
+
 $$
 \frac{i}{nFA} = m_O(C_O^b - C_O) = m_R(C_R - C_R^b)
 $$
+
 当$C_O = 0$时达到极限电流：
+
 $$
 i_l = nFAm_OC_O^b, \quad \frac{C_O}{C_b} = 1-\frac{i}{i_l}, \quad E = E^{\circ\prime} + \frac{RT}{nF}\ln\frac{i_l-i}{i_l}
 $$
-if R initially absent: 
+
+if R initially absent:
+
 $$
 \begin{gathered}
 C^b_R = 0, C_R = \frac{i}{nAFm_R} \\
@@ -1216,27 +1225,36 @@ C_O  = (1-\frac{i}{i_l})\frac{i_l}{nAFm_O} \\
 E = E^{\circ\prime} - \frac{RT}{nF} \ln \frac{m_O}{m_R} + \frac{RT}{nF} \ln \frac{i_l - i}{i_l}
 \end{gathered}
 $$
+
 令半波电位$i = i_l/2$：
+
 $$
-E_{1/2} = E^{\circ\prime} - \frac{RT}{nF} \ln \frac{m_O}{m_R} 
+E_{1/2} = E^{\circ\prime} - \frac{RT}{nF} \ln \frac{m_O}{m_R}
 $$
+
 可反映相对扩散速率
 
 id R is isolable:
+
 $$
 \begin{gathered}
 a_R = 1 \\
 E = E^{\circ\prime} + \frac{RT}{nF}\ln C_O = E^{\circ\prime} + \frac{RT}{nF}\ln\frac{i_l-i}{i_l} + \frac{RT}{nF}\ln{C_O^b}
 \end{gathered}
 $$
+
 when i=0, $C_O = C_O^b$:
+
 $$
 E_eq = E^{\circ\prime} +\frac{RT}{nF}\ln{C_O^b}
 $$
+
 于是过电位：
+
 $$
 \eta = |E-E_{eq}| = |\frac{RT}{nF}\ln\frac{i_l-i}{i_l}|
 $$
+
 <img src="Physical Chemistry II.assets/image-20251104041851343.png" alt="image-20251104041851343" style="zoom:67%;" />
 
 <img src="Physical Chemistry II.assets/image-20251104042004713.png" alt="image-20251104042004713" style="zoom:67%;" />
@@ -1244,11 +1262,12 @@ $$
 ### Electrode kinetics
 
 **Tafel Equation**:
+
 $$
 \eta = a+b\log i
 $$
+
 b：Tafel 斜率 (mV/dec)，表示电流增一数量级所需的电位变化
 
 ***Bulter-Volmer Kinetics***
 
-​	
