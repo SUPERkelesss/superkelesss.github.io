@@ -49,7 +49,7 @@
 > 第5版和第4版差别不大（甚至删了一些），所以两个版本都可以看
 
 - **教材（上册）**：[https://pan.baidu.com/s/1z-BvMaLlxNbL5sk_snMhDQ?pwd=gama](https://pan.baidu.com/s/1z-BvMaLlxNbL5sk_snMhDQ?pwd=gama)
-- **教材（下册）**：[]()
+- **教材（下册）**：[https://pan.baidu.com/s/14_RnjfZCra0OKUQGejp_kg?pwd=gama](https://pan.baidu.com/s/14_RnjfZCra0OKUQGejp_kg?pwd=gama)
 - **习题解析**：[https://pan.baidu.com/s/125Npr5tIaaP_XToUQgMiaA?pwd=gama](https://pan.baidu.com/s/125Npr5tIaaP_XToUQgMiaA?pwd=gama)
 
 <br/>

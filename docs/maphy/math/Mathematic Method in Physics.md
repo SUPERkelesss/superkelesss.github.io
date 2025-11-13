@@ -6,9 +6,13 @@
 
 #### 复变函数的导数性质
 
-$f(z)$ 可导的必要条件：**Cauchy-Reiman Equation**
+$$
+f'(z) = \lim_{\Delta z \to 0} \frac{f(z+\Delta z)-f(z)}{\Delta z}
+$$
 
-同时对 $x$ 和 $y$ 求偏导：
+$f(z)$ 可导的必要条件：处处满足**Cauchy-Reiman Equation**
+
+固定另一个为0，同时对 $x$ 和 $y$ 求偏导：
 
 $$
 \begin{aligned}
@@ -421,6 +425,20 @@ $$
 
 ---
 
+#### 反三角函数
+
+$$
+\begin{aligned}
+\arcsin z &= \frac 1i \ln(iz+\sqrt{1-z^2})\\
+\arccos z &= \frac 1i \ln(z+\sqrt{z^2-1})\\
+\arctan z &= \frac 1{2i} \ln(\frac{1+iz}{1-iz})
+\end{aligned}
+$$
+
+
+
+---
+
 ### 复变积分
 
 #### 复变积分的定义
@@ -484,7 +502,7 @@ $$
     注意：如果对复数微元取模（即取弧长微元）：
     
     $$
-    \abs{dz} = ds = rd\theta = \sqrt{1+(y')^2}dx
+    \abs{dz} = ds = \sqrt{r'(\theta)^2 + r^2}d\theta = rd\theta = \sqrt{1+(y')^2}dx
     $$
     
     则有
@@ -820,11 +838,6 @@ $$
 
 Cauchy 积分公式的右侧实际上可看作 Cauchy 型积分的 $n=1$ 形式。
 
-!!! note "证明：数学归纳法"
-当 $n=0$ 时，函数 $F_0(z) = \int_C \varphi(\zeta) d\zeta$ 为常值函数，显然连续且导数为 0。
-
-
-
 观察性质 2，其实有：
 
 $$
@@ -861,4 +874,26 @@ $$
 $$
 \frac{d}{dz} \int_a^b f(t, z) dt = \int_a^b [\frac{\partial}{\partial z}f(t, z)] dt
 $$
+
+---
+
+### 更多引理
+
+#### Cauchy不等式
+
+$$
+|f^{(n)}(\zeta)| \leq \frac{n!}{2\pi}\frac{Ml}{d^{n+1}} = \frac{n!M}{R^n}(|\zeta-z| = R)
+$$
+
+其中$l$是边界周长，$d$为$z$到边界的最短距离，$M$为函数上界。
+
+#### Liouville定理
+
+如果$f(z)$在$\mathbb{C}$上解析且有界，则其必为常函数。
+
+---
+
+### 无穷级数
+
+无穷级数的判别方法大致与 3
 

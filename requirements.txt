@@ -8,4 +8,3 @@ mkdocs-heti-plugin==0.1.6
 mkdocs-glightbox==0.5.1
 mkdocs-statistics-plugin==0.1.5
 mkdocs-minify-plugin==0.8.0
-mkdocs-jupyter==0.25.1

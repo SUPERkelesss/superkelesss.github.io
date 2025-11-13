@@ -23,8 +23,10 @@ nav:
       - 10.晶体中的数学推导: "chem/crystaljs/lecture10.md"
   - 🔢数理:
     - 数理-首页: "maphy/index.md"
-    - 数学:
+    - 数学基础:
       - 数学物理方法: "maphy/math/Mathematic Method in Physics.md"
+    - 热学与热力学:
+      - 统计热力学: "maphy/thermo_phys/Statistic_Thermodynamics.md"
   - 🖥️计算机:
     - 计算机-首页: "cs/index.md"
   - ☕杂货铺:
@@ -122,7 +124,6 @@ plugins:
   - statistics
   - minify:
       minify_html: true
-  - mkdocs-jupyter
 
 hooks:
   - hooks/toc.py
@@ -177,12 +178,10 @@ extra_javascript:
 #  - javascripts/katex.js
 #  - https://unpkg.com/katex@0/dist/katex.min.js
 #  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-  - https://3Dmol.org/build/3Dmol-min.js
+  # - https://3Dmol.org/build/3Dmol-min.js
 
 extra_css:
 #  - https://unpkg.com/katex@0/dist/katex.min.css
   - stylesheets/extra.css
   - stylesheets/toc_extra.css
   - https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css

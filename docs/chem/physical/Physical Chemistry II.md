@@ -1271,3 +1271,93 @@ b：Tafel 斜率 (mV/dec)，表示电流增一数量级所需的电位变化
 
 ***Bulter-Volmer Kinetics***
 
+---
+
+## Chapter 5: Phase Diagrams
+
+### Liquid-Solid diagram
+
+---
+
+### Canonical ensemble 正则系综
+
+> define
+>
+> $$
+> \alpha = -\frac{\mu}{kT}, \beta = \frac 1{kT}
+> $$
+>
+
+we have mixing entropy(用概率代替浓度):
+
+$$
+S = -k\sum_I f_i\ln f_i
+$$
+
+and two condtrains:
+
+$$
+\begin{cases}
+\sum_i f_i = 1 \\
+\sum_i f_i E_i = U
+\end{cases}
+$$
+
+when reaching maximum entropy, we can derive: 他妈了隔壁的我不会推导
+
+$$
+f_i = \frac{e^{-\beta E_i}}{\sum_ie^{-\beta E_i}} = \frac{e^{-\beta E_i}}{Z(V,T,N)}
+$$
+
+where $Z(V,T,N)$是**正则配分函数**
+
+在这里用离散和是不精确的，我们改成积分形式。by using H, for single partical:
+
+$$
+Z = \frac{1}{h^3}  = \int e^{-\beta H(\vec x,\vec p)} d^3\vec x d^3\vec p
+$$
+
+and for many partials:
+
+$$
+Z = \frac{1}{h^{3N}} \int \prod_{i=1}^{N} e^{-\beta H(\vec x_i , \vec p_i)} d^{3N}\vec x_i d^{3N} \vec p_i
+$$
+
+if particals are 全同：
+
+$$
+Z = \frac{1}{N!h^{3N}} \int \prod_{i=1}^{N} e^{-\beta H(\vec x_i , \vec p_i)} d^{3N}\vec x_i d^{3N} \vec p_i
+$$
+
+这些即认为最小的单位空间是$\frac 1h$，把N个粒子分配到这些空间里。
+
+通过配分函数计算能量的期望值：
+
+$$
+\begin{aligned}
+\left< Z \right> = \sum_i E_iP_i &= \frac1Z \sum_i E_ie^{-\beta E_i}\\
+&= -\frac1Z \frac{\partial}{\partial\beta} Z(\beta, E_i) \\
+&= -\frac{\partial \ln Z}{\partial \beta} = kT^2\frac{\partial \ln Z}{\partial T}
+\end{aligned}
+$$
+
+进而还可得出自由能的关系，我们有：
+
+$$
+\begin{gathered}
+S = -k\sum f_i \ln f_i = -\frac kZ\sum (-\beta E_i - \ln Z)e^{-\beta E_i} = k(\ln Z + \beta\left< E \right>) \\
+\left< E \right> = U \\
+F = U-TS = -kT\ln Z
+\end{gathered}
+$$
+
+
+巨配分函数$\Xi$：
+
+$$
+\Xi(\mu, V,T) = \sum_{N=0}^\infty Z(N,V,T) \lambda^N = 1+\sum_{N=1}^\infty Z(N,V,T) \lambda^N
+$$
+
+where $\lambda = e^{\beta\mu}$ represent absolute acivity（绝对活度）
+
+
