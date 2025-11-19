@@ -179,8 +179,8 @@ extra_javascript:
 #  - https://unpkg.com/katex@0/dist/katex.min.js
 #  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
   # - https://3Dmol.org/build/3Dmol-min.js
-  - https://cdn.vercel.io/insights/script.js
   - javascripts/vercel_statistics.js
+  - https://cdn.vercel.io/insights/script.js
 
 extra_css:
 #  - https://unpkg.com/katex@0/dist/katex.min.css
