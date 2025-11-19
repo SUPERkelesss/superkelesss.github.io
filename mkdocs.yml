@@ -179,7 +179,7 @@ extra_javascript:
 #  - https://unpkg.com/katex@0/dist/katex.min.js
 #  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
   # - https://3Dmol.org/build/3Dmol-min.js
-  - javascripts/vercel_statistics.js
+  # - javascripts/vercel_statistics.js
   # - https://cdn.vercel.io/insights/script.js
 
 extra_css:
@@ -187,10 +187,3 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/toc_extra.css
   - https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap
-
-extra_head:
-  - |
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
