@@ -4,6 +4,8 @@
 >
 > 作者：凯楽斯kelesss
 
+![img](perface.assets/card_after_training.png)
+
 <center><font size=6><b>欢迎来到《竞赛晶体进阶》课程！</font></b></center>
 
 ## 本课程的定位

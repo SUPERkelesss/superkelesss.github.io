@@ -629,7 +629,7 @@ $$
 为了方便，我们定义**热波长**（Thermal Wavelength）$\Lambda$：
 
 $$
-\boxed{\Lambda \equiv n_Q^{-1/3} = \frac{\hbar}{\sqrt{2\pi mk_BT}} = \sqrt{\frac{2\pi h^2}{mk_BT}}}
+\boxed{\Lambda \equiv n_Q^{-1/3} = \frac{h}{\sqrt{2\pi mk_BT}} = \sqrt{\frac{2\pi \hbar^2}{mk_BT}}}
 $$
 
 于是配分函数可表示为：
@@ -1001,7 +1001,7 @@ $$
 接下来我们对巨配分函数进行进一步讨论。从前面我们知道，根据配分函数就可以求其他热力学量，对于平均粒子数：
 
 $$
-N = \sum_i N_iP_i = \frac{\sum_i Ne^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} = \frac{1}{\beta Z} \pqty{\pdv{\mathcal{Z}}{\mu}}_\beta = k_BT\pqty{\pdv{\ln \mathcal{Z}}{\mu}}_\beta
+N = \sum_i N_iP_i = \frac{\sum_i Ne^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} = \frac{1}{\beta \mathcal Z} \pqty{\pdv{\mathcal{Z}}{\mu}}_\beta = k_BT\pqty{\pdv{\ln \mathcal{Z}}{\mu}}_\beta
 $$
 
 而对内能 $U$ ，还是考虑平均能量：
@@ -1009,7 +1009,7 @@ $$
 $$
 \begin{aligned}
 U = \ev{E} = \sum_i E_iP_i &= \frac{\sum_i E_ie^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} \\
-&= -\frac{1}{Z} \pqty{\pdv{\mathcal{Z}}{\beta}}_\mu + \mu N \\
+&= -\frac{1}{\mathcal Z} \pqty{\pdv{\mathcal{Z}}{\beta}}_\mu + \mu N \\
 &=  - \pqty{\pdv{\ln \mathcal{Z}}{\beta}}_\mu + \mu N
 \end{aligned}
 $$
@@ -1020,7 +1020,7 @@ $$
 \begin{aligned}
 S = -k_B\sum_i P_i \ln {P_i} &= -k_B\frac{\sum_i (\beta(\mu N_i - E_i) - \ln \mathcal Z)e^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} \\
 &= \frac{-\mu \sum_i N_ie^{\beta(\mu N - E_i)} + \sum_i E_ie^{\beta(\mu N - E_i)} + \beta\ln \mathcal Z}{T\mathcal Z} \\
-&= \frac{U - \mu N + k_BT\ln Z}{T}
+&= \frac{U - \mu N + k_BT\ln \mathcal Z}{T}
 \end{aligned}
 $$
 
@@ -1069,7 +1069,7 @@ $$
 
 
     再根据理想气体状态方程：
-
+    
     $$
     \boxed{\Phi_G = -pV}
     $$

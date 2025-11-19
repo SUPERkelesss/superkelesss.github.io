@@ -2,7 +2,7 @@ site_name: 凯楽斯Kelesssの聖教天堂
 # 导航栏
 nav:
   - 🏠首页:
-    - ❔关于本网站: index.md
+    - 🏠首页: index.md
     - ⏲️最近更新: changelog.md
     - 🙋我要投稿！: commit.md
   - 🧪化学:
@@ -179,6 +179,7 @@ extra_javascript:
 #  - https://unpkg.com/katex@0/dist/katex.min.js
 #  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
   # - https://3Dmol.org/build/3Dmol-min.js
+  - javascripts/vercel_statistics.js
 
 extra_css:
 #  - https://unpkg.com/katex@0/dist/katex.min.css

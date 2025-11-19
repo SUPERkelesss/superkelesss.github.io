@@ -3,12 +3,10 @@
 !!! warning "注意"
     如果有任何链接无法打开等情况，或有意补充内容，请添加我的联系方式反馈。
 
-<br/>
+![img](index.assets/card_after_training.png)
 > Beware of he who would deny you access to information, for in his heart he dreams himself your master. — Pravin Lal
 > 
 > 慎防禁知者，因其心底暗藏主宰尔辈之妄念。
-
-<br/>
 
 {{ BEGIN_TOC }}
 - 化学相关书籍:
@@ -26,4 +24,4 @@
   - 数学相关: software/mathsoft
 - 化学竞赛题目:
   - PKU&THU春联/金秋营试题: jsexam/pkuthu
-{{ END_TOC }}
+  {{ END_TOC }}

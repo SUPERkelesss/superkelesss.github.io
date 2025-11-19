@@ -1360,4 +1360,175 @@ $$
 
 where $\lambda = e^{\beta\mu}$ represent absolute acivity（绝对活度）
 
+---
+
+## Chapter 6
+
+for 维利展开：
+
+$$
+B_2 = -2\pi \int_0^\infty [e^{-\beta u(r)} - 1] r^2 \dd r
+$$
+
+hard-sphere :
+
+$$
+u(r) = \begin{cases}
+\infty ,&r<\sigma \\
+0 ,&r\ge \sigma
+\end{cases}
+$$
+
+$$
+B_2 = -2\pi \int_0^\sigma (-1)r^2\dd r = \frac{2\pi}{3}
+$$
+
+square-well potential :
+
+$$
+u(r) = \begin{cases}
+\infty &r<\sigma \\
+-\epsilon &\sigma<r<\lambda\sigma \\
+0 &r>\sigma
+\end{cases}
+$$
+
+$$
+B_2(T) = b_0{(1-(\lambda^3-1)(e^{\beta\epsilon}-1))}
+$$
+
+Lennard-Jones potential :
+
+$$
+u(r) = 4\epsilon [(\sigma/r)^{12} - (\sigma/r)^6]
+$$
+
+$$
+B_2 = \frac 1Z \int_0^\infty( e^{-\beta u(r)}-1) 4\pi r^2 \dd r
+$$
+
+### Liquid cases: simple liquid theory
+
+for 傻逼 case, He liquid 不考虑量子效应，直观上看就是解一个原子和周围的核和电子的关系，这里就要用B-O近似。
+
+一个粒子包含六个信息：
+
+$$
+N(x_1, y_1,z_1,p_x,p_y,p_z)
+$$
+
+用向量表示：
+
+$$
+P^{(N)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_N, \vec p_1, \vec p_2, \vec p_3,...\vec p_N)
+$$
+
+现在我们假设只关心n个粒子的状态，其他的通过积分平均掉：
+
+$$
+P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) {\dd}\vec r_n ... {\dd}\vec r_1 = \int...\int P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) {\dd}\vec r_n ... {\dd}\vec r_1{\dd}r_{n+1} ... \dd r_N
+$$
+
+消掉两边
+
+$$
+P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \int...\int P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) {\dd}r_{n+1} ... \dd r_N = \int ... \int \frac{e^{-\beta U_N}}{Z_N} {\dd}r_{n+1} ... \dd r_N
+$$
+
+密度分布函数：在给定位置同时找到n个粒子的数密度
+$$
+\rho^{(n)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \frac{N!}{(N-n)!(n)!}P^{(N)}
+$$
+
+$$
+\rho^{(1)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \frac{N!}{(N-1)!}P^{(N)} = N\int ... \int \frac{e^{-\beta U_N}}{Z_N} {\dd}r_2 ... \dd r_N = N
+$$
+
+对均匀体系，显然找到一个粒子的密度分布是是函数
+
+$$
+\int \rho \dd r = N \qc \rho V = N
+$$
+
+correlation function 径向分布函数:
+
+$$
+g^{(n)} = \frac{\rho^{(n)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n)}{\rho^n}
+$$
+
+$$
+g^{(2)} = \frac{V^2}{N^2} \frac{N(N-1)}{2}\int ... \int \frac{e^{-\beta U_N}}{Z_N} {\dd}r_{3} ... \dd r_N
+$$
+
+for sphere-symmetry molecules, $g^{(2)}$ only depend on $(r_1 - r_2)$
+
+于是有
+
+$$
+\int_0^\infty \rho g(r)4\pi r^2\dd r = N-1
+$$
+
+对于相关函数：
+
+![image-20251118170047172](Physical Chemistry II.assets/image-20251118170047172.png)
+
+这里液体呈现出类似1D-crystal的关系，这是由于液体由于熵效应，在半径$\sigma$的地方出现粒子的概率很大，相应的在中间出现的概率很小。
+
+引入结构因子 Structrural factor:
+
+$$
+h(r) = g(r)-1
+$$
+
+for pair-wise additive potential :
+$$
+U_N(r_1, r_2,r_3...r_N) = \sum_{i<j} U(r_{ij}) = \frac{N(N-1)}{2}U_{12}
+$$
+
+$$
+\overline E = kT^2\pqty{\pdv{\ln Q}{T}} = 3/2 NkT + \overline U
+$$
+
+$$
+\overline{U} = \frac{\int...\int e^{-\beta U_N}\dd r_1 ... \dd r_N}{Z_N} = \frac{N(N-1)}{2} \frac{\int...\int e^{-\beta U_N}\dd r_1 ... \dd r_N}{Z_N}
+$$
+
+经过一番推导：
+$$
+\overline U = \frac{4\pi N^2}{V} \int_0^\infty U(r)g(r) r^2 \dd r
+$$
+so $\overline E = ...$
+$$
+P = kT(\pdv{\ln Q}{V})_{N,T} = kT(\pdv{\ln Z_N}{V})_{N,T}
+$$
+where
+$$
+Z_N = \int_0^{V^{1/3}} \int_0^{V^{1/3}} \int_0^{V^{1/3}} e^{-\beta U_N} \dd x_1 \dd y_1 \dd z_1 ... \dd x_n \dd y_n \dd z_n
+$$
+作变量替换
+$$
+x_i' = x_i / V^{1/3}
+$$
+
+$$
+Z_N = \int_0^{1} \int_0^{1} \int_0^{1} e^{-\beta U(x_1'V^{1/3}...)} \dd x_1' \dd y_1' \dd z_1' ... \dd x_n' \dd y_n' \dd z_n'
+$$
+
+于是
+$$
+\begin{aligned}
+\pdv{Z}{V} &= NV^{N-1} \int_0^{1} \int_0^{1} \int_0^{1} e^{-\beta U_N} \dd x_1' \dd y_1' \dd z_1' ... \dd x_n' \dd y_n' \dd z_n' \\
+& \quad -V^N\int_0^{1} \int_0^{1} \int_0^{1} \beta e^{-\beta U_N} \pdv{U_N}{V} \dd x_1' \dd y_1' \dd z_1' ... \dd x_n' \dd y_n' \dd z_n'
+\end{aligned}
+$$
+解构一下：
+$$
+\pdv{U_N}{V} = \sum_{i<j} \dv{U_{ij}}{{r_{ij}}}\dv{{r_{ij}}}{V} = \sum_{i<j} \dv{U_{ij}}{{r_{ij}}} (\frac13 V^{-\frac23}r_{ij}')
+$$
+
+$$
+\pdv{\ln Z}{V} = \rho - \frac{\rho^2}{3VkT}\int...\int r_{12} \dv{U(r_{r_12})}{r_{12}} g^{(2)}(r_1,r_2) \dd r_1 \dd r_2
+$$
+
+
 
