@@ -6,9 +6,9 @@
 ![img](index.assets/card_after_training.png)
 > Beware of he who would deny you access to information, for in his heart he dreams himself your master. 
 >
-> <p align = "right">— Pravin Lal</p>
->
 > **慎防禁知者，因其心底暗藏主宰尔辈之妄念。**
+>
+> <p align = "right">— Pravin Lal</p>
 
 {{ BEGIN_TOC }}
 - 化学相关书籍:
