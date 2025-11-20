@@ -1,0 +1,80 @@
+:root {
+  --md-text-font: "Roboto", "Source Han Sans CN", sans-serif; 
+  --md-code-font: "JetBrains Mono", "Consolas";
+}
+
+/*设置标题字体加粗 */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5 {
+  font-weight: 600;
+}
+
+.md-header__topic {
+  font-weight: 600;
+}
+
+.md-typeset h3 {
+  margin: .8em 0 .8em
+}
+
+/*避免标题字体重叠*/
+
+a:hover strong {
+  color: inherit;
+}
+
+/*图片默认居中*/
+.md-typeset img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*admonition字号统一*/
+.md-typeset .admonition, .md-typeset details {
+  font-size: inherit;
+}
+
+/*标题栏样式*/
+[data-md-color-scheme="slate"] .md-header, [data-md-color-scheme="slate"] .md-tabs {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+[data-md-color-scheme="default"] .md-header, [data-md-color-scheme="default"] .md-tabs {
+  background-color: rgba(103, 0, 147, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.md-typeset__table {
+  min-width: 100%;
+}
+
+.md-typeset table:not([class]) {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 多图片排列通用样式 */
+.images-horizontal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.images-horizontal img {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
