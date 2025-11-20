@@ -1,5 +1,22 @@
 # 化学-导航
 
+![img](index.assets/card_after_training.png)
+
+> わたくしといふ現象は
+>
+> 仮定された有機交流電燈の
+>
+> ひとつの青い照明です
+>
+> **称之为“我”的现象**
+>
+> **是被假定为有机交流电灯的**
+>
+> **一盏青色照明**
+>
+> <p align = "right">—— 宫泽贤治 《春と修罗》</p>
+
+
 {{ BEGIN_TOC }}
 - 物理化学:
     - 物理化学II: "physical/Physical Chemistry II"

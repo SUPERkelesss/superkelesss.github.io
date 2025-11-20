@@ -1,6 +1,11 @@
 # 杂货铺-导航
 
+![img](index.assets/card_after_training.png)
+
+
+
 {{ BEGIN_TOC }}
+
 - 聖教相关:
     - 凯楽斯社会学教材: holykelesss/social1
 - 弱智题大合集:
@@ -15,4 +20,4 @@
     - “如金”Ruby Gold: sbprob/rubygold
 - 锐评:
     - 锐评所有少女乐队番剧: rp/band
-{{ END_TOC }}
+    {{ END_TOC }}

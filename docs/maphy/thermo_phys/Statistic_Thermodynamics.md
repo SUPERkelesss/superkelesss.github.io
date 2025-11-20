@@ -6,7 +6,7 @@
 >
 > 作者：凯楽斯kelesss
 
-![img](Statistic_Thermodynamics.assets/card_normal.png)
+![img](Statistic_Thermodynamics.assets/card_after_training.png)
 
 ## 0. 统计热力学到底是什么？
 
@@ -1190,13 +1190,13 @@ $$
 >
 >And eternity in an hour.
 >
->一粒沙中见世界，
+>**一粒沙中见世界，**
 >
->一朵花里见天堂，
+>**一朵花里见天堂，**
 >
->一手掌握无限大，
+>**一手掌握无限大，**
 >
->永恒不比片刻长。
+>**永恒不比片刻长。**
 >
 ><p align = "right">—— 威廉·布莱克《天真的预言》</p>
 
