@@ -1,6 +1,6 @@
 # 化学-导航
 
-![img](index.assets/card_after_training.png)
+![card_after_training](index.assets/card_after_training.png)
 
 > わたくしといふ現象は
 >
@@ -32,5 +32,5 @@
     - 8.体心立方: "crystaljs/lecture8"
     - 9.分子晶体及其他: "crystaljs/lecture9"
     - 10.晶体中的数学推导: "crystaljs/lecture10"
-{{ END_TOC }}
+    {{ END_TOC }}
 
