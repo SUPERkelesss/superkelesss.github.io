@@ -2,11 +2,11 @@
 
 ## 生物化学部分
 
-### 生物化学原理 (杨荣武)
+### （新）生物化学原理 (杨荣武) - 4th
 
 > 相对好看的生化教材，多图且图比较美观，对生化有一定兴趣的选手可以阅读。
 
-- **教材**：[https://pan.baidu.com/s/1p72FsqJbbGKZwdhS1NUQPw?pwd=gama](https://pan.baidu.com/s/1p72FsqJbbGKZwdhS1NUQPw?pwd=gama)
+- **教材（新版）**：[https://pan.baidu.com/s/1W5q9TB9j1GIge8eeqo04Ow?pwd=gama](https://pan.baidu.com/s/1W5q9TB9j1GIge8eeqo04Ow?pwd=gama)
 
 <br/>
 

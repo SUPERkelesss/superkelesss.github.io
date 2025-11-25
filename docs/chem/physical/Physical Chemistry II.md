@@ -1275,8 +1275,6 @@ b：Tafel 斜率 (mV/dec)，表示电流增一数量级所需的电位变化
 
 ## Chapter 5: Phase Diagrams
 
-### Liquid-Solid diagram
-
 ---
 
 ### Canonical ensemble 正则系综
@@ -1303,7 +1301,7 @@ $$
 \end{cases}
 $$
 
-when reaching maximum entropy, we can derive: 他妈了隔壁的我不会推导
+when reaching maximum entropy, we can derive:
 
 $$
 f_i = \frac{e^{-\beta E_i}}{\sum_ie^{-\beta E_i}} = \frac{e^{-\beta E_i}}{Z(V,T,N)}
@@ -1314,22 +1312,22 @@ where $Z(V,T,N)$是**正则配分函数**
 在这里用离散和是不精确的，我们改成积分形式。by using H, for single partical:
 
 $$
-Z = \frac{1}{h^3}  = \int e^{-\beta H(\vec x,\vec p)} d^3\vec x d^3\vec p
+Z = \frac{1}{h^3} \int e^{-\beta H(\vec x,\vec p)} d^3\vec x d^3\vec p
 $$
 
 and for many partials:
 
 $$
-Z = \frac{1}{h^{3N}} \int \prod_{i=1}^{N} e^{-\beta H(\vec x_i , \vec p_i)} d^{3N}\vec x_i d^{3N} \vec p_i
+Z = \frac{1}{h^{3N}} \int \prod_{i=1}^{N} e^{-\beta H(\vec x_i , \vec p_i)} d^{3}\vec x_i d^{3} \vec p_i
 $$
 
 if particals are 全同：
 
 $$
-Z = \frac{1}{N!h^{3N}} \int \prod_{i=1}^{N} e^{-\beta H(\vec x_i , \vec p_i)} d^{3N}\vec x_i d^{3N} \vec p_i
+Z = \frac{1}{N!h^{3N}} \int \prod_{i=1}^{N} e^{-\beta H(\vec x_i , \vec p_i)} d^{3}\vec x_i d^{3} \vec p_i  = \frac{1}{N!h^{3N}}\pqty{\int \prod_{i=1}^{N} e^{-\beta U(\vec x_i)} d^{3}\vec x_i}\pqty{\int \prod_{i=1}^{N} e^{-\beta p^2/2m} d^{3}\vec p_i}
 $$
 
-这些即认为最小的单位空间是$\frac 1h$，把N个粒子分配到这些空间里。
+这些即认为最小的单位空间是$\frac 1{h^3}$，把N个粒子分配到这些空间里。
 
 通过配分函数计算能量的期望值：
 
@@ -1355,14 +1353,151 @@ $$
 巨配分函数$\Xi$：
 
 $$
-\Xi(\mu, V,T) = \sum_{N=0}^\infty Z(N,V,T) \lambda^N = 1+\sum_{N=1}^\infty Z(N,V,T) \lambda^N
+\Xi(\mu, V,T) = \sum_{N=0}^\infty Z(N,V,T) e^{N\beta\mu} = 1+\sum_{N=1}^\infty Z(N,V,T) \lambda^N
 $$
 
 where $\lambda = e^{\beta\mu}$ represent absolute acivity（绝对活度）
 
----
+回到气体，对单个粒子，由于动能项积分可以从麦克斯韦分布推导，我们有：
 
-## Chapter 6
+$$
+Z_N = \frac1{N!h^{3N}} \pqty{2\pi mkT}^{3N/2} \int e^{-\beta U(\vec x)} d^3\vec x
+$$
+
+定义构型积分：
+
+$$
+Q_N = \int e^{\sum_{i<j} U(r_{ij})} \dd r_1 ... \dd r_N
+$$
+
+于是：
+
+$$
+Z_N = \frac1{N!} \pqty{\frac{2\pi mkT}{h^2}}^{3N/2} Q_N
+$$
+
+于是我们有：
+
+$$
+\Xi = \sum_{N=0}^{\infty} \frac{z^N}{N!}Q_N \qc z = \lambda \pqty{\frac{2\pi mkT}{h^2}}^{3/2}
+$$
+
+压强在恒体积下：
+
+$$
+P = kT\pqty{\pdv{\ln \Xi}{V}}_{T, \mu} = \frac{kT}{\Xi}\sum_{N=0}^{\infty} \frac{z^N}{N!} \pdv{Z_N}{V} = \frac{kT}{\Xi V}\sum_{N=0}^{\infty} \frac{z^N}{N!} Z_N
+$$
+
+这里我们引入**集团展开**（Cluster Expansion）。我们知道维利展开：
+
+$$
+\frac{P}{kT} = \rho + B_2(T) \rho^2 + B_3(T)\rho^3 ... = b_1 z + b_2z^2 + b_3z^3 ...
+$$
+
+两边系数对比：
+
+$$
+(\sum_{j=1}^{\infty} b_j z^j ) = \frac{1}{V}\ln(1 + \sum_{N=1}^\infty \frac{z^N}{N!} Q_N)
+$$
+
+事实上，在这里泰勒硬展开就可以得到 $b_j$ 的各个解，但这样太麻烦了。不过比较第一项就可以得到：
+
+$$
+b_1 = Q_1/V = 1 \\
+b_2 = -\frac{1}{2V}(Z_2 - Z_1)^2
+$$
+
+这是由于此时没有任何外场。
+
+引入**Mayer函数**：
+
+$$
+f_{ij} = e^{-\beta U(r_{ij})} - 1
+$$
+
+于是对于稀薄气体展开：
+
+$$
+\prod_{i<j} e^{-\beta U(r_{ij})} = \prod_{i<j}(1+f_{ij}) = 1+\sum_{i<j} f_{ij} + \sum_{i<j,k<l} f_{ij} f_{kl}
+$$
+
+$$
+\rho = \ev{N}/V = \frac{kT}{V} \pqty{\pdv{\ln \Xi}{\mu}}_T = \frac{\lambda}{V}\pqty{\pdv{\ln \Xi}{\lambda}}_T = \frac{z}{V}\pqty{\pdv{\ln \Xi}{z}}_T
+$$
+
+$$
+\rho = \frac{z}{kT} \pqty{\pdv{P}{z}}_{V,T} = \sum_{j=1}^\infty jb_iz^{j}
+$$
+
+现在假设我们认为：
+
+$$
+z = a_1 \rho + a_2 \rho^2 + a_3 \rho^3 ... \\
+\rho = \sum_{j=1}^\infty jb_j(a_1 \rho + a_2 \rho^2 + a_3 \rho^3 ...)^j
+$$
+
+对照上面的式子：
+
+$$
+a_1 = 1/b_1 = 1 \\
+b_1a_2 + 2b_1a_1^2 = 0 \Rightarrow a_2 = -2b_2 \\
+b_1a_3 + 4b_2a_1a_2 + 3b_3a_1^3 = 0 \Rightarrow a_3 = -3b_3 + 8b_2^2
+$$
+
+回到：
+
+$$
+\frac{P}{kT} = \rho + B_2(T) \rho^2 + B_3(T)\rho^3 ... = b_1 z + b_2z^2 + b_3z^3 ...
+$$
+
+于是：
+
+$$
+B_2(T) = -b_2 = -\frac{1}{2V} (Q_2 - Q_1^2) \\
+B_3(T) = 4b_2^2 - 3b_3 = -\frac{1}{3V^2}[V(Q_3 - 3Q_2Q_1 + 2Q_1^3) - 3(Q_2 - Q_1^2)^2]
+$$
+
+再努努力！
+
+$$
+\begin{aligned}
+B_2(T) &= -\frac{1}{2V} \iint(e^{-\beta U(\vec r_{12})} - 1)\dd(\vec r_1)\dd(\vec r_2) \\
+&= -\frac{1}{2V} \int \dd(\vec r_1) \int(e^{-\beta U(\vec r_{12})}-1)\dd(\vec r_{12}) \\
+&= -\frac12 \int \dd(\vec r_1) \int(e^{-\beta U(r_{12})}-1)4\pi r_{12}^2 \dd(r_{12}) \\
+&= -2\pi \int(e^{-\beta U(r)}-1)r^2 \dd r = -2\pi \int_0^\infty f_{12}r^2\dd r
+\end{aligned}
+$$
+
+现在我们考虑 $Q_3$ ，这时候就要考虑三体作用了。
+
+$$
+U(r_1,r_2,r_3) \simeq U(r_1,r_2) + U(r_2,r_3) + U(r_1,r_3)
+$$
+
+ 于是：
+
+$$
+\begin{aligned}
+Q_3 &= \iiint e^{U_3/kT} \dd{\vec r_1}  \dd{\vec r_2}  \dd{\vec r_3} = \iiint(1+f_{12})(1+f_{23})(1+f_{13})\dd{\vec r_1}  \dd{\vec r_2}  \dd{\vec r_3} \\
+&= \iiint(f_{12}f_{23}f_{13} + f_{12}f_{23} + f_{12}f_{13} + f_{23}f_{13} + f_{12} + f_{13} + f_{23} + 1)\dd{\vec r_1}  \dd{\vec r_2}  \dd{\vec r_3}
+\end{aligned}
+$$
+
+经过一堆化简可以得到：
+
+$$
+B_3(T) = -\frac{1}{3V}\iiint f_{12}f_{23}f_{13}\dd{\vec r_1}  \dd{\vec r_2}  \dd{\vec r_3} = -\frac{1}{3V}\iiint \triangle \dd{\vec r_1}  \dd{\vec r_2}  \dd{\vec r_3}
+$$
+
+其中 $\triangle$ 表示这是三个粒子两两作用的结果
+
+对于第四位力系数：
+
+$$
+B_4(T) = \iiiint (3\square + 6\oslash + 1\boxtimes) \dd{\vec r_1}  \dd{\vec r_2}  \dd{\vec r_3} \dd{\vec r_4}
+$$
+
+其中对于四粒子系统，有3种 $\square$ 作用，6种 $\oslash$ 作用，1种 $\boxtimes$ 作用。
 
 for 维利展开：
 
@@ -1407,6 +1542,12 @@ $$
 B_2 = \frac 1Z \int_0^\infty( e^{-\beta u(r)}-1) 4\pi r^2 \dd r
 $$
 
+
+---
+
+## Chapter 6
+
+
 ### Liquid cases: simple liquid theory
 
 for 傻逼 case, He liquid 不考虑量子效应，直观上看就是解一个原子和周围的核和电子的关系，这里就要用B-O近似。
@@ -1417,13 +1558,13 @@ $$
 N(x_1, y_1,z_1,p_x,p_y,p_z)
 $$
 
-用向量表示：
+将N个位置出现粒子的概率用向量表示：
 
 $$
 P^{(N)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_N, \vec p_1, \vec p_2, \vec p_3,...\vec p_N)
 $$
 
-现在我们假设只关心n个粒子的状态，其他的通过积分平均掉：
+现在我们假设只关心n个粒子的位置状态，其他的通过积分平均掉：
 
 $$
 P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) {\dd}\vec r_n ... {\dd}\vec r_1 = \int...\int P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) {\dd}\vec r_n ... {\dd}\vec r_1{\dd}r_{n+1} ... \dd r_N
@@ -1435,22 +1576,23 @@ $$
 P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \int...\int P^{(n)} (\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) {\dd}r_{n+1} ... \dd r_N = \int ... \int \frac{e^{-\beta U_N}}{Z_N} {\dd}r_{n+1} ... \dd r_N
 $$
 
-密度分布函数：在给定位置同时找到n个粒子的数密度
+密度分布函数：在给定位置$r_1, ...,r_n$同时找到n个粒子的数密度
+
 $$
 \rho^{(n)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \frac{N!}{(N-n)!(n)!}P^{(N)}
 $$
 
 $$
-\rho^{(1)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \frac{N!}{(N-1)!}P^{(N)} = N\int ... \int \frac{e^{-\beta U_N}}{Z_N} {\dd}r_2 ... \dd r_N = N
+\rho^{(1)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n) = \frac{N!}{(N-1)!}P^{(N)} = N\int ... \int \frac{e^{-\beta U_N}}{Z_N} {\dd}r_2 ... \dd r_N = N/V
 $$
 
-对均匀体系，显然找到一个粒子的密度分布是是函数
+对均匀体系，显然找到一个粒子的密度分布是是密度常数 $\rho$
 
 $$
 \int \rho \dd r = N \qc \rho V = N
 $$
 
-correlation function 径向分布函数:
+correlation function n粒子相关函数 （找到粒子$r$的相对概率）:
 
 $$
 g^{(n)} = \frac{\rho^{(n)}(\vec r_1 , \vec r_2, \vec r_3, ...\vec r_n)}{\rho^n}
@@ -1462,7 +1604,7 @@ $$
 
 for sphere-symmetry molecules, $g^{(2)}$ only depend on $(r_1 - r_2)$
 
-于是有
+对这里的 $g(r)$ 而言，归一化积分，得到的应该是除了参考粒子外得到所有其他粒子数 $N-1$ ：
 
 $$
 \int_0^\infty \rho g(r)4\pi r^2\dd r = N-1
@@ -1481,6 +1623,7 @@ h(r) = g(r)-1
 $$
 
 for pair-wise additive potential :
+
 $$
 U_N(r_1, r_2,r_3...r_N) = \sum_{i<j} U(r_{ij}) = \frac{N(N-1)}{2}U_{12}
 $$
@@ -1494,18 +1637,25 @@ $$
 $$
 
 经过一番推导：
+
 $$
 \overline U = \frac{4\pi N^2}{V} \int_0^\infty U(r)g(r) r^2 \dd r
 $$
+
 so $\overline E = ...$
+
 $$
 P = kT(\pdv{\ln Q}{V})_{N,T} = kT(\pdv{\ln Z_N}{V})_{N,T}
 $$
+
 where
+
 $$
 Z_N = \int_0^{V^{1/3}} \int_0^{V^{1/3}} \int_0^{V^{1/3}} e^{-\beta U_N} \dd x_1 \dd y_1 \dd z_1 ... \dd x_n \dd y_n \dd z_n
 $$
+
 作变量替换
+
 $$
 x_i' = x_i / V^{1/3}
 $$
@@ -1515,13 +1665,16 @@ Z_N = \int_0^{1} \int_0^{1} \int_0^{1} e^{-\beta U(x_1'V^{1/3}...)} \dd x_1' \dd
 $$
 
 于是
+
 $$
 \begin{aligned}
 \pdv{Z}{V} &= NV^{N-1} \int_0^{1} \int_0^{1} \int_0^{1} e^{-\beta U_N} \dd x_1' \dd y_1' \dd z_1' ... \dd x_n' \dd y_n' \dd z_n' \\
 & \quad -V^N\int_0^{1} \int_0^{1} \int_0^{1} \beta e^{-\beta U_N} \pdv{U_N}{V} \dd x_1' \dd y_1' \dd z_1' ... \dd x_n' \dd y_n' \dd z_n'
 \end{aligned}
 $$
+
 解构一下：
+
 $$
 \pdv{U_N}{V} = \sum_{i<j} \dv{U_{ij}}{{r_{ij}}}\dv{{r_{ij}}}{V} = \sum_{i<j} \dv{U_{ij}}{{r_{ij}}} (\frac13 V^{-\frac23}r_{ij}')
 $$
@@ -1530,5 +1683,181 @@ $$
 \pdv{\ln Z}{V} = \rho - \frac{\rho^2}{3VkT}\int...\int r_{12} \dv{U(r_{r_12})}{r_{12}} g^{(2)}(r_1,r_2) \dd r_1 \dd r_2
 $$
 
+---
+
+## Chapter 7 Polymer
+
+### different levels
+
+- primary structure
+- secondary structure
+- tertiary structure
+- quantinary structure
+
+### simple example: random coil
+
+for freely joint chain:
+
+<img src="Physical Chemistry II.assets/1280px-Ideal_chain_random_walk.svg.png" alt="undefined" style="zoom: 25%;" />
+
+$N$ as number of residues, $l$ as monomer length, $nl$ as end-to-end length.
+
+define $R_c = Nl$ as counter length:
+
+$$
+N_L + N_R = N \\
+n = N_L - N_R
+$$
+
+so:
+
+$$
+W = \frac{N!}{N_L!N_R!} = \frac{N!}{(\frac{N+n}{2})!(\frac{N-n}{2})!}
+$$
+
+probability of observing on end-to-end distance of $nl$ is:
+
+$$
+P = \frac{W}{2^N} = \frac{N!}{2^N(\frac{N+n}{2})!(\frac{N-n}{2})!}
+$$
+
+so
+
+$$
+\ln P \approx \sqrt{\frac2{\pi N}} - \frac12 N(\frac{n}{N})^2
+$$
+
+
+for 1D cases:
+
+$$
+P = \sqrt{\frac2{\pi N}}e^{-\frac{h^2}{2N}}
+$$
+
+for 3D cases:
+
+$$
+f =4\pi\pqty{\frac{3}{2\pi Nl^2}}^{3/2} R^2e^{-\frac{3R^2}{2Nl^2}}
+$$
+
+so RMSD
+
+$$
+RMSD = \sqrt{\int f(R)R^2dR}
+$$
+
+conformation entropy:
+
+$$
+S = k\ln W
+$$
+
+and we know:
+
+$$
+S_{max} = S(n=0)
+$$
+
+def $\nu = n/N$, we got
+
+$$
+\Delta S = -\frac12 kN \ln\Bqty{(1+\nu)^{1+\nu} \cdot (1-\nu)^{1-\nu}}
+$$
+
+### calculation of chemical potential
+
+Free energy:
+
+$$
+-F = kT\ln Q = \ln Z_N - \ln N! - 3N\ln\Lambda
+$$
+
+and
+
+$$
+\mu = \pdv{F}{N} = F(N,V,T) - F(N-1,V,T)
+$$
+
+$$
+\mu = -kT\bqty{\ln(Z_N/Z_{N-1}) - \ln N - \ln \Lambda^3}
+$$
+
+这里我们需要计算一个比较难算的量 构型积分之比。我们引入一个参数 $\xi$ 称为耦合参数，现在我们假设第 $N$ 个粒子是一个:ghost: ，它占据一部分空间但不与其他粒子发生作用。当其从0到1的过程相当于时粒子从完全没作用线性变化到与正常作用一样。
+
+so
+
+$$
+Z_N(\xi) = \iint e^{-\frac{U(\xi)}{kT}} \dd r_i \dd r_N
+$$
+
+where
+
+$$
+U_N(r_1, \ldots r_N, \xi) = \sum_{j=2}^N \xi U(r_{1j}) + \sum_{2\le i,j \le N} U(r_{ij})
+$$
+
+$$
+Z_N(\xi = 0) = \iint e^{-U(r_2,r_N)/kT}\dd r_2 \dd r_N \int 1\dd r_1 = Z_{N-1}V
+$$
+
+so 原始转化为
+
+$$
+\ln (Z_N/Z_{N-1}) = \ln(Z_N(\xi=1)/Z_N(\xi = 0)) + \ln V = \ln V + \int_0^1 \pdv{\ln Z_N}{\xi} d\xi
+$$
+
+$$
+\pdv{Z_N}{\xi} = -\beta \int\cdots\int e^{-\beta U(\xi)} \bqty{\sum_{j=2}^N U_{ij}} \dd r_1 \cdots \dd r_N
+$$
+
+$$
+\begin{aligned}
+\pdv{\ln Z_N}{\xi} &= -\beta \int\cdots\int \frac{e^{-\beta U(\xi)}}{Z_N} \bqty{\sum_{j=2}^N U_{ij}} \dd r_1 \cdots \dd r_N \\
+&= -\beta \int\cdots\int \frac{(N-1)e^{-\beta U(\xi)}}{Z_N}\dd r_3 \cdots \dd r_N \  U_{12} \dd r_1 \dd r_2 \\
+&= -4\pi\beta\rho \int_0^\infty U(r)g(r,\xi,T) r^2 \dd r
+\end{aligned}
+$$
+
+于是就可以表达出化学势。
+
+### perturbation free energy calculation
+
+$$
+\begin{aligned}
+\Delta F &= F_y - F_x \\
+&= -kT \ln\frac{\iint e^{-\beta H_y}\dd r \dd p}{\iint e^{-\beta H_x}\dd r \dd p} \\
+&= -kT \ln\frac{\iint e^{-\beta (H_y-H_x)}e^{-\beta H_x}\dd r \dd p}{\iint e^{-\beta H_x}\dd r \dd p} \\
+&= -kT\ev{e^{-\beta(H_y - H_x)}}_x
+\end{aligned}
+$$
+
+然而这样很多情况会失败，原因在于据大多数情况，对于偏离平衡态的 $H_y$ 能量会特别高，导致这个数特别小甚至就是0.
+
+为了避免这一点，我们定义一个耦合参数 $\lambda$ 进行插值：
+
+$$
+H(\lambda) = (1-\lambda)H_x + \lambda H_y
+$$
+
+这样我们就可以积分计算：
+
+$$
+\begin{aligned}
+\pdv{F(\lambda)}{\lambda} &= -kT\frac1Q\pdv{Q}{\lambda} \\
+&= \frac1Q \iint \pdv{H_\lambda}{\lambda}e^{-\beta H_\lambda} \dd r \dd p \\
+&= \ev{\pdv{H(\lambda)}{\lambda}}_\lambda
+\end{aligned}
+$$
+
+于是
+
+$$
+\Delta F = F_y - F_x = \int_0^1 \ev{H_y - H_x}_\lambda \dd \lambda
+$$
+
+在实际计算中，通常 $P(F) = e^{-\beta H}/Q$ 是一个突跃值，实际上我i们可以通过测量及其多个温度下的曲线并作其抛物线：
+$$
+P(H) = \sum_i n_i e^{-\beta_iH}
+$$
 
 

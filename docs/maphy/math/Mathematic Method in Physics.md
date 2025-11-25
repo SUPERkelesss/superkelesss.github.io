@@ -1,10 +1,49 @@
-# 数学物理方法 Mathematic Method in Physics
+# 复变函数 Complex Variable Functions
 
-## Part I : Complex Variable Functions 复变函数
+## 0. 关于复数的基本认识
 
-### 可导与解析
+### 0.1 复数的表述及运算
 
-#### 复变函数的导数性质
+传统上，复数可用**实部**和**虚部**来表示：
+
+$$
+z = x + iy\qc
+\begin{cases}
+\Re(z) = x \\
+\Im(z) = y
+\end{cases}
+$$
+
+也可以用**模**和**辐角**来表示，也可使用欧拉公式化成指数形式：
+
+$$
+z = r(\cos \theta + i\sin \theta) = re^{i\theta} \qc
+\begin{cases}
+\abs{z} = r \\
+\arg{z} = \theta
+\end{cases}
+$$
+
+!!! tips "提示"
+    这同样也告诉我们**任何以纯虚数项作指数的幂函数模为1**：
+
+    $$
+    \abs{a^{ix}} = \abs{e^{ix\ln a }} = 1
+    $$
+
+### 0.2 复变函数
+
+就是**以复数作为自变量的函数**。这相当于在二维复平面上做运算，因此一些区域的概念就不赘述。
+
+值得一提的是**无穷远点**的概念。我们可以把一个模为正无穷，辐角为任意值的“复数点”定位无穷远点，其可以在复平面上以任意方式无限远离原点得到。一个直观的理解是 Reiman 球：
+
+![img](Mathematic Method in Physics.assets/250px-Riemann_sphere1.svg.png)
+
+在如图所示的球面上，可以用顶点到球面上任意一点的射线与复平面交点一一对应复平面上的每个点，此时，上顶点的位置就对应着无穷远点 $\infty$ 。
+
+## 1. 可导与解析
+
+### 1.1 复变函数的导数性质
 
 $$
 f'(z) = \lim_{\Delta z \to 0} \frac{f(z+\Delta z)-f(z)}{\Delta z}
@@ -85,7 +124,7 @@ $$
 
 ---
 
-#### 通过积分求解解析函数
+### 1.2 通过积分求解解析函数
 
 我们知道
 
@@ -107,7 +146,7 @@ $$
 
 ---
 
-#### 采取共轭复数的求解（不积分）
+### 1.3 采取共轭复数的求解（不积分）
 
 $$
 \begin{cases}
@@ -156,7 +195,7 @@ $$
 
 ---
 
-#### 特殊情况下的处理
+### 1.4 特殊情况下的处理
 
 !!! Example "Eg2"
     **$f(z)$ 解析且已知 $u+v$，求 $f(z) = u+iv$**
@@ -182,9 +221,9 @@ $$
 
 ---
 
-### 初等函数
+## 2. 初等函数
 
-#### 幂函数
+### 2.1 幂函数
 
 $$
 f(z) = z^n,\quad n\in\mathbb{C}
@@ -194,7 +233,7 @@ for $n = 1,2,3 ...$, $f(z)$ 在 $\infty$ 不解析，但在 $\mathbb{C}$ 解析
 
 for $n = -1,-2,-3 ...$, $f(z)$ 在 $\mathbb{C}/0$ 上解析
 
-#### 指数函数
+### 2.2 指数函数
 
 $$
 f(z) = e^z
@@ -212,7 +251,7 @@ $e^z+1=0$ 在 $\mathbb{R}$ 内无解但在 $\mathbb{C}$ 内有无穷多解，sin
 
 <img src="Mathematic Method in Physics.assets/1280px-Exp-complex-cplot.svg.png" alt="undefined" style="zoom:33%;" />
 
-#### 三角函数
+### 2.3 三角函数
 
 $$
 f(z) = \sin z, \cos z, \tan z, \cot z
@@ -246,19 +285,11 @@ $$
 
 若要讨论函数在无穷远点的性质，取变量替换 $t = \frac 1z$
 
-**本性奇点**：既非极点，也不可去。eg：
-
-$$
-e^{1/z} \quad \text{for} \quad z = 0
-$$
-
-<img src="Mathematic Method in Physics.assets/Essential_singularity.png" alt="Essential_singularity" style="zoom:25%;" />
-
 ---
 
-### 多值函数
+## 3. 多值函数
 
-#### 根式函数的多值性
+### 3.1 根式函数的多值性
 
 讨论函数：
 
@@ -298,7 +329,7 @@ $\sqrt{z}$ 的图像如下图所示，可见虚部是螺旋上升的：
 
 ---
 
-#### 多值函数的单值化
+### 3.2 多值函数的单值化
 
 考虑模和辐角：
 
@@ -344,7 +375,7 @@ $$
     
     即(2)(3)中两个分支中，每一对相反数函数值均相同，可视为一个单值分支。于是(2)(3)为单值函数。
 
-#### 分支点
+### 3.3 分支点
 
 在上面的讨论中，考虑函数 $w=\sqrt{z-a}$，自变量 $z$ 绕点 $a$ 旋转两圈（同时也是绕无穷远点 $\infty$ 旋转）其函数值才能复原，因此我们可以说 $z=a$ 和 $z=\infty$ 是函数 $w=\sqrt{z-a}$ 的 **分支点**，其 **分支指数** 为 2。
 
@@ -374,7 +405,7 @@ $$
 
 ---
 
-#### Reimann 面
+### 3.4 Reimann 面
 
 另一种方法是，规定复变函数在某一点的值，描述其 **沿某一路径** 运动到另一点的值。
 
@@ -394,7 +425,7 @@ $$
 
 ---
 
-#### 对数函数
+### 3.5 对数函数
 
 考虑复平面的对数函数：
 
@@ -425,7 +456,7 @@ $$
 
 ---
 
-#### 反三角函数
+### 3.6 反三角函数
 
 $$
 \begin{aligned}
@@ -439,9 +470,9 @@ $$
 
 ---
 
-### 复变积分
+## 4. 复变积分
 
-#### 复变积分的定义
+### 4.1 复变积分的定义
 
 复变积分就是 **复平面上的第一类曲线积分**
 
@@ -537,7 +568,7 @@ $$
 
 ---
 
-#### Cauchy 定理与不定积分
+### 4.2 Cauchy 定理与不定积分
 
 如果函数 $f(z)$ 满足：
 
@@ -624,7 +655,7 @@ $$
 
 ---
 
-#### 多连通区域
+### 4.3 多连通区域
 
 <img src="Mathematic Method in Physics.assets/image-20251008205200214.png" alt="image-20251008205200214" style="zoom: 67%;" />
 
@@ -670,7 +701,7 @@ $$
 
 在未给定圆形路径的半径$r$或比较难算时，常常采用在奇点附近取$|z-a|\to0$的小圆，通过极限求得其路径积分。
 
-#### 大小圆弧引理/Jordan 引理
+### 4.4 大小圆弧引理/Jordan 引理
 
 !!! NOTE "一致收敛"
     逐点收敛：当 $z\to a$ 时，$f(z,w) \to A$，iff：
@@ -752,9 +783,9 @@ $$
 
 ---
 
-### 含参定积分
+## 5. 含参定积分
 
-#### Cauchy 积分公式
+### 5.1 Cauchy 积分公式
 
 如果函数 $f(z)$ 满足：
 
@@ -823,7 +854,7 @@ $$
 
 ---
 
-#### Cauchy 型积分
+### 5.2 Cauchy 型积分
 
 若 $C \subset \mathbb{C}$ 是一条可求长曲线，定义 **Cauchy 型积分**：
 
@@ -859,7 +890,7 @@ $$
 
 ---
 
-#### 含参变量积分
+### 5.3 含参变量积分
 
 对于含参复变函数 $f(t,z)$，若满足：
 
@@ -877,7 +908,7 @@ $$
 
 ---
 
-### 更多引理
+### 5.4. 更多引理
 
 #### Cauchy不等式
 
@@ -885,15 +916,614 @@ $$
 |f^{(n)}(\zeta)| \leq \frac{n!}{2\pi}\frac{Ml}{d^{n+1}} = \frac{n!M}{R^n}(|\zeta-z| = R)
 $$
 
-其中$l$是边界周长，$d$为$z$到边界的最短距离，$M$为函数上界。
+其中 $l$ 是边界周长，$d$ 为 $z$ 到边界的最短距离，$M$ 为函数上界。
 
 #### Liouville定理
 
-如果$f(z)$在$\mathbb{C}$上解析且有界，则其必为常函数。
+如果 $f(z)$ 在 $\mathbb{C}$ 上解析且有界，则其必为常函数。
 
 ---
 
-### 无穷级数
+## 6. 无穷级数
 
-无穷级数的判别方法大致与 3
+### 6.1 复数级数
+
+无穷级数收敛的判别方法大致与实数相同，对于复数数列 $u_i$ ，我们有：
+
+$$
+\sum_n u_n = \sum_n a_n + i\sum_n b_n
+$$
+
+因此，复数级数的收敛性**完全等价于实部和虚部两个实数级数的收敛性**。
+
+类似任意项指数，复数级数也有绝对收敛的概念，即绝对收敛对应着 $\sum_n \abs{u_n}$ 收敛。显然，如果一个级数绝对收敛，那么这个级数本身也收敛。
+
+由于绝对级数已经转换为正数项级数的问题，可以用高等数学结论进行判断。此处不赘述。
+
+---
+
+### 6.2 函数级数
+
+逐点收敛和一致收敛的定义前文已经说过，此处不再赘述。
+
+同样的，对于一致收敛的函数级数，满足：
+
+- 如果原函数 $u_k(z)$ 连续，那么级数 $\sum_{k=1}^\infty u_k(z)$ 也连续。其实就是：
+
+$$
+\lim_{z \to z_0} \bqty{\sum_{k=1}^\infty u_k(z)} = \sum_{k=1}^\infty\bqty{\lim_{z \to z_0}  u_k(z)}
+$$
+
+- 可以逐项求积分：
+
+$$
+\int_C \sum_{k=1}^\infty u_k(z) dz = \sum_{k=1}^\infty \int_C u_k(z) dz
+$$
+
+- 可以逐项求导数（**Weierstrass 定理**）：
+
+$$
+\dv[p] z \sum_{k=1}^\infty u_k(z) = \sum_{k=1}^\infty \bqty{\dv[p] z u_k(z)}
+$$
+
+如果把求个扩展到积分，我们就可以判断含参反常积分的一致收敛性。事实上，一般判断函数项级数和反常积分一致收敛的方法是**比较判别法**，即找到一个模更大且一致收敛的函数进行比较（M-判别法）。
+
+对于一个连续且区域内解析的函数 $f(t,z)$ ，如果积分一致连续，我们就可以判断**其积分解析**，且求导和积分可以互换：
+
+$$
+\dv z \int_a^\infty f(t,z) dt = \int_a^\infty \pdv z f(t,z) dt
+$$
+
+---
+
+### 6.3 幂级数
+
+和实数一样，幂级数被定义为：
+
+$$
+\sum_{n=0}^\infty c_n(z-a)^n \equiv c_0 + c_1(z-a) + c_2(z-a)^2 + ...
+$$
+
+同样我们有幂级数的**收敛半径**，即在复平面上，使幂级数收敛的区域是**半径为 $r$ 的一个圆形**。对于边界上的情况，实际上由于我们只关心收敛区域，因此一般不需要单独考虑。
+
+收敛半径通常有两种求法：
+
+- Cauchy 判别法：收敛半径为系数的上极限的 $1/n$ 次方的倒数：
+
+$$
+R = \frac{1}{\varlimsup_{n\to\infty} \abs{c_n}^{1/n}}
+$$
+
+- d'Alembert 判别法：**如果相邻相的比值极限存在**，则：
+
+$$
+R = \lim_{n\to\infty} \abs{\frac{c_n}{c_{n+1}}}
+$$
+
+通常而言后者的计算更简单，但是前者更加普遍通用。
+
+---
+
+### 6.4 Taylor 展开
+
+和实变函数一样，对于复变函数 $f(z)$ ，如果在半径为 $R$ 的区域 $|z-a|<R$ 内解析，则可以展开成幂级数：
+
+$$
+f(z) = \sum_{n=0}^\infty \alpha_n(z-a)^n
+$$
+
+由高阶导数公式，实际上：
+
+$$
+\alpha_n = \frac{f^{(n)}(a)}{n!} = \frac{1}{2\pi i}\oint_{|z-a|=R}\frac{f(z)}{(z-a)^{n+1}} dz
+$$
+
+公式和实变函数一样，但收敛条件略有不同。在复数域种，我们说收敛半径内均能保证收敛，这意味着找到一个离展开点最近的不可导点就足够确定收敛半径了。但在实变函数中还要求 Lagrange 余项的极限为0：
+
+$$
+R_n(x) = \frac{f^{(n+1)}{(\zeta)}}{(n+1)!}(x-x_0)^{n+1} \to 0
+$$
+
+一个经典的粒子是对于 $f(x) - \frac{1}{1+x^2} = \sum_{n=0}^\infty (-)^nz^{2n}$ ，收敛半径为 $R=1$ ，但在实数范围内难以解释其收敛域。
+
+其他解 Taylor 级数的方法与实变相同。
+
+一个有用的技巧是**柯西乘积**：
+
+$$
+\pqty{\sum_{i=0}^{\infty} a_ix^i} \cdot \pqty{\sum_{j=0}^{\infty} b_jx^j} =
+\sum_{k=0}^{\infty} \pqty{\sum_{l=0}^{k} a_lb_{k-l}}x^k
+$$
+
+其实际作用就是一个自变量的范围限制在另一个自变量内，其实就是转化成对角线的求和：
+
+<img src="Mathematic Method in Physics.assets/image-20251123195535304.png" alt="image-20251123195535304" style="zoom:50%;" />
+
+!!! example "级数相乘"
+    **在 $z=0$ 展开 $\frac1{1-3z+2z^2}$** 。
+
+    $$
+    \begin{aligned}
+    \frac1{1-3z+2z^2} &= \frac1{1-z} \cdot \frac1{1-2z} \\
+    &= \sum_{i=0}^\infty z^k \cdot \sum_{j=0}^\infty 2^jz^j \\
+    &= \sum_{k=0}^\infty \pqty{\sum_{l=0}^k 2^l} z^k \\
+    &= \sum_{k=0}^\infty(2^{k+1} - 1)z^k
+    \end{aligned}
+    $$
+
+对于多值函数，在规定单值分支后即可展开。如对于函数：
+
+$$
+f(z) = (1+z)^\alpha
+$$
+
+若规定原点处值为 $a$ ，则有：
+
+$$
+\begin{gathered}
+f(0) = a \\
+f'(0) = a\alpha(1+z)^{\alpha-1} \eval{}_{z=0} = a\alpha \\
+f''(0) = a\alpha(\alpha-1)
+\end{gathered}
+$$
+
+一般地，有：
+
+$$
+(1+z)^\alpha = a\sum_{n=0}^\infty \binom{\alpha}{n} z^n
+$$
+
+其收敛半径**视展开点到割线距离**，且最大展开半径为 $R = 1$。
+
+再对于对数函数：
+
+$$
+\begin{aligned}
+f(z) = \ln(1+z) &= \int_0^z \frac{1}{1+\zeta} d\zeta + \ln(1+\zeta) \eval{}_{\zeta=0} \\
+&= \int_0^z \sum_{n=0}^\infty (-)^n\zeta^nd\zeta + a \\
+&= \sum_{n=0}^\infty \frac{(-)^n}{n+1} z^{n+1} + a \\
+&= \sum_{m=1}^\infty \frac{(-)^{m-1}}{m} z^{m} + a
+\end{aligned}
+$$
+
+对于复变函数而言，还有一种特殊的展开是在**无穷远点展开**。前面我们说过 $\infty$ 和 $0$ 可以通过 $1/z$ 相互映射，因此实际上无穷远点就是做变换 $z = \frac 1t$ ，然后在 $0$ 处展开 $f(\frac 1t)$：
+
+$$
+f(1/t) = \alpha_0 + \alpha_1t + \alpha_2t^2 + ...
+$$
+
+!!! example "无穷远点展开"
+    **在无穷远点展开 $\frac{1}{1-z}$** 。
+
+    $$
+    \frac{1}{1-z} = -\frac 1z \frac{1}{1-\frac1z} = -\frac1z \sum_{n=0}^\infty \pqty{\frac1z}^n = -\sum_{n=0}^\infty \pqty{\frac1z}^{n+1}
+    $$
+
+---
+
+### 6.5 解析函数的唯一性
+
+对于朴素的零点定义，我们有：
+
+> 对于一个函数 $f(z) \not\equiv 0$ ，如果在 $a$ 点解析并且 $f(a) = 0$ ，则 $z=a$ 为函数的零点。
+
+我们可以把这个概念进行拓展。如果一个非零函数可以在半径 $R$ 内展开：
+
+$$
+f(z) = \sum_{n=0}^\infty \alpha_n(z-a)^n
+$$
+
+此时如果 $f(a) = 0$ ，则存在一个正整数 $m$ 使得：
+
+$$
+f(a) = f'(a) = ... = f^{(m-1)}(a) = 0 \qc f^{(m)}(a) \neq 0
+$$
+
+即：
+
+$$
+\alpha_0 = \alpha_1 = ... = \alpha_{m-1} = 0 \qc \alpha_m \neq 0
+$$
+
+此时 $z=a$ 称为 $f(z)$ 的 **$m$ 阶零点**。
+
+对于零点有一个重要的定理：
+
+**零点孤立性定理**：如果 $f(z)$ 在区域 $G$ 内解析且不恒为零，对于 $a \in G$, 且 $f(a) = 0$，则必然存在 $\delta > 0$ 使得 $f(z)$ 在空心邻域 $0 < |z-a| < \delta$ 内无零点。
+
+**零点孤立性定理**的逆否命题：如果 $f(z)$ 在区域 $G$ 内解析，对于 $a \in G$, 且 $f(a) = 0$，如果存在 $\delta > 0$ 使得 $f(z)$ 在空心邻域 $0 < |z-a| < \delta$ 内**有**零点，则 **$f(z)$ 恒等于 0**。
+
+如果我们设：
+
+$$
+f_1(z) - f_2(z) = f(z)
+$$
+
+这样就可以将逆否命题改写为：如果 $f_1(z), f_2(z)$ 在区域 $G$ 内解析，对于 $a \in G$, 且 $f_1(a) = f_2(a)$，如果存在 $\delta > 0$ 使得 $f(z)$ 在空心邻域 $0 < |z-a| < \delta$ 内**有**零点，则 **$f_1(z) = f_2(z)$**。
+
+这其实意味着**解析函数的唯一性**：对于两个解析函数，如果在一个恒等式**在一段弧或者一个区域内成立**，那么其**在复平面上仍然成立**。
+
+---
+
+## 7. Laurrent 级数和留数
+
+### 7.1 Laurent 展开
+
+---
+
+### 7.2 奇点的分类
+
+---
+
+### 7.3 Γ 函数
+
+$\Gamma$ 函数的定义与实数相同：
+
+$$
+\Gamma(z) = \int_0^\infty e^{-t}t^{z-1} dt \qc \Re(z) > 0
+$$
+
+其中 $t \in \mathbb{Z}^*$ 。
+
+为了讨论 $\Gamma$ 函数的解析性，我们定义：
+
+$$
+\Gamma(z) = \int_0^1 e^{-t}t^{z-1} dt + \int_1^\infty e^{-t}t^{z-1} dt = \gamma(z,1) + \Gamma(z,1)
+$$
+
+!!! proof "$\Gamma(z,1)$ 的解析性"
+    > 如果一列**解析函数**在区域 $D$ 上**内闭一致收敛**于函数 $f$，那么：
+    >
+    > - $f$ 也在 $D$ 上解析。
+    > - 导函数、积分等也内闭一致收敛。
+
+    要证 $\Gamma(z,1)$ 解析，即证其（内闭）一致收敛。我们有：
+    
+    $$
+    e^t > \frac{t^N}{N!} > 0 \Rightarrow e^{-t} < \frac{N!}{t^N}
+    $$
+    
+    现在我们选择一个 $x_0$，使得 $\max\Re\ z < x_0$
+    
+    <img src="Mathematic Method in Physics.assets/image-20251124154208253.png" alt="image-20251124154208253" style="zoom:50%;" />
+    
+    于是原积分：
+    
+    $$
+    \Gamma(z,1) < \int_1^\infty N!t^{z-1-N}dt < \int_1^\infty t^{x_0-N-1}dt = \frac{1}{N-x_0}
+    $$
+    
+    内闭一致收敛，于是 $\Gamma(z,1)$ 在全平面解析。
+
+!!! proof "$\gamma(z,1)$ 的解析性"
+    也是证内闭收敛。选择一个**正**实数 $\delta$ ，使得 $\min \Re\ z > \delta$ ：
+
+    <img src="Mathematic Method in Physics.assets/image-20251124155100460.png" alt="image-20251124155100460" style="zoom:50%;" />
+    
+    于是：
+    
+    $$
+    \gamma(z,1) < \int_0^1 t^{\delta-1}dt = \frac1\delta
+    $$
+    
+    内闭一致收敛，于是 $\gamma(z,1)$ 在右半平面解析。
+    
+    我们发现 $\gamma(z,1)$ 的解析域是较窄的，现在我们想办法将其延拓至全平面。对原积分作 Taylor 展开：
+    
+    $$
+    \gamma(z,1) = \sum_{n=0}^\infty \frac{(-)^n}{n!} \int_0^1 t^{n+z-1}dt = \sum_{n=0}^\infty \frac{(-)^n}{n!} \frac{1}{n+z}
+    $$
+    
+    这样 $\Gamma(z)$ 就可以在 $\mathbb C \backslash 0, -1, -2\ldots$ 上定义。
+
+
+$\Gamma$ 函数的各种性质与实数类似：
+
+- $\Gamma(1) = 1$
+- $\Gamma(z+1) = z\Gamma(z)$, 当 $z \neq 0, -1, -2...$
+
+!!! note "推论"
+    根据性质2，我们可以在平面左端解析延拓 $\Gamma$ 函数：
+
+
+	$$
+	\Gamma(z) = \frac 1z \Gamma(z+1)
+	$$
+	
+	于是我们就可以说 $z=0$ 是 $\Gamma$ 函数的一阶极点，其留数：
+	
+	$$
+	\Res\ \Gamma(0) = 1
+	$$
+	
+	依次延拓到全平面，我们就有 $z = 0,-1,-2...$ 都是 $\Gamma$ 函数的一阶极点：
+	
+	$$
+	\Gamma(z) = \frac1{z(z+1)}\Gamma(z+2)
+	$$
+	
+	其留数：
+	
+	$$
+	\Res\ \Gamma(-n) = \frac{(-1)^n}{n!}
+	$$
+
+- 阶乘函数：
+
+  $$
+  \Gamma(n+1) = n! \qc n \in \mathbb N
+  $$
+  
+- 互余宗量定理：
+
+  $$
+  \displaystyle \Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin \pi z}
+  $$
+
+  其有几个重要推论：
+  
+  - $\Gamma(\frac12) = \sqrt{\pi}$
+  - $\Gamma$ 函数在全平面无零点。
+
+<img src="Mathematic Method in Physics.assets/image-20251124000104843.png" alt="image-20251124000104843" style="zoom:50%;" />
+
+- 倍乘公式：
+
+  $$
+  \Gamma(2z) = 2^{2z-1}\pi^{-1/2}\ \Gamma(z)\Gamma(z+1/2)
+  $$
+  
+- Stirling 公式：
+
+  $$
+  \Gamma(z) \sim z^{z-1/2}e^{-z}\sqrt{2\pi} \qc n! = \sqrt{2\pi n} (n/e)^n
+  $$
+
+---
+
+### 7.4 B 函数
+
+B 函数的定义：
+
+$$
+B(p,q) = \int_0^1 t^{p-1}(1-t)^{q-1} dt\qc \Re\ p>0\qc \Re\ q>0
+$$
+
+做变换 $t = \sin[2]\theta$，可以得到：
+
+$$
+B(p,q) = 2\int_0^{\pi/2} \sin[2p-1]\theta \cos[2q-1]\theta\ d\theta
+$$
+
+由于对称性，可以得到：
+
+- 交换性质：
+
+$$
+B(p,q) = B(q,p)
+$$
+
+- 与 $\Gamma$ 函数的联系：
+
+$$
+B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}
+$$
+
+!!! proof "证明"
+    令 $t = x^2 = y^2$ 。
+
+    $$
+    \Gamma(p) = \int_0^\infty e^{-t} t^{p-1} dt = 2\int_0^\infty e^{-x^2}x^{2p-1} dx
+    $$
+    
+    于是：
+    
+    $$
+    \begin{aligned}
+    \Gamma(p)\Gamma(q) &= 4\int_0^\infty\int_0^\infty e^{-(x^2+y^2)} x^{2p-1}y^{2q-1} dxdy \\
+    &= 4\int_0^\infty \int_0^{\pi/2} e^{-r^2} (r\cos\theta)^{2p-1}(r\sin\theta)^{2q-1} r drd\theta \\
+    &= 2\int_0^\infty e^{-r^2} r^{2p+2q-2} \cdot 2\int_0^{\pi/2}\cos\theta^{2p-1}\sin\theta^{2q-1} d\theta \\
+    &= \Gamma(p+1)B(p,q)
+    \end{aligned}
+    $$
+
+根据这一点，可以把 B 函数解析延拓至 $\mathbb C$。
+
+---
+
+### 7.5 留数定理
+
+我们说对于 Laurent 级数有：
+
+$$
+2\pi i a_n = \oint_C \frac{f(\zeta)}{(\zeta-b)^{n+1}}d\zeta
+$$
+
+这样就可以反过来来计算右边的积分，特别是当 $n = -1$ 时：
+
+$$
+\oint_C f(\zeta)d\zeta = 2\pi ia_{-1}
+$$
+
+我们定义 $f(z)$ 在孤立奇点 $z=b$ 处的**留数**：
+
+$$
+\boxed{\Res\ f(b) = a_{-1}}
+$$
+
+于是我们有**留数定理**：设**有界区域** $G$ 的边界为可求长曲线，若除**有限个**孤立奇点 $b_k$ 外 $f(z)$ 在 $G$ 内解析，且在闭区域连续，则：
+
+$$
+\oint_{\partial G} f(z)dz = 2\pi i \sum_{k=1}^n \Res\ f(b_k)
+$$
+
+这可以由多连通区域的柯西定理直接得出。
+
+对于不同类型的奇点，我们有：
+
+- 可去奇点：由于邻域内展开 $a_{-1} = 0$ ，于是留数为0。
+- 一阶极点：领域内展开后有 $a_{-1} = \lim_{z\to b} (z-b)f(z)$。
+
+一个常见的形式是 $f(z) = P(z)/Q(z)$ ，其中 $P(z)$ 和 $Q(z)$ 均在 $b$ 点及邻域内解析，且：
+
+$$
+Q(b) = 0,Q'(b) \neq 0, P(b) = 0
+$$
+
+那么我们有：
+
+$$
+a_{-1} = \lim_{z\to b}(z-b)\frac{P(z)}{Q(z)} = \lim_{z\to b}\frac{P(b)}{Q'(b)}
+$$
+
+- $m$ 阶极点：我们有：
+
+$$
+f(z) = a_{-m}(z-b)^{-m} + \cdots + a_{-1}(z-b)^{-1} + a_0 + a_{1}(z-b) + \cdots
+$$
+
+$$
+(z-b)^mf(z) = a_{-m} + \cdots + a_{-1}(z-b)^{m-1} + a_0(z-b)^{m} + a_{1}(z-b)^{m+1} + \cdots
+$$
+
+于是：
+
+$$
+a_{-1} = \frac{1}{(m-1)!}\dv[m-1]{z}\eval{\bqty{(z-b)^mf(z)}}_{z=b}
+$$
+
+!!! example "留数的求法"
+    **求 $f(z) = (e^{iaz} - e^{ibz})/z^2$ 在孤立奇点（$z=0$）处的留数。**
+
+    $$
+    \begin{aligned}
+    \Res\ f(0) &= \frac{1}{1!} \eval{\dv z z^2\frac{e^{iaz}-e^{ibz}}{z^2}}_{z=0} \\
+    &= \eval{\dv z (e^{iaz}-e^{ibz})}_{z=0} = i(a-b)
+    \end{aligned}
+    $$
+    
+    或用上一个结论：
+    
+    $$
+    \begin{aligned}
+    \Res\ f(0) &= \lim_{z\to 0} z\cdot \frac{e^{iaz}-e^{ibz}}{z^2}\\
+    &= \frac{e^{iaz}-e^{ibz}}{z} = i(a-b)
+    \end{aligned}
+    $$
+
+- 本性奇点：只能展开之后求得 $a_{-1}$ 的值。
+
+通过留数定理可以方便的解决一些问题。
+
+!!! example "部分分式"
+    **将 $1/(z-1)(z-2)(z-3)$ 分解成部分分式。**
+
+    $$
+    f(z) = \frac1{(z-1)(z-2)(z-3)} = \frac{A}{z-1} + \frac{B}{z-2} + \frac{C}{z-3}
+    $$
+    
+    其中：
+    
+    $$
+    A = \Res\ f(z)\eval{}_{z=1} = \frac12 \qc B = \Res\ f(z)\eval{}_{z=2} = -1 \qc C = \Res\ f(z)\eval{}_{z=3} = \frac12
+    $$
+
+!!! example "求简单积分"
+    **计算 $\oint_{|z|=n}\tan\pi zdz $**，$z\in\Z^*$ 。
+
+    即求留数和。在 $z_k = \frac\pi2+k\pi$ 处考虑留数：
+    
+    $$
+    \Res\ \tan\pi z = \eval{\frac{\sin\pi z}{(\cos\pi z)'}}_{z=z_k} = -\frac1\pi
+    $$
+    
+    于是：
+    
+    $$
+    I = 2\pi i\cdot 2n \cdot (-\frac1\pi)= -4ni
+    $$
+
+在无穷远点也可给出留数，定义：
+
+$$
+\Res f(\infty) = \frac1{2\pi i}\oint_{|z|=R} f(z)dz
+$$
+
+!!! warning "注意"
+    1. 这个积分的方向是**顺时针的**。
+    2. $\infty$ 可能是孤立奇点或解析点。
+    3. 这里的留数**不是 Laurent 展开中 $z^{-1}$ 或 $z^1$ 项的系数**。
+
+    作为证明：
+    
+    $$
+    \Res\ f(\infty) = \frac1{2\pi i}\oint_{|z|=R} f(z)dz = \frac1{2\pi i}\oint_{|t|=1/R} f(1/t) \frac{dt}{t^2}
+    $$
+    
+    于是其等于：
+    
+    - $-f(1/t)/t^2$ 在 $t=0$ 点展开的 $t^{-1}$ 的系数；
+    - $-f(1/t)$ 在 $t=0$ 点展开的 $t^{1}$ 的系数；
+    - $-f(z)$ 在 $z=\infty$ 点展开的 $z^{-1}$ 的系数。
+    
+    这导致在无穷远点解析的函数，其留数也可能不为0；以无穷远点为奇点的函数，其留数也可能为0。
+
+一个定理是：如果 $f(z)$ 在 $\C$ 内除有限个孤立奇点外均解析，则其在扩充的复平面 $\bar\C$ 中的留数和为0.
+
+!!! example "无穷远点留数的求法"
+    **求 $f(z) = (e^{iaz} - e^{ibz})/z^2$ 在无穷远点（$z=\infty$）处的留数。**
+
+$$
+\Res\ f(\infty) = -\Res\ f(0) =  -i(a-b)
+$$
+
+---
+
+### 7.6 通过留数定理计算积分
+
+#### 7.6.1 有理三角函数
+
+$$
+I = \int_0^{2\pi} R(\sin\theta, \cos\theta)d\theta
+$$
+
+令 $z=e^{i\theta}$：
+
+$$
+\begin{aligned}
+I &= \oint_{|z|=1} R(\frac{z^2-1}{2iz}, \frac{z^2+1}{2z})\frac{dz}{iz} \\
+&= 2\pi\sum_{|z|<1} \Res(\frac1z R(\frac{z^2-1}{2iz}, \frac{z^2+1}{2z}))
+\end{aligned}
+$$
+
+#### 7.6.2 无穷积分
+
+无穷积分严格定义为：
+
+$$
+\int_{\infty}^{\infty} f(x)dx = \lim_{R_1,R_2\to\infty} \int_{-R_1}^{R_2} f(x)dx
+$$
+
+其中，较易求且大部分情况下存在的情况 $R_1 = R_2$ 下被称为无穷积分的积分主值：
+
+$$
+\text{v.p.}\int_{-\infty}^{\infty}f(x)dx = \lim_{R\to\infty} \int_{-R}^{R}f(x)dx
+$$
+
+要转化成复积分，最好的方式是补上积分围道。一种做法是补成半圆形：
+
+<img src="Mathematic Method in Physics.assets/image-20251125031237247.png" alt="image-20251125031237247" style="zoom: 67%;" />
+
+然后令 $R\to\infty$ ，这样我们就转变为计算：
+
+$$
+\int_{-\infty}^{\infty}f(x)dx = \lim_{R\to\infty} \oint_C f(z)dz - \lim_{R\to\infty} \int_{C_R} f(z)dz
+$$
+
+在 $f(z)$ 在上半部分只有有限个奇点时，第一部分可以用留数求。而第二部分在无穷远点一致收敛时就是大圆弧定理：
+
+$$
+ \lim_{R\to\infty} \int_{C_R} f(z)dz = i\pi K
+$$
+
 

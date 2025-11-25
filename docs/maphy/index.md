@@ -9,10 +9,8 @@
 > <p align = "right">—— 芥川龙之介 《侏儒的话》</p>
 
 {{ BEGIN_TOC }}
-
 - 数学基础:
   - 数学物理方法: "math/Mathematic Method in Physics"
 - 热学与热力学:
-
-    - 统计热力学: "thermo_phys/Statistic_Thermodynamics"
-    {{ END_TOC }}
+  - 统计热力学: "thermo_phys/Statistic_Thermodynamics"
+{{ END_TOC }}

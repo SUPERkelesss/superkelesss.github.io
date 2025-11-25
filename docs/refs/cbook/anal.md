@@ -28,3 +28,11 @@
 > 北大版本的分析化学教材，如果对武大分析比较排斥也可以试试这本。
 
 - **教材**：[https://pan.baidu.com/s/1WdDV0uOJYLzttJ-v8Frepw?pwd=gama](https://pan.baidu.com/s/1WdDV0uOJYLzttJ-v8Frepw?pwd=gama)
+
+<br/>
+
+### （新）化学综合定性分析 (E.N.兰伯特，M.J.穆罕默德著；裘新译) 
+
+> 比较全的定性分析手册。
+
+- **教材**：[https://pan.baidu.com/s/1ncOK57yKWDtof1fyNnkvcw?pwd=gama](https://pan.baidu.com/s/1ncOK57yKWDtof1fyNnkvcw?pwd=gama)

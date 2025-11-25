@@ -9,6 +9,7 @@ nav:
     - 化学-首页: "chem/index.md"
     - 物理化学:
       - 物理化学II笔记: "chem/physical/Physical Chemistry II.md"
+      - 相与相图: "chem/physical/Phase_Diagram.md"
     - 竞赛晶体进阶十讲:
       - 0.前言: "chem/crystaljs/perface.md"
       - 1.宏观晶体与对称性: "chem/crystaljs/lecture1.md"

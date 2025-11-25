@@ -214,6 +214,14 @@
 
 <br/>
 
+### （新）配位化学 (罗勤慧)
+
+> 另一本经典的配位化学书籍。
+
+- **教材**：[https://pan.baidu.com/s/1M0A1Eyhd9Kds9iLjHPyj8A?pwd=gama](https://pan.baidu.com/s/1M0A1Eyhd9Kds9iLjHPyj8A?pwd=gama)
+
+<br/>
+
 ### 物质结构 (徐光宪) - 2nd
 
 > 比较老的结构化学书籍。
@@ -233,3 +241,9 @@
 > 第三部分有点"集邮"的性质，很多是元素结构的罗列，但也有一些理论，建议的阅读方式是"出题"式的看，当你真正理解怎么把素材命成题目后，说明理解的差不多了。另外注意第3版加了很多东西！
 
 - **教材**：[https://pan.baidu.com/s/1nwz6IrAB2Pd2yd_c7QuGYQ?pwd=gama](https://pan.baidu.com/s/1nwz6IrAB2Pd2yd_c7QuGYQ?pwd=gama)
+
+### （新）无机结构化学习题 (李伟基，李奇，张羽伸等) 
+
+> 基本可以认为是前者的习题，如果对结构化学感兴趣的可以配套浏览一下。给的例题并不是很难。
+
+- **教材**：[https://pan.baidu.com/s/1NmgtBjSuZu2G5_GnobUshQ?pwd=gama](https://pan.baidu.com/s/1NmgtBjSuZu2G5_GnobUshQ?pwd=gama)

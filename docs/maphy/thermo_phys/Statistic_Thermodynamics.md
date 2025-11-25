@@ -4,7 +4,7 @@
 >
 > 本文档遵循[署名—非商业性使用—相同方式共享 4.0 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)（CC BY-NC-SA 4.0）授权:fontawesome-brands-creative-commons::fontawesome-brands-creative-commons-by::fontawesome-brands-creative-commons-nc::fontawesome-brands-creative-commons-sa:
 >
-> 作者：凯楽斯kelesss
+> 作者：**凯楽斯kelesss**
 
 ![img](Statistic_Thermodynamics.assets/card_after_training.png)
 
@@ -947,10 +947,10 @@ $$
 P(\epsilon, N) \propto e^{S/k_B} \propto e^{\beta(\mu N - \epsilon)}
 $$
 
-类比我们前面说的归一化常数，我们可以定义**巨配分函数** $\mathcal{Z}$：
+类比我们前面说的归一化常数，我们可以定义**巨配分函数** $\mathcal{Z}$ 。注意此处的粒子数 $N_i$ 的取值是 $[0,  \infty)$ 之间的所有整数：
 
 $$
-\boxed{\mathcal{Z} = \sum_i e^{\beta(\mu N_i - E_i)}}
+\boxed{\mathcal{Z} = \sum_{N=0}^\infty e^{\beta(\mu N - E_N)}}
 $$
 
 这样我们就可以写出巨正则系综中的概率：
@@ -958,6 +958,20 @@ $$
 $$
 \boxed{P_i = \frac 1{\mathcal Z} e^{\beta(\mu N_i - E_i)}}
 $$
+
+对于存在 $\alpha$ 种粒子的体系，我们有：
+
+$$
+\boxed{\mathcal{Z} = \sum_{N=0}^\infty \sum_\alpha e^{\beta(\mu N - E_\alpha)}}
+$$
+
+进一步的，我们还可以用正则配分函数表述巨正则配分函数：
+
+$$
+\mathcal{Z} = \sum_{N=0}^\infty e^{\beta(\mu N - E_N)} = \sum_{N=0}^\infty Z(N, V,T)e^{N\beta\mu} =  \sum_{N=0}^\infty Z(N, V,T)\lambda^{N}
+$$
+
+其中 $\lambda = \exp(\beta\mu)$ 是一个无量纲量，被称为**绝对活度**（Absolute Activity）。
 
 !!! tip "系综配分函数的统一表述"
     我们在讨论正则系综的时候，说过自由能 $F$ 可表示为：
@@ -1001,7 +1015,7 @@ $$
 接下来我们对巨配分函数进行进一步讨论。从前面我们知道，根据配分函数就可以求其他热力学量，对于平均粒子数：
 
 $$
-N = \sum_i N_iP_i = \frac{\sum_i Ne^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} = \frac{1}{\beta \mathcal Z} \pqty{\pdv{\mathcal{Z}}{\mu}}_\beta = k_BT\pqty{\pdv{\ln \mathcal{Z}}{\mu}}_\beta
+\overline N = \sum_i N_iP_i = \frac{\sum_i Ne^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} = \frac{1}{\beta \mathcal Z} \pqty{\pdv{\mathcal{Z}}{\mu}}_\beta = k_BT\pqty{\pdv{\ln \mathcal{Z}}{\mu}}_\beta
 $$
 
 而对内能 $U$ ，还是考虑平均能量：
@@ -1009,8 +1023,8 @@ $$
 $$
 \begin{aligned}
 U = \ev{E} = \sum_i E_iP_i &= \frac{\sum_i E_ie^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} \\
-&= -\frac{1}{\mathcal Z} \pqty{\pdv{\mathcal{Z}}{\beta}}_\mu + \mu N \\
-&=  - \pqty{\pdv{\ln \mathcal{Z}}{\beta}}_\mu + \mu N
+&= -\frac{1}{\mathcal Z} \pqty{\pdv{\mathcal{Z}}{\beta}}_\mu + \mu \overline N \\
+&=  - \pqty{\pdv{\ln \mathcal{Z}}{\beta}}_\mu + \mu \overline N
 \end{aligned}
 $$
 
@@ -1020,9 +1034,21 @@ $$
 \begin{aligned}
 S = -k_B\sum_i P_i \ln {P_i} &= -k_B\frac{\sum_i (\beta(\mu N_i - E_i) - \ln \mathcal Z)e^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} \\
 &= \frac{-\mu \sum_i N_ie^{\beta(\mu N - E_i)} + \sum_i E_ie^{\beta(\mu N - E_i)} + \beta\ln \mathcal Z}{T\mathcal Z} \\
-&= \frac{U - \mu N + k_BT\ln \mathcal Z}{T}
+&= \frac{U - \mu \overline N + k_BT\ln \mathcal Z}{T}
 \end{aligned}
 $$
+
+这样就可以得到自由能：
+$$
+F = U-TS = k_BT\ln\mathcal Z - \mu \overline N
+$$
+然后再从自由能推出压强：
+$$
+p = -\pqty{\pdv{F}{V}}_{T} = k_BT\pqty{\pdv{\ln\mathcal Z}{V}}
+$$
+
+
+
 
 ---
 
