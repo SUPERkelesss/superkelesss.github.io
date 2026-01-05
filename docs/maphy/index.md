@@ -13,4 +13,6 @@
   - 数学物理方法: "math/Mathematic Method in Physics"
 - 热学与热力学:
   - 统计热力学: "thermo_phys/Statistic_Thermodynamics"
+  - 统热进阶专题: "thermo_phys/Statistic_Thermodynamics_2"
+  - 近平衡态的热力学: "thermo_phys/Near_Eq"
 {{ END_TOC }}

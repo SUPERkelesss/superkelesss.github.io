@@ -1496,6 +1496,8 @@ I &= \oint_{|z|=1} R(\frac{z^2-1}{2iz}, \frac{z^2+1}{2z})\frac{dz}{iz} \\
 \end{aligned}
 $$
 
+这样就转化为了留数形式的求解。
+
 #### 7.6.2 无穷积分
 
 无穷积分严格定义为：
@@ -1523,7 +1525,304 @@ $$
 在 $f(z)$ 在上半部分只有有限个奇点时，第一部分可以用留数求。而第二部分在无穷远点一致收敛时就是大圆弧定理：
 
 $$
- \lim_{R\to\infty} \int_{C_R} f(z)dz = i\pi K
+\lim_{R\to\infty} \int_{C_R} f(z)dz = i\pi K
 $$
 
+于是用留数定理：
+
+$$
+\int_{-\infty}^{\infty}f(x)dx = -i\pi K + \sum_{上半平面} \Res f(z)
+$$
+
+!!! example 留数计算无穷积分
+
+**计算无穷积分$\int_0^\infty \frac{1}{1+x^n}dx$**。
+
+取扇形围道 $C: r\in(0,R), \theta\in(0, 2\pi /n )$，这样扇形内仅有 $z_0 = e^{i\pi/n}$ 一个奇点。
+
+$$
+\Res(f,z_0) = \frac{1}{nz_0^{n+1}} = -\frac{e^{i\pi/n}}{n}
+$$
+
+沿 $C_1$ ：即为原积分。
+
+沿 $C_2$ ：大圆弧引理，由于函数极限为0则积分值也为0
+
+沿 $C_3$ ：令 $z = te^{i2\pi / n}$：
+
+$$
+\int_{C_3} f(z)dz = \int_R^0\frac{1}{1+t^ne^{i2\pi}}e^{i2\pi / n}dt = e^{i2\pi/n} \cdot I
+$$
+
+于是我们有：
+
+$$
+(1-e^{i2\pi/n})I = -\frac{2\pi i}{n} e^{i\pi/n}
+$$
+
+化简得到：
+
+$$
+I = \frac{\pi}{n\sin(\pi/n)}
+$$
+
+为了让极点没那么多，有些情况也会取方型围道：
+
+$$
+\int_{-\infty}^{\infty} \frac{e^{\alpha x}}{1+e^x} dx
+$$
+
+极点在 $z = (2k+1)\pi i$ 且均为一阶极点。考虑取方形围道：
+
+<img src="Mathematic Method in Physics.assets/image-20251209142730785.png" alt="image-20251209142730785" style="zoom:50%;" />
+
+$$
+\begin{aligned}
+\oint_C f(z)dz &= \int_{-R}^R \frac{e^{\alpha x}}{1+e^x} dx + \int_0^{2\pi} \frac{e^{\alpha(R+iy)}}{1+e^{R+iy}} idy \\
+& + e^{2\alpha\pi i}\int_{-R}^R \frac{e^{\alpha x}}{1+e^x} dx +
+\int_{2\pi}^0 \frac{e^{\alpha(-R+iy)}}{1+e^{-R+iy}} idy \\
+&= I_1 + I_2 + (-e^{2\alpha \pi i})I_1 + I_4 \\
+&= 2\pi i \Res f(\pi i)\\
+&= -2\pi i e^{\alpha\pi i}
+\end{aligned}
+$$
+
+当 $R \to \infty$ 时，$I_2, I_4$ 均趋于0，得到：
+
+$$
+I_1 = \frac{-2\pi i e^{\alpha \pi i}}{1-e^{2\alpha\pi i}} = \frac{\pi}{\sin(\alpha\pi)}
+$$
+
+#### 7.6.3 含三角的无穷积分
+
+标准形式为：
+
+$$
+I = \int_{-\infty}^\infty f(x)\cos(px) dx  \qor I = \int_{-\infty}^\infty f(x)\sin(px) dx
+$$
+
+一般取被积函数：
+
+$$
+I = \int_{-\infty}^\infty e^{ipx} dx
+$$
+
+在半圆形围道上的积分。
+
+<img src="Mathematic Method in Physics.assets/image-20251209190342420.png" alt="image-20251209190342420" style="zoom:50%;" />
+
+
+
+#### 7.6.4 含瑕点的积分
+
+#### 7.6.5 多值函数的积分
+
+考虑积分：
+
+$$
+\oint z^{s-1}Q(z)dz
+$$
+
+假设对于 $Q(z)$ 在 $0$ 和 $\infty$ 取到分支点，构建围道：
+
+<img src="Mathematic Method in Physics.assets/image-20251202102749617.png" alt="image-20251202102749617" style="zoom: 67%;" />
+
+于是有：
+
+$$
+I = \int_\delta^R x^{s-1}Q(x)dx + \int^\delta_R (xe^{2\pi i})^{s-1}Q(x)dx + \int_{C_R}z^{s-1}Q(z)dz + \int_{C_\delta}z^{s-1}Q(z)dz
+$$
+
+对于后两个积分，如果一致收敛，则可用圆弧定理求解。
+
+如果 $Q(z)$ 在全平面只有有限个孤立奇点，而其他区域单值解析，就可以用留数定理求解了。
+
+$$
+\begin{aligned}
+&\quad (1-e^{2\pi is})\int_0^\infty x^{s-1}Q(x)dx + 2\pi i(K-k) \\
+&= 2\pi i \sum_\mathbb{C}\Res(z^{s-1}Q(z)) \\
+&\quad \int_0^\infty x^{s-1}Q(x)dx \\
+&= -\frac{2\pi i(K-k)}{1-e^{2\pi is}} + \frac{2\pi i}{1-e^{2\pi is}}\sum_\mathbb{C}\Res(z^{s-1}Q(z))
+\end{aligned}
+$$
+
+!!! example "幂级数的积分"
+
+计算积分 $\displaystyle \int_0^\infty \frac{x^{\alpha-1}}{1+x} dx\qc(0<\alpha<1)$ .
+
+<img src="Mathematic Method in Physics.assets/image-20251215224252255.png" alt="image-20251215224252255" style="zoom: 50%;" />
+
+在 $z = e^{i\pi}$ 处有一阶极点。
+
+$$
+\Res\ f(e^{i\pi}) = e^{i\pi(\alpha - 1)}
+$$
+
+而 $zf(z)$ 在 $0$ 和 $\infty$ 都一致趋于0，根据圆弧引理得均为0。于是：
+
+$$
+\begin{aligned}
+\int_0^\infty \frac{x^{\alpha-1}}{1+x} dx &= \frac{2\pi i}{1-e^{2\pi i \alpha}}e^{i\pi(\alpha-1)} \\
+&= \frac{2\pi i}{e^{\pi i \alpha}-e^{-\pi i \alpha}}\\
+&= \frac{\pi}{\sin \pi \alpha}
+\end{aligned}
+$$
+
+对于对数级数：
+
+$$
+I = \int_0^\infty Q(x)\ln x dx
+$$
+
+同样作围道有：
+
+$$
+\begin{aligned}
+\oint_C Q(z)\ln z dz &= \int_\delta^R Q(x)\ln xdx + \int^\delta_R Q(x)\ln x(xe^{2\pi i})dx \\
+& \quad + \int_{C_R}Q(z)\ln zdz + \int_{C_\delta}Q(z)\ln zdz \\
+&= -2\pi i\int_\delta^R Q(x)\ln xdx+ \int_{C_R}Q(z)\ln zdz + \int_{C_\delta}Q(z)\ln zdz
+\end{aligned}
+$$
+
+相互抵消掉了！所以没法求。但是这也告诉我们加一个 $\ln x$ 就可以求原函数的积分了。
+
+$$
+\begin{aligned}
+\oint_C Q(z)\ln[2] z dz &= \int_\delta^R Q(x)\ln[2] xdx + \int^\delta_R Q(x)(\ln x +2\pi i)^2dx \\
+& \quad + \int_{C_R}Q(z)\ln[2] zdz + \int_{C_\delta}Q(z)\ln[2] zdz \\
+&= -4\pi i\int_\delta^R Q(x)\ln xdx + 4\pi^2\int_\delta^R Q(x)dx\\
+& \quad+ \int_{C_R}Q(z)\ln zdz + \int_{C_\delta}Q(z)\ln zdz
+\end{aligned}
+$$
+
+接下来只需要分离实部虚部就可以同时得到两个函数的积分了。
+
+---
+
+## 8. 线性常微分方程
+
+### 8.1 二阶线性齐次常微分方程
+
+标准形式是：
+
+$$
+\dv[2]{w}{z} + p(z)\dv{w}{z} + q(z)w = 0
+$$
+
+其中，总的式子值等于 $0$ 对应“齐次”，而二阶项系数一般约成 $1$ 。
+
+我们知道这个方程的解并不是唯一的，要想这个解唯一确定，就必须加入边界条件。比如一个加速度为 0 的运动过程 $\dv[2]{s}{t} = 0$ ，其对于任意 $s = kt+b$ 都有解，通常需要规定其初始条件 $s(0), s'(0)$ 或始末条件 $s(0), s(t_0)$ 才能确定。
+
+一般地，我们有**解的存在性定理**：
+
+!!! theorem "解的存在性定理"
+    当 $p(z)$ 和 $q(z)$ 均在圆 $\abs{z-z_0} < R$ 内单值解析，且规定初值 $w(z_0) = c_0, w(z_0)' = c_1$，则**原方程有唯一解 $w(z)$ 且在圆内解析**。
+
+!!! proof "证明"
+
+我们假设 $w_1 = w, w_2 = w'$，于是原方程可化为：
+
+$$
+\begin{cases}
+w_1' = w_2 \\
+w_2 = -p(z)w_2  -q(z) w_1
+\end{cases}
+$$
+
+这样就转化为了方程组。我们定义：
+
+$$
+\boldsymbol{W}(z) =
+\begin{pmatrix}
+w_1(z) \\
+w_2(z)
+\end{pmatrix}
+\qc
+A(z) = \begin{pmatrix}
+0 & 1\\
+-q(z) & -p(z)
+\end{pmatrix}
+$$
+
+这样就有：
+
+$$
+\boldsymbol{W}'(z) = A(z)\boldsymbol{W}(z)
+$$
+
+由于原函数 $p(z)$ 和 $q(z)$ 均单值解析，$A(z)$ 也解析。
+
+接下来我们运用**Picard 迭代法**，我们把初值问题写成如下的形式：
+
+$$
+\begin{cases}
+\boldsymbol{W}'(z) = A(z)\boldsymbol{W}(z) \\
+\boldsymbol{W}(z_0) = \boldsymbol{W}_0 = \begin{pmatrix}
+w_1(z_0) \\
+w_2(z_0)
+\end{pmatrix}
+\end{cases}
+$$
+
+之后解可以由逐次逼近构造：
+
+$$
+\boldsymbol W_{n+1}(z) = \boldsymbol W_0 + \int_{z_0}^z A(\zeta)\boldsymbol W_n(\zeta)d\zeta
+$$
+
+定义范数：
+
+$$
+\norm{\boldsymbol W} = \abs{w_1(z)} + \abs{w_2(z)}
+$$
+
+取 $A(z)$ 的诱导范数：
+
+$$
+\norm{A(z)} = \max(1,\abs{p(z)} + \abs{q(z)})
+$$
+
+于是 $\norm{A(z)}$ 有界 $\norm{A(z)} \le M$。
+
+现在我们用数学归纳法证明：
+
+$$
+\norm{\boldsymbol W_{n+1}(z) - \boldsymbol W_n (z) }\le \norm{\boldsymbol W_0}\frac{(M\abs{z-z_0})^{n+1}}{(n+1)!}
+$$
+
+于是级数 $\sum_n [\boldsymbol W_{n+1} (z) - \boldsymbol W_n (z)]$ 内闭一致收敛且和函数解析。
+
+!!! proof "证明"
+
+当 $n = 0$ 时：
+
+$$
+\begin{aligned}
+\norm{\boldsymbol W_1(z) - \boldsymbol W_0} &= \norm{ \int_{z_0}^z A(\zeta)\boldsymbol W_0(\zeta)d\zeta}\\
+&\le \norm{A(z)}\norm{\boldsymbol W_0}\int_{z_0}^z \norm{d\zeta} \\
+&\le M\norm{\boldsymbol W_0}(z-z_0)
+\end{aligned}
+$$
+
+假设 $n=k$ 成立，当 $n=k+1$：
+
+$$
+\begin{aligned}
+\norm{\boldsymbol W_{k+2}(z) - \boldsymbol W_{k+1}(z)} &= \int_{z_0}^z A[\zeta](\boldsymbol W_{k+1}(\zeta) - \boldsymbol W_k (\zeta)) d\zeta \\
+&\le \int_{z_0}^{z}\norm{A(\zeta)} \norm{\boldsymbol W_{k+1}(\zeta) - \boldsymbol W_k (\zeta)} \norm{d\zeta} \\
+&\le \int_{z_0}^{z}M \norm{\boldsymbol W_{0}} \norm{d\zeta}\frac{(M\abs{\zeta-z_0})^{k+1}}{(k+1)!} \norm{d\zeta}
+\end{aligned}
+$$
+
+我们暂且假设积分路径是直线 $\zeta = z_0 + te^{i\theta}$ ：
+
+$$
+\begin{aligned}
+\norm{\boldsymbol W_{k+2}(z) - \boldsymbol W_{k+1}(z)} &\le \int_{z_0}^z M\norm{\boldsymbol W_0}\frac{(M\abs{\zeta-z_0})^{k+1}}{(k+1)!} \norm{d\zeta}
+&=
+
+\end{aligned}
+$$
+
+---
 

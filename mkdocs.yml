@@ -28,6 +28,8 @@ nav:
       - 数学物理方法: "maphy/math/Mathematic Method in Physics.md"
     - 热学与热力学:
       - 统计热力学: "maphy/thermo_phys/Statistic_Thermodynamics.md"
+      - 统热进阶专题: "maphy/thermo_phys/Statistic_Thermodynamics_2.md"
+      - 近平衡态的热力学: "maphy/thermo_phys/Near_Eq.md"
   - 🖥️计算机:
     - 计算机-首页: "cs/index.md"
   - ☕杂货铺:

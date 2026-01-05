@@ -1856,8 +1856,560 @@ $$
 $$
 
 在实际计算中，通常 $P(F) = e^{-\beta H}/Q$ 是一个突跃值，实际上我i们可以通过测量及其多个温度下的曲线并作其抛物线：
+
 $$
 P(H) = \sum_i n_i e^{-\beta_iH}
 $$
 
+---
+
+## Chapter 8 Brownian motion
+
+### Lagevin Equation
+
+assume a motion satisfied **Lagevin Equation**:
+
+$$
+\dv{u}{t} = -\zeta u + A(t)
+$$
+
+where $A(t)$ stands a random force.
+
+assume $u = c(t)e^{-\zeta t}$ ：
+
+$$
+\begin{gathered}
+\dv{c}{t} e^{-\zeta t} - \zeta ce^{-\zeta t} = -\zeta u + A(t) \\
+\dv{c}{t} = A(t)e^{\zeta t}
+\end{gathered}
+$$
+
+integrate:
+
+$$
+c = c_0 + \int_0^t A(t') e^{\zeta t'}\dd t'
+$$
+
+transform into u:
+
+$$
+u = u_0e^{-\zeta t} + e^{-\zeta t}\int_0^t A(t') e^{\zeta t'}\dd t'
+$$
+
+and we can know a random value's average equals to zero:
+
+$$
+\ev{u} = u_0 e^{-\zeta t}
+$$
+
+for the RMSE：
+
+$$
+\begin{aligned}
+\ev{(u-\ev u^2)} &= \ev{u^2} - 2\ev u^2 + \ev u^2 \\
+&= \ev{u^2} - \ev{u}^2
+\end{aligned}
+$$
+
+for derectly case:
+
+$$
+\begin{aligned}
+\ev{(u-\ev u^2)} &= \ev{\bqty{e^{\zeta t' } \int_0^t e^{\zeta t } A(t') \dd t'}^2} \\
+&= \ev{e^{2\zeta t } \int_0^t\int_0^t e^{\zeta t' } A(t') e^{\zeta t^{\prime\prime}} A(t^{\prime\prime}) \dd t'\dd t^{\prime\prime}} \\
+&= e^{2\zeta t } \int_0^t\int_0^t e^{\zeta t'} e^{\zeta t^{\prime\prime}} \ev{ A(t')A(t^{\prime\prime})} \dd t'\dd t^{\prime\prime}
+\end{aligned}
+$$
+
+what the fucking is $\ev{ A(t')A(t^{\prime\prime})}$ ?
+
+let $\ev{ A(t')A(t^{\prime\prime})} = \ev{A(0)A(t^{\prime\prime} - A')} = \phi(t^{\prime\prime}-t')$ , this forces is prop to delta function因为作用时间极短：
+
+$$
+\phi(t^{\prime\prime}-t') = \Gamma\delta(t^{\prime\prime}-t')
+$$
+
+$$
+\begin{aligned}
+\ev{(u-\ev u^2)} &= e^{2\zeta t } \int_0^t\int_0^t e^{\zeta (t' + t^{\prime\prime})} \phi(t^{\prime\prime}-t') \dd t'\dd t^{\prime\prime} \\
+&= e^{2\zeta t } \int_0^t\int_0^t e^{\zeta \tau'} \phi(\tau^{\prime\prime}) \dd (\frac{\tau' + \tau^{\prime\prime}}2 )\dd (\frac{\tau' - \tau^{\prime\prime}}2 ) \\
+&= \frac 12 e^{2\zeta t } \int_0^{2t} e^{\zeta \tau'}  \dd \tau' \int_{-t}^t \phi(\tau^{\prime\prime}) \dd \tau^{\prime\prime} \\
+&= \frac{\tau}{2\zeta} \pqty{1-e^{-2\zeta t}}
+\end{aligned}
+$$
+
+as $t \to \infty$:
+
+$$
+\ev{(\Delta u )^2} = \frac{\Gamma}{2\zeta}
+$$
+
+with <u> = 0 :
+
+$$
+\frac{m\ev{u^2}}{2} = \frac32 kT
+$$
+
+that is:
+
+$$
+\frac{\Gamma}{2\zeta} = \frac{3kT}{m}
+$$
+
+### Generalized Langevin Eqn
+
+$$
+\dv{u}{t} = \int_{-\infty}^t -\zeta(t-t') u \dd t' + A(t)
+$$
+
+gotcha:
+
+$$
+\begin{aligned}
+r(t) - r_0 &= \int_0^t u(t') \dd t' \\
+r - r_0 &= \int_0^t \bqty{u_0e^{-\zeta t'} + e^{-\zeta t'} \int_0^{t'}e^{\zeta t^{\prime\prime}} A(t^{\prime\prime}) \dd t^{\prime\prime} }dt' \\
+&= \frac{1}{\zeta}u_0(1-e^{-\zeta t}) + \int_0^t\int_0^{t'}  e^{-\zeta t'}e^{\zeta t^{\prime\prime}}A(t'') \dd{t''}\dd t' \\
+\ev{r-r_0} &= \frac{1}{\zeta}u_0(1-e^{-\zeta t})
+\end{aligned}
+$$
+
+taking fucking care of RMSE:
+
+$$
+\begin{aligned}
+\ev{(r-r_0)^2} &= \ev{\pqty{\frac{1}{\zeta}u_0(1-e^{-\zeta t}) +
+\int_0^te^{-\zeta t'}\dd t'\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''}}^2 }
+\end{aligned}
+$$
+
+the later:
+
+$$
+\begin{aligned}
+&\int_0^te^{-\zeta t'}\dd t'\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''} \\
+&= -\frac{1}{\zeta}\bqty{e^{-\zeta t'}\eval{\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''}}_0^t - \int_0^t e^{-\zeta t'} \dd(\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''})} \\
+&= -\frac{1}{\zeta}\bqty{e^{-\zeta t'}\eval{\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''}}_0^t - \int_0^t A(t') \dd{t'}} \\
+&= \frac{1}{\zeta}\bqty{\int_0^t \pqty{A(t') - A(t')e^{\zeta(t'-t)}}\dd t'}
+\end{aligned}
+$$
+
+dont shock mother fucker:
+
+$$
+\begin{aligned}
+\ev{(r-r_0)^2} &= \pqty{\frac{1}{\zeta}u_0(1-e^{-\zeta t})}^2 + \int_0^t\int_0^t (1-e^{\zeta (t'-t)})(1- e^{\zeta (t^{\prime\prime}-t)}) \ev{ A(t')A(t^{\prime\prime})} \dd t'\dd t^{\prime\prime}\\
+&=  \pqty{\frac{1}{\zeta}u_0(1-e^{-\zeta t})}^2  + \frac{3kT}{m\zeta^2}(2\zeta t - 3 + 4e^{-\zeta t} - e^{-2\zeta t})
+\end{aligned}
+$$
+
+as $t \to 0$:
+
+$$
+\ev{(r-r_0)^2} = \frac{6kT}{m\zeta}t
+$$
+
+with $D = kT/m\zeta$ :
+
+$$
+\ev{(r-r_0)^2} = 6Dt
+$$
+
+<img src="Physical Chemistry II.assets/960px-Msd_anomalous_diffusion.svg.png" alt="undefined" style="zoom:50%;" />
+
+
+$$
+\begin{aligned}
+\ev{(r-r_0)^2} &= \ev{\int_0^t u(t')\dd t' \int_0^t u(t'')\dd t''} \\
+&= \int_0^t\int_0^t \ev{u(t')u(t'')} \dd t' \dd t''
+\end{aligned}
+$$
+
+this called **velocity-velocity correlation function**
+
+$$
+\begin{aligned}
+\ev{(r-r_0)^2}
+&= \int_0^t\int_0^t \ev{u(0)u(t''-t')} \dd t' \dd t'' \\
+&= 2\int_0^{t-\tau}\dd t'\int_0^t \ev{u(0)u(t''-t')} \dd \tau \\
+&= 2t\int_0^{t} (1-\frac{\tau}{t})\ev{u(0)u(t''-t')} \dd \tau
+\end{aligned}
+$$
+
+going fucking $t \to \infty$:
+
+$$
+\ev{(r-r_0)^2} = 2t\int_0^\infty\ev{u(0)u(t''-t')} \dd \tau = 6Dt
+$$
+
+---
+
+## Chapter 9 diffusion theorem
+
+for a certain force:
+
+$$
+m\dv{u}{t} = F - \eta u + A(t)
+$$
+
+we define **flux**（通量）$j_D$：
+
+$$
+j_D = -D_x\pdv{\rho}{x}
+$$
+
+where $\rho$ indicates density distribution function. 为了简便我们先把 $D_x$ 当常量
+
+$$
+\begin{aligned}
+\pdv{\rho}{t}\dd x \dd y \dd z &= j(x)\dd y \dd z - j(x+\dd x)\dd y \dd z \\
+\pdv{\rho}{t}\dd x &= j(x) - \pqty{j(x) + \pdv{j}{x}\dd x} \\
+\pdv{\rho}{t} &= -\pdv{j}{x}
+\end{aligned}
+$$
+
+于是
+
+$$
+\pdv{\rho}{t} = D\pdv x\pqty{\pdv{\rho}{x}} = D\pdv[2]{\rho}{x}
+$$
+
+that is called **Diffusion Equation**.
+
+when $\dv{u}{t} = 0$，
+
+$$
+\ev{u} = \frac{F}{m\zeta}
+$$
+
+so
+
+$$
+j = j_D + j_F = \frac{\rho F}{m\zeta} - D\pdv{\rho}{x}
+$$
+
+so
+
+$$
+\begin{aligned}
+\pdv{\rho}{t} &= -\pdv{j}{x}\\
+&= \pdv{x}\pqty{\frac{\rho}{m\zeta}\pdv{V}{x}} + D\pdv[2]{\rho}{x}
+\end{aligned}
+$$
+
+as $t \to \infty$
+
+$$
+\rho_{eq} = \rho_0 e^{-V(x)/k_BT}
+$$
+
+### Harmonic analysis
+
+$$
+\dv{U}{t} = -\zeta U + A(t)
+$$
+
+傅里叶展开
+
+$$
+A(t) = \sum a_\omega \cos\omega t
+$$
+
+$$
+a(\omega) = \frac{1}{2\pi}\int_{-\infty}^{\infty} A(t)e^{i\omega t} \dd t
+$$
+
+$$
+A(t) = \int_{-\infty}^{\infty} a(\omega)e^{i\omega t} \dd\omega
+$$
+
+and we have
+
+$$
+a(0) = \frac1{2\pi}\int_{-\infty}^{\infty}A(t)\dd t = \frac{T\ev{A}}{2\pi}
+$$
+
+for the spectrum
+
+...
+
+
+
+stationary
+
+$$
+\begin{aligned}
+I'(\omega) &= \frac{1}{{4\pi^2}}\int_{-\infty}^\infty\int_{-\infty}^\infty \ev{A(\tau)A(0)} e^{i\omega t} d\tau dt' \\
+&= \frac{T}{4\pi^2}\int_{-\infty}^\infty \phi(\tau)\dd \tau
+\end{aligned}
+$$
+
+so
+
+$$
+\begin{aligned}
+\mathcal F(\dv{u}{t}) &= \mathcal F[\zeta u + A(t)] \\
+&= \frac{1}{2\pi} \int_{-\infty}^\infty  \dv{u}{t} e^{-i\omega t} \dd t \\
+&= \eval{\frac{1}{2\pi} u e^{-i\omega t}}_{-\infty}^\infty - \frac{1}{2\pi} \int_{-\infty}^{\infty}u(-i\omega)e^{-i\omega t} \dd t \\
+&= i\omega\tilde{u} = \zeta\tilde u + a(\omega)
+\end{aligned}
+$$
+
+we got
+
+$$
+\tilde u = \frac{a}{i\omega + \zeta}, \abs{\tilde u}^2 = \frac{a^2}{\omega^2 + \zeta^2}
+$$
+
+and
+
+$$
+u(t) = \int \frac{a}{i\omega + \zeta} e^{i\omega t}\dd \omega
+$$
+
+$$
+\ev{u(t)u(0)} = \int \frac{a^2}{\omega^2 + \zeta^2}e^{i\omega t} \dd \omega = \frac{\pi a^2}{\zeta} e^{-\zeta\abs{t}}
+$$
+
+---
+
+### Fokker-Plank Equation
+
+to calc $\rho(u, t + \Delta t)$ given $\rho(u-\Delta u, t)$
+
+$$
+\rho(u, t + \Delta t) = \int \rho(u-\Delta u, t) \Psi(u-\Delta u; \Delta u) \dd(\Delta u)
+$$
+
+Taylor expansion
+
+$$
+\begin{gathered}
+\rho(u, t + \Delta t) = \rho(u,t) + \pdv{\rho}{t} \Delta t + (\Delta t)^2 + ...\\
+\rho(u-\Delta u, t) = \rho(u,t) - \pdv{\rho}{u} \Delta u +...\\
+\Psi(u-\Delta u; \Delta u) = \Psi(u; \Delta u) - \Delta u \pdv{\Psi(u; \Delta u)}{u} + ...
+\end{gathered}
+$$
+
+so
+
+$$
+\begin{aligned}
+&\rho(u,t) + \pdv{\rho}{t} \Delta t + (\Delta t)^2 \\
+&= \int_{-\infty}^{\infty} \bqty{\rho(u,t) - \pdv{\rho}{u} \Delta u + ...}\bqty{\Psi(u; \Delta u) - \Delta u \pdv{\Psi(u; \Delta u)}{u} + ...} \dd (\Delta u )\\
+&\approx \int_{-\infty}^{\infty} \pqty{\rho\Psi - \Delta u\pqty{\pdv{\rho}{u}+\pdv{\Psi}{u}} + (\Delta u)^2 \pqty{\frac12\pdv[2]{\rho}{u}\Psi + \pdv{\rho}{u}\pdv{\Psi}{u} + \frac12 \rho \pdv[2]{\Psi}{u}} }\dd(\Delta u)
+\end{aligned}
+$$
+
+let 条件矩：
+
+$$
+a_n(u) = \int(\Delta u )^n \Psi(u;\Delta u) \dd(\Delta u) = \begin{cases}
+1 &,n=0 (归一化) \\
+A(u)\Delta t + o(\Delta t) &,n=1 \\
+B(u)\Delta t + o(\Delta t) &,n=2 \\
+o(\Delta t) &,n\ge 3
+\end{cases}
+$$
+
+其中**漂移系数** $A(u) = \lim_{\Delta t \to 90}$
+
+---
+
+## Chapter 9 Transition state II
+
+自由能变化实际上是**平均力势**（Potential mean force, PMF）变化。根据扩散方程：
+
+$$
+\pdv{\rho}{t} = D \pdv[2]{\rho}{x}  + \frac{D}{kT}\pdv{x}\pqty{\rho\pdv{V}{x}}
+$$
+
+在平衡态我们有$\pdv{\rho}{t} = 0$，即通量为定值：
+
+$$
+\begin{aligned}
+-D \pdv{\rho}{x} -\frac{D}{kT}\pqty{\rho\pdv{V}{x}} &= j_S\\
+ \pdv{\rho}{x}  + \frac{1}{kT}\pqty{\rho\pdv{V}{x}} &= -\frac{j_S}{D}\\
+\end{aligned}
+$$
+
+我们同乘一个系数 $e^{V/kT}$，然后假设产物到过渡态是0到1的过程：
+
+$$
+\begin{aligned}
+\pdv{x}\pqty{e^{V/kT} \rho} &= -\frac{j_S}{D} e^{V/kT}\\
+\rho_1(x)e^{V_1/kT} - \rho_0e^{V_0/kT} &= -\frac{j_S}{D}\int_0^1 e^{V/kT} \dd x\\
+\rho_1(x)e^{V_1/kT} - \rho_0e^{V_0/kT} &= -\frac{j_S}{D} e^{V_1/kT}\int_0^1 e^{(V-V_1)/kT} \dd x
+\end{aligned}
+$$
+
+我们可以用谐振子模拟势能，由于高斯积分主要在 $x=1$ 附近，我们扩展乘整个实数：
+
+$$
+\begin{aligned}
+\rho_1(x)e^{V_1/kT} &= \rho_0e^{V_0/kT}  -\frac{j_S}{D} e^{V_1/kT}\int_0^1 e^{-\omega(x-1)^2/2kT} \dd x \\
+&= \rho_0e^{V_0/kT}  -\frac{j_S}{D} e^{V_1/kT}\int_{-\infty}^{\infty} e^{-\omega(x-1)^2/kT} \dd x \\
+\rho(x) &= \rho_0e^{(V_0 - V(x))/kT}  -\frac{j_S}{D}\cdot \sqrt{\frac{2\pi kT}{\omega}}
+\end{aligned}
+$$
+
+此处我们假设 $V_0 = V_1 = 0$。
+
+对于 $x\to 0$，可以认为 $\rho (x) \propto \rho_0 e^{\frac{V_0-V(x)}{kT}}$ ，用归一化得到：
+
+$$
+\begin{aligned}
+\rho_0 \int_0^1e^{(V_0 - V(x))/kT} \dd x &= 1 \\
+\rho_0 \int_0^1e^{-\omega_0 x^2 / 2kT} \dd x &= 1 \\
+\rho_0 &= \sqrt{\frac{\omega_0}{2\pi kT}}
+\end{aligned}
+$$
+
+于是我们得到：
+
+$$
+\rho(x) = \sqrt{\frac{\omega_0}{2\pi kT}}e^{-\Delta V/kT}  -\frac{j_S}{D}\cdot \sqrt{\frac{2\pi kT}{\omega_1}}
+$$
+
+我们可以认为：前一项是由于玻尔兹曼分布的作用，后一项是由于“流动”引起的分布函数下降。
+
+我们回归到这个流量本身。我们可以认为流量是由某种速度 $u$ 控制的：
+
+$$
+j_S = \rho_1 u
+$$
+
+这就是说：
+
+$$
+\begin{gathered}
+\frac{j_S}{u} + \frac{j_S}{D}\cdot \sqrt{\frac{2\pi kT}{\omega_1}}= \sqrt{\frac{\omega_0}{2\pi kT}}e^{-\Delta V/kT} \\
+j_S = \frac{\sqrt{\frac{\omega_0}{2\pi kT}}}{1/(D\sqrt{\frac{\omega_1}{2\pi kT}}) + 1/u} e^{-\Delta V/kT}
+\end{gathered}
+$$
+
+考虑 $u \to 0$ ：
+
+$$
+j_S = u\sqrt{\frac{\omega_0}{2\pi kT}}e^{-\Delta V/kT}
+$$
+
+考虑 $D\to0$：
+
+$$
+j_S = D\frac{\sqrt{\omega_0\omega_1}}{2\pi kT}e^{-\Delta V/kT}
+$$
+
+这种情况被称为扩散控制。
+
+---
+
+### 微扰黄金规则
+
+假设我们有两个态 $\ket{1}$ 和 $\ket{0}$：
+
+$$
+\mqty(H_0&\Delta \\ \Delta & H_1)
+$$
+
+$$
+H = H_0 + \lambda V(t)
+$$
+
+我们知道含时薛定谔方程：
+
+$$
+i\hbar\pdv{\Psi}{t} = \hat{H} \Psi(t)
+$$
+
+对于一个未微扰的系统：
+
+$$
+H_0 \Psi_m = E_m \Psi_m
+$$
+
+现在我们进行微扰：
+
+$$
+\Psi(t) = \sum_m a_m(t)\Psi_m e^{-iE_mt/\hbar}
+$$
+
+于是有：
+
+$$
+\begin{aligned}
+&\quad i\hbar \sum_m \dv{t}a_m(t)\Psi_m e^{-iE_mt/\hbar} + \sum_m a_m(t)E_m\Psi_m e^{-iE_mt/\hbar}\\
+&= i\hbar \sum_m a_m(t)E_m\Psi_m e^{-iE_mt/\hbar} + \lambda\sum_m V(t)a_m(t)\Psi_m e^{-iE_mt/\hbar}\\
+\end{aligned}
+$$
+
+化成bra-ket形式：
+
+$$
+i\hbar \dv{a_k}{t} e^{-iE_kt/\hbar} = \lambda\sum_m a_m \mel{\Psi_k}{V}{\Psi_m}e^{-iE_mt/\hbar}
+$$
+
+这就可以得到：
+
+$$
+i\hbar \dv{a_k}{t} = \lambda\sum_m H^{(1)}_{km} e^{i\omega_{km} t}\qc \omega_{km} = \frac{E_k - E_m}{\hbar}
+$$
+
+我们作一阶近似，
+
+$$
+a_m(t= 0) = a_m\delta(n-m)
+$$
+
+此时我们得到：
+
+$$
+i\hbar \dv{a_k}{t} = \lambda H^{(1)}_{km} e^{i\omega_{km} t}
+$$
+
+积分一次：
+
+$$
+a_k^{(1)} = \frac\lambda{i\hbar} \int_0^t H_{km}^{(1)} e^{i\omega_{km} t'} \dd t'
+$$
+
+然后
+
+$$
+\begin{gathered}
+a^{(1)}_k = -\frac{\lambda H_{km}^{(1)}}{\hbar} \frac{e^{i\omega t}-1}{\omega_{km}} \\
+|a^{(1)}_k|^2 = 4|\lambda H_{km}^{(1)}|^2\frac{\sin[2](\omega_{km}t/2)}{\hbar^2 \omega_{km}^2}
+\end{gathered}
+$$
+
+t趋于无穷时：
+
+$$
+\Gamma = |a^{(1)}_k|^2/t = \frac{2\pi}{\hbar}|H_{km}^{(1)}|^2 \delta(E_k - E_m )
+$$
+
+事实上对于电子转移理论有：
+
+$$
+\frac{1}{\sqrt{4\pi \lambda kT}}e^{-\frac{(\lambda+\Delta G)^2}{4\lambda kT}}
+$$
+
+这就是Marcus理论。
+
+对于一个电磁场，定义微扰算符：
+
+$$
+\lambda V(t) = -E_0 M\cdot \hat\epsilon \cos(\omega t)
+$$
+
+相对应的：
+
+$$
+|a^{(1)}_{ki}|^2 = E_0^2 \abs{\mel{f}{\hat\epsilon\hat M}{i}}^2 \Bqty{\frac{\sin[2](\frac12(\omega_{fi} - \omega))}{\hbar^2(\omega_{fi} - \omega)^2} - \frac{\sin[2](\frac12(\omega_{fi} + \omega))}{\hbar^2(\omega_{fi} + \omega)^2}}
+$$
+
+$$
+P_{i\to f} (\omega) = \frac{\pi E_0^2}{2\hbar^2}\abs{\mel{f}{\hat\epsilon\hat M}{i}}^2(\delta(\omega_{fi} - \omega) +\delta(\omega_{fi} + \omega))
+$$
+
+---
 

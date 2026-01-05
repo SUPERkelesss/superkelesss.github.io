@@ -1039,14 +1039,16 @@ S = -k_B\sum_i P_i \ln {P_i} &= -k_B\frac{\sum_i (\beta(\mu N_i - E_i) - \ln \ma
 $$
 
 这样就可以得到自由能：
+
 $$
 F = U-TS = k_BT\ln\mathcal Z - \mu \overline N
 $$
+
 然后再从自由能推出压强：
+
 $$
 p = -\pqty{\pdv{F}{V}}_{T} = k_BT\pqty{\pdv{\ln\mathcal Z}{V}}
 $$
-
 
 
 
