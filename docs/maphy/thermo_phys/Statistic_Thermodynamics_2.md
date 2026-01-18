@@ -483,7 +483,7 @@ $$
 
     $$
     \begin{aligned}
-    \ev{R^2} &= \ev{\pqty{\sum_i \vb r_i}\cdot \pqty{\sum_j \vb r_j}} \\
+    \ev{R^2} &= \ev{\pqty{\sum_i \vb r_i}\cdot \pqty{\sum_j \vb r_j}} \\ 
     &= nl^2 + l^2\sum_{i\neq j}\ev{\cos\theta_{ij}} = nl^2
     \end{aligned}
     $$

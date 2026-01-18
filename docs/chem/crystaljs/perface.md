@@ -25,10 +25,11 @@
 
      <center>[mp-22862](https://next-gen.materialsproject.org/materials/mp-22862) · [CIF下载](cifs/NaCl.cif)</center>
 
-（很抱歉开发一个美观的模型预览对我来说还是太难了，用3Dmol.js渲染的效果简直不能看，套mp的模板也不行。如果由更好的方法请联系我。）
+（很抱歉开发一个美观的模型预览对我来说还是太难了，用3Dmol.js渲染的效果简直不能看，套mp的模板也不行。如果有更好的方法请联系我。）
 
 ## 参考书籍
 
 - 钱逸泰. 结晶化学导论[M]. 4版. 合肥：中国科学技术大学出版社， 2022.9.
 - 麦松威， 周公度， 李伟基. 高等无机结构化学[M]. 3版. 北京：北京大学出版社， 2021.
 - Douglas, B. E., & Ho, S.-M. (2006). *Structure and chemistry of crystalline solids*. Springer.
+- PATRICK M. WOODWARD, PAVEL KAREN, JOHN S. O. EVANS AND THOMAS VOGT. *Solid State Chemistry*. Cambridge University Press.

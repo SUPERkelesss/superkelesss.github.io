@@ -26,6 +26,9 @@ nav:
     - 数理-首页: "maphy/index.md"
     - 数学基础:
       - 数学物理方法: "maphy/math/Mathematic Method in Physics.md"
+      - 微积分概要: "maphy/math/calculus.md"
+      - 线性代数概要: "maphy/math/linear_algebra.md"
+      - 概率统计概要: "maphy/math/probability.md"
     - 热学与热力学:
       - 统计热力学: "maphy/thermo_phys/Statistic_Thermodynamics.md"
       - 统热进阶专题: "maphy/thermo_phys/Statistic_Thermodynamics_2.md"
@@ -34,6 +37,8 @@ nav:
     - 计算机-首页: "cs/index.md"
   - ☕杂货铺:
     - 杂货铺-首页: "lqbz/index.md"
+    - 习作:
+      - Genesis Organica: lqbz/writing/Genesis_Organica.md
     - 聖教相关:
       - 凯楽斯社会学教材: lqbz/holykelesss/social1.md
     - 弱智题大合集:
@@ -121,8 +126,8 @@ plugins:
       blog_toc: true
       archive_date_format: MMMM yyyy
   - changelog
-  - heti:
-      disable_serve: true
+  # - heti:
+  #     disable_serve: true
   - glightbox
   - statistics
   - minify:

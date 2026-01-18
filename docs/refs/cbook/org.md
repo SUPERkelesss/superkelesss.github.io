@@ -62,6 +62,14 @@
 
 <br/>
 
+### （新）101计划教材-有机化学 (张丹维，王彦广，裴坚等)
+
+> 比较新的基础有机化学教材，相比巨本更好读一点。
+
+- **教材**（上下册）：[https://pan.baidu.com/s/1jkfjYrHnippSlh49IAl4aQ?pwd=gama](https://pan.baidu.com/s/1jkfjYrHnippSlh49IAl4aQ?pwd=gama)
+
+<br/>
+
 ### 有机化学：结构与功能 (K. Peter C. Vollhardt等) - 8th
 
 > 即箭毒蛙，内容和巨本差不多，基础有机只要读一两本就可以了。

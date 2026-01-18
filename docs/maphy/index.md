@@ -10,6 +10,9 @@
 
 {{ BEGIN_TOC }}
 - 数学基础:
+  - 微积分概要: "math/calculus"
+  - 线性代数概要: "math/linear_algebra"
+  - 概率统计概要: "math/probability"
   - 数学物理方法: "math/Mathematic Method in Physics"
 - 热学与热力学:
   - 统计热力学: "thermo_phys/Statistic_Thermodynamics"

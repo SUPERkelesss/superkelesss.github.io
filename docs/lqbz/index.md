@@ -14,6 +14,8 @@
 
 {{ BEGIN_TOC }}
 
+- 习作
+    - Genesis Organica: writing/Genesis_Organica
 - 聖教相关:
     - 凯楽斯社会学教材: holykelesss/social1
 - 弱智题大合集:
