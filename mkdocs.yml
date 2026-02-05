@@ -130,7 +130,7 @@ plugins:
   - changelog
   # - heti:
   #     disable_serve: false
-  - glightbox
+  # - glightbox
   - statistics
   - minify:
       minify_html: true
