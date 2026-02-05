@@ -98,8 +98,8 @@ theme:
         name: Switch to dark mode
 
   lang: zh
-  favicon: libs/logos/favicon.png
-  logo: libs/logos/favicon.png
+  favicon: imgs/logos/favicon.png
+  logo: imgs/logos/favicon.png
   
   features:
     - navigation.tabs
@@ -129,7 +129,7 @@ plugins:
       archive_date_format: MMMM yyyy
   - changelog
   # - heti:
-  #     disable_serve: true
+  #     disable_serve: false
   - glightbox
   - statistics
   - minify:

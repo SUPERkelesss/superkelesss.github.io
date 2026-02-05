@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; padding: 0.5rem 1rem;">
+  <!-- 404图片展示 -->
+  <div style="margin: 1.5rem auto; max-width: 500px; position: relative;">
+    <img src="{{ 'imgs/404img.png' | url }}"
+          alt="404页面插图"
+          style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+  </div>
+
+  <!-- 错误描述 -->
+  <div style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.6; color: rgba(0, 0, 0, 0.7);">
+    <p>抱歉，您访问的页面不存在或已被移除。</p>
+  </div>
+
+  <!-- 操作按钮 -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
+    <a href="{{ '/' | url }}"
+        class="md-button md-button--primary"
+        style="font-size: 1.1rem; padding: 0.75rem 2rem;">
+      🏠 返回首页
+    </a>
+
+    <a href="javascript:history.back()"
+        class="md-button"
+        style="font-size: 1.1rem; padding: 0.75rem 2rem;">
+      ↩️ 返回上一页
+    </a>
+  </div>
+
+  <!-- 联系信息 -->
+  <div style="font-size: 0.95rem; color: rgba(0, 0, 0, 0.5);">
+    <p>如果问题持续存在，请通过页面底部的联系方式联系网站管理员。</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    /* 深色模式适配 */
+
+    [data-md-color-scheme="slate"] .md-content p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    [data-md-color-scheme="slate"] .md-content div[style*="background-color: rgba(0, 0, 0, 0.03)"] {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-md-color-scheme="slate"] .md-content div[style*="background-color: rgba(0, 0, 0, 0.02)"] {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    [data-md-color-scheme="slate"] .md-content div[style*="background-color: #f5f5f5"] {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-md-color-scheme="slate"] .md-content div[style*="color: rgba(0, 0, 0, 0.5)"] {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    [data-md-color-scheme="slate"] .md-content div[style*="color: rgba(0, 0, 0, 0.6)"] {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    [data-md-color-scheme="slate"] .md-content div[style*="border: 1px solid rgba(0, 0, 0, 0.1)"] {
+      border-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .md-content h1 {
+        font-size: 5rem !important;
+      }
+
+      .md-content h2 {
+        font-size: 1.5rem !important;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .md-content h1 {
+        font-size: 4rem !important;
+      }
+
+      .md-content h2 {
+        font-size: 1.2rem !important;
+      }
+
+      .md-content div[style*="display: flex"] {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .md-button {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+{% endblock %}

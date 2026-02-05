@@ -938,7 +938,7 @@ let $k_{-2} =0 $
 $$
 \begin{aligned}
 \frac{d[I]}{dt} = 0 &= k_1[R] - k_{-1}[I] - k_2 [I] + k_{-2}[P] \\
-&= A\exp(-\frac{\Delta G_1^\ddagger}{RT}) [R] - A\exp[-\frac{\Delta G_1^\ddagger+\Delta G_1}{RT}](I) - A\exp[-\frac{\Delta G_2^\ddagger}{RT}](I)
+&= A\exp(-\frac{\Delta G_1^\ddagger}{RT}) [R] - A\exp[-\frac{\Delta G_1^\ddagger+\Delta G_1}{RT}]\mathinner{(I)} - A\exp[-\frac{\Delta G_2^\ddagger}{RT}]\mathinner{(I)}
 
 \end{aligned}
 $$
@@ -947,8 +947,8 @@ when $\Delta G_1^\ddagger + \Delta G_1 \ll \Delta G_2^\ddagger  $ :
 
 $$
 \begin{gathered}
-\exp(-\frac{\Delta G_1^\ddagger}{RT}) [R] - \exp[-\frac{\Delta G_1^\ddagger+\Delta G_1}{RT}](I) = 0 \\
-[R] = \exp[-\frac{\Delta G_1}{RT}](I)\\
+\exp(-\frac{\Delta G_1^\ddagger}{RT}) [R] - \exp[-\frac{\Delta G_1^\ddagger+\Delta G_1}{RT}]\mathinner{(I)} = 0 \\
+[R] = \exp[-\frac{\Delta G_1}{RT}]\mathinner{(I)}\\
 r = k_2[I] = A\exp(-\frac{\Delta G_2^\ddagger}{RT})\exp[\frac{\Delta G_1}{RT}](R) \\
 = A\exp[-\frac{\Delta G_2^\ddagger - \Delta G_1}{RT}](R)
 \end{gathered}

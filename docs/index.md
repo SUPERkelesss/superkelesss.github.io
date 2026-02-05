@@ -1,6 +1,7 @@
 # 欢迎来到**聖·凯楽斯kelesss**的网站！
 
-![homepage](imgs\homepage.jpeg){ loading=lazy }
+![homepage](imgs\homepage_dark.png#only-dark){ loading=lazy }
+![homepage](imgs\homepage_light.png#only-light){ loading=lazy }
 
 <center><i>天地玄黄，宇宙洪荒。溯游从之，宛在水中央。</i></center>
 
@@ -82,7 +83,8 @@
 - 查看“首页”分类下的投稿须知，联系我进行**投稿**。
 - **赞助**本网站的作者kelesss。喵呜♪(\^∇\^*)
 
-<center><img src="imgs\tips.png" alt="tips" style="zoom:25%;" /></center>
+<center><img src="imgs\tips.png#only-dark" alt="tips" style="zoom:25%;" /></center>
+<center><img src="imgs\tips_light.png#only-light" alt="tips" style="zoom:25%;" /></center>
 
 ## 谢谢！
 
