@@ -111,6 +111,7 @@ theme:
     - navigation.instant.progress
     - navigation.path
     - navigation.prune
+    - navigation.expand
     - search suggest
     - search highlight
     - search share
