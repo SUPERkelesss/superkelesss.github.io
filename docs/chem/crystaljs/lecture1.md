@@ -307,10 +307,21 @@ $$
     
     我们假设 $B$ 点在原点，而 $A$ 对应复平面上的复数 $a$ ，对于任意点 $re^{i\theta}$：
     
-    1. $re^{i\theta} \rightarrow re^{i(\theta-2\pi/3)}$
-    2. $re^{i(\theta-2\pi/3)} \rightarrow re^{i(\theta-2\pi/3)} + a$
-    3. $re^{i(\theta-2\pi/3)} + a \rightarrow (re^{i(\theta-2\pi/3)} + a)e^{i\pi}$
-    4. $(re^{i(\theta-2\pi/3)} + a)e^{i\pi} \rightarrow (re^{i(\theta-2\pi/3)} + a)e^{i\pi} -a = re^{i(\theta+\pi/6)} -2a$
+    $$
+    re^{i\theta} \rightarrow re^{i(\theta-2\pi/3)}
+    $$
+
+    $$
+    re^{i(\theta-2\pi/3)} \rightarrow re^{i(\theta-2\pi/3)} + a
+    $$
+
+    $$
+    re^{i(\theta-2\pi/3)} + a \rightarrow (re^{i(\theta-2\pi/3)} + a)e^{i\pi}
+    $$
+
+    $$
+    (re^{i(\theta-2\pi/3)} + a)e^{i\pi} \rightarrow (re^{i(\theta-2\pi/3)} + a)e^{i\pi} -a = re^{i(\theta+\pi/6)} -2a
+    $$
     
     于是六重旋转中心位于 $\overrightarrow{BO} = 2\overrightarrow{BA}$ 处。
 

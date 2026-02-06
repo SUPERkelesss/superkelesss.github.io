@@ -107,7 +107,10 @@ theme:
   features:
     - navigation.tabs
     - navigation.instant
-    - navigation.expand
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.prune
     - search suggest
     - search highlight
     - search share
