@@ -1,4 +1,5 @@
 site_name: 凯楽斯Kelesssの聖教天堂
+site_url: https://www.kelesss.art
 # 导航栏
 nav:
   - 🏠首页:
@@ -80,24 +81,26 @@ use_directory_urls: false
 
 # material主题
 theme:
-  name: material
+  name: materialx
   custom_dir: overrides
 
   palette: 
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       primary: black
       accent: purple
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: dark)"
+      scheme: default
       primary: deep purple
       accent: purple
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
 
-  lang: zh
+  language: zh
   favicon: imgs/logos/favicon.png
   logo: imgs/logos/favicon.png
   
@@ -118,6 +121,19 @@ plugins:
       lang: 
         - zh
         - en
+  - document-dates:
+      recently-updated:
+          limit: 6       
+          exclude:
+            - index.md
+            - chem/index.md
+            - maphy/index.md
+            - cs/index.md
+            - lqbz/index.md
+            - refs/index.md
+            - blog/*
+  # - optimize:
+  #     optimize_png: false
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
@@ -131,7 +147,7 @@ plugins:
   # - heti:
   #     disable_serve: false
   # - glightbox
-  - statistics
+  # - statistics
   - minify:
       minify_html: true
 
