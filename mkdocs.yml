@@ -136,8 +136,7 @@ plugins:
             - lqbz/index.md
             - refs/index.md
             - blog/*
-  # - optimize:
-  #     optimize_png: false
+  - optimize
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
@@ -150,7 +149,7 @@ plugins:
   - changelog
   # - heti:
   #     disable_serve: false
-  - glightbox
+  # - glightbox
   # - statistics
   - minify:
       minify_html: true
