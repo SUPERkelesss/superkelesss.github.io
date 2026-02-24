@@ -23,7 +23,7 @@ jobs: # 工作流的具体内容
       # - run: pip install mkdocs-glightbox
       # - run: pip install mkdocs-statistics-plugin
       - run: pip install mkdocs-minify-plugin
-      - run: apt-get install pngquant
+      - run: sudo apt-get install pngquant
       - run: pip install mkdocs-document-dates
       - run: pip install "mkdocs-material[imaging]"
       - run: mkdocs gh-deploy --force
