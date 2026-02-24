@@ -65,7 +65,7 @@ a:hover strong {
 }
 
 [data-md-color-scheme="default"] .md-header, [data-md-color-scheme="default"] .md-tabs {
-  background-color: #b36bffb1;
+  background-color: #9966cccc;
   backdrop-filter: blur(10px);
 }
 
@@ -218,4 +218,115 @@ a:hover strong {
 
 [data-md-color-scheme="default"] .md-typeset h5 {
   color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* =================================================== */
+/* 精美标题样式 (Fancy Title Styles) */
+/* =================================================== */
+
+.md-typeset h1.fancy-title {
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+/* 浅色模式渐变 */
+[data-md-color-scheme="default"] .md-typeset h1.fancy-title {
+  background: linear-gradient(135deg, #9966CC 0%, #CC66CC 50%, #9966CC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(153, 102, 204, 0.2);
+}
+
+/* 深色模式渐变 */
+[data-md-color-scheme="slate"] .md-typeset h1.fancy-title {
+  background: linear-gradient(135deg, #BB86FC 0%, #FF79C6 50%, #BB86FC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 6px rgba(187, 134, 252, 0.3);
+}
+
+/* 添加装饰性下划线 */
+.md-typeset h1.fancy-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  margin: 0.8rem auto;
+  border-radius: 2px;
+}
+
+[data-md-color-scheme="default"] .md-typeset h1.fancy-title::after {
+  background: linear-gradient(90deg, transparent, #9966CC, transparent);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1.fancy-title::after {
+  background: linear-gradient(90deg, transparent, #BB86FC, transparent);
+}
+
+/* 悬停效果 */
+.md-typeset h1.fancy-title:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+
+.md-typeset h1.fancy-title {
+  transition: transform 0.3s ease;
+}
+
+/* =================================================== */
+/* 次级标题美化样式 (Secondary Title Styles) */
+/* =================================================== */
+
+.md-typeset h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+/* 次级标题下划线 */
+.md-typeset h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  border-radius: 1.5px;
+}
+
+[data-md-color-scheme="default"] .md-typeset h2::after {
+  background: linear-gradient(90deg, #9966CC, transparent);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2::after {
+  background: linear-gradient(90deg, #BB86FC, transparent);
+}
+
+/* =================================================== */
+/* 引用块美化样式 (Blockquote Enhancement Styles) */
+/* =================================================== */
+
+/* 块引用样式 */
+.md-typeset blockquote {
+  border-left: 4px solid;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: inherit; /* 继承正文字体大小 */
+}
+
+[data-md-color-scheme="default"] .md-typeset blockquote {
+  border-left-color: #9966CC;
+  background: linear-gradient(90deg, rgba(153, 102, 204, 0.05), transparent);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  border-left-color: #BB86FC;
+  background: linear-gradient(90deg, rgba(187, 134, 252, 0.08), transparent);
+  color: rgba(255, 255, 255, 0.9);
 }

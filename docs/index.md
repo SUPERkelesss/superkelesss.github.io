@@ -1,9 +1,9 @@
-# 欢迎来到**聖·凯楽斯kelesss**的网站！
+# 欢迎来到 <br><font color="#9966cc"><b>凯楽斯 kelesss</b></font> の <font color="DAA520"><b>聖教天堂</b></font> !  {: .fancy-title}
 
 ![homepage](imgs\homepage_dark.png#only-dark){ loading=lazy }
 ![homepage](imgs\homepage_light.png#only-light){ loading=lazy }
 
-<center><i>天地玄黄，宇宙洪荒。溯游从之，宛在水中央。</i></center>
+<center>天地玄黄，宇宙洪荒。溯游从之，宛在水中央。</center>
 
 ---
 
@@ -71,7 +71,17 @@
 
 ## kelesss是谁？
 
-现在是一名普通的pku大二学生，目前修读化学专业。以下是我的一些联系方式：
+- 我就是**凯楽斯**（**kelesss**，ケレス），自我形象是紫色电视机📺里的小幽灵👻，主题色 #9966CC。
+- 现实世界是神秘阴暗pku地雷(?)男大学生。化学系但什么领域都涉猎一点 ≡ω≡ 。伽马化学讲师。
+- MBTI是**INFP**，荣格八维是 Fi > Ti ≈ Ne > Ni > Se > Te > Fe > Si ，算是INFP和INTP的混合型吧。
+- 唯一的信仰是**凯楽斯聖教**，目前是凯楽斯聖教教主。
+- PJSK主推 **鳳（おおとり） えむ**。
+- 番只看**纯爱**番，本只看**纯爱**本。galgame什么类型都玩一点，喜欢柚子社（怎么你了）。
+- 主要玩roguelike和卡牌和沙盒类游戏。**Minecraft** 10年老玩家。
+- 狂热的社会达尔文主义者，认为一切社会资源优胜劣汰，最终人类文明发展的终点是抛弃人类进入格式塔意识。
+- 还有神秘要素等待发现(?)
+
+以下是我的一些联系方式：
 
 - [我的Github主页](https://github.com/SUPERkelesss)（事实上我根本没发过什么）
 - [我的Bilibili主页](https://space.bilibili.com/334614292)
