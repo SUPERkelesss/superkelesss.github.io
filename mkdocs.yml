@@ -87,7 +87,7 @@ theme:
   palette: 
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
+      primary: deep purple
       accent: purple
       toggle:
         icon: material/weather-night

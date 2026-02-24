@@ -1,4 +1,4 @@
-# 欢迎来到 <br><font color="#9966cc"><b>凯楽斯 kelesss</b></font> の <font color="DAA520"><b>聖教天堂</b></font> !  {: .fancy-title}
+# 欢迎来到 <br><font color="#9966cc"><b>凯楽斯 kelesss</b></font> の <font color="DAA520"><b>聖教天堂</b></font>  {: .fancy-title}
 
 ![homepage](imgs\homepage_dark.png#only-dark){ loading=lazy }
 ![homepage](imgs\homepage_light.png#only-light){ loading=lazy }
