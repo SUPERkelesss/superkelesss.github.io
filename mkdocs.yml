@@ -156,6 +156,7 @@ plugins:
 
 hooks:
   - hooks/toc.py
+  - hooks/css_cache_bust.py
 
 #页脚
 extra:
