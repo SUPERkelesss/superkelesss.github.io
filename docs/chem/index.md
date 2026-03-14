@@ -19,8 +19,11 @@
 
 {{ BEGIN_TOC }}
 - 物理化学:
+    - 物理化学I: "physics/Physical_Chemistry_I"
     - 物理化学II: "physical/Physical Chemistry II"
     - 相与相图: "physical/Phase_Diagram"
+- 理论化学:
+    - 量子化学: "theoretical/Quantum_Chemistry"
 - 竞赛晶体进阶十讲:
     - 0.前言: "crystaljs/perface"
     - 1.宏观晶体与对称性: "crystaljs/lecture1"

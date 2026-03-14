@@ -37,7 +37,7 @@ $$
 
 值得一提的是**无穷远点**的概念。我们可以把一个模为正无穷，辐角为任意值的“复数点”定位无穷远点，其可以在复平面上以任意方式无限远离原点得到。一个直观的理解是 Reiman 球：
 
-![img](Mathematic Method in Physics.assets/250px-Riemann_sphere1.svg.png)
+![img](complex.assets/250px-Riemann_sphere1.svg.png)
 
 在如图所示的球面上，可以用顶点到球面上任意一点的射线与复平面交点一一对应复平面上的每个点，此时，上顶点的位置就对应着无穷远点 $\infty$ 。
 
@@ -247,9 +247,9 @@ $e^z+1=0$ 在 $\mathbb{R}$ 内无解但在 $\mathbb{C}$ 内有无穷多解，sin
 
 | 实部图像                                                    | 虚部图像                                                    |
 | ------------------------------------------------------- | ------------------------------------------------------- |
-| ![Ree^z](Mathematic Method in Physics.assets\Ree^z.png) | ![Ime^z](Mathematic Method in Physics.assets\Ime^z.png) |
+| ![Ree^z](complex.assets\Ree^z.png) | ![Ime^z](complex.assets\Ime^z.png) |
 
-<img src="Mathematic Method in Physics.assets/1280px-Exp-complex-cplot.svg.png" alt="undefined" style="zoom:33%;" />
+<img src="complex.assets/1280px-Exp-complex-cplot.svg.png" alt="undefined" style="zoom:33%;" />
 
 ### 2.3 三角函数
 
@@ -270,9 +270,9 @@ $$
 
 | sin(z)实部图像                | sin(z)虚部图像                |
 | ----------------------------- | ----------------------------- |
-| ![Ree^z](Mathematic Method in Physics.assets\Resinz.png) | ![Ime^z](Mathematic Method in Physics.assets\Imsinz.png) |
+| ![Ree^z](complex.assets\Resinz.png) | ![Ime^z](complex.assets\Imsinz.png) |
 | **cos(z)实部图像**            | **cos(z)虚部图像**            |
-| ![Ree^z](Mathematic Method in Physics.assets\Recosz.png) | ![Ime^z](Mathematic Method in Physics.assets\Imcosz.png) |
+| ![Ree^z](complex.assets\Recosz.png) | ![Ime^z](complex.assets\Imcosz.png) |
 
 双曲函数形式：
 
@@ -317,13 +317,13 @@ $$
 
 即为 $\mathrm{arg}(\sqrt{z-a}) = \frac 12 \mathrm{arg}(z-a)$，这意味着对于函数 $w$，如果考虑 $z$ 在 $a$ 点附近旋转一圈，在 $w$ 平面上只旋转了半圈。
 
-![multivalued](Mathematic Method in Physics.assets\multivalued.png)
+![multivalued](complex.assets\multivalued.png)
 
 $\sqrt{z}$ 的图像如下图所示，可见虚部是螺旋上升的：
 
 | 实部图像                         | 虚部图像                         |
 | -------------------------------- | -------------------------------- |
-| ![Resqrtz](Mathematic Method in Physics.assets\Resqrtz.png) | ![Imsqrtz](Mathematic Method in Physics.assets\Imsqrtz.png) |
+| ![Resqrtz](complex.assets\Resqrtz.png) | ![Imsqrtz](complex.assets\Imsqrtz.png) |
 
 这种单一自变量对应多个函数值的函数被称为 **多值函数**
 
@@ -356,7 +356,7 @@ $$
 
 | 单值分支 I                                                    | 单值分支 II                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![image-20251001172654803](Mathematic Method in Physics.assets/image-20251001172654803.png) | ![image-20251001172710349](Mathematic Method in Physics.assets/image-20251001172710349.png) |
+| ![image-20251001172654803](complex.assets/image-20251001172654803.png) | ![image-20251001172710349](complex.assets/image-20251001172710349.png) |
 
 据此可以判断这一类函数的多值性。
 
@@ -401,7 +401,7 @@ $$
 
 要想让其为单值函数，必须做割线使得 **$z$ 不能绕任意一个分支点一圈**，因此通常我们分别做连接 $z=a$ 和 $z=\infty$ 的射线和连接 $z=b$ 和 $z=\infty$ 的射线。
 
-<img src="Mathematic Method in Physics.assets/image-20251001184749769.png" alt="image-20251001184749769" style="zoom: 50%;" />
+<img src="complex.assets/image-20251001184749769.png" alt="image-20251001184749769" style="zoom: 50%;" />
 
 ---
 
@@ -411,7 +411,7 @@ $$
 
 先考虑函数 $w = \sqrt{1-z}$，规定 $w(2) = -i$，考虑 $C_1$ 和 $C_2$ 两种路径：
 
-| 路径               | ![image-20251001185240595](Mathematic Method in Physics.assets/image-20251001185240595.png) | ![image-20251001185254804](Mathematic Method in Physics.assets/image-20251001185254804.png) |
+| 路径               | ![image-20251001185240595](complex.assets/image-20251001185240595.png) | ![image-20251001185254804](complex.assets/image-20251001185254804.png) |
 | ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | $\Delta \arg(1-z)$ | $\pi$                                                        | $-\pi$                                                       |
 | $\arg(1-z)$        | $(4k-1)\pi + \pi = 4k\pi$                                    | $(4k-1)\pi - \pi = (4k-2)\pi$                                |
@@ -419,7 +419,7 @@ $$
 
 在几何图形上，我们可以视作两个平面粘合起来（其实这个图形不能用三维描述）：
 
-<img src="Mathematic Method in Physics.assets/1024px-Riemann_surface_sqrt.svg.png" alt="f（z） = z1/2" style="zoom: 25%;" />
+<img src="complex.assets/1024px-Riemann_surface_sqrt.svg.png" alt="f（z） = z1/2" style="zoom: 25%;" />
 
 可以看到对于任意点绕原点的运动，只有在这个诡异的平面上转两圈才能复原；这种曲面就是 **Reiman 面**，对于这种根式函数有 **二叶 Reiman 面**。
 
@@ -444,15 +444,15 @@ $$
 
 也就是其每一个 $z$ 空间内的点对应 $w$ 空间实部相同的无数点：
 
-<img src="Mathematic Method in Physics.assets/image-20251001193118316.png" alt="image-20251001193118316" style="zoom: 67%;" />
+<img src="complex.assets/image-20251001193118316.png" alt="image-20251001193118316" style="zoom: 67%;" />
 
 其限制在 $[-\pi,\pi)$ 内的函数图像：
 
-<img src="Mathematic Method in Physics.assets/1024px-Complex_log_domain.svg.png" alt="A density plot. In the middle there is a black point, at the negative axis the hue jumps sharply and evolves smoothly otherwise." style="zoom:33%;" />
+<img src="complex.assets/1024px-Complex_log_domain.svg.png" alt="A density plot. In the middle there is a black point, at the negative axis the hue jumps sharply and evolves smoothly otherwise." style="zoom:33%;" />
 
 显而易见其分支点是 $z=0$ 和 $z=\infty$，于是做原点出发的射线可以使对数函数 $\ln z$ 单值化。其 Reiman 面是无穷叶的：
 
-<img src="Mathematic Method in Physics.assets/1024px-Riemann_surface_log.svg.png" alt="logz" style="zoom: 25%;" />
+<img src="complex.assets/1024px-Riemann_surface_log.svg.png" alt="logz" style="zoom: 25%;" />
 
 ---
 
@@ -476,7 +476,7 @@ $$
 
 复变积分就是 **复平面上的第一类曲线积分**
 
-<img src="Mathematic Method in Physics.assets/image-20251006193822560.png" alt="image-20251006193822560" style="zoom:50%;" />
+<img src="complex.assets/image-20251006193822560.png" alt="image-20251006193822560" style="zoom:50%;" />
 
 $$
 \begin{aligned}
@@ -657,7 +657,7 @@ $$
 
 ### 4.3 多连通区域
 
-<img src="Mathematic Method in Physics.assets/image-20251008205200214.png" alt="image-20251008205200214" style="zoom: 67%;" />
+<img src="complex.assets/image-20251008205200214.png" alt="image-20251008205200214" style="zoom: 67%;" />
 
 对于多连通区域，我们有：
 
@@ -669,7 +669,7 @@ $$
 
 证明可以通过构造下列割线形成单连通区域 $G'$：
 
-<img src="Mathematic Method in Physics.assets/image-20251008205305415.png" alt="image-20251008205305415" style="zoom:67%;" />
+<img src="complex.assets/image-20251008205305415.png" alt="image-20251008205305415" style="zoom:67%;" />
 
 由于割线两岸积分相互抵消，整个 $G'$ 的环路积分为 0，移项可以得到结果。
 
@@ -734,7 +734,7 @@ $$
     
     因此 $f(z,w) \rightrightarrows 0$。但是，如果考虑无限区域，则找不到 $\delta$，因此不是一致收敛。这意味着一致收敛比逐点收敛的条件更强。
 
-<img src="Mathematic Method in Physics.assets/image-20251008221247804.png" alt="image-20251008221247804"  />
+<img src="complex.assets/image-20251008221247804.png" alt="image-20251008221247804"  />
 
 **小圆弧引理**：$f(z)$ 在灰色区域内连续，令 $z-a=re^{i\theta}$，且有 **扇形区域内** 一致收敛：
 
@@ -767,7 +767,7 @@ $$
     \forall \epsilon > 0, \exists \delta = -\frac{\sin\epsilon}{\ln\epsilon}, s.t. 当 r <\delta 时，f(r,\theta)<\epsilon
     $$
 
-![image-20251013003824302](Mathematic Method in Physics.assets/image-20251013003824302.png)
+![image-20251013003824302](complex.assets/image-20251013003824302.png)
 
 **大圆弧引理**：$f(z)$ 在灰色区域内连续，令 $z=re^{i\theta}$，且有 **扇形区域内** 一致收敛：
 
@@ -1037,7 +1037,7 @@ $$
 
 其实际作用就是一个自变量的范围限制在另一个自变量内，其实就是转化成对角线的求和：
 
-<img src="Mathematic Method in Physics.assets/image-20251123195535304.png" alt="image-20251123195535304" style="zoom:50%;" />
+<img src="complex.assets/image-20251123195535304.png" alt="image-20251123195535304" style="zoom:50%;" />
 
 !!! example "级数相乘"
     **在 $z=0$ 展开 $\frac1{1-3z+2z^2}$** 。
@@ -1185,7 +1185,7 @@ $$
     
     现在我们选择一个 $x_0$，使得 $\max\Re\ z < x_0$
     
-    <img src="Mathematic Method in Physics.assets/image-20251124154208253.png" alt="image-20251124154208253" style="zoom:50%;" />
+    <img src="complex.assets/image-20251124154208253.png" alt="image-20251124154208253" style="zoom:50%;" />
     
     于是原积分：
     
@@ -1198,7 +1198,7 @@ $$
 !!! proof "$\gamma(z,1)$ 的解析性"
     也是证内闭收敛。选择一个**正**实数 $\delta$ ，使得 $\min \Re\ z > \delta$ ：
 
-    <img src="Mathematic Method in Physics.assets/image-20251124155100460.png" alt="image-20251124155100460" style="zoom:50%;" />
+    <img src="complex.assets/image-20251124155100460.png" alt="image-20251124155100460" style="zoom:50%;" />
     
     于是：
     
@@ -1265,7 +1265,7 @@ $\Gamma$ 函数的各种性质与实数类似：
   - $\Gamma(\frac12) = \sqrt{\pi}$
   - $\Gamma$ 函数在全平面无零点。
 
-<img src="Mathematic Method in Physics.assets/image-20251124000104843.png" alt="image-20251124000104843" style="zoom:50%;" />
+<img src="complex.assets/image-20251124000104843.png" alt="image-20251124000104843" style="zoom:50%;" />
 
 - 倍乘公式：
 
@@ -1514,7 +1514,7 @@ $$
 
 要转化成复积分，最好的方式是补上积分围道。一种做法是补成半圆形：
 
-<img src="Mathematic Method in Physics.assets/image-20251125031237247.png" alt="image-20251125031237247" style="zoom: 67%;" />
+<img src="complex.assets/image-20251125031237247.png" alt="image-20251125031237247" style="zoom: 67%;" />
 
 然后令 $R\to\infty$ ，这样我们就转变为计算：
 
@@ -1574,7 +1574,7 @@ $$
 
 极点在 $z = (2k+1)\pi i$ 且均为一阶极点。考虑取方形围道：
 
-<img src="Mathematic Method in Physics.assets/image-20251209142730785.png" alt="image-20251209142730785" style="zoom:50%;" />
+<img src="complex.assets/image-20251209142730785.png" alt="image-20251209142730785" style="zoom:50%;" />
 
 $$
 \begin{aligned}
@@ -1609,7 +1609,7 @@ $$
 
 在半圆形围道上的积分。
 
-<img src="Mathematic Method in Physics.assets/image-20251209190342420.png" alt="image-20251209190342420" style="zoom:50%;" />
+<img src="complex.assets/image-20251209190342420.png" alt="image-20251209190342420" style="zoom:50%;" />
 
 
 
@@ -1625,7 +1625,7 @@ $$
 
 假设对于 $Q(z)$ 在 $0$ 和 $\infty$ 取到分支点，构建围道：
 
-<img src="Mathematic Method in Physics.assets/image-20251202102749617.png" alt="image-20251202102749617" style="zoom: 67%;" />
+<img src="complex.assets/image-20251202102749617.png" alt="image-20251202102749617" style="zoom: 67%;" />
 
 于是有：
 
@@ -1650,7 +1650,7 @@ $$
 
 计算积分 $\displaystyle \int_0^\infty \frac{x^{\alpha-1}}{1+x} dx\qc(0<\alpha<1)$ .
 
-<img src="Mathematic Method in Physics.assets/image-20251215224252255.png" alt="image-20251215224252255" style="zoom: 50%;" />
+<img src="complex.assets/image-20251215224252255.png" alt="image-20251215224252255" style="zoom: 50%;" />
 
 在 $z = e^{i\pi}$ 处有一阶极点。
 

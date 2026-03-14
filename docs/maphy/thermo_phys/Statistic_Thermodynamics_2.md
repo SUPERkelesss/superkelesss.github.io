@@ -1,4 +1,4 @@
-# 统热进阶专题 Statistic Thermodynamics II
+# 统热进阶专题 Statistical Thermodynamics II
 
 > 本文档遵循[署名—非商业性使用—相同方式共享 4.0 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)（CC BY-NC-SA 4.0）授权:fontawesome-brands-creative-commons::fontawesome-brands-creative-commons-by::fontawesome-brands-creative-commons-nc::fontawesome-brands-creative-commons-sa:
 >

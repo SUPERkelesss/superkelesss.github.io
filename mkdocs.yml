@@ -9,8 +9,11 @@ nav:
   - 🧪化学:
     - 化学-首页: "chem/index.md"
     - 物理化学:
+      - 物理化学I笔记: "chem/physical/Physical_Chemistry_I.md"
       - 物理化学II笔记: "chem/physical/Physical Chemistry II.md"
       - 相与相图: "chem/physical/Phase_Diagram.md"
+    - 理论化学:
+      - 量子化学: "chem/theoretical/Quantum_Chemistry.md"
     - 竞赛晶体进阶十讲:
       - 0.前言: "chem/crystaljs/perface.md"
       - 1.宏观晶体与对称性: "chem/crystaljs/lecture1.md"
@@ -26,7 +29,8 @@ nav:
   - 🔢数理:
     - 数理-首页: "maphy/index.md"
     - 数学基础:
-      - 数学物理方法: "maphy/math/Mathematic Method in Physics.md"
+      - 复变函数: "maphy/math/complex.md"
+      - 数学物理方程: "maphy/math/PDE.md"
       - 微积分概要: "maphy/math/calculus.md"
       - 线性代数概要: "maphy/math/linear_algebra.md"
       - 概率统计概要: "maphy/math/probability.md"
@@ -34,10 +38,15 @@ nav:
       - 统计热力学: "maphy/thermo_phys/Statistic_Thermodynamics.md"
       - 统热进阶专题: "maphy/thermo_phys/Statistic_Thermodynamics_2.md"
       - 近平衡态的热力学: "maphy/thermo_phys/Near_Eq.md"
+      - 固体物理学: "maphy/thermo_phys/Solid_State_Physics.md"
+      - 统计力学笔记: "maphy/thermo_phys/Statistic_Dynamics.md"
+    - 量子物理:
+      - 量子力学导论: "maphy/quant_phys/quant_phys_intro.md"
   - 🖥️计算机:
     - 计算机-首页: "cs/index.md"
     - 工具类应用:
       - Git基础: "cs/tools/git.md"
+      - LaTeX physics宏包: "cs/tools/physics_pkg.md"
   - ☕杂货铺:
     - 杂货铺-首页: "lqbz/index.md"
     - 习作:

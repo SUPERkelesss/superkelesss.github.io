@@ -1,4 +1,4 @@
-# 统计热力学 Statistic Thermodynamics
+# 统计热力学 Statistical Thermodynamics
 
 > 参考：Blundell, S. J., & Blundell, K. M. (2018). *热物理概念：热力学与统计物理学* (第2版). 许均华， 喇文， 刘志翔， 刘成 (译). 科学出版社.
 >

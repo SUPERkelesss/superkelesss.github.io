@@ -11,4 +11,5 @@
 {{ BEGIN_TOC }}
 - 工具类应用:
     - Git基础: tools/git
+    - LaTeX physics宏包: tools/physics_pkg
 {{ END_TOC }}
