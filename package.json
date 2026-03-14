@@ -1,9 +1,9 @@
 {
   "name": "mkdocs",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "dev": "mkdocs serve",
-    "build": "python3 -m mkdocs build -d public"
+    "build": "npm install pngquant && pip install -r requirements.txt && python3 -m mkdocs build -d public"
   }
 }

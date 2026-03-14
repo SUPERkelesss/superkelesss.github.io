@@ -84,7 +84,7 @@
 以下是我的一些联系方式：
 
 - [我的Github主页](https://github.com/SUPERkelesss)（事实上我根本没发过什么）
-- [我的Bilibili主页](https://space.bilibili.com/334614292)
+- [我的Bilibili主页](https://space.bilibili.com/334614292) & [直播间地址](https://live.bilibili.com/21837748)
 - [我的个人q群](https://qm.qq.com/q/YXattqg3Kg)（虽然很早创立，但几乎没什么人）
 - [我的知乎首页](https://www.zhihu.com/people/ke-le-kelesss)
 
