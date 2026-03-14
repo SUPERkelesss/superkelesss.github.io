@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "mkdocs serve",
-    "build": "npm install pngquant && pip install -r requirements.txt && python3 -m mkdocs build -d public"
+    "build": "npm install pngquant && python3 -m mkdocs build -d public"
   }
 }
