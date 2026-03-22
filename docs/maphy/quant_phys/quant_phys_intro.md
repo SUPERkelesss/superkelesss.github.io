@@ -205,6 +205,13 @@ $$
 >
 > 通过移项可以得到 $\mel{u}{\hat A - \hat B}{v} = 0$；取 $(\hat A - \hat B)\ket{v} = \ket{w}$，有 $\ip{u}{w} = 0$，对应 $\ket{w} = 0$；也就是$(\hat A - \hat B) = 0$，得证。
 
+> 逆定理：期望值为实数的算符一定是厄米算符，即：
+>
+> $$
+> \ev{\hat{A}}{u} = \ev{\hat{A}}{u}^* \Rightarrow \hat A = \hat A^\dagger
+> $$
+>
+
 厄米算符的乘积并不是厄米算符，因为：
 
 $$
@@ -319,7 +326,7 @@ $$
 
 那么我们称 $a_i$ 为**本征值**，$\ket{i}$ 为**本征矢量**。
 
-定理：厄米算符的本征值**必为实数**，且不同本征矢是**相互正交的**。
+> 厄米算符的本征值**必为实数**，且不同本征矢是**相互正交的**。
 
 我们左乘一个 $\bra{a_j}$：
 
@@ -342,3 +349,220 @@ $$
 - 当 $i=j$ 时，有 $a_i = a_i^*$，于是 $a_i$ 为实数；
 - 当 $i\neq j$ 时，有 $\ip{a_j}{a_i} = 0$，于是正交。
 
+> 幺正算符的本征值**必定模为1**.
+
+左乘一个 $\bra{a_i}\hat U^\dagger = a_i^* \bra{a_i}$ ：
+
+$$
+\mel{a_i}{\hat U^\dagger \hat U}{a_i} = \ip{a_i} = a_i^*a\ip{a_i}
+$$
+
+于是必有 $a_i^*a_i = 1$ .
+
+> 幂等算符的本征值**必为0或1**.
+
+左乘一个 $\bra{a_i}\hat P$ ：
+
+$$
+\mel{a_i}{\hat P^2}{a_i}  = a_i^2\ip{a_i} = \ev{\hat P}{a_i}= a_i\ip{a_i}
+$$
+
+于是 $a_i^2 = a_i$，就是必为0或1.
+
+---
+
+
+
+用一组正交归一化的基组可以把任意一个向量写成：
+
+$$
+\ket{w} = \sum_i \ket{a_i}\ip{a_i}{w}
+$$
+
+这样就可以用一个列矩阵表示：
+
+$$
+\vb*{W} = \mqty[\ip{a_2}{w}\\\ip{a_2}{w}\\\vdots]
+$$
+
+相对应的 $\bra{w}$ 可以用行矩阵表示：
+
+$$
+\vb*{W}^\dagger = \mqty[\ip{a_2}{w}&\ip{a_2}{w}&\cdots]
+$$
+
+需要注意的是，选择的基组不同，对应的到的矩阵也不同。
+
+这样内积就可以表示为：
+
+$$
+\ip{w}{u} = \vb*{W}^\dagger\vb*{U} = \sum_i\ip{w}{a_i}\ip{a_i}{u} = \ip{w}{u}
+$$
+
+我们还可以找到算符 $\vu*O$ 的矩阵表示：假设 $\ket{u} = \hat O\ket{w}$
+
+$$
+\ket{u} = \sum_{i,j}\ket{a_i}\mel{a_i}{\hat O}{a_j}\ip{a_j}{w}
+$$
+
+就可以用矩阵表示算符：
+
+$$
+\vu*O = \mqty[\mel{a_1}{\vu*O}{a_1}&\mel{a_1}{\vu*O}{a_2}&\cdots\\\mel{a_2}{\vu*O}{a_1}&\mel{a_2}{\vu*O}{a_2}&\cdots\\\vdots&\vdots&\ddots]
+$$
+
+于是就有：
+
+$$
+\vb*U = \vu*O\vb*W
+$$
+
+很明显，如果举个算符在自己本征矢上的表示是对角化的，并且如果本征矢是正交归一的，每一个对角元就是本征值。
+
+$$
+\boldsymbol{A} =
+\begin{bmatrix}
+a_1 & 0 & \cdots \\
+0 & a_2 & \cdots \\
+\vdots & \vdots & \ddots
+\end{bmatrix}
+$$
+
+---
+
+我们假设一个ket可以通过两组正交归一基组展开：
+
+$$
+\ket{u} = \sum_i\ket{a_i}\ip{a_i}{u} = \sum_j\ket{b_j}\ip{b_j}{u}
+$$
+
+这样就有：
+
+$$
+\begin{aligned}
+\sum_j\ip{b_j}{u} &= \sum_{i,j} \ip{b_j}{a_i}\ip{a_i}{u}=\sum_{i,j}\ip{a_i}{b_j}^*\ip{a_i}{u}
+\end{aligned}
+$$
+
+这样定义算符：
+
+$$
+(\vu*{U})_{ij}= \ip{a_i}{b_j}^*
+$$
+
+也可以写成：
+
+$$
+\vu*U = \sum_{ij}U_{ij}\op{a_i}{a_j} = \sum_{i}\op{b_i}{a_i}
+$$
+
+就可以把一个基组下的ket变换到另一个基组去：
+
+$$
+\ket{u}_b = \vu*U\ket{u}_a
+$$
+
+可以证明 $\vu*U$ 算符是幺正的，也就是 $\vu*U^\dagger\vu*U=\vu*I$ 。
+
+同样我们也可以变换一个算符：
+
+$$
+\begin{aligned}
+\mel{b_i}{\vu*O}{b_j} &= \sum_{kl}\ip{b_i}{a_k}\mel{a_k}{\vu*O}{a_l}\ip{a_l}{b_j}\\
+&= \sum_{kl}\mel{a_i}{\vu*U^\dagger}{a_k}\mel{a_k}{\vu*O}{a_l}\mel{a_l}{\vu*U}{a_j}\\
+&= \mel{a_i}{\vu*U^\dagger\vu*O\vu*U}{a_j}
+\end{aligned}
+$$
+
+也就是：
+
+$$
+\vu*O_b = \vu*U^\dagger\vu*O_a\vu*U
+$$
+
+这也被称为算符的**幺正变换**，也就是在幺正算符下的相似变换。
+
+由于 $\Tr(XY) = \Tr(YX)$，于是有：
+
+$$
+\Tr{\vu*O_b} = \Tr(\dagger\vu*O_a\vu*U)
+$$
+
+也就是算符的迹在幺正变换前后不改变。这样我们就可以定义一个**算符的迹**。算符的迹是可以在任意基组上定义的。
+
+$$
+\Tr\vu*O = \sum_k\mel{b_k}{\vu*O}{b_k}
+$$
+
+一个经典结论：
+
+$$
+\Tr(\op{u}{v}) = \sum_k\ip{b_k}{u}\ip{v}{b_k} = \sum_k\ip{v}{b_k}\ip{b_k}{u} = \ip{v}{u}
+$$
+
+> 一些记号：
+>
+> $$
+> \tilde{\ket{a}} = \hat U\ket{a}\\
+> \tilde{\hat O} = \hat U^\dagger\hat O\hat U
+> $$
+
+对于幺正变换后的算符，有：
+
+$$
+\hat U\hat O\ket{a_i} = \hat U\hat O\hat U^\dagger\hat U\ket{a_i}  = \tilde{\hat O}\tilde{\ket a_i}
+$$
+
+同时又有：
+
+$$
+\hat U\hat O\ket{a_i} = a_i\tilde{\ket a_i}
+$$
+
+也就是**幺正变换后的算符本征值不变，本征矢量为原矢量的幺正变换**。
+
+---
+
+对于本征方程：
+
+$$
+\hat B\ket{b_i} = b_i\ket{b_i}
+$$
+
+写成矩阵形式就是：
+
+$$
+\vu*B\vb b = b_i\vu*I\vb b
+$$
+
+移项：
+
+$$
+(\vu*B - \lambda\vu*I)\vb b = 0
+$$
+
+本征矢量不为0的情况下，可以得到**久期方程**：
+
+$$
+\boxed{|\vu*B - \lambda\vu*I| = 0}
+$$
+
+久期方程的每个解都是 $\hat B$ 的本征值。
+
+---
+
+如果两个厄米算符对易，则称之为是**相容的**。
+
+$$
+\comm{\hat A}{\hat B} = 0
+$$
+
+> **相容的厄米算符可以有共同的正交归一完备基组。**
+
+取 $\mel{a_i}{\hat A}{a_j} = 0\qc i\neq j$，有：
+
+$$
+\mel{a_i}{\comm{\hat A}{\hat B}}{a_j} =(a_i-a_j)\mel{a_i}{B}{a_j} = 0
+$$
+
+ 这样就有 $\mel{a_i}{\hat B}{a_j} = 0$，也就是 $\hat B$ 也在 $\ket{a_i}$ 上对角化。

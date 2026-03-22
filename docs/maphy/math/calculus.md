@@ -108,6 +108,16 @@ $$
 
 其中，隐函数存在的条件是 $\partial_y F(x,y) \neq 0$ 。
 
+> 这个式子和物理学上下式等价：
+>
+> $$
+> \qty(\pdv{x}{y})_z\qty(\pdv{z}{x})_y\qty(\pdv{y}{z})_x = -1
+> $$
+>
+> $$
+> \qty(\pdv{x}{y})_z = -\qty(\pdv{x}{z})_y\qty(\pdv{z}{y})_x
+> $$
+
 如果对于方程组：
 
 $$

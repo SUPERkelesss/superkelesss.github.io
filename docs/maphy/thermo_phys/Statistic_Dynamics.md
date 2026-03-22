@@ -12,7 +12,7 @@
 
 基本假设：等概率原理（约束条件下，所有可能的状态等概率出现（没有特别的优势））
 
-如何确定概率是什么？——最大熵原理。
+如何确定概率是什么？——最大熵原理（principle of maximum entropy）。
 
 ---
 
@@ -23,6 +23,13 @@
 $$
 S = -k_B\sum_i p_i\ln p_i
 $$
+
+> 这是唯一满足以下性质的函数形式：
+>
+> - 连续性：熵随概率连续变化；
+> - 最大性：微观态等概率时，熵达到最大值；
+> - 可加性：$S(A+B) = S(A) + \sum p_i S(B|i)$；
+> - 零概率下不影响熵：$p_i = 0$ 时不增加熵。
 
 最大熵原理认为：在所有概率分布种，体系取得的是**熵最大的概率分布**。这也对应了该体系的平衡态。
 
@@ -227,7 +234,7 @@ $$
 带入到概率分布得：
 
 $$
-P(E_A) = \exp(-\frac{(E_A-E_A^*)^2}{2k_BT^2C})
+P(E_A) \sim \exp(-\frac{(E_A-E_A^*)^2}{2k_BT^2C})
 $$
 
 由于 $\Delta E/E \sim N^{-1/2}$，偏离最大值的概率几乎为0。
@@ -299,6 +306,20 @@ $$
 
 当然问题就来了：比方说对于能量 $E = E(S,V,T)$ 来说，如果实验控制的是温度 $T$ 而不是熵 $S$ ，我们就需要构造一个新的函数了。我们通过**Legendre变换**实现这一点。
 
+> 假设有：
+>
+> $$
+> \dd{f(x_1,\cdots,x_n)} = \pdv{f}{x1} \dd{x_1} +\cdots  = p_1\dd{x_1} + \cdots
+> $$
+>
+> 就有：
+>
+> $$
+> \dd(f-x_1p_1) = \dd{f} - x_1\dd{p_1} + p_1\dd{x_1} = -x_1\dd{p_1} + p_2\dd{x_2} + \cdots
+> $$
+>
+> 这样就可以得到以 $p_1$ 为变量的新的函数了。
+
 考虑系统和一个温度为 $T$ 的足够大的热库接触，考虑熵最大原理，这就有：
 
 $$
@@ -356,4 +377,327 @@ $$
 
 ### 2.3 熵函数的结构
 
+#### 单峰熵函数
 
+前面已经说过：
+
+$$
+P(E_A) \sim \exp(-\frac{(E_A-E_A^*)^2}{2k_BT^2C})
+$$
+
+可以得到：
+
+$$
+\ev{(\Delta E)^2} = -\frac{k_B}{S''(E_0)} \sim k_B TC_V
+$$
+
+这意味着在高温下会导致分布展宽，涨落增强。
+
+同时我们可以看出：**熵函数的稳定性由曲率决定**。当曲率结构较大时，对应稳定性较大。
+
+---
+
+#### 多峰波函数
+
+调控参数不同，对应平衡状态时取到的极值也不同。一般而言：
+
+- 孤立系统：熵最大
+- 非孤立系统：熵最小
+
+![image-20260317131505136](Statistic_Dynamics.assets/image-20260317131505136.png)
+
+对于被调控的量 $X$，当两个极值满足：
+
+$$
+X_A = X_B
+$$
+
+对应有两个相同的热力学势。此时对应相平衡条件（即温度，压力，化学势相等）。
+
+从统计的角度来看，这对应体系有两个等高的主峰，并有相同的统计权重。
+
+---
+
+#### 热力学第三定律
+
+> $$
+> \lim_{T\to 0}S(T,X) = k_B \ln g_0
+> $$
+>
+> $g_0$ 为基态简并度。若基态唯一，则 $S \to 0$，此时热容 $C = T(\pdv*{S}{T}) = 0$。
+
+假设基态能量为 $E_0$，当 $T\to0$ 时：
+
+$$
+k_BT \ll E_n - E_0
+$$
+
+也就是：
+
+$$
+e^{-E_n/k_BT} \ll e^{-E_0/k_BT}
+$$
+
+这也就是说，在极低温下激发态的分布都趋于0，于是基态概率：
+
+$$
+p_i = \frac{1}{g_0}
+$$
+
+代入熵的定义：
+
+$$
+S = -k_B \sum_i p_i\ln p_i = k_B \ln g_0
+$$
+
+这也规定了熵函数的**边界结构**：保证在 $T\to 0$ 时熵函数有确定值。
+
+---
+
+### 2.4 熵函数的演化
+
+对于一个体系的自发演化方向时，始终考虑总熵增加：
+
+$$
+\Delta S_{total} = \Delta S + \Delta S_{env} \ge 0
+$$
+
+对于一个恒温恒容条件，有：
+
+$$
+\Delta S_{total} = \Delta S - \Delta U/T = -\Delta F/T
+$$
+
+对应极值函数为 $\Delta F\le 0$，即自由能最小。
+
+恒温恒压有：
+
+$$
+\Delta S_{total} = \Delta S - (\Delta U + P \Delta V)/T = -\Delta G/T
+$$
+
+对应极值函数为 $\Delta G\le 0$，即Gibbs自由能最小。
+
+---
+
+## 3. 习总
+
+系综就是“固定什么变量”：
+
+| 控制变量  | 约束                                   | 对应概率分布                                | 系综       |
+| --------- | -------------------------------------- | ------------------------------------------- | ---------- |
+| $E,V,N$   | 无                                     | $p_i = \frac{1}{\Omega(E,V,N)}$             | 微正则系综 |
+| $T,V,N$   | 平均能量 $\ev{E} = \sum_i{E_i}$        | $ p_i\propto e^{-\beta E_i}$                | 正则系综   |
+| $T,V,\mu$ | 平均能量和粒子数 $\ev{N} = \sum_i N_i$ | $p_{i,N}\propto e^{-\beta (E_{i,N}-\mu N)}$ | 巨正则系综 |
+
+### 3.1 微正则系综
+
+实际上就是作变分：
+
+$$
+\var(-p_i\sum_i\ln p_i + \alpha\qty(\sum_ip_i - 1)) = 0
+$$
+
+可以得到所有 $p_i$ 都相同，也就是：
+
+$$
+p_i = \frac{1}{\Omega(E,V,N)}
+$$
+
+带入到 Shannon 熵就得到了 **Boltzmann 熵公式**：
+
+$$
+S = k_B\ln \Omega(E,N,V)
+$$
+
+根据我们前面定义：
+
+$$
+\frac1T = \qty(\pdv{S}{E})_{N,V} = k_B \pdv{\ln \Omega}{E}
+$$
+
+---
+
+在量子表述下，密度算符可以表示为：
+
+$$
+\hat \rho = \sum_m w_m \op{\psi_m}
+$$
+
+其中 $w_i$ 为该波函数的概率。
+
+在微正则系综下：
+
+$$
+\hat\rho_{m} = \frac{1}{\Omega(E,N,V)}\sum_{k=1}^\Omega \op{k}=\frac{1}{\Omega(E,N,V)}\hat\rho_E
+$$
+
+这个时候用von Neumann熵：
+
+$$
+S = -k_B\Tr(\hat\rho\ln\hat\rho) = k_B\ln\Omega(E,N,V)
+$$
+
+这和经典统计力学一致。
+
+---
+
+### 3.2 正则系综
+
+虽然不能直接对系统用微观状态数，但假设系统A和一个热库B接触，这样系统和热库就可以视为一个孤立系统。概率和热库的微观状态数有关：
+
+$$
+p_i = 1/\Omega_B(E_{tot} - E_i)
+$$
+
+利用热库熵：
+
+$$
+S_B(E_B) = k_B\ln\Omega(E_B)\Rightarrow \Omega_B(E_{tot} - E_i)=\exp(\frac{S_B(E_{tot}-E_i)}{k_B})
+$$
+
+泰勒展开热库的熵，因为热库能量变化很小：
+
+$$
+S_B(E_{tot}-E_i) = S_B(E_{tot}) - \pdv{S_B}{E_B}E_i = S_B(E_{tot})-\frac{E_i}{T}
+$$
+
+这样我们就知道：
+
+$$
+p_i \propto e^{-\beta E_i}
+$$
+
+由此就归一化配分函数，得到：
+
+$$
+p_i = \frac{1}{Z}e^{-\beta E_i} \qc Z(\beta) = \sum_ie^{-\beta E_i}
+$$
+
+---
+
+体系的平均能量：
+
+$$
+U=\ev{E} = \frac{1}{Z}\sum_i E_ie^{-\beta E_i} = -\frac1Z\pdv{Z}{\beta} = -\pdv{\ln Z}{\beta}
+$$
+
+能量涨落：
+
+$$
+\begin{aligned}
+\ev{(\Delta E)^2} &= \ev{E^2} - \ev{E}^2 \\
+&= \frac{1}{Z}\sum_i E^2_ie^{-\beta E_i}-\qty(-\pdv{\ln Z}{\beta})^2\\
+&= \frac{1}{Z}\pdv[2]{Z}{\beta}-\qty(\pdv{\ln Z}{\beta})^2\\
+&= \pdv[2]{\ln Z}{\beta}
+\end{aligned}
+$$
+
+定容热容：
+
+$$
+C_v = -\pdv{T}\pdv{\ln Z}{\beta} = -\pdv{T}{\beta}\pdv[2]{\ln Z}{\beta} = \frac{1}{kT^2}\pdv[2]{\ln Z}{\beta}
+$$
+
+这可以和能量涨落关联起来：
+
+$$
+C_v = \frac{1}{kT^2}\ev{(\Delta E)^2}
+$$
+
+熵：
+
+$$
+\begin{aligned}
+S &= -k\sum_i P_i\ln P_i \\
+&= k\sum_i P_i (\beta E_i + \ln Z) \\
+&= k(\beta U + \ln Z) = \frac{U}{T} + k\ln Z
+\end{aligned}
+$$
+
+自由能：
+
+$$
+\begin{aligned}
+F &= U-TS \\
+&= U+k_BT\qty(\sum_i p_i(-\beta E_i-\ln Z))\\
+&= U-U-k_BT\ln Z = k_B T\ln Z
+\end{aligned}
+$$
+
+---
+
+对固体而言，我们可以把每个原子都视为谐振子，与周围的6个原子相连接。对于单个原子的谐振子有：
+
+$$
+Z_1 = \sum_{n=0}^\infty e^{-\beta\hbar\omega(n+1/2)} = \frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
+$$
+
+总共有3N个谐振子：
+
+$$
+Z = (Z_1)^{3N}
+$$
+
+这样体系的内能有：
+
+$$
+\begin{aligned}
+U &= -\pdv{\ln Z}{\beta}\\
+&= -3N\pdv{\beta}(-\frac{\beta\hbar\omega}{2}-\ln(1-e^{-\beta\hbar\omega}))\\
+&= 3N\qty(\frac{\hbar\omega}{2}+\frac{\hbar\omega}{e^{-\beta\hbar\omega}-1})
+\end{aligned}
+$$
+
+热容有：
+
+$$
+C_v = 3Nk_B\frac{(\beta\hbar\omega)^2e^{\beta\hbar\omega}}{(e^{-\beta\hbar\omega}-1)^2}
+$$
+
+这就对应两个极限：
+
+- 高温下：$C_v = 3Nk_B$
+- 低温下：$C_v = 3Nk_B(\beta\hbar\omega)^2e^{\beta\hbar\omega}$
+
+---
+
+### 3.3 巨正则系综
+
+懒得写了，直接：
+
+$$
+p_i = \frac{1}{\Xi} e^{-\beta(E_i - \mu N)} \qc \Xi = \sum_i e^{-\beta(E_i - \mu N)}
+$$
+
+平均粒子数：
+
+$$
+\overline N = \sum_i N_iP_i = \frac{\sum_i Ne^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} = \frac{1}{\beta \Xi} \pqty{\pdv{\Xi}{\mu}}_\beta = k_BT\pqty{\pdv{\ln \Xi}{\mu}}_\beta
+$$
+
+平均能量：
+
+$$
+\begin{aligned}
+U = \ev{E} = \sum_i E_iP_i &= \frac{\sum_i E_ie^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} \\
+&= -\frac{1}{\Xi} \pqty{\pdv{\Xi}{\beta}}_\mu + \mu \overline N \\
+&=  - \pqty{\pdv{\ln \Xi}{\beta}}_\mu + \mu \overline N
+\end{aligned}
+$$
+
+熵：
+
+$$
+\begin{aligned}
+S = -k_B\sum_i P_i \ln {P_i} &= -k_B\frac{\sum_i (\beta(\mu N_i - E_i) - \ln \Xi)e^{\beta(\mu N - E_i)}}{\sum_i e^{\beta(\mu N - E_i)}} \\
+&= \frac{-\mu \sum_i N_ie^{\beta(\mu N - E_i)} + \sum_i E_ie^{\beta(\mu N - E_i)} + \beta\ln \Xi}{T\Xi} \\
+&= \frac{U - \mu \overline N + k_BT\ln \Xi}{T}
+\end{aligned}
+$$
+
+这就得到**巨热力学势**：
+
+$$
+\Omega = \ev{E}-TS-\mu\ev{N} = k_BT\ln\Xi
+$$

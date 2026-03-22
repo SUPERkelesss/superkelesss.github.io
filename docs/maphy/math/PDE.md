@@ -240,9 +240,9 @@ $$
 
 假设对于一个二阶偏微分方程的问题，已经求出其通解，需要用已知条件消解未知数：
 
-- 初始条件：关注对时间 $t$ 微商的最高阶数。
+- 初始条件（Initial Condition，IC）：关注对时间 $t$ 微商的最高阶数。
 
-- 边界条件：对于不同维度的问题，边界条件也不同。例如对于一维问题的边界条件：
+- 边界条件（Boundary Condition，BC）：对于不同维度的问题，边界条件也不同。例如对于一维问题的边界条件：
 
   - 弦的横振动（第一类边界条件）： $\eval{u}_{x=0} = \eval{u}_{x=l} = 0$；
 
@@ -325,7 +325,7 @@ $$
 
 ### 照搬常微分方程
 
-假设我们有无限长的弦：
+假设我们有无限长的弦，考虑初值问题：
 
 $$
 \begin{cases}
@@ -422,6 +422,595 @@ u(x,t) = \frac{1}{2}\pqty{\psi(x-at) + \psi(x+at)} + \frac{1}{2a}\int_{x-at}^{x+
 $$
 
 从物理意义来看，第一项代表初始位移激发的波，其分成两份独立向左向右传播；第二项代表初始速度激发的波，其左右对称地扩展到 $(x-at, x+at)$。它们的传播速率均为 $a$。通过这样求解的方法称为**行波法**。
+
+---
+
+## 3. 分离变量法
+
+### 得到本征方程
+
+回到热传导问题的初始问题：
+
+$$
+\begin{cases}
+\pdv{u}{t} - \kappa \pdv[2]{u}{x} = 0&, t > 0\\
+\eval{u}_{t=0} = \psi(x)\\
+u(0,t) = u(l,t) = 0
+\end{cases}
+$$
+
+我们不妨认为通解满足：
+
+$$
+u(x,t) = X(x)T(t)
+$$
+
+这样原式子就满足：
+
+$$
+\frac{T'(t)}{T(t)} - \kappa \frac{X''(x)}{X(x)} = 0
+$$
+
+于是我们可以设：
+
+$$
+\frac{T'(t)}{\kappa T(t)} = \frac{X''(x)}{X(x)} = -\lambda
+$$
+
+其中 $T(t)$ 与 $x$ 无关，$X(x)$ 与 $t$ 无关，而常数 $\lambda$ 和两者都无关。我们把 $X(x)$ 的分式拆开，结合边界条件可以得到：
+
+$$
+\begin{cases}
+X''(x) + \lambda X(x) = 0\\
+X(0) = X(l) = 0
+\end{cases}
+$$
+
+这个问题我们称为**本征值问题**。
+
+同理对于 $T(t)$ ：
+
+$$
+T'(t) + \kappa\lambda T(t) = 0
+$$
+
+这就完成了分离变量。
+
+---
+
+同理可以看看两端固定的弦振动问题：
+
+$$
+\begin{cases}
+\pdv{u}{t} - a^2 \pdv[2]{u}{x} = 0&, t > 0\\
+u(0,t) = u(l,t) = 0\\
+\eval{u}_{t=0} = \phi(x)\\
+\eval{\pdv{u}{t}}_{t=0} = \psi(x) \\
+\end{cases}
+$$
+
+设 $u = T(t)X(x)$ 得到：
+
+$$
+\frac{T''(t)}{T(t)} - a^2 \frac{X''(x)}{X(x)} = 0
+$$
+
+得到的本征值问题就是：
+
+$$
+\begin{cases}
+X''(x) + \lambda X(x)=0\\ X(0)=X(l)=0
+\end{cases}\qc T''(t) + a^2\lambda T(t) = 0
+$$
+
+> eg：氢原子的Schrodinger方程：
+>
+> $$
+> \mathrm{i}\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2\mu} \left[ \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial \psi}{\partial r} \right) + \frac{1}{r^2 \sin\theta} \frac{\partial}{\partial \theta} \left( \sin\theta \frac{\partial \psi}{\partial \theta} \right) + \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 \psi}{\partial \phi^2} \right] - \frac{e^2}{4\pi\varepsilon_0 r} \psi
+> $$
+>
+> 把波函数拆解为：
+>
+> $$
+> \psi(r,\theta,\phi,t) = R(r)\Theta(\theta)\Phi(\phi)T(t)
+> $$
+>
+> 代入得到：
+>
+> $$
+> \mathrm{i}\hbar \frac{T'(t)}{T(t)} = -\frac{\hbar^2}{2\mu} \left[ \frac{[r^2R'(r)]'}{r^2R(r)} + \frac{[\sin\theta\Theta'(\theta)]'}{r^2 \sin\theta\Theta(\theta)} + \frac{\Phi''(\phi)}{r^2 \sin^2\theta\Phi(\phi)} \right] - \frac{e^2}{4\pi\varepsilon_0 r} = E
+> $$
+>
+> 首先可以分离时间 $T$：
+>
+> $$
+> \boxed{i\hbar T'(t) -ET(t) = 0}
+> $$
+>
+> 原式化为：
+>
+> $$
+> -\frac{\hbar^2}{2\mu} \left[ \frac{[r^2R'(r)]'}{r^2R(r)} +\frac1{r^2} (\frac{[\sin\theta\Theta'(\theta)]'}{ \sin\theta\Theta(\theta)} + \frac{\Phi''(\phi)}{ \sin^2\theta\Phi(\phi)}) \right] - \frac{e^2}{4\pi\varepsilon_0 r} = E
+> $$
+>
+> 角度部分不含 $R(r)$，直接分离掉：
+>
+> $$
+> \frac{[\sin\theta\Theta'(\theta)]'}{ \sin\theta\Theta(\theta)} + \frac{\Phi''(\phi)}{ \sin^2\theta\Phi(\phi)} = \lambda
+> $$
+>
+> 之后再设：
+>
+> $$
+> \boxed{\Phi''(\phi) + \mu\Phi(\phi) = 0}
+> $$
+>
+> 原式化为：
+>
+> $$
+> \frac{[\sin\theta\Theta'(\theta)]'}{ \sin\theta\Theta(\theta)} + \frac{\mu}{ \sin^2\theta} = \lambda
+> $$
+>
+> 进一步化简为：
+>
+> $$
+> \boxed{-\frac{1}{\sin^2\theta}\qty[\sin\theta\dv{\theta}(\sin\theta\dv{\theta})-\mu]\Theta(\theta) = \lambda\Theta(\theta)}
+> $$
+>
+> 然后再回到径向的式子：
+>
+> $$
+> -\frac{\hbar^2}{2\mu} \left[ \frac{[r^2R'(r)]'}{r^2R(r)} +\frac{\lambda}{r^2} \right] - \frac{e^2}{4\pi\varepsilon_0 r} = E
+> $$
+>
+> 最后化简得到：
+>
+> $$
+> \boxed{\qty[-\frac{\hbar^2}{2\mu r^2} \left[ \dv{r}(r^2\dv{r}R(r)) +\lambda \right] - \frac{e^2}{4\pi\varepsilon_0 r}]R(r) = ER(r)}
+> $$
+>
+> 这就完成了分离变量。可以看到，引入常数数量是独立变量数-1。
+
+---
+
+### 求解本征值问题
+
+先来看本征值问题，如果 $X''(x) = 0$，就意味着这是一个线性方程，而由于边界条件：
+
+$$
+b=kl+b = 0
+$$
+
+这意味着 $\lambda = 0$，也就是只有零解。我们说0不是本征值。
+
+如果 $\lambda \neq 0$，这意味着：
+
+$$
+X(x) = A\sin\sqrt{\lambda}x + B\cos\sqrt{\lambda}x
+$$
+
+代入边界条件：
+
+$$
+B= A\sin\sqrt{\lambda}l = 0
+$$
+
+这意味着必有：
+
+$$
+\begin{cases}
+\lambda_n = \qty(\frac{n\pi}{l})^2\\
+X_n(x) = \sin(\frac{n\pi x}{l})
+\end{cases}
+$$
+
+其中 $\lambda_n$ 称为本征值， $X_n(x)$ 称为本征函数。$n$ 为所有正整数。
+
+这个时候 $T(t)$ 也很容易求，我们结合在一起：
+
+$$
+u(x,t)=X(x)T(t) = C_n e^{-\kappa \lambda_n t}\sin(\frac{n\pi x}{l})
+$$
+
+这个解我们叫做**特解**，将特解叠加可以得到**一般解**：
+
+$$
+u(x,t) = \sum_{n=1}^\infty C_n e^{-\kappa \lambda_n t}\sin(\frac{n\pi x}{l})
+$$
+
+要得到通解就要利用到初值条件了。我们有：
+
+$$
+u(x,0) = \sum_{n=1}^\infty C_n \sin(\frac{n\pi x}{l}) = \psi(x)
+$$
+
+我们知道本征函数具有正交性，现在我们再叠加一个本征函数并积分，尝试把常数表示出来：
+
+$$
+\int_0^l\sum_{n=1}^\infty C_n \sin(\frac{n\pi x}{l})\sin(\frac{m\pi x}{l}) \dd{x} = \int_0^l\psi(x)\sin(\frac{m\pi x}{l})\dd{x}
+$$
+
+交换积分和求和（这是一个平均收敛的函数）：
+
+$$
+\begin{aligned}
+&\int_0^l\sum_{n=1}^\infty C_n \sin(\frac{n\pi x}{l})\sin(\frac{m\pi x}{l}) \dd{x} \\
+&= \sum_{n=1}^\infty C_n \int_0^l\sin(\frac{n\pi x}{l})\sin(\frac{m\pi x}{l}) \dd{x}\\
+&= \sum_{n=1}^\infty \frac{l}{2}C_n\delta_{nm} = \frac{l}{2}C_m
+\end{aligned}
+$$
+
+这样就可以得到 $C_n$ 的值了。
+
+> 总结：
+>
+> 1. 分离变量；
+> 2. 求解本征值问题；
+> 3. 求出特解，叠加得到一般解；
+> 4. 通过正交性得到通解。
+
+同理我们求解本征值问题：
+
+$$
+\begin{cases}
+X''(x) + \lambda X(x)=0\\ X(0)=X(l)=0
+\end{cases}\qc T''(t) + a^2\lambda T(t) = 0
+$$
+
+根据边界条件得到：
+
+$$
+X_n(x) = \sin(\sqrt{\lambda_n} x)\qc \lambda_n = \qty(\frac{n\pi}{l})^2
+$$
+
+又有：
+
+$$
+u(x,t) = T(t)X_n(x) = \qty(C_n \sin(\sqrt{\lambda_n} at) + D_n \cos(\sqrt{\lambda_n} at))\sin(\sqrt{\lambda_n} x)
+$$
+
+叠加得到一般解：
+
+$$
+u(x,t) = \sum_{n=1}^\infty\qty(C_n \sin(\sqrt{\lambda_n} at) + D_n \cos(\sqrt{\lambda_n} at))\sin(\sqrt{\lambda_n} x)
+$$
+
+之后同样乘正交值并积分，得到常数：
+
+$$
+\begin{gathered}
+D_n = \frac{2}{l}\int_0^l \phi(x)\sin(\frac{n\pi x}{l})\dd{x}\\
+C_n = \frac{2}{n\pi a}\int_0^l \psi(x)\sin(\frac{n\pi x}{l})\dd{x}
+\end{gathered}
+$$
+
+---
+
+### 本征值问题的性质
+
+我们来看本征值问题的几个性质。
+
+> **本征值问题的本征值一定是实数。**
+
+我们不妨取复共轭
+
+$$
+\begin{cases}
+X''^*(x) + \lambda^* X^*(x) = 0\\
+X^*(0) = X^*(l) = 0
+\end{cases}
+$$
+
+之后交叉相乘相减：
+
+$$
+[X^*(x)X''(x) - X(x)X''^*(x)] + (\lambda-\lambda^*)X^*(x)X(x) = 0
+$$
+
+积分得到：
+
+$$
+\begin{aligned}
+&\int_0^l\qty[X^*(x)X''(x) - X(x)X''^*(x)] + (\lambda-\lambda^*)\int_0^lX^*(x)X(x)\\
+&=\eval{\qty[X^*(x)X'(x) - X(x)X'^*(x)]}_0^l + (\lambda-\lambda^*)\int_0^lX^*(x)X(x)\\
+&=  (\lambda-\lambda^*)\int_0^lX^*(x)X(x) = 0
+\end{aligned}
+$$
+
+于是 $\lambda = \lambda^*$，即本征值为实数。
+
+> **本征值问题的不同本征值对应本征函数正交。**
+
+我们取另一个函数的复共轭：
+
+$$
+\begin{cases}
+X_m''^*(x) + \lambda_m X_m^*(x) = 0\\
+X_m(0) = X_m(l) = 0
+\end{cases}
+$$
+
+交叉相乘相减：
+
+$$
+[X^*_m(x)X''_n(x) - X_n(x)X''^*_m(x)] + (\lambda_n-\lambda_m)X^*_m(x)X_n(x) = 0
+$$
+
+积分：
+
+$$
+\begin{aligned}
+&\int_0^l[X^*_m(x)X''_n(x) - X_n(x)X''^*_m(x)] + (\lambda_n-\lambda_m)X^*_m(x)X_n(x)\\
+&=\eval{\qty[X^*_m(x)X'_n(x) - X_n(x)X'^*_m(x)]}_0^l + (\lambda_n-\lambda_m)\int_0^lX^*_m(x)X_n(x)\\
+&=  (\lambda_n-\lambda_m)\int_0^lX^*_m(x)X_n(x) = 0
+\end{aligned}
+$$
+
+由于本征值不同，于是 $\int_0^lX^*_m(x)X_n(x) = 0$，即本征函数正交。
+
+---
+
+### 稳定方程
+
+考虑一个矩形区域 $[0,a]\times[0,b]$ 的稳定问题：
+
+$$
+\begin{cases}
+\pdv[2]{u}{x}+\pdv[2]{u}{y} = 0\\
+\eval{u}_{x=0}=0\qc\eval{\pdv{u}{x}}_{x=a}=0\\
+\eval{u}_{y=b}=0\qc\eval{\pdv{u}{y}}_{y=0}=f(x)\\
+\end{cases}
+$$
+
+我们可以分离变量 $u(x,y) = X(x)Y(y)$，分离变量：
+
+$$
+\frac{X''(x)}{X(x)}+\frac{Y''(y)}{Y(y)}=0
+$$
+
+写出本征方程：
+
+$$
+\begin{cases}
+X''(x) +\lambda X(x)=0\\
+X(0) = X'(a) = 0
+\end{cases}\qc Y''(y) -\lambda Y(y)=0
+$$
+
+先求解 $X(x)$，排除 $\lambda = 0$ 的零解，求得：
+
+$$
+X(x) = A\sin(\sqrt{\lambda}x) + B\cos(\sqrt{\lambda}x)
+$$
+
+代入边界条件：
+
+$$
+\begin{cases}
+B=0\\
+A\cos(\sqrt{\lambda}a)=0
+\end{cases}
+$$
+
+又因为非零解，$A\neq0$，所以只能是：
+
+$$
+\sqrt{\lambda}a = \frac{\pi}{2}+n\pi\Rightarrow\lambda_n = \pqty{\frac{2n+1}{2a}\pi}^2
+$$
+
+于是：
+
+$$
+\boxed{X(x) = A\sin(\frac{2n+1}{2a}\pi x)}
+$$
+
+同理可以解得：
+
+$$
+Y(y) = A_n\sinh(\sqrt{\lambda_n}y)+B_n\cosh(\sqrt{\lambda_n}y)
+$$
+
+代入边界条件：
+
+$$
+A_n\sinh(\sqrt{\lambda_n}b)+B_n\cosh(\sqrt{\lambda_n}b)=0
+$$
+
+于是原式可以化为：
+
+$$
+\boxed{Y(y) = C_n\sinh(\frac{2n+1}{2a}\pi (y-b))}
+$$
+
+这样相乘并叠加得到一般解：
+
+$$
+u_n(x,y) =\sum_{n=0}^\infty C_n\sinh(\frac{2n+1}{2a}\pi (y-b))\sin(\frac{2n+1}{2a}\pi x)
+$$
+
+再根据边界条件：
+
+$$
+\eval{\pdv{u}{y}}_{y=0} =\sum_{n=0}^\infty C_n\frac{2n+1}{2a}\pi\cosh(\frac{2n+1}{2a}\pi b)\sin(\frac{2n+1}{2a}\pi x) = f(x)
+$$
+
+同样根据正交性积分：
+
+$$
+\begin{aligned}
+&\int_0^a\sum_{n=0}^\infty C_n\frac{2n+1}{2a}\pi\cosh(\frac{2n+1}{2a}\pi b)\sin(\frac{2n+1}{2a}\pi x)\sin(\frac{2m+1}{2a}\pi x)\\
+&= C_m\frac{2m+1}{2a}\pi\cosh(\frac{2m+1}{2a}\pi b) = \int_0^a f(x)
+\end{aligned}
+$$
+
+这样就得到通解了。
+
+---
+
+### 非齐次方程——同时齐次化
+
+对于受迫弦振动问题：
+
+$$
+\begin{cases}
+\pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} = f(x,t)&, t > 0\\
+u(0,t) = u(l,t) = 0\\
+\eval{u}_{t=0} = \eval{\pdv{u}{x}}_{t=0} =0\\
+\end{cases}
+$$
+
+这里我们把 $u(x,t)$ 拆成两个函数：
+
+$$
+u(x,t) = v(x,t) + w(x,t)
+$$
+
+分别满足：
+
+$$
+\begin{cases}
+\pdv[2]{v}{t} - a^2 \pdv[2]{v}{x} = f(x,t)\\
+v(0,t) = v(l,t) = 0\\
+\end{cases}\qc
+\begin{cases}
+\pdv[2]{w}{t} - a^2 \pdv[2]{w}{x} = 0\\
+w(0,t) = w(l,t) = 0\\
+\eval{w}_{t=0} = -\eval{v}_{t=0}\qc \eval{\pdv{w}{x}}_{t=0} = -\eval{\pdv{v}{x}}_{t=0}
+\end{cases}
+$$
+
+> 特例1： $f(x)$ 与 $t$ 无关。可以设 $v(x,t) = v(x)$ 满足：
+>
+> $$
+> \begin{cases}
+> - a^2 \pdv[2]{v}{x} = f(x)\\
+> v(0) = v(l) = 0\\
+> \end{cases}
+> $$
+>
+> 特例2：$f(x,t)=g(x)\sin\omega t$。可设 $v(x,t) = h(x)\sin\omega t$ ，此时有：
+>
+> $$
+> \begin{cases}
+> -\omega^2h(x)- a^2 h''(x) = g(x)\\
+> h(0) = h(l) = 0\\
+> \end{cases}
+> $$
+
+这样通过第一个式子，就可以把 $v(x,t)$ 解出来。之后解 $w(t)$ 就是经典的问题了。
+
+---
+
+### 非齐次方程——按本征函数展开
+
+我们还是考虑齐次的问题：
+
+$$
+\begin{cases}
+\pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} = 0\\
+u(0,t) = u(l,t) = 0\\
+\end{cases}
+$$
+
+> 注意这里不能取初始条件 $\eval{u}_{t=0} = \eval{\pdv{u}{x}}_{t=0} =0\\$，因为该条件会得出原方程只有零解的结论。
+
+对于齐次的情况我们知道：
+
+$$
+u(x,t) = \sum_{n=1}^\infty T_n(t)\sin\frac{n\pi}{l}x
+$$
+
+我们尝试将 $f(x,t)$ 也按这种方法展开：
+
+$$
+f(x,t) = \sum_{n=1}^\infty f_n(t)\sin\frac{n\pi}{l}x
+$$
+
+全部代入初始式子：
+
+$$
+\sum_{n=1}^\infty \qty[T''_n(t)\sin\frac{n\pi}{l}x+a^2\qty(\frac{n\pi}{l})^2T_n(t)\sin\frac{n\pi}{l}x-f_n(t)\sin\frac{n\pi}{l}x] = 0
+$$
+
+之后同样乘正交基并积分，最后这个方程就转化为：
+
+$$
+\begin{cases}
+T''_n(t) +a^2\qty(\frac{n\pi}{l})^2T_n(t)-f_n(t)=0\\
+T(0) = T'(0) = 0
+\end{cases}
+$$
+
+这是一个二阶常微分方程，一定有解。这样理论上就可以把原方程解出来了。
+
+---
+
+### 非齐次边界条件
+
+我们把边界条件改成这样：
+
+$$
+\begin{cases}
+\pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} =0\\
+u(0,t) = \psi(t), u(l,t) = \phi(t)\\
+\eval{u}_{t=0} = \eval{\pdv{u}{x}}_{t=0} =0\\
+\end{cases}
+$$
+
+同样拆成两个函数：
+
+$$
+u(x,t) = v(x,t) + w(x,t)
+$$
+
+我们让 $v(x,t)$ 满足边界条件，这样 $w(x,t)$ 的边界条件就是齐次的了：
+
+$$
+v(0,t) = \psi(t), v(l,t) = \phi(t)
+$$
+
+> 一种可能的取法是取线性函数 $v(x,t) = \psi(t)+\frac{\phi(t)-\psi(t)}{l}x$.
+
+这样 $w(x,t)$ 就满足：
+
+$$
+\begin{cases}
+\pdv[2]{w}{t} - a^2 \pdv[2]{w}{x} = -\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x} \\
+w(0,t) = w(l,t) = 0\\
+\eval{w}_{t=0} = -\eval{v}_{t=0}\qc \eval{\pdv{w}{x}}_{t=0} = -\eval{\pdv{v}{x}}_{t=0}
+\end{cases}
+$$
+
+这就转化为了非齐次方程的情况，如果 $v(x,t)$ 选的好，使 $-\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x} = 0$，那就转化成更简单的齐次方程了。
+
+就算初始条件也是非齐次方程，只需要把后面一项改成 $-\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x} + f(x,t)$ 即可。
+
+$$
+\begin{cases}
+\pdv[2]{w}{t} - a^2 \pdv[2]{w}{x} = -\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x}+f(x,t) \\
+w(0,t) = w(l,t) = 0\\
+\eval{w}_{t=0} = -\eval{v}_{t=0}\qc \eval{\pdv{w}{x}}_{t=0} = -\eval{\pdv{v}{x}}_{t=0}
+\end{cases}
+$$
+
+> 特例：
+>
+> $$
+> \begin{cases}
+> \pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} =0\\
+> u(0,t) = \sin\omega t, u(l,t) = 0\\
+> \eval{u}_{t=0} = \eval{\pdv{u}{x}}_{t=0} =0\\
+> \end{cases}
+> $$
+>
+> 可以设 $u = f(x)\sin\omega t$，就有：
+>
+> $$
+> \begin{cases}
+> -\omega^2f(x) - a^2 f''(x) =0\\
+> f(0) = 1, f(1) = 0\\
+> \end{cases}
+> $$
 
 ---
 
