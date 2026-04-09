@@ -480,7 +480,7 @@ $$
 
 ---
 
-## 3. 习总
+## 3. 系综理论
 
 系综就是“固定什么变量”：
 
@@ -645,7 +645,7 @@ $$
 \begin{aligned}
 U &= -\pdv{\ln Z}{\beta}\\
 &= -3N\pdv{\beta}(-\frac{\beta\hbar\omega}{2}-\ln(1-e^{-\beta\hbar\omega}))\\
-&= 3N\qty(\frac{\hbar\omega}{2}+\frac{\hbar\omega}{e^{-\beta\hbar\omega}-1})
+&= 3N\qty(\frac{\hbar\omega}{2}+\frac{\hbar\omega}{e^{\beta\hbar\omega}-1})
 \end{aligned}
 $$
 
@@ -658,7 +658,7 @@ $$
 这就对应两个极限：
 
 - 高温下：$C_v = 3Nk_B$
-- 低温下：$C_v = 3Nk_B(\beta\hbar\omega)^2e^{\beta\hbar\omega}$
+- 低温下：$C_v = 3Nk_B(\beta\hbar\omega)^2e^{-\beta\hbar\omega}$
 
 ---
 
@@ -700,4 +700,364 @@ $$
 
 $$
 \Omega = \ev{E}-TS-\mu\ev{N} = k_BT\ln\Xi
+$$
+
+---
+
+定义粒子数密度 $n=N/V$，这样等温压缩率：
+
+$$
+\kappa_T = -\frac1V\qty(\pdv{V}{P})_T = \frac1n\qty(\pdv{n}{P})_T
+$$
+
+又有巨热力学势：
+
+$$
+\Omega = U-TS-\mu N = -PV
+$$
+
+于是：
+
+$$
+\dd{\Omega} = -P\dd{V}-V\dd{P}
+$$
+
+又有：
+
+$$
+\dd{\Omega} = -P\dd{V}-S\dd{T}-N\dd{\mu}
+$$
+
+于是就有：
+
+$$
+\dd{P} = s\dd{T}+n\dd{\mu}
+$$
+
+这就得到了：
+
+$$
+n = \qty(\pdv{P}{\mu})_T
+$$
+
+通过链式法则：
+
+$$
+\qty(\pdv{n}{\mu})_T =\qty(\pdv{n}{P})_T\qty(\pdv{P}{\mu})_T = n^2\kappa_T
+$$
+
+于是粒子数涨落对应：
+
+$$
+\begin{aligned}
+\ev{(\Delta N)^2} = k_BT\qty(\pdv{\ev{N}}{\mu})_T = k_BT\ev{N}n\kappa_T
+\end{aligned}
+$$
+
+也就是粒子数涨落同样和宏观有关系。
+
+对于能量和粒子数涨落量都和粒子数有关系，也就是：
+
+$$
+\ev{(\Delta X)^2}\sim N
+$$
+
+但是考虑相对偏差：
+
+$$
+\frac{\sqrt{\ev{(\Delta X)^2}}}{\ev{X}}\sim\frac{1}{\sqrt{N}}
+$$
+
+这同样在大体系下趋于0.
+
+---
+
+## 4. 经典统计力学
+
+### 4.1 理想气体-连续体系
+
+已经知道：
+
+$$
+Z_N = \frac1{N!h^{3N}} \int \prod_{i=1}^N e^{-\beta H(\vb p,\vb q)} \dd {\vb p}\dd {\vb q}
+$$
+
+当气体足够稀薄的情况下，假设势能项为0，那么势能积分为 $V$，也就是：
+
+$$
+Z_N = \frac{V}{N!} \pqty{\frac{2\pi mkT}{h^2}}^{3N/2} = \frac1{N!}\frac{V}{\Lambda^3}
+$$
+
+在知道理想气体的配分函数后，我们也不难把其他态函数求出来了。首先是内能：
+
+$$
+\begin{aligned}
+U = -\dv{\ln Z_N}{\beta} &= -\dv{(N\ln V - 3N\ln \Lambda - \ln N!)}{\beta} \\
+&= -\dv{( \frac32N\ln T +Const.)}{\beta} \\
+&= \frac 32 Nk_BT
+\end{aligned}
+$$
+
+由于整个式子里只有 $\Lambda \propto T^{-1/2}$ 和温度项有关，其他项都可作为常数项消去。由此导出的热容 $C_V = \frac 32 Nk$ 和能均分原理导出相同。
+
+自由能（利用Stiring近似 $\ln N! \approx N\ln N - N$ ）：
+
+$$
+\begin{aligned}
+F = -k_BT\ln Z_N &= -k_BT(N\ln V - 3N\ln \Lambda - \ln N!)\\
+&=  Nk_BT(\ln (\frac NV\Lambda^3)  - 1) = Nk_BT(\ln(n\Lambda^3)-1)
+\end{aligned}
+$$
+
+于是压强：
+
+$$
+p = -(\pdv{F}{V})_T = Nk_BT/V = nk_BT
+$$
+
+这就是**理想气体方程**！我们也可以求出焓：
+
+$$
+H = U+pV = \frac 52 Nk_BT
+$$
+
+接下来我们来求熵：
+
+$$
+\begin{aligned}
+S &= \frac{U-F}{T} \\
+&= \frac{\frac32 Nk_BT - k_BTN\ln V - 3k_BTN\ln \Lambda - k_BT(N\ln N - N)}{T} \\
+&= \frac32 Nk_B + Nk_B \ln(\frac{V\mathrm{e}}{N\Lambda^3}) \\
+&= \boxed{Nk\pqty{\frac52 - \ln{n\Lambda^3}}}
+\end{aligned}
+$$
+
+这种表示方法被称为**Sackur-Tetrode 方程**。
+
+我们还可以得到吉布斯自由能：
+
+$$
+G = H-TS = Nk_BT\ln(n\Lambda^3)
+$$
+
+化学势：
+
+$$
+\mu = k_BT(\ln(n\Lambda^3) - 1) + Nk_BT(\frac 1N) = k_BT\ln(n\Lambda^3)
+$$
+
+---
+
+### 4.2 离散体系
+
+#### 二能级系统
+
+假设对于二能级系统，有：
+
+![image-20251114155622915](Statistic_Dynamics.assets/image-20251114155622915.png)
+
+其配分函数：
+
+$$
+Z = e^{-\frac{\beta\Delta}{2}} + e^{\frac{\beta\Delta}{2}} = 2\cosh{\frac{\beta\Delta}{2}}
+$$
+
+利用上述公式得到：
+
+$$
+\begin{gathered}
+U = -\dv{\ln Z}{\beta} = -\frac{\Delta}{2}\tanh(\frac{\beta\Delta}{2})\\
+C_V = (\pdv{U}{T})_V = k(\frac{\beta\Delta}{2})^2\sech^2(\frac{\beta\Delta}{2}) \\
+F = -k_BT\ln Z = -k_BT\ln(2\cosh(\frac{\beta\Delta}{2})) \\
+S = \frac{U-F}{T} = -\frac{\Delta}{2T} \tanh(\frac{\beta\Delta}{2}) + k\ln(2\cosh(\frac{\beta\Delta}{2}))
+\end{gathered}
+$$
+
+![image-20251114161800296](Statistic_Dynamics.assets/image-20251114161800296.png)
+
+这里出现了一些很抽象的事情：热容随温度会到达一个极大值，之后又随之衰减。事实上这被称为**肖基特反常**（Schottky anomaly），(i) 当低温时，只有低能级被占据且温度增加对其改变不大，(ii) 而高温时两个能级被同等占据，温度增加也没有什么改变。
+
+<img src="Statistic_Dynamics.assets/two_level_plot.png" alt="two_level_plot" style="zoom: 15%;" />
+
+> 当粒子数反转时，对应出现负温度状态。
+
+---
+
+#### 顺磁性固体
+
+我们都知道一个基本粒子的自旋角动量等于 $\pm \frac12$ ，考虑其在磁场$B$中，这个粒子可以存在于两种本征态之一（ $\ket{\uparrow}$ 对应角动量平行于$B$， $\ket{\downarrow}$ 对应角动量反平行于$B$），他们的**磁矩**分别为 $-\mu_B$ 和 $+\mu_B$（玻尔磁子 $\mu_B = eh/2m$ ）。于是单粒子的配分函数：
+
+$$
+Z_1 = e^{\beta\mu_B B} + e^{-\beta\mu_B B} = 2\cosh{\beta\mu_BB}
+$$
+
+假设粒子间没有任何相互作用，则：
+
+$$
+Z_N = Z_1^N
+$$
+
+于是我们有：
+
+$$
+F = -kT\ln{Z_N} = -NkT\ln(2\cosh{\beta\mu_BB})
+$$
+
+之后我们即可求出单位体积内的磁矩：
+
+$$
+m = -\pqty{\pdv{F}{B}}_T = N\mu_B \tanh\pqty{\beta\mu_B B}
+$$
+
+对结果进行分析，我们发现当磁场$B$足够强时，能级趋向于 $N\mu_B$ ，对应几乎所有粒子都有极大概率处于 $\ket{\uparrow}$ 组态；而当磁场$B$在0附近时，曲线的行为类似于线性。事实上利用等价无穷小 $\tanh x \sim x$：
+
+$$
+m_{\sim 0} = \frac{N\mu_B^2B}{kT}, \quad M = m/V = \frac{N\mu_B^2B}{VkT}
+$$
+
+其中$M$为单位体积的磁矩。对弱磁材料，可认为 $M\approx \chi H$ ，其中 $\chi \ll 1$ 为磁化率。我们有：
+
+$$
+B = \mu_0(1+\chi)H \approx \frac{\mu_0M}{\chi}
+$$
+
+于是有：
+
+$$
+\boxed{\chi \approx \frac{N\mu_0\mu_B^2B}{VkT},\quad \chi\propto 1/T}
+$$
+
+这就是**居里定律**（Curie's Law）。
+
+---
+
+#### 一般能谱
+
+前面一节我们说过，在高温下热容可以由能均分定理给出，这也可以由配分函数得到。假设在高温下能级可以视作是连续的：
+
+$$
+\begin{aligned}
+Z_{rot} = \sum (2J+1)e^{-\frac{\Theta}{T}J(J+1)} &= \int_0^\infty (2J+1)e^{-\frac{\Theta}{T}J(J+1)} \dd J \\
+&= -\left[ \frac{T}{\Theta}e^{-\frac{\Theta}{T} J(J+1)} \right]_0^\infty = \frac{T}{\Theta} = \frac{2IkT}{\hbar^2} \\
+\end{aligned}
+$$
+
+于是 $U = -\dv{\ln Z}{\beta} = \frac 1\beta = k_BT$ ，而 $C_V = k$ 。同理对于振动能级：
+
+$$
+\begin{aligned}
+Z_{vib} = \sum e^{-\beta(\frac12 + n)\hbar\omega} &= \int_0^\infty e^{-\beta(\frac12 + n)\hbar\omega} \dd n \\
+&= e^{-\beta\hbar\omega/2}(\frac{1}{\beta\hbar\omega}\left[e^{-\beta n\hbar\omega}\right]_0^\infty) = \frac{e^{-\beta\hbar\omega/2}}{\beta\hbar\omega}
+\end{aligned}
+$$
+
+于是 $U = -\dv{\ln Z}{\beta} = \frac{\hbar\omega}{2} + \frac{1}{\beta}$ ，而 $C_V = k$ 。注意对高温下的振动能级而言，其**内能与零点能有关，而热容与零点能无关。**
+
+---
+
+#### 相互作用体系
+
+直接看Thermodynamic_2吧。
+
+---
+
+## 5. 量子理论
+
+#### 判据
+
+已经提到过：$n\Lambda^3 \gg 1$ 时，对应粒子在态空间分布稀疏；$n\Lambda^3 \ll 1$ 时，对应多个粒子占据态空间中的同一个态。
+
+经典统计有高温极限，即 $kT\gg\Delta$；但量子统计能级间距远小于 $kT$。
+
+---
+
+#### 基本假设
+
+我们认为粒子是不可区分的，即交换两个粒子将保持可观测量不变。于是至多改变一个相位：
+
+$$
+\abs{\Psi(q_1,q_2)}^2 = \abs{\Psi(q_2,q_1)}^2 \Rightarrow \Psi(q_1,q_2) = e^{i\theta}\Psi(q_2,q_1)
+$$
+
+又由于交换两次回到原状态，因此必有：
+
+$$
+\Psi(q_1,q_2) = \pm \Psi(q_2,q_1)
+$$
+
+- 对称波函数（+）：对应玻色子。多个粒子可占据相同量子态。
+- 反对称波函数（-）：对应费米子。若两个粒子占据相同量子态，则 $\Psi=0$，因此**每个量子态至多被一个粒子占据**。
+
+同样用最大熵原理求，此时我们知道各个能级的占据数的集合 $\qty{n_i}$，对应要求的概率是 $p(\qty{n_i})$。满足约束：
+
+$$
+\begin{gathered}
+\sum_{\qty{n_i}}p(\qty{n_i})=1\\
+\sum_{\qty{n_i}}p(\qty{n_i})\sum_{i}n_i = N\\
+\sum_{\qty{n_i}}p(\qty{n_i})\sum_{i}n_i\epsilon_i = U
+\end{gathered}
+$$
+
+最终得到：
+
+$$
+p(\qty{n_i}) = \frac1\Xi e^{-\beta\sum_i n_i(\epsilon_i-\mu)}
+$$
+
+对应的配分函数：
+
+$$
+\Xi = \sum_{\qty{n_i}} e^{-\beta\sum_i n_i(\epsilon_i-\mu)}
+$$
+
+类比单粒子配分函数，定义单能级配分函数，其中 $n_i$ 代表第 $i$ 个能级的占据数：
+
+$$
+\Xi_i =\sum_{n_i}e^{-\beta n_i(\epsilon_i-\mu)}\qc\Xi = \prod_i \Xi_i
+$$
+
+对于玻色子，单粒子配分函数就是求和：
+
+$$
+\Xi_i = \frac{1}{1-e^{-\beta(\epsilon_i-\mu)}}
+$$
+
+费米子只有两个求和：
+
+$$
+\Xi_i = 1+e^{-\beta(\epsilon_i - \mu)}
+$$
+
+> 可统一表达为：
+>
+> $$
+> \Xi = \prod_i (1\mp e^{-\beta(\epsilon_i- \mu)})^{\mp 1}
+> $$
+
+由此可以得到平均占据数：
+
+$$
+\begin{aligned}
+\ev{n_i} &= \sum_{n_i} n_iP(n_i)\\
+&= \frac{1}{\Xi_1} \sum_{n_i} n_ie^{-\beta n_i(\epsilon_i-\mu)}\\
+&= -\frac1\beta \pdv{\ln\Xi_i}{\epsilon_i}
+\end{aligned}
+$$
+
+应用到玻色子得到Bose-Eistein分布：
+
+$$
+\ev{n_i} = \frac{1}{e^{\beta(\epsilon_i - \mu)}-1}
+$$
+
+应用在费米子得到Fermi-Dirac分布：
+
+$$
+\ev{n_i} = \frac{1}{e^{\beta(\epsilon_i - \mu)}+1}
+$$
+
+这两个分布在高温情况下都会退化成经典极限，也就是 Maxwell-Boltzmann 分布：
+
+$$
+\ev{n_i} \approx e^{-\beta(\epsilon_i-\mu)}
 $$

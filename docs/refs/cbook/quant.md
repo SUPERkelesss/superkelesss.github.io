@@ -49,7 +49,7 @@
 
 ### 中级物理化学 (赵新生)
 
-- **教材**：[https://pan.baidu.com/s/1J9YZuUbOqifDpiWePgTyAQ?pwd=gama](https://pan.baidu.com/s/1J9YZuUbOqifDpiWePgTyAQ?pwd=gama)
+- **教材**：[https://pan.baidu.com/s/18s19lP8apwfvrlo2m7HBEg?pwd=gama](https://pan.baidu.com/s/18s19lP8apwfvrlo2m7HBEg?pwd=gama)
 
 <br/>
 

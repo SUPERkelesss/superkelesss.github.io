@@ -472,8 +472,8 @@ $$
 
 $$
 \begin{gathered}
-(\frac{\hbar^2(\vb k - \vb K)^2}{2m}-\epsilon_{\vb k})C_{\vb (\vb k - \vb K)} + \sum_{\vb K'}U_{\vb K'}C_{\vb (\vb k - \vb K) -\vb K'} = 0\\
-(\frac{\hbar^2(\vb k - \vb K)^2}{2m}-\epsilon_{\vb k})C_{\vb (\vb k - \vb K)} + \sum_{\vb K'}U_{\vb K'- \vb K}C_{\vb k  -\vb K'} = 0
+(\frac{\hbar^2(\vb k - \vb K)^2}{2m}-\epsilon_{\vb k})C_{\vb k - \vb K} + \sum_{\vb K'}U_{\vb K'}C_{\vb (\vb k - \vb K) -\vb K'} = 0\\
+(\frac{\hbar^2(\vb k - \vb K)^2}{2m}-\epsilon_{\vb k})C_{\vb k - \vb K} + \sum_{\vb K'}U_{\vb K'- \vb K}C_{\vb k  -\vb K'} = 0
 \end{gathered}
 $$
 
@@ -532,6 +532,7 @@ $$
   $$
   \vb k = \sum_{i=1}^3 \frac{m_i}{N_i}\vb b_i
   $$
+  这限制了 $\va k$ 的取值。
   
 - 由于Hilbert空间内的平面波是无限的，Bloch态数也是无限的。但是每个Bloch能带都只有有限种（$N = N_1N_2N_3$ 种，对应三个方向的平移，也正好是晶胞数）状态。我们用 $n$ 表示序数，这样就有：
 
@@ -552,13 +553,13 @@ $$
 回到这个方程：
 
 $$
-(\frac{\hbar^2(\vb k - \vb K)^2}{2m}-\epsilon_{\vb k})C_{\vb (\vb k - \vb K)} + \sum_{\vb K'}U_{\vb K'- \vb K}C_{\vb k  -\vb K'} = 0
+(\frac{\hbar^2(\vb k - \vb K)^2}{2m}-\epsilon_{\vb k})C_{\vb k - \vb K} + \sum_{\vb K'}U_{\vb K'- \vb K}C_{\vb k  -\vb K'} = 0
 $$
 
 我们假设：
 
 $$
-|U_K| \ll \frac{h^2k^2}{2m}
+|U_{\va K}| \ll \frac{h^2k^2}{2m}
 $$
 
 也就是周期势很弱，可以当成微扰。
@@ -571,13 +572,13 @@ $$
 
 这对应自由电子的动能（$q=k-K$），是一条抛物线。
 
-回到central equation：
+回到central equation，我们可以写成更简洁的形式：
 
 $$
 (\epsilon_{\vb k}-\epsilon_{k-K}^{(0)})C_{\vb (\vb k - \vb K)} = \sum_{\vb K'}U_{\vb K'- \vb K}C_{\vb k  -\vb K'}
 $$
 
-现在假设我们只研究其中的一个 $\vb K_1$，对其进行微扰，把它分离出来就是：
+现在假设我们只研究其中的一个 $\vb K_1$，令其对应的 $C_{\va k - \va K_1} \sim 1$，而其他的 $C_{\va k - \va K} \ll 1$， 对其进行微扰，把它分离出来就是：
 
 $$
 (\epsilon_{\vb k}-\epsilon_{k-K_1}^{(0)})C_{\vb (\vb k - \vb K_1)} = \sum_{\vb K}U_{\vb K- \vb K_1}C_{\vb k  -\vb K}
@@ -600,7 +601,7 @@ $$
   C_{\vb (\vb k - \vb K)} = \frac{U_{\vb K_1- \vb K}C_{\vb k  -\vb K_1}}{\epsilon_{\vb k}-\epsilon_{k-K}^{(0)}}
   $$
 
-  回代得到：
+  回代SE得到：
 
   $$
   \begin{gathered}
@@ -622,31 +623,35 @@ $$
 
   此处一阶微扰 $\ev{U}{n} = U_0$，对应能量零点为0.
 
-- **简并的情况** 假设有若干个靠得很近的能级 $\epsilon_{k-K_i}^{(0)},i=1,2,\cdots,m$：还是相同的操作
-
-  $$
+- **简并的情况** 假设有若干个靠得很近的能级 $\epsilon_{k-K_i}^{(0)},i=1,2,\cdots,m$：我们在处理 $\va K_i$ 时把临近的简并能级都提出来：              
+$$
   \begin{gathered}
   (\epsilon_{\vb k}-\epsilon_{k-K_i}^{(0)})C_{\vb (\vb k - \vb K)} = \sum_{j=1}^mU_{\vb K_j- \vb K_i}C_{\vb k  -\vb K_j}+\sum_{\vb K'\neq\vb K_{1,\dots,m}}U_{\vb K'- \vb K_i}C_{\vb k  -\vb K'}\\
   C_{\vb (\vb k - \vb K_i)} = \frac{1}{\epsilon_{\vb k}-\epsilon_{k-K_i}^{(0)}}(\sum_{j=1}^mU_{\vb K_j- \vb K_i}C_{\vb k  -\vb K_j}+\sum_{\vb K'\neq\vb K_{1,\dots,m}}U_{\vb K'- \vb K_i}C_{\vb k  -\vb K'})
   \end{gathered}
   $$
-
-  忽略掉除了简并subspace的项：
-
-  $$
+  
+忽略掉除了简并subspace的项：
+  
+$$
   C_{\vb (\vb k - \vb K_i)} = \frac{1}{\epsilon_{\vb k}-\epsilon_{k-K_i}^{(0)}}\sum_{j=1}^mU_{\vb K_j- \vb K_i}C_{\vb k  -\vb K_j}
   $$
-
-  回代得到：
-
+  
+回代得到：
+  
+$$
+  (\epsilon_{\va k} - \epsilon^{(0)}_{\va k -\va K_i})C_{\va k - \va K_i} =\sum_{j=1}^mU_{\vb K_j- \vb K_i}C_{\vb k  -\vb K_j} + \sum_{j=1}^m\qty(\sum_{\va K \neq \va K,\cdots,\va K_m} \frac{}{\epsilon_{\va k} - \epsilon^{(0)}_{\va k -\va K}})C_{\va k - \va K_j} + \order{U^3}
   $$
-  ……
-  $$
-
-  其中前一项代表临近能级的耦合，后一项代表可能跃迁回到简并能级的虚跃迁。
+  
+其中前一项代表临近能级的耦合，后一项代表可能跃迁回到简并能级的虚跃迁。
 
 ---
 
 ### 2.3 带隙 Bandgap
 
-  
+
+
+---
+
+## 3. 半经典 输运 Semi-Classical Transport
+

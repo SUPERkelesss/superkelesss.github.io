@@ -13,40 +13,41 @@
 我们知道在经典力学中，能量可以用哈密顿量 $H(p,q)$ 表示，我们把它带入到正则配分函数中：
 
 $$
-Z \sim \int e^{\beta H(p,q)} \dd[3] {p}\dd[3] {q}
+Z \sim \int e^{-\beta H(p,q)} \dd[3] {p}\dd[3] {q}
 $$
 
 然而这种定义有一个问题：我们的配分函数应当是**无量纲数**，但这里的 $ \dd{p}\dd{q}$ 存在量纲。于是可以除以一个普朗克常数平衡掉量纲：
 
 $$
-\boxed{Z_1 = \frac1{h^3} \int e^{\beta H(\vb p,\vb q)} \dd {\vb p}\dd {\vb q}}
+\boxed{Z_1 = \frac1{h^3} \int e^{-\beta H(\vb p,\vb q)} \dd {\vb p}\dd {\vb q}}
 $$
+
+> 这也和量子相空间的最小体积元一致。
 
 这就是对于经典力学系统的单粒子配分函数。而对于 $N$ 个全同粒子，根据前面的结论：
-
 $$
-Z_N = \frac1{N!h^{3N}} \int \prod_{i=1}^N e^{\beta H(\vb p,\vb q)} \dd {\vb p}\dd {\vb q}
+Z_N = \frac1{N!h^{3N}} \int \prod_{i=1}^N e^{-\beta H(\vb p,\vb q)} \dd {\vb p}\dd {\vb q}
 $$
 
 要化简这个表达式，我们需要把哈密顿量拆成位置和动量两部分：
 
 $$
 \begin{aligned}
-Z_N &= \frac1{N!h^{3N}} \pqty{\int \prod_{i=1}^N e^{\beta E_k} \dd{\vb p_i} \cdot \int \prod_{i=1}^N e^{\beta U(\vb q_i)} \dd{\vb q_i}} \\
-&= \frac1{N!h^{3N}} \pqty{\int \prod_{i=1}^N e^{\beta \vb p_i^2/2m} \dd{\vb p_i} \cdot \int \prod_{i=1}^N e^{\beta \sum_{i<j}U(r_{ij})}\dd{\vb r_i}}
+Z_N &= \frac1{N!h^{3N}} \pqty{\int \prod_{i=1}^N e^{-\beta E_k} \dd{\vb p_i} \cdot \int \prod_{i=1}^N e^{-\beta U(\vb q_i)} \dd{\vb q_i}} \\
+&= \frac1{N!h^{3N}} \pqty{\int \prod_{i=1}^N e^{-\beta \vb p_i^2/2m} \dd{\vb p_i} \cdot \int \prod_{i=1}^N e^{-\beta \sum_{i<j}U(r_{ij})}\dd{\vb r_i}}
 \end{aligned}
 $$
 
 其中前者可以直接积分得到:
 
 $$
-\int \prod_{i=1}^N e^{\beta \vec p_i^2/2m} \dd{\vec p_i} = \pqty{2\pi mkT}^{N/2}
+\int \prod_{i=1}^N e^{-\beta \vec p_i^2/2m} \dd{\vec p_i} = \pqty{2\pi mkT}^{N/2}
 $$
 
 而后者的处理相对比较复杂。为了简便，我们定义**构型积分**（Configuration Integral） $Q_N$ ：
 
 $$
-\boxed{Q_N = \int \prod_{i=1}^N e^{\beta \sum_{i<j}U(r_{ij})}\dd{\vec r_i}}
+\boxed{Q_N = \int \prod_{i=1}^N e^{-\beta \sum_{i<j}U(r_{ij})}\dd{\vec r_i}}
 $$
 
 这样我们就将原来的表达式化为了：

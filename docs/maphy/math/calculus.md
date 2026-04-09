@@ -70,6 +70,20 @@ $$
 
 ## 3. 多变量积分
 
+### 偏导数的链式法则
+
+$$
+\dv{z(x,y(x))}{x} = \pdv{z}{x}+\pdv{z}{y}\pdv{y}{x}
+$$
+
+> 物理学更常见的形式：
+>
+> $$
+> \qty(\pdv{z}{x})_w = \qty(\pdv{z}{x})_y + \qty(\pdv{z}{y})_x\qty(\pdv{y}{x})_w
+> $$
+
+---
+
 ### 偏导的可交换性
 
 $$
@@ -139,8 +153,16 @@ $$
 其中，隐函数存在的条件是 Jacobi 行列式：
 
 $$
-J = \frac{D(F,G)}{D(u,v)} = \mqty|\partial_u F_1(u,v) & \partial_v F_1(u,v) \\ \partial_u F_2(u,v) & \partial_v F_2(u,v)| \neq 0
+J = \pdv{(F,G)}{(u,v)} = \mqty|\partial_u F_1(u,v) & \partial_v F_1(u,v) \\ \partial_u F_2(u,v) & \partial_v F_2(u,v)| \neq 0
 $$
+
+> 特殊情况下，Jacobi 行列式会退化成偏导数：
+>
+> $$
+> \pdv{(x,v)}{(x,y)} = \qty(\pdv{v}{y})_x\qc \pdv{(u,y)}{(x,y)} = \qty(\pdv{u}{x})_y
+> $$
+>
+> 这有通常用于计算复杂的偏导数。
 
 ---
 
@@ -366,7 +388,7 @@ $$
 W(x) = \mqty|\varphi_1(x) & \varphi_2(x) \\ \varphi'_1(x) & \varphi_2'(x)|
 $$
 
-对于一个通解 $C_1\varphi_1(x) + C_2\varphi_2(x)$，则 $\varphi_1(x)$ 和 $\varphi_2(x)$ 线性无关的充分条件是**区间上存在一点** $W(x) \neq 0$ （可证明一点非零则区间上均非零）。
+对于一个通解 $C_1\varphi_1(x) + C_2\varphi_2(x)$，则 $\varphi_1(x)$ 和 $\varphi_2(x)$ 线性无关的充分条件是**区间上存在一点** $W(x) \neq 0$ （可证明一点非零则区间上均非零，一点为零则处处为零）。
 
 ---
 

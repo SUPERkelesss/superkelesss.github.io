@@ -277,6 +277,7 @@
 | :-------------------: | :--------------------------------: | ---------------- |
 |       `\pdv{x}`       |      $\displaystyle \pdv{x}$       | 一个参数         |
 |     `\pdv{y}{x}`      |     $\displaystyle \pdv{y}{x}$     | 两个参数         |
+|    `\pdv{z}{y}{x}`    |   $\displaystyle \pdv{z}{y}{x}$    | 三个参数         |
 |    `\pdv[n]{y}{x}`    |   $\displaystyle \pdv[n]{y}{x}$    | 方括号内表示阶次 |
 | `\pdv{x}(\cos\theta)` | $\displaystyle\pdv{x}(\cos\theta)$ | 包括自动括号     |
 |     `\pdv*{y}{x}`     |           $\pdv*{y}{x}$            | 加星号为单行形式 |

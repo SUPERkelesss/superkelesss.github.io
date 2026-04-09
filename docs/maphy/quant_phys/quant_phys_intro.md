@@ -30,6 +30,8 @@
 
 ---
 
+### 1.2 共轭空间
+
 类似线性代数的定义，如果对于 $n$ 个矢量：
 
 $$
@@ -78,6 +80,8 @@ $$
 另外，如果两个矢量满足 $\ip{a}{b} = 0$，我们就说是他们是正交的。
 
 ---
+
+### 1.3 正交归一基组
 
 回到基组，如果基矢满足：
 
@@ -136,6 +140,8 @@ $$
 
 ---
 
+### 1.4 算符
+
 如果有一个操作或者运算，可以试一个矢量映射成同一个空间内的另一个矢量，这个操作就被称作**算符**（operator），记作 $\hat{A}$：
 
 $$
@@ -174,6 +180,8 @@ $$
 
 ---
 
+### 1.5 厄米共轭算符
+
 有右矢就有左矢，必然存在一个 $\hat{A}^\dagger$ 满足：
 
 $$
@@ -204,13 +212,44 @@ $$
 > $$
 >
 > 通过移项可以得到 $\mel{u}{\hat A - \hat B}{v} = 0$；取 $(\hat A - \hat B)\ket{v} = \ket{w}$，有 $\ip{u}{w} = 0$，对应 $\ket{w} = 0$；也就是$(\hat A - \hat B) = 0$，得证。
-
+>
 > 逆定理：期望值为实数的算符一定是厄米算符，即：
 >
 > $$
 > \ev{\hat{A}}{u} = \ev{\hat{A}}{u}^* \Rightarrow \hat A = \hat A^\dagger
 > $$
 >
+> 可以设 $\ket{u} = \ket{v}+\lambda\ket w$，于是有：
+>
+> $$
+> \begin{aligned}
+> &\ev{\hat A}{v} + \lambda \mel{v}{\hat A}{w} + \lambda^*\mel{w}{\hat A}{v} + \lambda\lambda^*\ev{\hat A}{w}\\
+> &=\ev{\hat A}{v}^* + \lambda^* \mel{w}{\hat A^\dagger}{v} + \lambda\mel{v}{\hat A^\dagger}{w} + \lambda\lambda^*\ev{\hat A}{w}^*
+> \end{aligned}
+> $$
+>
+> 这就有：
+>
+> $$
+> \lambda (\mel{v}{\hat A}{w}-\mel{v}{\hat A^\dagger}{w}) + \lambda^*(\mel{w}{\hat A}{v} - \mel{w}{\hat A^\dagger}{v}) =0
+> $$
+>
+> 分别取：
+>
+> $$
+> \begin{cases}
+> (\mel{v}{\hat A}{w}-\mel{v}{\hat A^\dagger}{w}) + (\mel{w}{\hat A}{v} - \mel{w}{\hat A^\dagger}{v}) = 0&,\lambda=1\\
+> (\mel{v}{\hat A}{w}-\mel{v}{\hat A^\dagger}{w}) - (\mel{w}{\hat A}{v} - \mel{w}{\hat A^\dagger}{v}) = 0&,\lambda=i
+> \end{cases}
+> $$
+>
+> 相加即得到：
+>
+> $$
+> \mel{v}{\hat A}{w}=\mel{v}{\hat A^\dagger}{w}
+> $$
+>
+> 即为 $\hat A$ 是厄米算符。
 
 厄米算符的乘积并不是厄米算符，因为：
 
@@ -225,8 +264,6 @@ $$
 $$
 
 可以发现 $\comm{\hat{A}}{\hat{B}}^\dagger = -\comm{\hat{A}}{\hat{B}}$，这一类算符也被称为**反厄米算符**。显而易见的，只需要在反厄米算符前面乘一个虚数 $i$，就能得到一个厄米算符。
-
----
 
 如果对于一个算符满足 $\hat{A}^\dagger = \hat{A}^{-1}$，这个算符就被叫做**幺正算符**（Unitary Operator），我们一般用 $\hat{U}$ 表示。
 
@@ -244,6 +281,8 @@ $$
 由此可见幺正算符不改变内积运算结果。
 
 ---
+
+### 1.6 外积
 
 **外积**（outer product）可以定义为：
 
@@ -276,6 +315,8 @@ $$
 这个式子被称为**恒等分解**。
 
 ---
+
+### 1.7 微分算符
 
 我们先将右矢认为是定义在 $(-\infty,\infty)$ 上的 $L_2 : f(x)$，这样我们可以定义微分算符：
 
@@ -317,6 +358,8 @@ $$
 $$
 
 ---
+
+### 1.8 本征值
 
 如果有一系列非零矢量满足：
 
@@ -369,9 +412,26 @@ $$
 
 于是 $a_i^2 = a_i$，就是必为0或1.
 
+> 反厄米算符的本征值均为纯虚数或0。
+
+假设有两个本征值 $a_i,a_j$：
+
+$$
+\mel{a_j}{\hat A}{a_i} = -\mel{a_i}{\hat A}{a_j}^* = -a_j^*\ip{a_i}{a_j}^* = -a_j^*\ip{a_j}{a_i}
+$$
+
+相减得到：
+
+$$
+(a_i + a_j^*)\ip{a_j}{a_i} = 0
+$$
+
+- 当 $i=j$ 时，有 $a_i = -a_i^*$，于是 $a_i$ 为纯虚数或0；
+- 当 $i\neq j$ 时，有 $\ip{a_j}{a_i} = 0$，于是正交。
+
 ---
 
-
+### 1.9 矩阵表示
 
 用一组正交归一化的基组可以把任意一个向量写成：
 
@@ -429,6 +489,8 @@ a_1 & 0 & \cdots \\
 $$
 
 ---
+
+### 1.10 幺正变换
 
 我们假设一个ket可以通过两组正交归一基组展开：
 
@@ -551,6 +613,8 @@ $$
 
 ---
 
+### 1.11 相容厄米算符
+
 如果两个厄米算符对易，则称之为是**相容的**。
 
 $$
@@ -566,3 +630,413 @@ $$
 $$
 
  这样就有 $\mel{a_i}{\hat B}{a_j} = 0$，也就是 $\hat B$ 也在 $\ket{a_i}$ 上对角化。
+
+（该证明实际不严谨，可看物理化学I的推导。）
+
+> 不对易的厄米算符的对易子一定有如下形式：
+>
+> $$
+> \comm{\hat A}{\hat B} = i\hat C
+> $$
+>
+> 其中 $\hat C$ 为厄米算符。这也就是厄米算符的对易子的期望为纯虚数。
+
+$$
+\comm{\hat A}{\hat B}^\dagger = (\hat B\hat A - \hat A\hat B) = -(\hat A\hat B-\hat B\hat A) = -\comm{\hat A}{\hat B}
+$$
+
+---
+
+### 1.12 算符的函数
+
+算符的函数可以定义成级数展开：
+
+$$
+f(\hat A) = \sum_n c_n\hat A^n
+$$
+
+其中最重要的是指数函数：
+
+$$
+e^{\alpha\hat A} = \sum_n \frac{\alpha}{n!}\hat{A}^n
+$$
+
+有如下性质：
+
+$$
+e^{\hat A}e^{-\hat A} = \hat I
+$$
+
+> 设函数：
+>
+> $$
+> f(\lambda) =e^{\lambda\hat A}e^{-\lambda\hat A}
+> $$
+>
+> 很显然 $f(0) = \hat I$。求导数，由于一个算符的函数永远与自己对易，所以可以交换顺序：
+>
+> $$
+> f'(\lambda) = \hat Ae^{\lambda\hat A}e^{-\lambda\hat A} - e^{\lambda\hat A}\hat Ae^{-\lambda\hat A} = 0
+> $$
+>
+> 于是 $f(1) = \hat I$，也就是 $e^{\hat A}e^{-\hat A} = \hat I$.
+
+$$
+\hat U e^\hat A \hat U^{-1} = e^{\hat U \hat A \hat U^{-1}}
+$$
+
+> 可以通过插入任意个幺正对得到：
+>
+> $$
+> \begin{aligned}
+> \hat U e^\hat A \hat U^{-1} &= \sum_{n} \frac{1}{n!}  \hat U \hat A^n \hat U^{-1}\\
+> &= \sum_{n} \frac{1}{n!}  (\hat U \hat A \hat U^{-1}\hat U \hat A \hat U^{-1}\cdots)\\
+> &= \sum_{n} \frac{1}{n!}  (\hat U \hat A \hat U^{-1})^n = e^{\hat U \hat A \hat U^{-1}}
+> \end{aligned}
+> $$
+
+**Baker–Campbell–Hausdorff 公式**（BCH公式）：
+
+$$
+e^{\hat A}\hat Be^{-\hat A} = \hat B + \comm{\hat A}{\hat B} + \frac{1}{2!}\comm{\hat A}{\comm{\hat A}{\hat B}} + \cdots
+$$
+
+> 设函数：
+>
+> $$
+> f(\lambda) = e^{\lambda\hat A}\hat Be^{-\lambda\hat A}
+> $$
+>
+> 在 $\lambda = 0$ 处作泰勒展开。对每阶导数有：
+>
+> $$
+> \begin{gathered}
+> f(0) = \hat B\\
+> f'(0) = \hat A e^{\lambda\hat A}\hat Be^{-\lambda\hat A} -  e^{\lambda\hat A}\hat B\hat Ae^{-\lambda\hat A}\eval{}_{\lambda=0} = \comm{A}{B}\\
+> f''(0) = \hat A f'(0)-f'(0)\hat A=\comm{\hat A}{\comm{\hat A}{\hat B}}
+> \\
+> \vdots
+> \end{gathered}
+> $$
+>
+> 代入泰勒展开式，取 $\lambda=1$ 即得原公式。
+
+---
+
+### 1.13 重要不等式
+
+**Schwartz 不等式**：
+
+$$
+\ip{u}\ip{v} \ge \abs{\ip{u}{v}}^2
+$$
+
+> 取 $\ket w = \ket u + \lambda \ket v$ ：
+>
+> $$
+> \ip{w} = \ip{u} + c\ip{u}{v}+c^*\ip{v}{u}+cc^*\ip{v}
+> $$
+>
+
+**不确定性关系：**对于两个厄米算符有：
+
+$$
+\ev{(\Delta A)^2}\ev{(\Delta B)^2}\ge\frac14\abs{\ev{\comm{\hat A}{\hat B}}}^2
+$$
+
+> 由于：
+>
+> $$
+> \ev{(\hat A - \ev{\hat A})^2}{u}\ev{(\hat B - \ev{\hat B})^2}{u} \ge \abs{\ev{(\hat A - \ev{\hat A})(\hat B - \ev{\hat B})}{u}}^2
+> $$
+>
+> 这也就是：
+>
+> $$
+> \ev{(\Delta\hat A)^2}\ev{(\Delta\hat B)^2} \ge \abs{\ev{\Delta\hat A\Delta\hat B}}^2
+> $$
+>
+> 又有：
+>
+> $$
+> \Delta\hat A\Delta\hat B = \frac12\comm{\Delta\hat A}{\Delta\hat B}+\frac12\acomm{\Delta\hat A}{\Delta\hat B}
+> $$
+>
+> 因为期望值 $\ev{A},\ev{B}$ 为实数，于是 $\comm{\Delta\hat A}{\Delta\hat B}=\comm{\hat A}{\hat B}$ 。我们又知道厄米算符的对易子的期望纯虚数，反对易子的期望为实数。代入到不等式有：
+>
+> $$
+> \ev{(\Delta\hat A)^2}\ev{(\Delta\hat B)^2} \ge \frac14\abs{\ev{\comm{\hat A}{\hat B}}}^2+\frac14\abs{\ev{\acomm{\Delta\hat A}{\Delta\hat B}}}^2
+> $$
+
+---
+
+## 2. 量子力学基本假设
+
+### 2.1 Stern-Gerlach 实验
+
+![image-20260326162302278](quant_phys_intro.assets/image-20260326162302278.png)
+
+对于银原子的电动力学有：
+
+$$
+F_z = \pdv{z}(\va\mu\cdot \va B) = \mu_z\pdv{B}{z}
+$$
+
+在经典力学里，如果电子磁矩为 $\mu$，由于磁矩取向随机，会得到 $[-\mu,\mu]$ 的任何取值；单实际只有两个分立的峰，对应：
+
+$$
+s_z = \pm \frac{\hbar}{2}
+$$
+
+连续的S-G实验出现了以下的结果：
+
+![image-20260326165055851](quant_phys_intro.assets/image-20260326165055851.png)
+
+---
+
+### 2.2 量子力学基本假设
+
+**基本假设1**：体系的一个确定状态对应线性矢量空间内一束确定的有相同方向的矢量，称之为态矢。
+
+例如电子自旋，假设沿 $z$ 方向的自旋投影为 $s_z$，由于有两个状态，所以体系内任意一个自旋状态可以表示成：
+
+$$
+\ket\chi = \alpha\ket{s_z+}+\beta\ket{s_z-}
+$$
+
+由于归一化，有：
+
+$$
+|\alpha|^2+|\beta|^2=1
+$$
+
+这样 $x$ 方向的自旋和 $y$ 方向的自旋就可以用这两个ket表示：
+
+$$
+\begin{gathered}
+\ket{s_x \pm} = \frac{1}{\sqrt2}\ket{s_z+}\pm\frac{1}{\sqrt2}\ket{s_z-}\\
+\ket{s_y \pm} = \frac{1}{\sqrt2}\ket{s_z+}\pm i\frac{1}{\sqrt2}\ket{s_z-}
+\end{gathered}
+$$
+
+**基本假设2**：物理可观测量对应于厄米算符，该算符的本征矢构成线性空间的完备基组。
+
+**基本假设3**：对于 $\ket u$ 用算符 $\hat A$ 测量得到本征值 $a_i$ ，会使原来的状态 $\ket u$ 投影到 $\ket{a_i}$ （坍缩），该事件发生的概率为：
+
+$$
+P_i = \abs{\ip{a_i}{u}}^2
+$$
+
+这表示期望值可以表示为：
+
+$$
+\begin{aligned}
+\ev{\hat A}{u} &= \sum_{i,j} \ip{u}{a_i}\mel{a_i}{\hat A}{a_j}\ip{a_j}{u}\\
+&=\sum_{i,j}a_j\ip{u}{a_i}\ip{a_i}{a_j}\ip{a_j}{u}\\
+&= \sum_i a_i\ip{u}{a_i}\ip{a_i}{u}\\
+&= \sum_i |\ip{u}{a_i}|^2a_i = \sum_i P_ia_i
+\end{aligned}
+$$
+
+---
+
+### 2.3 位置和动量算符
+
+对于位置算符，由于位置的取值为 $(-\infty,\infty)$ ，对应的是一个连续无穷维的空间。
+
+$$
+\hat x\ket{x} = x\ket{x}
+$$
+
+这种状态下本征矢完备性改为：
+
+$$
+\hat I = \int\ket{x}\dd{x}\bra{x}
+$$
+
+对于位置算符的本征矢有：
+
+$$
+\ip{x'}{x} = \delta(x-x')
+$$
+
+我们把 $\ket{u}$ 在位置表象上的表示写成 $\ip{x}{u} = \psi(x)$，这就是**波函数**。因为概率（概率密度）我们知道：
+
+$$
+P(x)\dd{x} = \psi^*(x)\psi(x)\dd{x}
+$$
+
+这就是波函数表示。
+
+对于一个态由于完备性有：
+
+$$
+\ket{u} = \int\ket{x}\ip{x}{u}\dd{x} = \int\psi(x)\ket{x}\dd{x}
+$$
+
+于是就有：
+
+$$
+\ip{u} = \int\psi(x)\ip{u}{x}\dd{x} = \int\psi^*(x)\psi(x)\dd{x} = 1
+$$
+
+自动满足正交归一条件。
+
+同理可以定义动量算符：
+
+$$
+\hat p\ket{p} = p\ket{p}
+$$
+
+可以定义 $\ip{p}{u} = \phi(p)$ 为动量空间的波函数。
+
+**基本假设4**：对位置算符和动量算符满足基本对易关系：
+
+$$
+\comm{\hat x}{\hat p} = i\hbar
+$$
+
+> 在三维情境下，有：
+>
+> $$
+> \comm{\hat x_i}{\hat p_j} = i\hbar\delta_{ij}
+> $$
+
+根据不确定性原理有：
+
+$$
+\ev{(\Delta x)^2}\ev{(\Delta p)^2} = \frac{\hbar^2}{4}
+$$
+
+这也就是：
+
+$$
+\Delta x\cdot\Delta p = \frac{\hbar^2}{2}
+$$
+
+---
+
+现在需要推导动量算符。考虑一个平移算符，可以平移一个无穷小的量（注意后续讨论都是基于无穷小量的平移！）：
+
+$$
+\hat D(\dd{s}) \ket{x}= \ket{x+\dd{s}}
+$$
+
+于是分别有：
+
+$$
+\begin{gathered}
+\hat x\hat D(\dd s)\ket{x} = (x+\dd{s})\ket{x+\dd s}\\
+\hat D(\dd s)\hat x\ket{x} = x\ket{x+\dd s}
+\end{gathered}
+$$
+
+这于是就有对易关系：
+
+$$
+\comm{\hat x}{\hat D(\dd{s})} = \dd{s}\ket{x+\dd{s}} \approx \dd{s}\ket{x}
+$$
+
+由于物理意义，我们规定：
+
+- 平移算符作用不改变归一性，也就是对 $\hat D\ket{u}$ 有 $\ev{D^\dagger D}{u} = 1$，也就是**平移算符是幺正算符**。
+- 平移可加：$\hat D(\dd{s})+\hat D(\dd{s}') = \hat D(\dd{s}+\dd{s}')$
+- 反方向平移等于平移的你操作：$\hat D^{-1}(\dd{s}) = \hat D{(-\dd{s})}$
+- $\lim_{\dd s\to 0}\hat D(\dd{s}) = \hat I$
+
+于是我们可以设：
+
+$$
+\hat D(\dd{s}) = 1-i\hat K \dd{s}
+$$
+
+其中 $\hat K$ 是任意一个厄米算符。这个式子满足任意一个性质。
+
+带入到平移对易关系有：
+
+$$
+\hat {x}(\hat K\dd{s})-(\hat K\dd{s})\hat {x}=i\dd{s}
+$$
+
+我们假设 $\dd{s}$ 为沿着任意一个坐标轴的 $\dd{s}\vu{e_j}$，上式转变为：
+
+$$
+\comm{\hat x_i}{\hat K_j} = i\delta_{ij}
+$$
+
+这样只要取：
+
+$$
+\hat{K}_j = \frac{\hat p_j}{\hbar}
+$$
+
+就有基本对易关系了。此时平移算符为：
+
+$$
+\hat D(\dd{s})=1-\frac{i}{\hbar}\hat p\cdot\dd{s}
+$$
+
+如果平移量不是无穷小，而是有限量，通过极限可以得到：
+
+$$
+\hat D(s) = \lim_{N\to\infty}(1-\frac{i}{\hbar}\hat p\cdot\frac{s}{N})^N = e^{-\frac{i}{\hbar}\hat p\cdot s}
+$$
+
+---
+
+把平移算符作用于任意一个矢量：
+$$
+\hat D(\dd{s})\ket{u} = (1-\frac{i}{\hbar}\hat p\cdot\dd{s})\ket{u}
+$$
+左乘一个 $\bra{x}$ 得到：
+$$
+\begin{aligned}
+\bra{x}\hat D(\dd{s})\ket{u} = \ip{x-\dd{s}}{u} &=\bra{x} (1-\frac{i}{\hbar}\hat p\cdot\dd{s})\ket{u}\\
+&= \ip{x}{u} - \frac{i}{\hbar}\mel{x}{\hat p}{u}\cdot \dd{s}
+\end{aligned}
+$$
+将左边做泰勒展开，保留到一阶项：
+$$
+\begin{gathered}
+\grad\ip{x}{u}\cdot \dd{s} = \frac{i}{\hbar}\mel{x}{\hat p}{u}\cdot \dd{s}\\
+\mel{x}{\hat p}{u} = \frac{\hbar}{i}\grad\ip{x}{u}
+\end{gathered}
+$$
+这意味着动量算符等同于将 $\hbar/i\ \grad$ 作用在算符上。我们取 $\ket{u} = \ket{x'}$，得到：
+$$
+\mel{x}{\hat{p}}{x'} = \frac{\hbar}{i}\grad\delta^3(x-x')
+$$
+这就是动量算符在位置空间的表示。
+
+---
+
+动量基矢和位置基矢的内积：
+$$
+\mel{x}{\hat p}{p}= p\ip{x}{p}\Rightarrow -i\hbar\grad\ip{x}{p} = p\ip{x}{p}
+$$
+得到：
+$$
+\ip{x}{p} = Ae^{ip\cdot x/\hbar}
+$$
+利用归一化得到：
+$$
+\begin{aligned}
+\delta^3(p'-p) = \ip{p'}{p} &= \int\ip{p'}{x}\dd[3]{x}\ip{x}{p'}\\
+&= |A|^2\int e^{i(p-p')\cdot x/\hbar} \dd[3]{x}\\
+&= |A|^2(2\pi\hbar)^3 \delta^3(p'-p)
+\end{aligned}
+$$
+这就得到归一化常数了：
+$$
+\ip{x}{p} = (2\pi\hbar)^{-3/2}e^{ip\cdot x/\hbar}
+$$
+以此可以得到位置空间和动量空间的转换：
+$$
+\begin{cases}
+\displaystyle\psi(x) = \ip{x}{u} = \int\ip{x}{p}\dd[3]{p}\ip{p}{u} = (2\pi\hbar)^{-3/2}\int \dd[3]{p}e^{ip\cdot x/\hbar}\phi(p)\\
+\displaystyle\phi(p) = \ip{p}{u} = \int\ip{p}{x}\dd[3]{p}\ip{x}{u} = (2\pi\hbar)^{-3/2}\int \dd[3]{x}e^{-ip\cdot x/\hbar}\psi(x)
+\end{cases}
+$$
+
+---
+

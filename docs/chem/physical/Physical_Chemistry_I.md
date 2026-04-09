@@ -817,7 +817,7 @@ $$
 
 $$
 \begin{aligned}
-\comm{a}{a^\dagger} &= \frac12\qty{\comm{\hat x}{-i\hat p} + \comm{i\hat p}{\hat x}}\\
+\comm{a}{a^\dagger} &= \frac12\qty(\comm{\hat x}{-i\hat p} + \comm{i\hat p}{\hat x})\\
 &= 1
 \end{aligned}
 $$
@@ -905,11 +905,11 @@ $$
 
 $$
 \begin{aligned}
-\ip{\psi_1} &= |c_1|^2\mel{\psi_0}{aa^\dagger}{\psi_0}\\
+1=\ip{\psi_1} &= |c_1|^2\mel{\psi_0}{aa^\dagger}{\psi_0}\\
 &= |c_1|^2\mel{\psi_0}{a^\dagger a + [a,a^\dagger]}{\psi_0}\\
 &= |c_1|^2\mel{\psi_0}{N + 1}{\psi_0}\\
 &= |c_1|^2(\ip{\psi_0}\mel{\psi_0}{N}{\psi_0})\\
-&= |c_1|^2 =1\\
+&= |c_1|^2 \\
 \end{aligned}
 $$
 
@@ -917,9 +917,9 @@ $$
 
 $$
 \begin{aligned}
-\ip{\psi_2} &= |c_2|^2\mel{\psi_1}{aa^\dagger}{\psi_1}\\
+1=\ip{\psi_2} &= |c_2|^2\mel{\psi_1}{aa^\dagger}{\psi_1}\\
 &= |c_2|^2(\ip{\psi_1}\mel{\psi_1}{N}{\psi_1})\\
-&= |c_2|^2 =2\\
+&= 2|c_2|^2 \\
 \end{aligned}
 $$
 
@@ -1028,5 +1028,944 @@ $$
 
 这说明：只有跃迁到相邻的层级 $n' = n \pm 1$ 时才是能表征偶极矩的有效跃迁。这被称为**跃迁选律**（selection rule）。
 
-回到之前的一阶近似，如果存在 $d_2 (r-r_0)^2$ 项，对应存在 $n' = n\pm 2$ 的选律，由于比较微弱所以一般不涉及。
+回到之前的一阶近似，如果存在 $d_2 (r-r_0)^2$ 项，对应存在 $n' = n\pm 2$ 和 $n'=n$ 的选律，由于比较微弱所以一般不涉及。
 
+---
+
+我们尝试求解一个微小势能的变化。假设势能由 $N$ 个原子的 $3N$ 个广义坐标定义，可以写成：
+
+$$
+\Delta V = \frac 12 \sum_{i=1}^N\sum_{j=1}^N (\pdv{V}{q_i}{q_j})q_iq_j
+$$
+
+写成矩阵形式就是：
+
+$$
+\mqty[q_1\\\vdots\\q_N]\mqty[\pdv{V}{q_1}{q_1}&\cdots&\pdv{V}{q_1}{q_N}\\\vdots&&\vdots\\\pdv{V}{q_N}{q_1}&\cdots&\pdv{V}{q_N}{q_N}]\mqty[q_1\cdots q_N]
+$$
+
+对角化得到：
+
+$$
+\mqty[Q_1\\\vdots\\Q_N]\mqty[\dmat{\pdv[2]{V}{Q_1},\ddots,\pdv[2]{V}{Q_N}}]\mqty[Q_1\cdots Q_N]
+$$
+
+这里每一个 $Q_N$ 代表一个**简正模**（Normal modes），可以认为将势能用类似简谐的形式表示：
+
+$$
+\Delta V = \frac12 \sum_i\pdv[2]{V}{Q_i}Q_i^2
+$$
+
+同时，每一个简正模都是正交的（由于本征矢量的正交性）。这样体系的运动波函数就等于所有简正模对应波函数的直积。
+
+$$
+\psi(Q_1,\cdots,Q_N) = \psi_1(Q_1)\otimes\cdots\otimes\psi_N(Q_N)
+$$
+
+这可以和自由度的概念组合起来，也就是简正模的个数代表总自由度的个数，分为平动转动振动三种。不再赘述。
+
+---
+
+### 2.13 简并态 Degeneracy
+
+假设对于两个对易算符：
+
+$$
+\comm{A}{B}=0
+$$
+
+这就有：
+
+$$
+AB\ket{\psi} = BA\ket{\psi} = aB\ket{\psi} = bA\ket{\psi}=ab\ket{\psi}
+$$
+
+> 相容性定理：如果两个可观测量的算子 $\hat A$ 和 $\hat B$ 对易，则它们共用相同本征基。反之共用相同本征基的算子对易。
+
+**如果 $A$ 不含有简并本征值**，假设 $A,B$ 均为厄米算符，这就有：
+
+$$
+\mel{\psi_1}{AB-BA}{\psi_2} = (a_1-a_2)\mel{\psi_1}{B}{\psi_2} = 0
+$$
+
+由于不简并，意味着本征值不同，也就是 $(a_1-a_2) \neq 0$。这对应，$\mel{\psi_1}{B}{\psi_2} = 0$， $A$ 和 $B$ 的本征向量相同。
+
+**如果 $A$ 包含简并的本征值**，我们假设每个本征值 $a_n$ 为 $g$ 重简并，对应的本征矢为 $\ket{\psi_{nr}}$，其中 $r$ 取值为 $g$ 重简并度的 $\{1,2,\cdots,g\}$。于是根据上一个结论，$B\ket{\psi_{nr}}$ 可以与 $a_n$ 对应的矢量线性表示：
+
+$$
+B\ket{\psi_{nr}} = \sum_{s=1}^g c_{rs}\ket{\psi_{ns}}\qc s = 1,2,\cdots,g
+$$
+
+由于 $B$ 是厄米算子， $c_{rs}$ 构成一个厄米（自伴）矩阵，尝试对角化：
+
+$$
+B\sum_{r=1}^gd_r\ket{\psi_{nr}} = \sum_{r=1}^g\sum_{s=1}^g d_rc_{rs}\ket{\psi_{ns}}
+$$
+
+如果可以对角化成功，则有：
+
+$$
+\sum_{r=1}^g d_rc_{rs} = b_n d_s
+$$
+
+这构成了关于 $d_r$ 的 $g$ 个线性方程组。存在非平凡解的情况满足：
+
+$$
+\det[c_{rs}-b_n\delta_{rs}]=0
+$$
+
+这是一个关于 $b_n$ 的 $g$ 阶方程。一共有 $g$ 个根 $b_n = b_n^{(k)}$，并且都对应一个非平凡解 $d_r^{(k)}$。由于 $c_{rs}$ 厄米，所有解线性无关。于是构成了新的基矢：
+
+$$
+\ket{\psi_n^{(k)}} = \sum_{r=1}^g d_r^{(k)}\ket{\psi_{nr}}
+$$
+
+对应本征值分别为 $a_n$ 和 $b_n^{(k)}$ 。
+
+> 假设 $\hat A$ 满足：
+>
+> $$
+> A = \mqty[\dmat{1,2,2,4}]
+> $$
+>
+> 我们当然可以取每个列向量 $\psi_1,\psi_2,\psi_3,\psi_4$ 作为本征态，但是也可以这么取：
+>
+> $$
+> \ket{\psi_2'} = \frac1{\sqrt{2}} \mqty[0\\1\\1\\0]\qc\ket{\psi_2'} = \frac1{\sqrt{2}} \mqty[0\\1\\-1\\0]
+> $$
+>
+> 事实上只需要满足以下正交归一条件的态就能作为本征函数：
+>
+> $$
+> \begin{cases}
+> \ket{\psi_2'} =a\ket{\psi_2}+b\ket{\psi_3}\\
+> \ket{\psi_3'} =c\ket{\psi_2}+d\ket{\psi_3}
+> \end{cases}\qc\begin{cases}
+> |a|^2+|b|^2 =1\\
+> |c|^2+|d|^2 =1\\
+> ac+bd=0
+> \end{cases}
+> $$
+>
+> 再比如说对于矩阵：
+>
+> $$
+> B = \mqty[\dmat{1,2&1\\1&2,3}]
+> $$
+>
+> 于是需要解久期方程对角化中间的矩阵，之后变成这样：
+>
+> $$
+> B = \mqty[\dmat{1,3,3,1}]
+> $$
+>
+> 于是它们都共享同一个本征矢量基组 $\ket{\psi_1},\ket{\psi_2'},\ket{\psi_3'},\ket{\psi_4}$.
+>
+
+对于一组可观测量 $A,B,C,\cdots$，如果它们**两两对易**，并且指定所有算符的本征值，即可在系统的希尔伯特空间确定唯一的本征向量，我们称其为**完全对易可观测量完备集**（CSCO）。
+
+---
+
+### 2.13 角动量
+
+角动量算符的定义和经典力学相同，就是改成了算符形式：
+
+$$
+\begin{cases}
+L_x = YP_z-ZP_y\\
+L_y = ZP_x-XP_z\\
+L_z=XP_y-YP_x
+\end{cases}
+$$
+
+另外有对易关系：
+
+$$
+\comm{L_x}{L_y} = i\hbar L_z
+$$
+
+> $$
+> \begin{aligned}
+> \comm{L_x}{L_y} &= \comm{YP_z-ZP_y}{ZP_x-XP_z}\\
+> &=\comm{YP_z}{ZP_x}-\comm{ZP_y}{ZP_x}-\comm{YP_z}{XP_z}+\comm{ZP_y}{XP_z}\\
+> &= \comm{P_z}{Z}YP_x + \comm{Z}{P_z}P_y X\\
+> &= -i\hbar(YP_x)+i\hbar(XP_y) = i\hbar L_z
+> \end{aligned}
+> $$
+
+定义总角动量为 $J$：
+
+$$
+J^2 = J_x^2+J_y^2+J_z^2
+$$
+
+这样有：
+
+$$
+\begin{aligned}
+\comm{J^2}{J_x}&=\comm{J_y^2}{J_x}+\comm{J_z^2}{J_x}\\
+&= J_y\comm{J_y}{J_x}+\comm{J_y}{J_x}J_y + J_z\comm{J_z}{J_x}+\comm{J_z}{J_x}J_z\\
+&= 0
+\end{aligned}
+$$
+
+同样总角动量平方也和其他方向的角动量对易。
+
+根据自由度，至少需要三个量子数确定一个粒子，我们分别假设是 $k,j,m$，设：
+
+$$
+\begin{gathered}
+J^2\ket{\psi} = j(j+1)\hbar^2\ket{\psi}\qq{$j$: angular momentum quantum n}\\
+J_z\ket{\psi} = m\hbar\ket{\psi}\qq{$m$: megnatic momentum quantum n}
+\end{gathered}
+$$
+
+其中 $j$ 取整数和半整数，$m$ 取 $-j,\cdots,j$.
+
+类似地，定义升降算符：
+
+$$
+\begin{cases}
+J_+ = J_x+iJ_y\\
+J_- = J_x-iJ_y
+\end{cases}
+$$
+
+同样有对易关系：
+
+$$
+\comm{J_+}{J_-} = i(\comm{J_y}{J_x}-\comm{J_x}{J_y}) = 2\hbar J_z
+$$
+
+$$
+\comm{J_z}{J_{\pm}} = \pm i\hbar J_y - \hbar J_x= \pm \hbar J_\pm
+$$
+
+相对应的升算符：
+
+$$
+\begin{aligned}
+J_zJ_+\ket{k,j,m} &= \comm{J_z}{J_+}\ket{k,j,m} + J_+J_z\ket{k,j,m}\\
+&= (\hbar J_+ + m\hbar J_+)\ket{k,j,m}\\
+&= J_+(m+1)\hbar\ket{k,j,m}
+\end{aligned}
+$$
+
+降算符：
+
+$$
+\begin{aligned}
+J_zJ_-\ket{k,j,m} &= \comm{J_z}{J_-}\ket{k,j,m} + J_-J_z\ket{k,j,m}\\
+&= (-\hbar J_- + m\hbar J_-)\ket{k,j,m}\\
+&= J_+(m-1)\hbar\ket{k,j,m}
+\end{aligned}
+$$
+
+同样满足升降算符的特性。于是我们设：
+
+$$
+\ket{k,j,m+1} = c_n J_+\ket{k,j,m}
+$$
+
+由于归一化：
+
+$$
+\begin{aligned}
+\ip{m+1} = 1 &= c_n^2 \ev{J_-J_+}{m}\\
+&= c_n^2 \ev{J_x^2+J_y^2 + i\comm{J_x}{J_y}}{m}\\
+&= c_n^2 \ev{J^2-(J_z^2+\hbar J_z)}{m}\\
+&= c_n^2 \hbar^2(j(j+1) - m(m+1))
+\end{aligned}
+$$
+
+然后就有：
+
+$$
+|k,j,m+1\rangle = \frac{1}{\hbar \sqrt{j(j+1)-m(m+1)}} J_+ |k,j,m\rangle
+$$
+
+$$
+|k,j,m-1\rangle = \frac{1}{\hbar \sqrt{j(j+1)-m(m-1)}} J_+ |k,j,m-1\rangle
+$$
+
+这就是与角动量相关的能级和波函数。
+
+---
+
+### 2.14 球谐波函数
+
+考虑一个有心力场的体系，可以分离变量：把波函数拆成径向和轴向：
+
+$$
+\psi(r,\theta,\phi) = R_{k,l}(r)Y_l^m(\theta,\phi)
+$$
+
+对于 $Y_l^m(\theta,\phi)$ 是一个球谐函数。
+
+按照上面的定义：
+
+$$
+\begin{gathered}
+L^2Y_l^m(\theta,\phi)=l(l+1)\hbar^2Y_l^m(\theta,\phi)\\
+L_zY_l^m(\theta,\phi)=m\hbar Y_l^m(\theta,\phi) = \frac{\hbar}{i}\pdv{\phi}Y_l^m(\theta,\phi)
+\end{gathered}
+$$
+
+第二个式子可以解得：
+
+$$
+Y_l^m(\theta,\phi) = F_l^m(\theta)e^{im\phi}
+$$
+
+为了保证周期连续性， $m$ 必须为整数。
+
+个悲剧升降算符的结论：
+
+$$
+\begin{aligned}
+L_+ Y_l^m(\theta,\phi) &= \sqrt{l(l+1) - m(m+1)} \, Y_l^{m+1}(\theta,\phi), \\
+L_- Y_l^m(\theta,\phi) &= \sqrt{l(l+1) - m(m-1)} \, Y_l^{m-1}(\theta,\phi).
+\end{aligned}
+$$
+
+为了满足正交归一条件：
+
+$$
+\int_0^{2\pi} d\phi \int_0^\pi \sin\theta\, d\theta \, Y_{l'}^{m'*}(\theta,\phi) \, Y_l^m(\theta,\phi)
+= \delta_{l'l} \, \delta_{m'm}
+$$
+
+然后一般解就可以写成：
+
+$$
+f(\theta,\phi) = \sum_{l=0}^\infty\sum_{m=-l}^l C_{lm}Y_l^m(\theta,\phi)
+$$
+
+之后用Fourier变换即可得到常数：
+
+$$
+C_{lm} = \int_0^{2\pi} d\phi \int_0^\pi \sin\theta\, d\theta \, Y_{l}^{m*}(\theta,\phi) f(\theta, \phi)
+$$
+
+对于径向部分也是同理。由于 $L_{\pm}$ 算符作用在 $R(r)$ 上不改变 $R(r)$ 本身，于是镜像波函数和 $m$ 无关。
+
+代入正交归一条件：
+
+$$
+\int r^2\dd{r} R^*_{k',l}(r)R_{k,l}(r) = \delta_{k,k'}
+$$
+
+然后就能够求出总的波函数了：
+
+$$
+\psi_{k,l,m} =\sum_{k,l,m} C_{klm} R_{k,l}(r)Y_l^m(\theta,\phi)
+$$
+
+常数同样通过代入Fourier变换求得：
+
+$$
+C_{klm} = \int_0^\infty r^2 \dd{r} R_{k,l}^*(r)\int_0^{2\pi} d\phi \int_0^\pi \sin\theta\, d\theta \, Y_{l}^{m*}(\theta,\phi) \psi(r,\theta,\phi)
+$$
+
+由于 $L^2$ 和 $L_z$ 对易，于是可以同时测量：
+
+$$
+\begin{gathered}
+P_{L^2,L_z} = \sum_k|C_{klm}|^2\\
+P_{L^2} = \sum_k \sum_m |C_{klm}|^2\\
+P_{L_z} = \sum_{k,l \ge m} |C_{klm}|^2\\
+\end{gathered}
+$$
+
+---
+
+回去手搓氢原子薛定谔方程吧。
+
+$$
+(-\frac{\hbar^2}{2m_e}\grad^2 -\frac{e^2}{r^2})\psi_{k,l,m} = E\psi_{k,l,m}
+$$
+
+对于质量，应该写成折合质量，但由于电子质量小得多所以 $\mu\approx m_e$ 了。
+
+最后解得：
+
+$$
+E_{k,l} = -\frac{E_I}{(k+l)^2}
+$$
+
+定义主量子数 $n=k+l$，就有经典的轨道图形了。
+
+<img src="Physical_Chemistry_I.assets/image-20260404214015789.png" alt="image-20260404214015789" style="zoom: 80%;" />
+
+---
+
+### 2.14 旋转光谱
+
+假设对一个双原子分子系统：
+
+![image-20260324165547286](Physical_Chemistry_I.assets/image-20260324165547286.png)
+
+得到对应的哈密顿量：
+
+$$
+H = \frac12I\omega_R^2 = \frac{L^2}{2I} = \frac{L^2}{\mu r_e^2}
+$$
+
+对应到算符：
+
+$$
+H\ket{\psi_{klm}} = \frac{l(l+1)\hbar^2}{2\mu r_e^2}\ket{\psi_{klm}} = l(l+1)hB\qc B=\frac{\hbar}{4\pi\mu r_e^2}
+$$
+
+于是相邻的能极差为：
+
+$$
+E_l - E_{l-1} = [l(l+1)-l(l-1)]hB=2lBh
+$$
+
+<img src="Physical_Chemistry_I.assets/Rotational_spectrum_example.png" alt="undefined" style="zoom: 67%;" />
+
+这在光谱上显示出相差 $2Bh$ 的谱线。
+
+---
+
+对于 Z 轴的分量（也就是 $r_e$ 在 Z 的投影）：
+
+$$
+\begin{aligned}
+Z \, Y_l^m(\theta,\phi)
+&= r_e \cos\theta \, Y_l^m(\theta,\phi) \\
+&= r_e \left[
+\sqrt{\frac{l^2 - m^2}{4l^2 - 1}} \, Y_{l-1}^m(\theta,\phi)
++ \sqrt{\frac{(l+1)^2 - m^2}{4(l+1)^2 - 1}} \, Y_{l+1}^m(\theta,\phi)
+\right]
+\end{aligned}
+$$
+
+于是对于选律：只有能量为 $E_{l+1} - E_l$ 或 $E_l - E_{l-1}$ 会被吸收，而 $m$ 保持不变。
+
+另外也可以把旋转和振动光谱结合起来。振动光谱利用偶极矩作为观测量，这里也采用偶极矩，这即使在 $r_e$ 处也有分量。
+
+$$
+\mel{Y_{l\pm1}^{m}}{d_0 \cos\theta}{Y_l^m}\neq 0
+$$
+
+![image-20260405172410272](Physical_Chemistry_I.assets/image-20260405172410272.png)
+
+---
+
+### 2.15 自旋和NMR
+
+电子和核都有自旋。把空间自由度和自旋自由度用张量结合起来：
+
+$$
+\ket{\psi_r}\otimes\ket{\psi_s}
+$$
+
+我们假定 $R$ 算符专门处理空间自由度，$S$ 算符处理自旋自由度。它们的本征值为 $r$ 和 $s$。
+
+<img src="Physical_Chemistry_I.assets/image-20260324173001195.png" alt="image-20260324173001195" style="zoom: 80%;" />
+
+全世界都知道电子自旋是 $\pm 1/2$：
+
+$$
+\begin{gathered}
+S_z\ket{\alpha} = +\frac12\hbar\ket{\alpha}\\
+S_z\ket{\beta} = -\frac12\hbar\ket{\beta}
+\end{gathered}
+$$
+
+对于核自旋，可能为整数和半整数。
+
+- $\ce{^1H}$ & $\ce{^13C}$: 1/2
+- $\ce{^2H}$ & $\ce{^14 N}$: 1
+- $\ce{^12 C}$: 0
+
+相似的对于氢原子也有：
+
+$$
+\begin{gathered}
+I_z\ket{\alpha} = +\frac12\hbar\ket{\alpha}\\
+I_z\ket{\beta} = -\frac12\hbar\ket{\beta}
+\end{gathered}
+$$
+
+> 自旋算符的作用和角动量算符一样：
+>
+> $$
+> \comm{I_x}{I_y} = i\hbar I_z
+> $$
+>
+> 升降算符：
+>
+> $$
+> \begin{cases}
+> I_+ = I_x+iI_y\\
+> I_- = I_x-iI_y
+> \end{cases}
+> $$
+>
+> 升算符作用在 $\ket{\beta}$ 上时有：
+>
+> $$
+> I_zI_+\ket{\beta} = \frac{\hbar}{2}I_+\ket{\beta}
+> $$
+>
+
+---
+
+磁矩和自旋有关系。比如对于电子
+
+$$
+\mu_e = g_e\frac{q_e}{2m_e}S = g_e\beta_eS = \gamma_e S
+$$
+
+其中 $\beta$ 为玻尔磁子（Bohr Magneton），$\gamma$ 为磁旋比（gyromagnetic ratio）。对于原子核也一样：
+
+$$
+\mu_N = g_N\frac{q_N}{2m_N}I = g_N\beta_NI = \gamma_e I
+$$
+
+由磁矩可以得到势能：
+
+$$
+V = -\mu B = -\mu_zB_z = -\gamma B_zI_z
+$$
+
+这就是自旋的哈密顿量，然后就有：
+
+$$
+H\psi = -\hbar\gamma B_zI_z\psi = E\psi
+$$
+
+这意味着：
+
+$$
+E = -\hbar\gamma B_zI_z
+$$
+
+这对应不同磁场下，不同自旋的核的能量将不同。比如对于电子而言有两种可能的状态：
+
+<img src="Physical_Chemistry_I.assets/image-20260324174452693.png" alt="image-20260324174452693" style="zoom:80%;" />
+
+能量的裂分：
+
+$$
+\Delta E = \hbar \gamma B_z
+$$
+
+由此原理就可以做出核磁共振仪：
+
+<img src="Physical_Chemistry_I.assets/image-20260324174537761.png" alt="image-20260324174537761" style="zoom: 80%;" />
+
+---
+
+当然在真实的化学环境里，由于原子不是孤立的，所以感受到的磁场要比正常的要小。设：
+
+$$
+B_z = (1-\sigma)B_0
+$$
+
+其中 $\sigma$ 为屏蔽常数，对应减去被屏蔽的分量。代入到之前的式子就是：
+
+$$
+\nu_H = \frac{\gamma B_0}{2\pi}(1-\sigma_H)
+$$
+
+由此可以定义化学位移（Chemical Shift）：
+
+$$
+\delta_H = \frac{\nu_{H,0}\ \text{relative to hydrogen in TMS}}{\nu_H}\times 10^6
+$$
+
+真实的化学体系可能存在原子核之间的耦合：
+
+![image-20260324175236264](Physical_Chemistry_I.assets/image-20260324175236264.png)
+
+$$
+H = -\gamma B_0(1-\sigma_1)I_{z1}-\gamma B_0(1-\sigma_2)I_{z2}+\frac{hJ_{12}}{\hbar^2}I_{z1}I_{z2}
+$$
+
+前两项是我们已知的：对应单原子的势能。而最后一项可以认为是微扰带来的能量项。
+
+---
+
+### 2.16 定态微扰理论
+
+我们把上面的式子化简成：
+
+$$
+H = H_0+W
+$$
+
+我们假设 $W$ 项相对于 $H_0$ 是较小的。设 $W = \lambda \hat W$ （$\lambda$ 在 $\sim 0.1$ 的量级，$\hat W$ 和 $H$ 量级大致相等），之后展开：
+
+$$
+\ket{\phi_n(\lambda)} = \ket{\phi_n}+\lambda\ket{1}+\lambda^2\ket{2}+\cdots
+$$
+
+这对应能量项
+
+$$
+E_n(\lambda) = E_n^\circ + \lambda\epsilon_1+\lambda^2\epsilon_2+\cdots
+$$
+
+插入到 Schrodinger 方程：
+
+$$
+\begin{aligned}
+&(H_0+\lambda W)(\ket{\phi_n}+\lambda\ket{1}+\lambda^2\ket{2}+\cdots) \\
+&\quad= (E_n^\circ + \lambda\epsilon_1+\lambda^2\epsilon_2+\cdots)(\ket{\phi_n}+\lambda\ket{1}+\lambda^2\ket{2}+\cdots)
+\end{aligned}
+$$
+
+考虑零阶项很显然：
+
+$$
+H_0\ket{\phi_n} = E_n^\circ\ket{\phi_n}
+$$
+
+对于一阶项：
+
+$$
+\begin{gathered}
+H_0\ket{1} +  W \ket{\phi_n} = E_n^\circ\ket{1} + \epsilon_1 \ket{\phi_n}  \\
+(H_0-E_n^\circ)\ket{1}+(W-\epsilon_1)\ket{\phi_n}=0
+\end{gathered}
+$$
+
+对于二阶项：
+
+$$
+\begin{gathered}
+H_0\ket{2}+W\ket{1} = E_n^\circ\ket{2}+\epsilon_1\ket{1}+\epsilon_2\ket{\phi_n}\\
+(H_0 - E_n^\circ)\ket{2} + (W-\epsilon_1)\ket{1} - \epsilon_2\ket{\phi_n} = 0
+\end{gathered}
+$$
+
+---
+
+从一阶开始，由于归一化，两个波函数内积都为1. 忽略掉二阶项：
+
+$$
+\begin{aligned}
+\ip{\phi_n(\lambda)} =1&=\qty[\bra{\phi_n}+\lambda\bra{1}]\qty[\ket{\phi_n}+\lambda\ket{1}]+ \order{\lambda^2}\\
+&= 1+\lambda\qty[\ip{\phi_n}{1}+\ip{1}{\phi_n}]
+\end{aligned}
+$$
+
+这于是有 $\ip{\phi_n}{1}+\ip{1}{\phi_n} = 0$，也就是 $\ip{\phi_n}{1}$ 为纯虚数或0。由于任意性（如果 $\phi_n$ 是解，那么 $\phi_n e^{i\theta}$ 也一定是解），我们可以取它就是0. 这也是说微扰前波函数和施加的微扰是正交的。
+
+对照 Schrodinger 方程的一阶项关系，如果投影到自身：
+
+$$
+\bra{\phi_n}(H_0-E_n^\circ)\ket{1}+\bra{\phi_n}(W-\epsilon_1)\ket{\phi_n}=0
+$$
+
+这就得到：
+
+$$
+\epsilon_1 = \mel{\phi_n}{W}{\phi_n}
+$$
+
+这样就有一阶近似能级：
+
+$$
+E_n(\lambda) = E_n^\circ + \ev{W}{\phi_n}
+$$
+
+如果投影到其他波函数：
+
+$$
+\bra{\phi_p}(H_0-E_n^\circ)\ket{1}+\bra{\phi_p}(W-\epsilon_1)\ket{\phi_n}=0
+$$
+
+于是得到：
+
+$$
+\ip{\phi_p}{1} = \frac{\mel{\phi_p}{W}{\phi_n}}{E_n^\circ - E_p^\circ}
+$$
+
+根据投影得到：
+
+$$
+\ket{1} = \sum_{p\neq n}\frac{\mel{\phi_p}{W}{\phi_n}}{E_n^\circ-E_p^\circ}\ket{\phi_p}
+$$
+
+回到自旋的方程。不考虑作用项的本征值分别为：
+
+$$
+\begin{cases}
+\psi_1 = \alpha(1)\alpha(2)\\
+\psi_2 = \beta(1)\alpha(2)\\
+\psi_3 = \alpha(1)\beta(2)\\
+\psi_4 = \beta(1)\beta(2)
+\end{cases}
+$$
+
+先解出微扰前的能量。对于 $\ket{\psi_1}$：
+
+$$
+H\ket{\alpha(1)\alpha(2)} = -\gamma B_0(1-\sigma_1)\frac12 \ket{\alpha(1)\alpha(2)}-\gamma B_0(1-\sigma_2)\frac12 \ket{\alpha(1)\alpha(2)}
+$$
+
+于是求得：
+
+$$
+E_1^\circ = -\hbar \gamma B_0 (1-\frac{\sigma_1+\sigma_2}{2})
+$$
+
+对于其他项：
+
+$$
+\begin{gathered}
+E_2^\circ = -\hbar \gamma B_0 \frac{\sigma_1-\sigma_2}{2}\\
+E_3^\circ = \hbar \gamma B_0 \frac{\sigma_1-\sigma_2}{2}\\
+E_4^\circ = \hbar \gamma B_0 (1-\frac{\sigma_1+\sigma_2}{2})
+\end{gathered}
+$$
+
+之后再求微扰项。对任意两个能级的微扰有：
+
+$$
+\begin{aligned}
+W_{ii} &= \frac{hJ_{12}}{\hbar^2}\ev{I_1\cdot I_2}{\psi_i}\\
+&= \frac{hJ_{12}}{\hbar^2}\ev{I_{x_1}I_{x_2}+I_{y_1}I_{y_2}+I_{z_1}I_{z_2}}{\psi_i}\\
+&= \frac{hJ_{12}}{\hbar^2}\ev{I_{z_1}I_{z_2}}{\psi_i}\\
+\end{aligned}
+$$
+
+> 其中用到了：
+>
+> $$
+> \ev{I_{x_1}I_{x_2}}{\psi_i} = \ev{I_{y_1}I_{y_2}}{\psi_i} = 0
+> $$
+>
+> 以第一个为例子，也就是：
+>
+> $$
+> \begin{aligned}
+> \ev{I_{x_1}I_{x_2}}{\psi_i} &= \ev{(I_{+1} + I_{-1})(I_{+2} + I_{-2})}{\psi_i}\\
+> &= \ev{I_{+1}I_{+2} + I_{+1}I_{-2} + I_{-1}I_{+2}+I_{-1}I_{-2}}{\psi_i}
+> \end{aligned}
+> $$
+>
+> 总之无论怎么样都会翻转出现其他正交态，于是总体值为0。
+
+由此可以算出：
+
+$$
+W_{11} =W_{44} =\frac{hJ_{12}}{4}\qc W_{22}=W_{33}=-\frac{hJ_{12}}{4}
+$$
+
+<img src="Physical_Chemistry_I.assets/image-20260331162459616.png" alt="image-20260331162459616" style="zoom: 80%;" />
+
+考虑那些态可以跃迁：必须要只改变一个电子自旋。也就是分别是：
+
+$$
+\begin{cases}
+\nu_{1\to2} = \nu_0(1-\sigma_1)-J_{12}/2\\
+\nu_{1\to3} = \nu_0(1-\sigma_2)-J_{12}/2\\
+\nu_{2\to4} = \nu_0(1-\sigma_2)+J_{12}/2\\
+\nu_{3\to4} = \nu_0(1-\sigma_1)+J_{12}/2\\
+\end{cases}
+$$
+
+![image-20260331162943623](Physical_Chemistry_I.assets/image-20260331162943623.png)
+
+这对应产生了二重峰。以此类推还有多重峰，他们的相对大小为：
+
+| 1    |   2   |    3    |     4     |
+| ---- | :---: | :-----: | :-------: |
+| $1$  | $1:1$ | $1:2:1$ | $1:3:3:1$ |
+
+需要注意的是，当氢原子环境相等时，也就是 $\sigma_1 = \sigma_2$ 时，不存在峰的裂分。此时对应的状态为：
+
+$$
+\begin{cases}
+\ket{\psi_1} = \ket{\alpha\alpha}\\
+\ket{\psi_2} = \frac{1}{\sqrt{2}}(\ket{\alpha\beta} - \ket{\beta\alpha})\\
+\ket{\psi_3} = \frac{1}{\sqrt{2}}(\ket{\alpha\beta} + \ket{\beta\alpha})\\
+\ket{\psi_4} = \ket{\beta\beta}
+\end{cases}
+$$
+
+---
+
+对于二阶微扰，代入一阶微扰的式子：
+
+$$
+(H_0 - E_n^\circ)\ket{2} + (W-\epsilon_1)\sum_{p\neq n}\frac{\mel{\phi_p}{W}{\phi_n}}{E_n^\circ-E_p^\circ}\ket{\phi_p} - \epsilon_2\ket{\phi_n} = 0
+$$
+左乘 $\ket{\phi_n}$ 得到：
+$$
+\epsilon_2 = \sum_{p\neq n}\frac{\abs{\mel{\phi_p}{W}{\phi_n}}^2}{E_n^\circ-E_p^\circ}
+$$
+这就是二阶微扰的能量，可以看出一阶微扰关注的是一个状态自身的变化，二阶微扰关注的是其他态的影响。
+
+---
+
+### 2.17 含时微扰理论
+
+现在我们尝试解决对时间的微扰问题，写出含时SE：
+$$
+i\hbar\dv{t}\ket{\psi(t)}=[H_0+W(t)]\ket{\psi(t)}
+$$
+
+展开波函数，使系数为时间的函数：
+
+$$
+\ket{\psi(t)} = \sum_k c_k(t)\ket{\phi_k}
+$$
+
+代入SE之后，左乘正交基 $\ket{\phi_n}$ ：
+
+$$
+\begin{gathered}
+i\hbar\dv{c_n(t)}{t}=\bra{\phi_n}[H_0+W(t)]\sum_k c_k(t)\ket{\phi_k(t)}\\
+i\hbar\dv{c_n(t)}{t}=c_n(t)E_n + \bra{\phi_n}W(t)\sum_k c_k(t)\ket{\phi_k(t)}
+\end{gathered}
+$$
+
+如果 $W(t) =0$，解出来的就是系数不含时的平面波：
+
+$$
+c_n(t) = b_ne^{-iE_nt/\hbar}
+$$
+
+如果 $\hat W(t) \neq 0$ 并且 $\lambda \ll 1$，可以视作微扰。注意围绕前后的本征向量会变化！使用常数变异：
+
+$$
+\begin{aligned}
+&\qquad i\hbar  \dv{t}b_n(t) e^{-iE_nt/\hbar} + b_n(t)E_n e^{-iE_nt/\hbar}\\
+&= b_n(t)E_n e^{-iE_nt/\hbar} + \lambda\sum_k \hat W(t)b_k(t) e^{-iE_kt/\hbar}\\
+\end{aligned}
+$$
+
+消去后得到：
+
+$$
+i\hbar \dv{b_n(t)}{t} = \lambda\sum_k \hat W_{kn} e^{i\omega_{kn} t}b_k(t)\qc \omega_{kn} = \frac{E_k - E_n}{\hbar}
+$$
+
+这就得到了 $b_n(t)$ 的精确表达式，然而没法精确求出来。我们企图将 $b_n(t)$ 展开成 $\lambda$ 的系数：
+$$
+b_n(t) = b_n^0(t) + \lambda b_n^1(t) + \lambda^2 b_n^2(t) + \cdots
+$$
+对于0阶项：
+$$
+i\hbar \dv{b_n^0(t)}{t} = 0
+$$
+也就是 $b_n^0$ 和时间无关。
+
+对于高阶项：
+$$
+i\hbar \dv{b_n^r(t)}{t} = \sum_k \hat W_{kn} e^{i\omega_{kn} t}b_k^{r-1}(t)
+$$
+我们假设初态是 $\ket{\phi_i}$，这样初始条件就有：
+$$
+b_n(t=0) = \delta_{ni}
+$$
+这对应每个高阶项 $b_n^r(t=0) = 0$，并且 $b_n^0 = \delta_{ni}$ 由于时间无关。对于一阶项有：
+$$
+i\hbar \dv{b_n^1(t)}{t} = \sum_k \hat W_{kn} e^{i\omega_{kn} t}\delta_{ki} = W_{ni} e^{i\omega_{ni} t}
+$$
+于是有：
+$$
+b^1_n(t) = \frac{1}{i\hbar}\int_0^t e^{i\omega_{ni}t'} \hat W_{ni}(t)\dd{t'}
+$$
+
+忽略高阶项，我们就得到：
+$$
+b_f(t) = \frac{1}{i\hbar}\int_0^t e^{i\omega_{fi}t'} W_{fi}(t)\dd{t'}
+$$
+这里假设初末态状态不同，也就是 $b_f^0(t)=  0$.
+
+处在某能级的概率：
+$$
+P_{if}(t) = \abs{\ip{\phi_f}{\psi(t)}}^2 = \abs{\sum_n c_n(t)\delta_{fn}}^2 = |b_f(t)|^2
+$$
+
+之后就代入：
+
+$$
+\begin{aligned}
+P_{if}(t) &= \frac{\lambda^2}{\hbar^2}\abs{\int_0^t e^{i\omega_{fi}t'} \hat W_{fi}(t)\dd{t'}}^2\\
+&= \frac{1}{\hbar^2}\abs{\int_0^t e^{i\omega_{fi}t'}  W_{fi}(t)\dd{t'}}^2\\
+&= \frac{1}{\hbar^2}\abs{\tilde{W_{fi}}(\omega_{fi})}^2
+\end{aligned}
+$$
+
+**例子**：假设满足周期关系：
+$$
+\hat W_{fi}(t) = \hat W_{fi}\sin\omega t = \frac{\hat W_{fi}}{2i}(e^{i\omega t}-e^{-i\omega t})
+$$
+
+计算得到系数：
+
+$$
+b_n^1(t) = -\frac{\hat W_{fi}}{2\hbar}\qty[\frac{1-e^{i(\omega+\omega_{fi})t}}{\omega_{fi}+\omega}-\frac{1-e^{i(\omega-\omega_{fi})t}}{\omega_{fi}-\omega}]
+$$
+
+对应跃迁概率：
+
+$$
+P_{if}(t) = \frac{|W_{fi}|^2}{4\hbar^2}\abs{\frac{1-e^{i(\omega+\omega_{fi})t}}{\omega_{fi}+\omega}-\frac{1-e^{i(\omega-\omega_{fi})t}}{\omega_{fi}-\omega}}^2
+$$
+
+注意这里的两个值：对于第一项，会在 $\omega = -\omega_{fi}$ 时取到极大值，这对应发射一个 $\hbar\omega = E_f-E_i$ 的光子；对于第二项会在 $\omega = \omega_{fi}$ 时取到极大值，对应吸收一个 $\hbar\omega = E_f-E_i$ 的光子跃迁。
+
+只考虑第二项，我们可以写成：
+
+$$
+P_{if} = \frac{|W_{fi}|^2}{4\hbar^2}\qty[\frac{\sin((\omega_{fi}-\omega)t/2)}{(\omega_{fi}-\omega)t/2}]^2
+$$
+
+其中右侧函数在 $t\to 0$ 可以近似为 $\delta(\omega-\omega_{fi})$ 函数。
+
+<img src="Physical_Chemistry_I.assets/image-20260405193402520.png" alt="image-20260405193402520" style="zoom:67%;" />
+
+---
+
+我们来考虑连续光谱的情况。假设对于 $\ket{\Psi_f}$ 是一个连续能级，此时对应概率变为概率密度：
+$$
+|\ip{\phi_f}{\psi(t)}|^2
+$$
+此时：
+$$
+\var{P(\phi_f,t)} = \int_{p\in D_f} |\ip{p}{\psi(t)}|^2 \dd[3]{\va p} =  \int_{p\in D_f} |\ip{p}{\psi(t)}|^2 p^2\dd{p}\dd{\Omega}
+$$
+这里 $D_f$ 代表 $P_f$ 周边的一块区域。
+
+ 我们把变量转到能量上。设：
+$$
+\rho(E) = {p^2}\dv{p}{E} = \frac{p^2m}{p} = m\sqrt{2mE}
+$$
+于是：
+$$
+\var{P(\phi_f,t)} = \int_{E\in E_f} |\ip{E}{\psi(t)}|^2 \rho(E)\dd{E}\dd{\Omega}
+$$
+前面得到：
+$$
+P_{if} = \frac{|W_{fi}|^2}{4\hbar^2}F(t,\omega-\omega_{fi})
+$$
+于是：
+$$
+\abs{\ip{E}{\psi(t)}}^2 = \frac{|\mel{E}{W}{\phi_i}|^2}{4\hbar^2}F(t,\omega-\omega_{fi})
+$$
+又因为当 $t\to\infty$ 时，有：
+$$
+\lim_{t\to \infty} F(t,\omega-\omega_{fi}) = 2\pi\hbar t\delta(\hbar\omega+E_i-E)
+$$
+带入得到：
+
+
+
+这样就可以得到单位时间的变换概率：
+$$
+\Gamma_{i\to k} = \frac{\pi}{2\hbar}|\mel{E_f}{W}{\phi_i}|^2\rho(E_f)
+$$
+
+---
+
+ 

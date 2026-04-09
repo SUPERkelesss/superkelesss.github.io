@@ -542,7 +542,7 @@ $$
 F = -kT\ln{Z_N} = -NkT\ln(2\cosh{\beta\mu_BB})
 $$
 
-之后我们即可求出磁矩：
+之后我们即可求出单位体积内的磁矩：
 
 $$
 m = -\pqty{\pdv{F}{B}}_T = N\mu_B \tanh\pqty{\beta\mu_B B}
@@ -638,6 +638,8 @@ $$
 \boxed{Z_1 = \frac{V}{\Lambda^3}}
 $$
 
+> 这个式子也可以通过直接对体系哈密顿量积分得到
+
 ---
 
 ### 3.2 可分辨性
@@ -728,8 +730,8 @@ $$
 
 $$
 \begin{aligned}
-U = \dv{\ln Z_N}{\beta} &= \dv{(N\ln V - 3N\ln \Lambda - \ln N!)}{\beta} \\
-&= \dv{( \frac32N\ln T +Const.)}{\beta} \\
+U = -\dv{\ln Z_N}{\beta} &= -\dv{(N\ln V - 3N\ln \Lambda - \ln N!)}{\beta} \\
+&= -\dv{( \frac32N\ln T +Const.)}{\beta} \\
 &= \frac 32 Nk_BT
 \end{aligned}
 $$

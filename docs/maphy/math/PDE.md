@@ -261,7 +261,7 @@ $$
     于是边界条件变为：
 
     $$
-    \begin{cases}
+    \begin{cases}\displaystyle
     \eval{u}_{x=0} = 0\\ E\eval{\pdv{u}{t}}_{x=l} = F
     \end{cases}
     $$
@@ -328,7 +328,7 @@ $$
 假设我们有无限长的弦，考虑初值问题：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} = 0&,-\infty < x < \infty,\ t > 0\\
 \eval{u}_{t=0} = \psi(x)\\
 \eval{\pdv{u}{t}}_{t=0} = \phi(x)
@@ -410,8 +410,8 @@ $$
 
 $$
 \begin{cases}
-f(x) = \frac12 \psi(x) - \frac{1}{2a}\int_0^x\phi(s)\dd s + \frac{C}{2} \\
-g(x) = \frac12 \psi(x) + \frac{1}{2a}\int_0^x\phi(s)\dd s - \frac{C}{2}
+\displaystyle f(x) = \frac12 \psi(x) - \frac{1}{2a}\int_0^x\phi(s)\dd s + \frac{C}{2} \\
+\displaystyle g(x) = \frac12 \psi(x) + \frac{1}{2a}\int_0^x\phi(s)\dd s - \frac{C}{2}
 \end{cases}
 $$
 
@@ -427,12 +427,14 @@ $$
 
 ## 3. 分离变量法
 
+> 一定要注意自己到底在对哪个变量作偏微分/积分！
+
 ### 得到本征方程
 
 回到热传导问题的初始问题：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv{u}{t} - \kappa \pdv[2]{u}{x} = 0&, t > 0\\
 \eval{u}_{t=0} = \psi(x)\\
 u(0,t) = u(l,t) = 0
@@ -481,7 +483,7 @@ $$
 同理可以看看两端固定的弦振动问题：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv{u}{t} - a^2 \pdv[2]{u}{x} = 0&, t > 0\\
 u(0,t) = u(l,t) = 0\\
 \eval{u}_{t=0} = \phi(x)\\
@@ -582,6 +584,8 @@ b=kl+b = 0
 $$
 
 这意味着 $\lambda = 0$，也就是只有零解。我们说0不是本征值。
+
+> 注意有时候 $\lambda=0$ 时并非只有零解，此时一般解会多出来一个线性项。例如当边界条件均不为时。
 
 如果 $\lambda \neq 0$，这意味着：
 
@@ -755,7 +759,7 @@ $$
 考虑一个矩形区域 $[0,a]\times[0,b]$ 的稳定问题：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{u}{x}+\pdv[2]{u}{y} = 0\\
 \eval{u}_{x=0}=0\qc\eval{\pdv{u}{x}}_{x=a}=0\\
 \eval{u}_{y=b}=0\qc\eval{\pdv{u}{y}}_{y=0}=f(x)\\
@@ -852,7 +856,7 @@ $$
 对于受迫弦振动问题：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} = f(x,t)&, t > 0\\
 u(0,t) = u(l,t) = 0\\
 \eval{u}_{t=0} = \eval{\pdv{u}{x}}_{t=0} =0\\
@@ -906,7 +910,7 @@ $$
 我们还是考虑齐次的问题：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} = 0\\
 u(0,t) = u(l,t) = 0\\
 \end{cases}
@@ -950,7 +954,7 @@ $$
 我们把边界条件改成这样：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{u}{t} - a^2 \pdv[2]{u}{x} =0\\
 u(0,t) = \psi(t), u(l,t) = \phi(t)\\
 \eval{u}_{t=0} = \eval{\pdv{u}{x}}_{t=0} =0\\
@@ -974,7 +978,7 @@ $$
 这样 $w(x,t)$ 就满足：
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{w}{t} - a^2 \pdv[2]{w}{x} = -\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x} \\
 w(0,t) = w(l,t) = 0\\
 \eval{w}_{t=0} = -\eval{v}_{t=0}\qc \eval{\pdv{w}{x}}_{t=0} = -\eval{\pdv{v}{x}}_{t=0}
@@ -986,7 +990,7 @@ $$
 就算初始条件也是非齐次方程，只需要把后面一项改成 $-\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x} + f(x,t)$ 即可。
 
 $$
-\begin{cases}
+\begin{cases}\displaystyle
 \pdv[2]{w}{t} - a^2 \pdv[2]{w}{x} = -\pdv[2]{v}{t} + a^2 \pdv[2]{v}{x}+f(x,t) \\
 w(0,t) = w(l,t) = 0\\
 \eval{w}_{t=0} = -\eval{v}_{t=0}\qc \eval{\pdv{w}{x}}_{t=0} = -\eval{\pdv{v}{x}}_{t=0}
@@ -1003,7 +1007,7 @@ $$
 > \end{cases}
 > $$
 >
-> 可以设 $u = f(x)\sin\omega t$，就有：
+> 可以设 $v(x,t) = f(x)\sin\omega t$，就有：
 >
 > $$
 > \begin{cases}
@@ -1014,3 +1018,628 @@ $$
 
 ---
 
+## 4. 非直角坐标系
+
+### Laplace算符
+
+我们都知道在 $n$ 维直角坐标系 $(x^1,x^2,\cdots,x^n)$ 里的标量 $u$ ：
+
+$$
+\grad^2u=\div\grad u = \pdv[2]{u}{(x^1)}+\pdv[2]{u}{(x^2)}+\cdots+\pdv[2]{u}{(x^n)}
+$$
+
+对于向量 $\va A$：
+
+$$
+\grad^2\va A = \grad(\div\va A)-\curl\curl\va A
+$$
+
+这表示对向量的每个分标量都做一次 $\laplacian$ 操作。
+
+现在我们想知道：假设不是直角坐标，而是 $n$ 个曲面坐标 $(q^1,q^2,\cdots,q^n)$ ，构成正交曲面坐标系时，Laplacian的表达式；当然还有可能是四维 Minkvoski 时空。
+
+---
+
+### 度规矩阵
+
+我们知道曲面坐标都是相互独立的，也就是Yacobi行列式不为0.
+
+计算弧长：
+
+$$
+\begin{aligned}
+(\dd{s})^2 &= \sum_{i=1}^n (\dd{x^i})^2\\
+&= \sum_{i=1}^n\qty(\sum_{j=1}^n \pdv{x^i}{q^j}\dd{q^j})\qty(\sum_{k=1}^n \pdv{x^i}{q^k}\dd{q^k})\\
+&=\sum_{j=1}^n\sum_{k=1}^n\qty(\sum_{i=1}^n \pdv{x^i}{q^j}\pdv{x^i}{q^k})\dd{q^j}\dd{q^k}\\
+&=\sum_{j=1}^n\sum_{k=1}^n\qty(g_{jk})\dd{q^j}\dd{q^k}\\
+&= \left( \mathrm{d}q^1 \quad \mathrm{d}q^2 \quad \cdots \quad \mathrm{d}q^n \right)
+\begin{pmatrix}
+g_{11} & g_{12} & \cdots & g_{1n} \\
+g_{21} & g_{22} & \cdots & g_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+g_{n1} & g_{n2} & \cdots & g_{nn}
+\end{pmatrix}
+\begin{pmatrix}
+\mathrm{d}q^1 \\
+\mathrm{d}q^2 \\
+\vdots \\
+\mathrm{d}q^n
+\end{pmatrix}
+\end{aligned}
+$$
+
+这样就定义出了**度规矩阵元** $g_{jk}$。
+
+$$
+g_{jk} = \sum_{i=1}^n \pdv{x^i}{q^j}\pdv{x^i}{q^k}
+$$
+
+只要度规矩阵为对角矩阵，说明 $(q^1,q^2,\cdots,q^n)$ 正交，反之亦然。对于对角矩阵有：
+
+$$
+g_{ik} = g_{ii}\delta_{ik}
+$$
+
+我们设一个方向上的**单位矢量**为：
+
+$$
+\dd{x^i} = \sqrt{g_{ii}}\dd{q^i}
+$$
+
+> 对柱坐标系有：
+>
+> $$
+> \begin{gathered}
+> q^1 = \rho\qc q^2 = \phi\qc q^3 = z\\
+> x^1 = \rho\cos\phi\qc x^2 = \rho\sin\phi\qc x^3 = z\\
+> \end{gathered}
+> $$
+>
+> 计算弧长：
+>
+> $$
+> \begin{aligned}
+> (\dd{s})^2 &= (\cos\phi\dd{\rho} - \rho\sin\phi\dd{\phi})^2+(\sin\phi\dd{\rho} + \rho\cos\phi\dd{\phi})^2 +(\dd z)^2\\
+> &= (\dd \rho)^2+\rho^2(\dd\phi)^2+(\dd z)^2
+> \end{aligned}
+> $$
+>
+> 这样度规矩阵就是：
+>
+> $$
+> G=\mqty(\dmat{1,\rho^2,1})
+> $$
+>
+> 对球坐标系有：
+>
+> $$
+> \begin{gathered}
+> q^1 = \rho\qc q^2 = \theta\qc q^3 = \phi\\
+> x^1 = \rho\sin\theta\cos\phi\qc x^2 = \rho\sin\theta\sin\phi\qc x^3 = \rho\cos\theta\\
+> \end{gathered}
+> $$
+>
+> 计算弧长：
+>
+> $$
+> (\dd s)^2 = (\dd r)^2+r^2(\dd{\theta})^2+r^2\sin[2]\theta(\dd{\phi})^2
+> $$
+>
+> 对应度规矩阵：
+>
+> $$
+> G=\mqty(\dmat{1,r^2,r^2\sin[2]\theta})
+> $$
+>
+> 因为两个矩阵都是对角矩阵，于是这两个都是正交曲面坐标系。
+>
+> 也可以用求切向量法来得到度规矩阵。求出切向量：
+>
+> $$
+> \va e_{q_i} = \pdv{\va r}{q_i} = \qty(\pdv{x_1}{q_i},\pdv{x_2}{q_i},\cdots,\pdv{x_n}{q_i})
+> $$
+>
+> 这样每个度规矩阵元就可以用这样表示：
+>
+> $$
+> g_{ij} = \va e_{q_i}\cdot \va e_{e_j}
+> $$
+>
+> 这样只要 $i\neq j$ 时，$g_{ij}$ 不为 $0$ ，即可判定非正交。对于正交坐标系也可以通过 $g_{ii} = \abs{\va e_{q_i}}^2$ 快速得到。
+
+---
+
+### 外微分
+
+ 定义一个**外微分运算** $\dd$ ，写出来和全微分很像。我们说对于一个标量函数 $u(q^1,q^2,\cdots,q^n)$ 时0次形式（0-form），现在我们进行一次外微分：
+
+$$
+\dd{u} = \sum_{i}\pdv{u}{q^i}\dd{q^i}
+$$
+
+这就得到了1次形式（1-form），和全微分一样。继续外微分！
+
+$$
+\begin{aligned}
+\dd{\alpha} &= \dd(\sum_{i}\alpha_i\dd{q^i})\\
+&=\sum_{i}\dd(\alpha_i\dd{q^i})\\
+&=\sum_i\dd{\alpha_i}\wedge\dd{q^i}+\sum_i\alpha_i\dd(\dd{q_i})
+\end{aligned}
+$$
+
+规定二次积分为0，就有：
+
+$$
+\dd \alpha =\sum_i\dd{\alpha_i}\wedge\dd{q^i}
+$$
+
+这里 $\wedge$ 是**楔积运算**（wedge product）。对于一次楔积可以认为是“有方向的面积”。有：
+
+$$
+\dd{q^i}\dd{q^j} = -\dd{q^j}\dd{q^i}
+$$
+
+很显然对于两次楔积就是体积。我们规定 $\dd{q^1}\wedge\dd{q^2}\wedge\cdots\wedge\dd{q^n}$ 为正的 $n$ 为体积，显然对于任意一个排列 $\dd{q^{i_1}}\wedge\dd{q^{i_2}}\wedge\cdots\wedge\dd{q^{i_n}}$ ，只需要知道交换的次数就能知道正负性了。
+
+<img src="PDE.assets/image-20260324105724299.png" alt="image-20260324105724299" style="zoom: 50%;" />
+
+> 叉乘实际上可以认为是楔积在三维情况下表示成向量的形式，实际上可以认为是三维两个向量楔积的 Hodge star。
+>
+> $$
+> \va A\cp\va B = \star(\va A\wedge\va B)
+> $$
+>
+> 对于点乘也有：
+>
+> $$
+> \va A\cdot\va B = \star(\va A\wedge\dd{\va B})
+> $$
+>
+
+---
+
+### Hodge star 运算
+
+定义一个 ***运算**，可以把 p-form 转变为 (n-p)-form。形式如下：
+
+$$
+\star(\dd{x^{i_1}}\wedge\dd{x^{i_2}}\wedge\cdots\wedge\dd{x^{i_p}}) = \epsilon_{i_1,\cdots,i_n}(\dd{x^{i_{p+1}}}\wedge\dd{x^{i_{p+2}}}\wedge\cdots\wedge\dd{x^{i_{n}}})
+$$
+
+其中 $x_i$ 为单位矢量， $\epsilon_{i_1,\cdots,i_n}$ 为 Levi-Civita 记号，当整个排列 $i_1,\cdots,i_n$ 为奇排列时为 $-1$，偶排列时为 $1$。
+
+> 例：
+>
+> 对于二维坐标有：
+>
+> $$
+> \begin{gathered}
+> \star1 = \dd{x}\wedge\dd{y}\\
+> \star\dd{x} = \dd{y}\\
+> \star\dd{y} = \dd{x}\\
+> \star(\dd{x}\dd{y) = 1}
+> \end{gathered}
+> $$
+>
+> 对于三维坐标有：
+>
+> $$
+> \begin{gathered}
+> \star1 = \dd{x}\wedge\dd{y}\wedge\dd{z}\\
+> \star\dd{x} = \dd{y}\wedge\dd{z}\\
+> \star\dd{y} = \dd{z}\wedge\dd{x}\\
+> \star\dd{z} = \dd{x}\wedge\dd{y}\\
+> \star(\dd{x}\wedge\dd{y}) = \dd{z}\\
+> \star(\dd{z}\wedge\dd{x}) = \dd{y}\\
+> \star(\dd{y}\wedge\dd{z}) = \dd{x}\\
+> \star(\dd{x}\wedge\dd{y}\wedge\dd{z}) = 1
+> \end{gathered}
+> $$
+
+假如不是单位矢量，只需要替换成度规矩阵元的形式：
+
+$$
+\begin{gathered}
+\star(\sqrt{g_{i_1i_1}}\dd{x^{i_1}}\wedge\sqrt{g_{i_2i_2}}\dd{x^{i_2}}\wedge\cdots\wedge\sqrt{g_{i_pi_p}}\dd{x^{i_p}}) \\= \epsilon_{i_1,\cdots,i_n}(\sqrt{g_{i_{p+1}i_{p+1}}}\dd{x^{i_{p+1}}}\wedge\sqrt{g_{i_{p+2}i_{p+2}}}\dd{x^{i_{p+2}}}\wedge\cdots\wedge\sqrt{g_{i_{n}i_{n}}}\dd{x^{i_{n}}})
+\end{gathered}
+$$
+
+---
+
+### 外微分运算
+
+我们来看之前的矢量分析在外微分里对应什么：
+
+| 矢量分析                                         | 外微分分析                                                   |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| 标量函数 $u(q^1,q^2,\cdots,q^n)$                 | 0-form $u(q^1,q^2,\cdots,q^n)$                               |
+| 单位坐标矢量 $\va{e_i}$                          | 1-form $\sqrt{g_{ii}}\dd{q^i}$                               |
+| 矢量 $A = \sum_i A_i\va{e_i}$                    | 1-form $\sum_i A_i\sqrt{g_{ii}}\dd{q_i}$                     |
+| 标量梯度 $\grad u = \sum_i \pdv{u}{q^i}\va{e^i}$ | 1-form $\dd u =  \sum_{i}\pdv{u}{q^i}\dd{q^i}$               |
+| 矢量散度 $\div\va{A}$                            | $\star{\dd}\star(\sum_i A_i\sqrt{g_{ii}}\dd{q_i})$           |
+| 标量Laplcian $\laplacian u$                      | $\star{\dd}\star\dd u$                                       |
+| 矢量旋度 $\curl\va A$                            | $\star\dd(\sum_i A_i\sqrt{g_{ii}}\dd{q_i})$                  |
+| 矢量Laplacian $\laplacian\va A$                  | $\dd{\star\dd{\star\va A}} + (-1)^n\star\dd{\star\dd{\va A}}$ |
+
+对于散度 $\div\va{A}$，对应将1-form变为0-form，也就是对应star运算。以三维空间为例：
+
+$$
+\begin{aligned}
+\star{\dd}\star(A_x\dd{x}+A_y\dd{y}+A_z\dd{z})&= \star\dd(A_x\dd{y}\wedge\dd{z}+A_y\dd{z}\wedge\dd{x}+A_z\dd{x}\wedge\dd{y})\\
+&= \star\qty(\pdv{A_x}{x}+\pdv{A_y}{y}+\pdv{A_z}{z})\dd{x}\wedge\dd{y}\wedge\dd{z}\\
+&= \pdv{A_x}{x}+\pdv{A_y}{y}+\pdv{A_z}{z}
+\end{aligned}
+$$
+
+进一步的，对于三维曲面的Laplcian运算：
+
+$$
+\begin{aligned}
+\star \dd \star \dd u &= \star\dd(\sqrt{\frac{g_{22}g_{33}}{g_{11}}}\pdv{u}{q_1}\dd{y}\wedge\dd{z}+\sqrt{\frac{g_{33}g_{11}}{g_{22}}}\pdv{u}{q_2}\dd{z}\wedge\dd{x}+\sqrt{\frac{g_{11}g_{22}}{g_{33}}}\pdv{u}{q_3}\dd{x}\wedge\dd{y})\\
+&= \star\qty(\pdv{q_1}(\sqrt{\frac{g_{22}g_{33}}{g_{11}}}\pdv{u}{q_1})+\pdv{q_2}(\sqrt{\frac{g_{33}g_{11}}{g_{22}}}\pdv{u}{q_2})+\pdv{q_3}(\sqrt{\frac{g_{11}g_{22}}{g_{33}}}\pdv{u}{q_3})\dd{x}\wedge\dd{y}\wedge\dd{z})\\
+&= \frac{1}{\sqrt{g_{11}g_{22}g_{33}}}\qty(\pdv{q_1}(\sqrt{\frac{g_{22}g_{33}}{g_{11}}}\pdv{u}{q_1})+\pdv{q_2}(\sqrt{\frac{g_{33}g_{11}}{g_{22}}}\pdv{u}{q_2})+\pdv{q_3}(\sqrt{\frac{g_{11}g_{22}}{g_{33}}}\pdv{u}{q_3})\dd{x}\wedge\dd{y}\wedge\dd{z})
+\end{aligned}
+$$
+
+> 例如对柱坐标：
+>
+> $$
+> G=\mqty(\dmat{1,\rho^2,1})
+> $$
+>
+> 计算得到：
+>
+> $$
+> \laplacian u = \frac1\rho\pdv{\rho}(\rho\pdv{\rho})+\frac1{\rho^2}\pdv[2]{\phi}+\pdv[2]{z}
+> $$
+>
+> 对球坐标：
+>
+> $$
+> G=\mqty(\dmat{1,r^2,r^2\sin[2]\theta})
+> $$
+>
+> 计算得到：
+>
+> $$
+> \laplacian u = \frac1{r^2}\pdv{r}(r^2\pdv{r})+\frac1{r^2\sin\theta}\pdv{\theta}(\sin\theta\pdv{\theta})+\frac1{r^2\sin[2]\theta}\pdv[2]{\phi}
+> $$
+
+对于旋度：
+
+$$
+\begin{aligned}
+\curl \va A
+&= \epsilon_{ijk}\sum_{i,j,k}\pdv{A_k}{x^j}\va{e_i}\\
+&= \left(\pdv{A_3}{x^2}-\pdv{A_2}{x^3}\right)\va e_1
++ \left(\pdv{A_1}{x^3}-\pdv{A_3}{x^1}\right)\va e_2
++ \left(\pdv{A_2}{x^1}-\pdv{A_1}{x^2}\right)\va e_3
+\end{aligned}
+$$
+
+相当于从 1-form 变到 1-form，且有一个微分形式。我们先用一次微分，之后再取star运算：
+
+$$
+\begin{aligned}
+\star\dd(A_1\dd{x}+A_2\dd{y}+A_3\dd{z})
+&= \star\Big[
+\dd A_1 \wedge \dd{x}
++ \dd A_2 \wedge \dd{y}
++ \dd A_3 \wedge \dd{z}
+\Big]\\
+&= \star\Big[
+(\pdv{A_1}{x}\dd{x}+\pdv{A_1}{y}\dd{y}+\pdv{A_1}{z}\dd{z})\wedge\dd{x}\\
+&\qquad+
+(\pdv{A_2}{x}\dd{x}+\pdv{A_2}{y}\dd{y}+\pdv{A_2}{z}\dd{z})\wedge\dd{y}\\
+&\qquad+
+(\pdv{A_3}{x}\dd{x}+\pdv{A_3}{y}\dd{y}+\pdv{A_3}{z}\dd{z})\wedge\dd{z}
+\Big]\\
+&= \star\Big[
+(\pdv{A_2}{x}-\pdv{A_1}{y})\dd{x}\wedge\dd{y}
++(\pdv{A_3}{y}-\pdv{A_2}{z})\dd{y}\wedge\dd{z}
++(\pdv{A_1}{z}-\pdv{A_3}{x})\dd{z}\wedge\dd{x}
+\Big]\\
+&= (\pdv{A_3}{y}-\pdv{A_2}{z})\dd{x}
++(\pdv{A_1}{z}-\pdv{A_3}{x})\dd{y}
++(\pdv{A_2}{x}-\pdv{A_1}{y})\dd{z}
+\end{aligned}
+$$
+
+这可以将定义拓展到二维空间：
+
+$$
+\star\dd(A_1\dd{x}+A_2\dd{y}) = \pdv{A_2}{x}-\pdv{A_1}{y}
+$$
+
+这是一个 0-form 形式。
+
+我们带入到矢量的 Laplacian 里面，对于第一项 $\grad(\div\va A)$ 对应：
+
+$$
+\begin{aligned}
+\dd{\star\dd{\star\va A}}
+&= \dd{\star\dd{\qty(A_1\dd{x}+A_2\dd{y}+A_3\dd{z})}}\\
+&= \dd{\star\Big[
+\qty(\pdv{A_2}{x}-\pdv{A_1}{y})\dd{x}\wedge\dd{y}
++\qty(\pdv{A_3}{y}-\pdv{A_2}{z})\dd{y}\wedge\dd{z}
++\qty(\pdv{A_1}{z}-\pdv{A_3}{x})\dd{z}\wedge\dd{x}
+\Big]}\\
+&= \dd(
+\qty(\pdv{A_3}{y}-\pdv{A_2}{z})\dd{x}
++\qty(\pdv{A_1}{z}-\pdv{A_3}{x})\dd{y}
++\qty(\pdv{A_2}{x}-\pdv{A_1}{y})\dd{z}
+)\\
+&= \qty(\pdv{}{y}\qty(\pdv{A_3}{y}-\pdv{A_2}{z}) - \pdv{}{z}\qty(\pdv{A_1}{z}-\pdv{A_3}{x}))\dd{y}\wedge\dd{x}\\
+&\quad+
+\qty(\pdv{}{z}\qty(\pdv{A_2}{x}-\pdv{A_1}{y}) - \pdv{}{x}\qty(\pdv{A_3}{y}-\pdv{A_2}{z}))\dd{z}\wedge\dd{x}\\
+&\quad+
+\qty(\pdv{}{x}\qty(\pdv{A_1}{z}-\pdv{A_3}{x}) - \pdv{}{y}\qty(\pdv{A_2}{x}-\pdv{A_1}{y}))\dd{x}\wedge\dd{y}
+\end{aligned}
+$$
+
+对于第二项对应：
+
+$$
+\begin{aligned}
+\star\dd{\star\dd{\va A}}
+&= \star\dd{\star\dd{\qty(A_1\dd{x}+A_2\dd{y}+A_3\dd{z})}}\\
+&= \star{\dd}\qty[
+\qty(\pdv{A_3}{y}-\pdv{A_2}{z})\dd{x}
++\qty(\pdv{A_1}{z}-\pdv{A_3}{x})\dd{y}
++\qty(\pdv{A_2}{x}-\pdv{A_1}{y})\dd{z}]\\
+&= \star\Big[
+\qty(\pdv{}{y}\qty(\pdv{A_3}{y}-\pdv{A_2}{z}) - \pdv{}{z}\qty(\pdv{A_1}{z}-\pdv{A_3}{x}))\dd{y}\wedge\dd{x}\\
+&\quad+
+\qty(\pdv{}{z}\qty(\pdv{A_2}{x}-\pdv{A_1}{y}) - \pdv{}{x}\qty(\pdv{A_3}{y}-\pdv{A_2}{z}))\dd{z}\wedge\dd{x}\\
+&\quad+
+\qty(\pdv{}{x}\qty(\pdv{A_1}{z}-\pdv{A_3}{x}) - \pdv{}{y}\qty(\pdv{A_2}{x}-\pdv{A_1}{y}))\dd{x}\wedge\dd{y}\Big]\\
+&= \qty(\pdv{}{y}\qty(\pdv{A_3}{y}-\pdv{A_2}{z}) - \pdv{}{z}\qty(\pdv{A_1}{z}-\pdv{A_3}{x}))(-\dd{z})\\
+&\quad+
+\qty(\pdv{}{z}\qty(\pdv{A_2}{x}-\pdv{A_1}{y}) - \pdv{}{x}\qty(\pdv{A_3}{y}-\pdv{A_2}{z}))\dd{y}\\
+&\quad+
+\qty(\pdv{}{x}\qty(\pdv{A_1}{z}-\pdv{A_3}{x}) - \pdv{}{y}\qty(\pdv{A_2}{x}-\pdv{A_1}{y}))\dd{x}
+\end{aligned}
+$$
+
+最后得到：
+
+$$
+\begin{aligned}
+\laplacian\va A
+&= \dd{\star\dd{\star\va A}} - \star\dd{\star\dd{\va A}}\\
+&= \Big[
+\qty(\pdv[2]{A_1}{x}+\pdv[2]{A_1}{y}+\pdv[2]{A_1}{z})
+\Big]\dd{x}\\&
+\quad+\Big[
+\qty(\pdv[2]{A_2}{x}+\pdv[2]{A_2}{y}+\pdv[2]{A_2}{z})
+\Big]\dd{y}\\
+&\quad+\Big[
+\qty(\pdv[2]{A_3}{x}+\pdv[2]{A_3}{y}+\pdv[2]{A_3}{z})
+\Big]\dd{z}
+\end{aligned}
+$$
+
+这就可以把矢量 Laplacian 扩展到其他空间了。对于三维欧氏空间的曲面坐标系有：
+
+$$
+\begin{aligned}
+\laplacian \va A
+&= \sum_{i=1}^3 \Bigg[
+\frac{1}{\sqrt{g_{11}g_{22}g_{33}}}
+\sum_{j=1}^3 \pdv{q^j}
+\qty(
+\frac{\sqrt{g_{11}g_{22}g_{33}}}{g_{jj}}
+\pdv{A_i}{q^j}
+)
+\Bigg]\,\va e_i
+\end{aligned}
+$$
+
+---
+
+## 5. 非齐次条件下的分离变量法
+
+### 圆形区域内的定解问题
+
+把边界改成圆形形式：
+
+$$
+\begin{cases}\displaystyle
+\pdv[2]{u}{x}+\pdv[2]{u}{y} = 0\\
+\eval{u}_{x^2+y^2=a^2}=f\\
+\end{cases}
+$$
+
+尝试写成极坐标形式：
+
+$$
+\begin{cases}\displaystyle
+\frac1\rho\pdv{\rho}(\rho\pdv{u}{\rho}) + \frac1{\rho^2}\pdv[2]{u}{\phi} = 0\\
+\eval{u}_{\rho=a}=f
+\end{cases}
+$$
+
+分离变量得到：
+
+$$
+\rho\dv{\rho}(\rho\dv{R}{\rho})-\lambda R = 0\qc\dv[2]{\Phi}{\phi} + \lambda\Phi=0
+$$
+
+但是此时边界条件变成 $R(a)\Phi = f$ ，解不了！
+
+考虑根本原因：在原方程里，$(x,y)$ 取值是整个圆面；但在改写后的方程，$\phi=0$ 和 $\phi=2\pi$ 处的偏导数没有意义。并且，在 $\rho=0$ 处也没有定义。
+
+于是我们需要补充两个条件：
+
+- 周期性条件：
+
+  $$
+  \begin{gathered}
+  \eval{u}_{\phi = 0} = \eval{u}_{\phi = 2\pi}\\
+  \eval{\pdv{u}{\phi}}_{\phi = 0} = \eval{\pdv{u}{\phi}}_{\phi = 2\pi}
+  \end{gathered}
+  $$
+
+- 原点条件：
+
+  $$
+  \eval{u(\rho,\phi)}_{\rho = 0} \qq{有界}
+  $$
+
+先讨论 $\lambda = 0$ 的情形，也就是 $\Phi(\phi) = A_0+B_0\phi$，由于 $\Phi(0) = \Phi(2\pi)$ 有 $B_0 = 0$，于是对应本征函数：
+
+$$
+\Phi_0(\phi) = 1
+$$
+
+$\lambda\neq0$ 时：
+
+$$
+\Phi(\phi) = A\sin(\sqrt{\lambda}\phi)+ B\cos(\sqrt{\lambda}\phi)
+$$
+
+代入周期条件得到：
+
+$$
+\begin{cases}
+B = A\sin(2\sqrt{\lambda}\pi)+ B\cos(2\sqrt{\lambda}\pi)\\
+A = A\cos(2\sqrt{\lambda}\pi)- B\sin(2\sqrt{\lambda}\pi)
+\end{cases}
+$$
+
+这对应行列式：
+
+$$
+\mqty|\sin(2\sqrt{\lambda}\pi)&\cos(2\sqrt{\lambda}\pi)-1\\\cos(2\sqrt{\lambda}\pi)-1&-\sin(2\sqrt{\lambda}\pi)|
+$$
+
+也就是 $2(\cos(2\sqrt{\lambda}\pi)-1)=0$，
+
+$$
+\lambda_m = m^2\qc m=1,2,3,\dots
+$$
+
+对应有两个本征函数：
+
+$$
+\Phi_{m1}(\phi) = \sin{m\phi}\qc\Phi_{m2}(\phi) = \cos{m\phi}
+$$
+
+对于 $R(r)$ 的方程：
+
+$$
+\rho\dv{\rho}(\rho\dv{R}{\rho})-\lambda R = \dv[2]{R}{(\ln\rho)} - \lambda R = 0
+$$
+
+对应 $\lambda = 0$ 时：
+
+$$
+R = C_0 + D_0 \ln \rho
+$$
+
+$\lambda \neq 0$ 时：
+
+$$
+R_m(\rho) = C_m\rho^m + D_m \rho^{-m}
+$$
+
+叠加得到一般解：
+
+$$
+\begin{aligned}
+u(\rho,\phi) &= C_0+D_0\ln\rho + \sum_{m=1}^\infty (C_{m1}\rho^m + D_{m1}\rho^{-m})\sin(m\phi)\\
+&\quad+\sum_{m=1}^\infty (C_{m2}\rho^m + D_{m2}\rho^{-m})\cos(m\phi)
+\end{aligned}
+$$
+
+由于 $\eval{u}_{\rho = 0}$ 有界，对应无界项系数均为0，也就是：
+
+$$
+D_0 = D_{m1}=D_{m2} = 0
+$$
+
+一般解化为：
+
+$$
+\begin{aligned}
+u(\rho,\phi) &= C_0 + \sum_{m=1}^\infty C_{m1}\rho^m \sin(m\phi)+\sum_{m=1}^\infty C_{m2}\rho^m\cos(m\phi)
+\end{aligned}
+$$
+
+代入边界条件得到：
+
+$$
+C_0 + \sum_{m=1}^\infty (C_{m1}\sin(m\phi)+ C_{m2}\cos(m\phi))a^m=f(\phi)
+$$
+
+利用成正交基积分得到：
+
+$$
+\begin{gathered}
+C_0 = \frac1{2\pi} \int_0^{2\pi} f(\phi)\dd{\phi}\\
+C_{m1} = \frac1{a^m\pi} \int_0^{2\pi} f(\phi)\sin(m\phi)\dd{\phi}\\
+C_{m2} = \frac1{a^m\pi} \int_0^{2\pi} f(\phi)\cos(m\phi)\dd{\phi}\\
+\end{gathered}
+$$
+
+这就得到了解。注意这里出现了一个本征值对应多个本征函数的情况，我们说此时本征问题是简并的。
+
+代入原式得到：
+
+$$
+u(\rho,\phi) = \frac{1}{2\pi}\int_0^{2\pi}f'(\phi)\qty[1+2\sum_{m=1}^\infty \qty(\frac\rho a)^m \cos(m(\phi-\phi'))]\dd{\phi'}
+$$
+
+当 $\rho < a$ 时，级数收敛。写成求和形式：
+
+$$
+u(\rho,\phi) = \frac{a^2-\rho^2}{2\pi} \int_0^{2\pi} \frac{f(\phi')}{\rho^2+a^2-2a\rho\cos(\phi')}\dd{\phi'}
+$$
+
+这个公式被称为 **Poisson 积分公式**。
+
+---
+
+### 球坐标系下的定解问题
+
+改成球坐标系的形式：
+
+$$
+\frac1{r^2}\pdv{r}(r^2\pdv{u}{r})+\frac1{r^2\sin\theta}\pdv{\theta}(\sin\theta\pdv{u}{\theta})+\frac1{r^2\sin[2]\theta}\pdv[2]{u}{\phi}=0
+$$
+
+通过分离变量得到：
+
+$$
+\begin{gathered}
+\frac1{r^2}\pdv{r}(r^2\pdv{R(r)}{r}) - \frac{\lambda}{r^2}R(r)=0\\
+\frac1{\sin\theta}\pdv{\theta}(\sin\theta\pdv{\Theta(\theta)}{\theta})+\qty(\lambda - \frac{\mu}{\sin[2]\theta})\Theta(\theta) = 0\\
+\pdv[2]{\Phi}{\phi}+\mu\Phi = 0
+\end{gathered}
+$$
+
+其中第三个方程很容易解得：
+
+$$
+\mu = m^2\qc\Phi_0 = 1\qc\Phi_m = \begin{cases}\sin(m\phi)\\\cos(m\phi)\end{cases}
+$$
+
+第二个方程式连带 Legendre 方程。做变换 $x = \cos\theta$，$y = \Theta(\theta)$ 则转化为：
+
+$$
+\dv{x}((1-x^2)\dv{y}{x})+\qty(\lambda-\frac{\mu}{1-x^2})y=0
+$$
+
+先来关注比较简单的 Legendre 方程，对应 $\mu= 0$ 的特例：
+
+$$
+\dv{x}((1-x^2)\dv{y}{x})+\lambda x=0
+$$
+分开得到：
+$$
+\dv[2]{y}{x} - \frac{2x}{1-x^2}\dv{y}{x} + \frac{\lambda}{1-x^2}y=0
+$$
+我们在 $x=1$ 邻域内求解：
+$$
+y = (x-1)^\rho \sum_{n=0}^\infty c_n(x-1)^n
+$$
