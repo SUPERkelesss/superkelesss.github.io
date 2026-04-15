@@ -1635,11 +1635,180 @@ $$
 $$
 \dv{x}((1-x^2)\dv{y}{x})+\lambda x=0
 $$
+
 分开得到：
+
 $$
 \dv[2]{y}{x} - \frac{2x}{1-x^2}\dv{y}{x} + \frac{\lambda}{1-x^2}y=0
 $$
+
 我们在 $x=1$ 邻域内求解：
+
 $$
 y = (x-1)^\rho \sum_{n=0}^\infty c_n(x-1)^n
 $$
+
+代入得到：
+
+$$
+\begin{aligned}
+&-(x-1)(x-1+2)\sum_{n=0}^\infty c_n(n+\rho)(n+\rho-1)(x-1)^{n+\rho-2}\\
+&\quad -2(x-1+1)\sum_{n=0}^\infty c_n(n+\rho)(x-1)^{n+\rho-1} +\lambda\sum_{n=0}^\infty c_n(x-1)^{n+\rho}=0
+\end{aligned}
+$$
+
+对应特征方程：
+
+$$
+\rho (\rho-1) + \rho=0
+$$
+
+于是对应指标重根 $\rho = 0$ . 设 $t = x-1$ ，代入求第一解有：
+
+$$
+\begin{aligned}
+-t(t+2)\sum_{n=0}^\infty c_nn(n-1)t^{n-2} -2(t+1)\sum_{n=0}^\infty c_nnt^{n-1} +\lambda\sum_{n=0}^\infty c_nt^n=0
+\end{aligned}
+$$
+
+整理得到 $\lambda = \nu (\nu +1)$：
+
+$$
+\sum_{n=0}^\infty (-2n^2 )c_nt^{n-1} + \sum_{n=0}^\infty (-n(n-1)-2n+\nu (\nu +1))c_nt^n=0
+$$
+
+平移后合并：
+
+$$
+-2(n+1)^{2}c_{n+1} +(n-\nu )(n+\nu +1)c_n = 0
+$$
+
+取 $c_0 = 1$，于是有：
+
+$$
+\begin{gathered}
+c_1 = \frac{(-\nu )(\nu +1)}{2}\\
+c_{2} = \frac{(1-\nu )(-\nu )(\nu +1)(\nu +2)}{2\cdot 8}\\
+c_n = \prod_{i=0}^{n} \frac{(i-\nu )(i+\nu +1)}{2(i+1)^{2}} = \frac{1}{(n!)^{2}}\frac{\Gamma(\nu +n+1)}{\Gamma(\nu -n+1)}\qty(\frac{1}{2})^n
+\end{gathered}
+$$
+
+合并得到：
+
+$$
+P_{\nu }(x) = \sum_{n=0}^{\infty} \frac{1}{(n!)^{2}}\frac{\Gamma(\nu +n+1)}{\Gamma(\nu -n+1)}\qty(\frac{x-1}{2})^n
+$$
+
+另一解由于含对数项，因此显然是发散的。于是我们只考虑收敛的第一解。由递推式得到，当 $\nu$ 为整数时， $P_\nu (x)$ 被截断为多项式。我们称作 $\nu$ 次 Legendre 多项式。
+
+$$
+\begin{align}
+P_l(x)  &  = \sum_{n=0}^{l} \frac{1}{(n!)^2}\frac{(l+n)!}{(l-n)!}\qty(\frac{x-1}{2})^n \\
+ & = \sum_{n=0}^{l} \binom{l}{n} \binom{l+n}{n} \qty(\frac{x-1}{2})^n
+\end{align}
+$$
+
+| $n$ | $P_n(x)$ |
+| :---: | :--: |
+| $0$ | $1$ |
+| $1$ | $x$ |
+| $2$ | $\frac{1}{2}\left(3x^2 - 1\right)$ |
+| $3$ | $\frac{1}{2}\left(5x^3 - 3x\right)$ |
+| $4$ | $\frac{1}{8}\left(35x^4 - 30x^2 + 3\right)$ |
+| $5$ | $\frac{1}{8}\left(63x^5 - 70x^3 + 15x\right)$ |
+
+![Plot of the six first Legendre polynomials.](PDE.assets/1920px-Legendrepolynomials6.svg.png)
+
+---
+
+### Legendre 多项式的性质
+
+Rodrigues 公式：
+
+$$
+P_l(x) = \frac{1}{2^ll!}\dv[l]{x}(x^{2} - 1)^l
+$$
+
+> 证明：
+>
+> $$
+> \begin{align}
+> \frac{1}{2^ll!}\dv[l]{x}(x^{2} - 1)^l & = \dv[l]{x} \sum_{n=0}^{l} \frac{1}{n!(l-n)!}\qty(\frac{1}{2})^n(x-1)^{l+n} \\
+>  & = \sum_{n=0}^{l} \frac{1}{n!(l-n)!}\frac{(l+n)!}{n!}\qty(\frac{x-1}{2})^n
+> \end{align}
+> $$
+
+可以看出当 $l$ 为偶数时，多项式为偶函数； $l$ 为奇数时，多项式为奇函数。
+
+$$
+P_l(-x) = (-)^{l}P_l(x)
+$$
+
+这样也可以求出 Legendre 多项式的另一个表达式：
+
+$$
+\begin{align}
+\dv[l]{x}(x^2 - 1)^l & =\dv[l]{x} \sum_{r=0}^{l} (-)^r \frac{l!}{r!(l-r)!} x^{2l-2r} \\
+ & =\sum_{r=0}^{\lfloor l/2 \rfloor }(-)^r \frac{l!(2l-2r)!}{r!(l-r)!(l-2r)!}x^{l-2r} \\
+P_l(x)  & = \sum_{r=0}^{\lfloor l/2 \rfloor }(-)^r \frac{(2l-2r)!}{2^lr!(l-r)!(l-2r)!}x^{l-2r}
+\end{align}
+$$
+
+在 $x=0$ 处的数值：
+
+$$
+P_{2l}(0) = (-)^l \frac{(2l)!}{2^{2l}(l!)^2} \qc P_{2l+1}(0) = 0
+$$
+
+---
+
+由于 Legendre 多项式是本征方程的解，于是有正交性：
+
+$$
+\int_{-1}^{1} P_l(x)P_k(x) \dd{x}  = 0
+$$
+
+当 $k<l$ 时，有：
+
+$$
+\int_{-1}^{1} x^kP_l(x) \dd{x}  = 0
+$$
+
+成立。
+
+> 证明：
+>
+> $$
+>
+> $$
+>
+
+当 $k= l$ 时，有：
+
+$$
+\begin{align}
+\int_{-1}^{1} P_l(x)P_l(x) \dd{x}  & = \int_{-1}^{1} (c_lx^l + c_{l-2}x^{l-2} + \cdots ) P_l(x) \dd{x} \\
+ & = c_l\int_{-1}^{1} x^lP_l(x) \dd{x}  \\
+ & =  (-)^r \frac{(2l-2r)!}{2^lr!(l-r)!(l-2r)!} \cdot  2^{l+1}\frac{(l!)^2}{(2l+1)!} \\
+ & = \frac{2}{2l+1}
+\end{align}
+$$
+
+于是：
+
+$$
+\begin{align}
+\int_{-1}^{1} P_k(x)P_l(x) \dd{x}  & = \frac{2}{2l+1}\delta_{kl}
+\end{align}
+$$
+
+也可以写成以权函数 $\sin\theta$ 正交的形式：
+
+$$
+\int_{-1}^{1} P_k(\cos\theta )P_l(\cos\theta ) \sin\theta\dd{x}
+$$
+
+---
+
+Legendre 多项式在区间
+

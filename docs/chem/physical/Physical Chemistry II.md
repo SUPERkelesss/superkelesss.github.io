@@ -3,7 +3,7 @@
 ---
 
 !!! NOTE "注意"
-    此页面为物理化学II英文班的笔记，因此较为粗略。详细内容我之后会单开页面重新编写。
+    此页面为物理化学II英文班的笔记，因此较为粗略。详细内容我之后会单开页面重新编写。 
 
 ## Chapter 1 : Chemical and Electrochemical Equilibrium
 

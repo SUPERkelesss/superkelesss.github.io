@@ -42,9 +42,9 @@
 |      简拼      |      效果      | 注释                   |
 | :------------: | :------------: | :--------------------- |
 | `\eval{x}_a^b` | $\displaystyle\eval{x}_a^b$ | 自动匹配大小 |
-| `\eval[|_a^b` | $\displaystyle\eval[\frac{aa}{bb}|_a^b$ | 自动匹配大小 |
-| `\eval(x|_a^b` | $\displaystyle\eval(x|_a^b$ | 前加括号的形式         |
-| `\eval[x|_a^b` | $\displaystyle\eval[x|_a^b$ | 前加括号的形式         |
+| `\eval[|_a^b` | $\displaystyle\left[\frac{aa}{bb}\right|_a^b$ | 自动匹配大小 |
+| `\eval(x|_a^b` | $\displaystyle\left(x\right\vert_a^b$ | 前加括号的形式         |
+| `\eval[x|_a^b` | $\displaystyle\left[x\right\vert_a^b$ | 前加括号的形式         |
 
 ### 阶次 `\order`
 
@@ -241,7 +241,7 @@
 | :-----------------: | :-------------------: | ---------------------------- |
 |     `\qq{text}`     |     $\qq{text}$       | 输出 text，前后加 quad 空格  |
 |   `aa \qq{text} bb` |  $aa\qq{text}bb$      | 前后都会加上 quad 空格       |
-|      `aa \qc bb`    |     $aa \qc bb $     | 快速逗号，后加 quad 空格     |
+|      `aa \qc bb`    |     $aa \qc bb$     | 快速逗号，后加 quad 空格     |
 |     `aa \qcc bb`    |    $aa \qcc bb$       | 共轭复数，前后加 quad 空格   |
 |     `aa \qif bb`    |    $aa \qif bb$       | 快速 if，前后加 quad 空格    |
 
@@ -253,13 +253,13 @@
 
 ### 微分 `\differential`
 
-|       简拼        |                           效果                           | 注释               |
-| :---------------: | :------------------------------------------------------: | ------------------ |
-|       `\dd`       |                          $\dd$                           |                    |
-|      `\dd x`      |                         $\dd x$                          | 没有空格（不推荐） |
-|     `\dd{x}`      | $\text{\textvisiblespace}\dd{x}\text{\textvisiblespace}$ | 前后加1/4空格      |
-|    `\dd[3]{x}`    |                        $\dd[3]x$                         | 方括号内表示阶次   |
-| `\dd(\cos\theta)` |                    $\dd(\cos\theta)$                     | 包括自动括号       |
+|       简拼        |       效果        | 注释                  |
+| :---------------: | :---------------: | --------------------- |
+|       `\dd`       |       $\dd$       |                       |
+|      `\dd x`      |     $y\dd x$      | 没有空格（不推荐）    |
+|     `\dd{x}`      |     $y\dd{x}$     | 前后加1/4空格（推荐） |
+|    `\dd[3]{x}`    |     $\dd[3]x$     | 方括号内表示阶次      |
+| `\dd(\cos\theta)` | $\dd(\cos\theta)$ | 包括自动括号          |
 
 ### 导数 `\derivative`
 
@@ -373,7 +373,7 @@
 | `\mqty()`  | $\mqty(a & b \\ c & d)$  | 圆括号矩阵，等效于 `\pmqty`              |
 | `\mqty*()` | $\mqty*(a & b \\ c & d)$ | 替代圆括号矩阵，等效于 `\Pmqty`          |
 | `\mqty[]`  | $\mqty[a & b \\ c & d]$  | 方括号矩阵，等效于 `\bmqty`              |
-| `\mqty||`  | $\mqty|a & b \\ c & d|$  | 竖线矩阵，等效于 `\vmqty`                |
+| `\mqty||`  | $\mdet {a & b \\ c & d}$ | 竖线矩阵，等效于 `\vmqty`                |
 | `\pmqty{}` | $\pmqty{a & b \\ c & d}$ | 圆括号矩阵，同 `\mqty()`；更鲁棒，下同。 |
 | `\Pmqty{}` | $\Pmqty{a & b \\ c & d}$ | 替代圆括号矩阵，同 `\mqty*()`            |
 | `\bmqty{}` | $\bmqty{a & b \\ c & d}$ | 方括号矩阵，同 `\mqty[]`                 |
@@ -387,7 +387,7 @@
 |        `\smqty()`        | $\smqty(a & b \\ c & d)$  | 圆括号小型矩阵         |
 |       `\smqty*()`        | $\smqty*(a & b \\ c & d)$ | 替代圆括号小型矩阵     |
 |        `\smqty[]`        | $\smqty[a & b \\ c & d]$  | 方括号小型矩阵         |
-|        `\smqty||`        | $\smqty|a & b \\ c & d|$  | 竖线小型矩阵           |
+|        `\smqty||`        | $\smdet {a & b \\ c & d}$ | 竖线小型矩阵           |
 
 ### 行列式 `matrixdeterminant`
 

@@ -19,7 +19,7 @@
 
 {{ BEGIN_TOC }}
 - 物理化学:
-    - 物理化学I: "physics/Physical_Chemistry_I"
+    - 物理化学I: "physical/Physical_Chemistry_I"
     - 物理化学II: "physical/Physical Chemistry II"
     - 相与相图: "physical/Phase_Diagram"
 - 理论化学:

@@ -793,7 +793,7 @@ $$
 
 $$
 \hat x = \sqrt{\frac{m\omega}{\hbar}}x\qc
-\hat p = \sqrt{\frac{1}{m\hbar \omega}}x
+\hat p = \sqrt{\frac{1}{m\hbar \omega}}p
 $$
 
 很容易知道 $\comm{\hat x}{\hat p} = i$，这之后 $H$ 就是：
@@ -1848,7 +1848,7 @@ $$
 i\hbar \dv{b_n(t)}{t} = \lambda\sum_k \hat W_{kn} e^{i\omega_{kn} t}b_k(t)\qc \omega_{kn} = \frac{E_k - E_n}{\hbar}
 $$
 
-这就得到了 $b_n(t)$ 的精确表达式，然而没法精确求出来。我们企图将 $b_n(t)$ 展开成 $\lambda$ 的系数：
+这就得到了 $b_n(t)$ 的精确表达式，然而没法精确求出来。我们企图将 $b_n(t)$ 展开成 $\lambda$ 的系数：
 $$
 b_n(t) = b_n^0(t) + \lambda b_n^1(t) + \lambda^2 b_n^2(t) + \cdots
 $$
@@ -1968,4 +1968,11 @@ $$
 
 ---
 
- 
+ 
+
+---
+
+## 3. 热力学 Thermodynamics
+
+### 3.1 热力学平衡
+
