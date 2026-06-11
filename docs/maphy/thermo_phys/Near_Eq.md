@@ -188,7 +188,7 @@ $$
 $$
 \begin{aligned}
 &\quad \int_0^te^{-\zeta t'}\dd t'\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''} \\
-&= -\frac{1}{\zeta}\bqty{e^{-\zeta t'}\eval{\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''}}_0^t - \int_0^t e^{-\zeta t'} \dd(\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''})} \\
+&= -\frac{1}{\zeta}\bqty{e^{-\zeta t'}\eval{\int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''}}_0^t - \int_0^t e^{-\zeta t'} \dd \int_0^{t'}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''} } \\
 &= -\frac{1}{\zeta}\bqty{e^{-\zeta t}\int_0^{t}  e^{\zeta t^{\prime\prime}}A(t'') \dd{t''} - \int_0^t A(t') \dd{t'}} \\
 &= \frac{1}{\zeta}\bqty{\int_0^t \pqty{A(t') - A(t')e^{\zeta(t'-t)}}\dd t'} \\
 &= \frac{1}{\zeta}\bqty{\int_0^t \pqty{1 - e^{\zeta(t'-t)}}A(t')\dd t'}

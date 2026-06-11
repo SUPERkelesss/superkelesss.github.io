@@ -1587,13 +1587,13 @@ $$
 代入原式得到：
 
 $$
-u(\rho,\phi) = \frac{1}{2\pi}\int_0^{2\pi}f'(\phi)\qty[1+2\sum_{m=1}^\infty \qty(\frac\rho a)^m \cos(m(\phi-\phi'))]\dd{\phi'}
+u(\rho,\phi) = \frac{1}{2\pi}\int_0^{2\pi}f(\phi')\qty[1+2\sum_{m=1}^\infty \qty(\frac\rho a)^m \cos(m(\phi-\phi^\prime)) ]\dd{\phi'}
 $$
 
 当 $\rho < a$ 时，级数收敛。写成求和形式：
 
 $$
-u(\rho,\phi) = \frac{a^2-\rho^2}{2\pi} \int_0^{2\pi} \frac{f(\phi')}{\rho^2+a^2-2a\rho\cos(\phi')}\dd{\phi'}
+u(\rho,\phi) = \frac{a^2-\rho^2}{2\pi} \int_0^{2\pi} \frac{f(\phi')}{\rho^2+a^2-2a\rho\cos(\phi^\prime)}\dd{\phi'}
 $$
 
 这个公式被称为 **Poisson 积分公式**。
@@ -1624,7 +1624,10 @@ $$
 \mu = m^2\qc\Phi_0 = 1\qc\Phi_m = \begin{cases}\sin(m\phi)\\\cos(m\phi)\end{cases}
 $$
 
-第二个方程式连带 Legendre 方程。做变换 $x = \cos\theta$，$y = \Theta(\theta)$ 则转化为：
+第一个方程式也可
+
+第二个方程式是连带 Legendre 方程。做变换 $x = \cos\theta$，$y = \Theta(\theta)$ 则转化为：
+
 
 $$
 \dv{x}((1-x^2)\dv{y}{x})+\qty(\lambda-\frac{\mu}{1-x^2})y=0
@@ -1731,10 +1734,21 @@ $$
 
 > 证明：
 >
+> 可以把 $(x^{2}-1)^l$ 分解为：
+>
+> $$
+> \begin{align}
+> ( x^{2}-1 )^l & = ( x- 1 )^l(  2+x-1)^l \\
+>  & =\sum_{n = 0}^{l} \frac{ l! }{n!( l-n )!}2^{l-n}( x-1 )^{l+n}
+> \end{align}
+> $$
+>
+> 于是
+>
 > $$
 > \begin{align}
 > \frac{1}{2^ll!}\dv[l]{x}(x^{2} - 1)^l & = \dv[l]{x} \sum_{n=0}^{l} \frac{1}{n!(l-n)!}\qty(\frac{1}{2})^n(x-1)^{l+n} \\
->  & = \sum_{n=0}^{l} \frac{1}{n!(l-n)!}\frac{(l+n)!}{n!}\qty(\frac{x-1}{2})^n
+> & = \sum_{n=0}^{l} \frac{1}{n!(l-n)!}\frac{(l+n)!}{n!}\qty(\frac{x-1}{2})^n
 > \end{align}
 > $$
 
@@ -1810,5 +1824,572 @@ $$
 
 ---
 
-Legendre 多项式在区间
+Legendre 多项式在区间 $[-1,1]$ 上是完备的。其系数：
 
+$$
+c_l = \frac{ 2l+1 }{2}\int_{-1}^{1} f( x )P( x ) \dd{x}
+$$
+
+或者改为用角度式：
+
+$$
+c_l = \frac{ 2l+1 }{2}\int_{0}^{\pi } f( \theta )P_l( \cos\theta  ) \sin\theta \dd{x}
+$$
+
+假设要求解的是一个 $k$ 阶多项式，我们知道在 $k<l$ 时积分为0。此外也可以通过奇偶性判断。
+
+> 例如分解 $x^{3}$ ，则只需要计算 $c_1$ 和 $c_3$ ，最终得到：
+>
+> $$
+> x^{3} = \frac{3}{5}P_1( x )+\frac{2}{5}P_3( x )
+> $$
+
+---
+
+### 生成函数和递推关系
+
+$$
+\frac{1}{\sqrt{ 1-2xt+t^{2} }} = \sum_{l = 0}^{ \infty } P_l( x )t^l \qc | t | < \abs{ x\pm \sqrt{ x^{2}-1 } }
+$$
+
+> 证明：
+
+式子对两边对 $x$ 微商得到：
+
+$$
+\begin{align}
+-\frac{1}{2}\frac{-2x+2t}{\sqrt{ 1-2xt+t^{2} }} & =\sum_{l = 0}^{\infty} lP_l( t )^{l-1} \\
+( x-t )\frac{1}{( 1-2xt+t^{2} )^{1/2}}  & = ( 1-2xt+t^{2} )\sum_{l = 0}^{\infty} lP_l( x )t^{l-1} \\
+( x-t )\sum_{l = 0}^{\infty} P_l( x )t^l  & = ( 1-2xt+t^{2} )\sum_{l = 0}^{\infty} lP_l( x )t^{l-1}
+\end{align}
+$$
+
+比较系数：
+
+$$
+xP_l( x ) - P_{ l-1 }( x ) = ( l+1 )P_{l+1}( x ) - 2xlP_l( x )+( l-1 )P_{l-1}( x )
+$$
+
+也就是
+
+$$
+( 2l+1 )xP_{l}( x ) = ( l+1 )P_{l+1}( x )+lP_{l-1}( x )
+$$
+
+这就是 Legendre 多项式的递推关系。
+
+$$
+\begin{align}
+-\frac{1}{2}\frac{ -2t }{( 1-2xt+t^{2} )^{3/2 }} &  = \sum_{k = 0}^{\infty} P_{k}'( x )t^{k} \\
+t\sum_{k = 0}^{\infty} P_k( x )t^k & = ( 1-2xt+t^{2} )\sum_{k = 0}^{\infty} P'_k( x )t^k \\
+\end{align}
+$$
+
+比较系数：
+
+$$
+P_{k}( x ) = P_{ k-1 }'( x ) - 2xP'_{k}( x )+P'_{k+1}( x )
+$$
+
+由此得到两个递推关系式。
+
+---
+
+### Legendre多项式的应用
+
+
+
+---
+
+### 连带Legendre方程
+
+球内区域的Laplace问题需要满足：
+
+- $u \vert_{r=0}$ 有界
+- $u \vert_{\theta=0}$ 有界， $u \vert_{\theta=\pi }$ 有界
+- $u \vert_{\phi =0} = u \vert_{\phi =\pi }$， $\eval{ \pdv{ u }{ x }    }_{\phi  = 0} = \eval{ \pdv{ u }{ x } }_{\phi =2\pi }$
+
+
+通过分离变量先可以得到：
+
+$$
+\begin{gathered}
+\frac1{r^2}\pdv{r}(r^2\pdv{R(r)}{r}) - \frac{\lambda}{r^2}R(r)=0\\
+\frac1{\sin\theta}\pdv{\theta}(\sin\theta\pdv{\Theta(\theta)}{\theta})+\qty(\lambda - \frac{\mu}{\sin[2]\theta})\Theta(\theta) = 0\\
+\pdv[2]{\Phi}{\phi}+\mu\Phi = 0
+
+\end{gathered}
+$$
+
+一个经典的算子是，对于角速度，换成球坐标的形式：
+
+$$
+\begin{gathered}
+\hat{L}_x = -i\hbar \qty( y \pdv{ z } -z\pdv{ y } ) = i\hbar \qty( \sin \phi \pdv{ \theta }+\cot\theta \cos \phi \pdv{ \phi  }   ) \\
+
+\hat{L}_y = -i\hbar \qty( z \pdv{ x } -x\pdv{ z } ) = i\hbar \qty(- \cos \phi \pdv{ \theta }+\cot\theta \sin \phi \pdv{ \phi  }   ) \\
+
+\hat{L}_z = -i\hbar \qty( x \pdv{ y } -y\pdv{ x } ) = i\hbar\pdv{ \phi  }\\
+\end{gathered}
+$$
+
+
+
+对应总角量子数：
+
+$$
+\hat{L}^{2} = -\hbar^2 \frac1{ \sin\theta }\qty[ \pdv{ \theta  }( \sin\theta  \pdv{ \theta }  ) +\frac{1}{\sin\theta }\pdv[2]{   }{ \phi  }  ]
+$$
+
+这样关于角度的本征值可以写成：
+
+
+
+$$
+\hat{L}^{2}S( \theta,\phi  ) = \hbar ^2\lambda S( \theta,\phi  )
+$$
+
+
+
+再次分离变量就可以得到上面的方程组了。显而易见的有本征值
+
+$$
+\mu = m^{2}\qc m\in \mathbb{N}
+$$
+
+这样 $\Theta$ 方程可以化为：
+
+
+$$
+\dv{x}((1-x^2)\dv{y}{x})+\qty(\lambda-\frac{m^2}{1-x^2})y=0
+$$
+
+
+对应需要 $y(\pm 1)$ 有界。指标方程为：
+
+$$
+\rho ( \rho -1 )+\rho -\frac{m^{2}}{4} = 0
+$$
+
+对应指标 $\rho = \pm m/2$。于是令 $y(x) = ( 1-x^{2})^{m/2}v( x)$，展开得到
+
+
+
+$$
+( 1-x^{2} )v''-2( m+1 )xv'+[ \lambda - m( +1 ) ]v=0
+$$
+
+
+
+这个方程被称为超球微分方程。
+
+> 命题：将 Legendre 方程微分 $m$ 次，可以得到超球微分方程。
+
+
+因此得到连带 Legendre 的解：
+
+$$
+y( x ) = c_{1}y_{1}( x ) + x_{2}y_{2}( x )\qc
+\begin{cases}
+y_2( x ) = ( 1-x^{2} )^{m/2 }Q_{\nu }^{( m )}( x )
+\end{cases}
+$$
+
+因为有界，所以必须取 $c_{2} = 0$ 和 $v-m \in \mathbb{N}$ 。对应有本征值
+
+$$
+\lambda_{l} = l( l+1 ) \qc l=m,m +1,\cdots
+$$
+
+本征函数一般取：
+
+$$
+P_l^m( x ) = ( - )^{m} ( 1-x^{2} )^{m/2 }P_{l}^{( m )}( x )
+$$
+
+这被称为 $m$ 阶 $l$ 次 **连带 Legendre 函数**。
+
+---
+
+## 柱函数
+
+### Bessel函数
+
+在柱坐标系的稳定方程：
+
+$$
+\frac{1}{\rho} \pdv{ \rho  } ( \rho \pdv{ u }{ \rho  }  )+\frac{1}{\rho ^{2}}\pdv[2]{ u }{ \phi  } +\pdv[2]{ u }{ z } +k^{2}u=0
+$$
+
+先分离掉 $z$ 变量：
+
+$$
+\begin{gathered}
+\frac{1}{ \rho  }\pdv{ \rho  } \qty( \rho \pdv{ v }{ \rho  }  )+\frac{1}{\rho ^{2}}\pdv[2]{ v }{ \phi  } +( k^{2}-\lambda )v=0 \\
+\dv[2]{ Z }{ z } +\lambda Z = 0
+\end{gathered}
+$$
+
+然后分离 $\phi$ 变量：
+
+$$
+\begin{gathered}
+\frac{1}{ \rho  }\dv{ \rho  } \qty( \rho \dv{ v }{ \rho  }  ) +( k^{2}-\lambda-\frac{\mu}{\rho^{2}} )R=0 \\
+\dv[2]{ \Phi  }{ \phi } +\mu\Phi = 0
+\end{gathered}
+$$
+
+令 $x=\rho \sqrt{ k^{2}-\lambda}$ ，得到**Bessel方程**：
+
+$$
+\frac{1}{x}\dv{ x }\qty[ x\dv{ w( x ) }{ x } ]+( 1- \frac{\nu ^{2}}{x^{2}} )w( x ) = 0
+$$
+
+仅有两个正则奇点$x=0$和$x=\infty$，在$x=0$处的级数解为Bessel函数：
+
+$$
+J_{\pm \nu }( x ) = \sum_{k = 0}^{ \infty} \frac{( - )^{k}}{k!\Gamma( k\pm \nu + 1 )}\qty( \frac{x}{2} )^{2k\pm \nu }
+$$
+
+<img src="PDE.assets/BesselJ.png" alt="undefined" style="zoom: 33%;" />
+
+---
+
+把两解代入原方程：
+
+$$
+\begin{gathered}
+\frac{1}{x}\dv{ x }\qty[ x\dv{ J_{+\nu }( x ) }{ x } ]+( 1- \frac{\nu ^{2}}{x^{2}} )J_{+\nu }( x ) = 0 \\
+\frac{1}{x}\dv{ x }\qty[ x\dv{ J_{-\nu }( x ) }{ x } ]+( 1- \frac{\nu ^{2}}{x^{2}} )J_{-\nu }( x ) = 0
+\end{gathered}
+$$
+
+交叉相乘并相减积分得到：
+
+$$
+\begin{gathered}
+J_{-\nu }\dv{ x }\qty[ x\dv{ J_{+\nu } }{ x } ] - J_{+\nu }\dv{ x }\qty[ x\dv{ J_{-\nu }}{ x } ]=0 \\
+\dv{ x }\qty( J_{-\nu }x\dv{ J_{+\nu } }{ x }-J_{+\nu }x\dv{ J_{-\nu } }{ x } )=0
+\end{gathered}
+$$
+
+对应 Wronski 行列式：
+
+$$
+W( J_{+\nu }, J_{-\nu } ) =J_{+\nu }J_{-\nu }' - J_{-\nu }J_{+\nu }'= \frac{C}{x}
+$$
+
+展开行列式：
+
+$$
+\begin{align}
+W( J_{+\nu }, J_{-\nu } )  & =\sum_{k = 0}^{ \infty} \frac{( - )^{k}}{k!\Gamma( k+ \nu + 1 )}\qty( \frac{x}{2} )^{2k
++ \nu }\sum_{n = 0}^{ \infty} \frac{( - )^{n}}{n!\Gamma( n- \nu + 1 )}\frac{ 2n-\nu  }{2^{2n-\nu }}x^{2n-\nu -1} \\
+ &\quad -\sum_{k = 0}^{ \infty} \frac{( - )^{k}}{k!\Gamma( k- \nu + 1 )}\qty( \frac{x}{2} )^{2k- \nu }\sum_{n = 0}^{ \infty} \frac{( - )^{n}}{n!\Gamma( n+ \nu + 1 )}\frac{ 2n+\nu  }{2^{2n+\nu }}x^{2n+\nu -1}
+\end{align}
+$$
+
+我们知道最后只剩下 $\frac{C}{x}$ 这一项，此时只有 $k=0, n=0$ 项保留：
+
+$$
+\begin{align}
+W( J_{+\nu }, J_{-\nu } )  & = \frac{1}{x}\qty[ \frac{1}{\Gamma ( \nu +1 )}\frac{-\nu }{\Gamma( 1-\nu  )} - \frac{\nu }{\Gamma( \nu +1 )}\frac{1}{\Gamma( 1-\nu  )} ] \\
+ & =\frac{1}{x}\frac{-2\nu }{\Gamma( 1+\nu  )\Gamma( 1-\nu  )} = \frac{-2\nu }{\Gamma( \nu  )\Gamma( 1-\nu  )} = \frac{-2\sin \pi \nu }{\pi x}
+\end{align}
+$$
+
+这就说明当 $\nu$ 为整数时这两解线性相关。事实上有：
+
+$$
+J_{-n}( x ) = ( - )^{n}J_{n}( x )
+$$
+
+此时我们取另外一解：
+
+$$
+y( x ) = c_{1}J_{\nu} + c_{2}J_{-\nu }
+$$
+
+此时Wronski行列式：
+
+$$
+W( J_{\nu }, y( x ) ) = c_{2} \frac{-2\sin \pi \nu }{\pi x}
+$$
+
+此时取 $c_2 = -1/( \sin \pi \nu )$ 即可使行列式不为0，再取 $c_{1} = \cos( \nu \pi )/\sin( \nu \pi )$，得到：
+
+$$
+y( x ) = N_{\nu }( x ) = \frac{ J_{\nu }( x ) \cos( \nu \pi)-J_{-\nu }( x )}{\sin( \nu  x)}
+$$
+
+这就是 **Neuman 函数**。
+
+<img src="PDE.assets/Besselyn.png" alt="undefined" style="zoom:33%;" />
+
+> 神秘结论：当 $|x| \to \infty$ 时：
+>
+> $$
+> J_{\nu }( x ) \propto \sqrt{ \frac{2}{\pi x} }\cos( x-\frac{ \nu \pi  }{2}-\frac{\pi}{4} )
+> $$
+>
+> $$
+> N_{\nu }( x ) \propto \sqrt{ \frac{2}{\pi x} }\sin( x-\frac{ \nu \pi  }{2}-\frac{\pi}{4} )
+> $$
+>
+> 对应 Bessel 方程的柱面波：
+>
+> $$
+> e^{ -i\omega t }\qty{ \frac{1}{2}\sqrt{ \frac{2}{\pi x} }\qty[ e^{ i( x-\frac{ \nu \pi  }{2}-\frac{\pi}{4} ) } +e^{ -i( x-\frac{ \nu \pi  }{2}-\frac{\pi}{4} )}] }
+> $$
+>
+> 其中等相位的面是柱面，对应 $k\rho - \frac{\nu \pi   }{2} - \frac{\pi}{4} \mp \omega t$ 为常数。前一项是扩散的波，后一项是汇聚的波。
+>
+> 考察一个柱面的能量密度：
+>
+> $$
+> \frac{2}{\pi x}\cdot 2\pi x\cdot h
+> $$
+>
+> 可以看到柱面没有能量耗散。所以可以把他们线性组合形成单一的柱面波或者汇聚波，即为Hankel函数：
+>
+> $$
+> \begin{align}
+> H_{\nu }^{( 1 )}( x ) = J_{\nu }( x ) + iN_{\nu }( x ) \\
+> H_{\nu }^{( 2 )}( x ) = J_{\nu }( x ) - iN_{\nu }( x )
+> \end{align}
+> $$
+
+---
+
+### 递推关系
+
+很容易证明：
+
+$$
+\begin{align}
+\dv{ z }( z^{\nu }J_{\nu }( z ) ) = z^{\nu }J_{\nu -1}( z ) \\
+\dv{ z }( z^{-\nu }J_{\nu }( z ) ) = -z^{-\nu }J_{\nu +1}( z )
+\end{align}
+$$
+
+规定所有满足该递推关系的都是柱函数。柱函数一定是Bessel方程的解。对应 Bessel函数和 Neumann 函数都是主函数。
+
+---
+
+### 圆形薄膜振动
+
+> 求鼓面的固有振动频率。
+
+经过分离变量得到：
+
+$$
+\begin{gathered}
+T''( t ) + c^{2}\lambda T( t ) = 0 \\
+\frac{1}{ \rho  }\dv{ \rho  } \qty( \rho \dv{ R }{ \rho  }  ) +(\lambda-\frac{\mu}{\rho^{2}} )R=0 \\
+\dv[2]{ \Phi  }{ \phi } +\mu\Phi = 0
+\end{gathered}
+$$
+
+当 $\lambda = 0$ 时，由于函数有界只有零解。当 $\lambda \neq 0$ 时：
+
+$$
+R( \rho  ) = CJ_{m}( k\rho  )+DN_{m}( k\rho )\qc k^{2} = \lambda
+$$
+
+由边界条件 $R(a) = 0$ 和有界，取$m$阶贝塞尔函数的正零点 $\mu_{m,i}$，对应本征值：
+
+$$
+\lambda_{m,i} = \qty( \frac{ \mu _{m,i} }{a} )^{2} \qc R_{m,i}( \rho  ) = J_{m}\qty( \frac{ \mu _{m,i} }{a} \rho  )
+$$
+
+于是得到角频率：
+
+$$
+\omega_{mi} = \sqrt{ \lambda_{mi} }c = \frac{c}{a}\mu _{m,i}
+$$
+
+---
+
+### 正交归一性
+
+考虑有一个本征函数 $J_m( k_{mi}\rho )$ 满足方程：
+$$
+\frac{1}{ \rho  }\dv{ \rho  } \qty( \rho \dv{J_m( k_{mi}\rho ) }{ \rho  }  ) +(k^{2}_{mi}-\frac{m^{2}}{\rho^{2}} )J_m( k_{mi}\rho )=0
+$$
+假设有另一个函数 $J_m( k\rho )$ 也满足这个方程：
+$$
+\frac{1}{ \rho  }\dv{ \rho  } \qty( \rho \dv{J_m( k\rho ) }{ \rho  }  ) +(k^{2}-\frac{m^{2}}{\rho^{2}} )J_m( k\rho )=0
+$$
+且对于边界条件：
+$$
+J_m( k_{mi}a )=0
+$$
+交叉相乘 $\rho J_m$ 之后相减得到：
+$$
+( k_{mi}^{2}-k^{2} )J_{m}( k_{mi}\rho  )J_m( k\rho  )\rho = \dv{ \rho  }\qty[ \rho \qty( J_m( k_{mi}\rho  )\dv{ J_m( k\rho  )  }{ \rho  } - J_m( k\rho  )\dv{ J_m( k_{mi}\rho  ) }{ \rho } ) ]
+$$
+积分得到（注意边界条件）：
+$$
+( k_{mi}^{2}-k^{2} )\int_{0}^{a} J_m( k_{mi}\rho  )J_m( k\rho  )\rho  \dd{\rho }  = -k_{mi}aJ_m( ka )J'_m( k_{mi}a )
+$$
+
+- 如果 $J_m( ka	) = J_m( k_{mj}a)$，且 $i\neq j$，意味着有对权重 $\rho$ 的正交性：
+  $$
+  \int_{0}^{a} J_m( k_{mi}\rho  )J_m( k\rho  )\rho  \dd{\rho }  = 0
+  $$
+
+- 如果 $k = k_{mi}$ 则有：
+  $$
+  \int_{0}^{a} J^{2}_m( k_{mi}\rho  ) \rho \dd{\rho } = -\lim_{ k \to k_{mi} } \frac{J_m( ka )}{k_{mi}^{2}-k^{2}} k_{mi}aJ'_m( k_{mi}a )
+  $$
+  利用 L'Hospital 法则：
+  $$
+  \int_{0}^{a} J_m^{2}( k_{mi}\rho  )\rho  \dd{\rho }  = \frac{a^{2}}{2}[ J_m'( k_{mi}a ) ]^{2}
+  $$
+
+另外平方可积的函数可以完备的被展开：
+$$
+f( \rho  )=\sum_{i = 1}^{\infty} b_iJ_m( k_i\rho  )\qc b_i = \frac{\int_{0}^{a} f( \rho  )J_m( k_i\rho  )\rho  \dd{\rho } }{\int_{0}^{a} J_m^{2}( k_i\rho  )\rho  \dd{\rho } }
+$$
+
+> 可以证明当$\mu \pm \nu =2n+1$ 时，积分 $\int x^{\mu }J_\nu ( x)\dd{x}$ 可表示为有限形式。
+
+---
+
+### 实际问题
+
+
+
+
+
+
+
+---
+
+## Hillbert 空间
+
+### Sturm-Liouville 型方程
+
+以上所有方程都能转化成如下形式：
+$$
+\dv{   }{ x }\qty[ p( x )\dv{ y }{ x } ]+[\lambda( w( x )-q( x ) )]y = 0
+$$
+其中 $w( x)$ 为权重函数，要么来源于其他正交坐标系，要么来源于物理的不均匀性。总之在讨论的物理问题里都有：
+$$
+w( x )\geq 0
+$$
+如果定义一个微分算符,
+$$
+\hat{L} = \frac{1}{w( x )}\qty( -\dv{ x }\qty[ p( x )\dv{ x } ]+q( x ) )
+$$
+就可以把 S-L方程化简为：
+$$
+\hat{L}y( x ) = \lambda y( x )
+$$
+
+
+---
+
+### 线性空间
+
+新引入的函数空间：平方可积函数空间 $L^2_w[ a,b]$ 线性空间：
+$$
+L^2_w[ a,b ] = \qty{ f( x ) : a\leq x\leq b, f( x )\in C, \int_a^b f^2( x )w( x )\dd{x} < \infty }
+$$
+易证明这是一个封闭的函数空间。
+
+定义内积：
+$$
+\ip{ f_{1} }{ f_{2} } = \int_{a}^{b} f_{1}^{*}( x )f_{2}( x )w( x ) \dd{x} 
+$$
+定义范数：
+$$
+\norm{ \vb{x} } = \sqrt{ \ip{ \vb{x} }{ \vb{x} } } \geq 0
+$$
+其他各种定义和中物化完全一样。懒得写了。
+
+判断正交归一矢量集 ${\vb{x}_i}$ 完备的方法（任意一种）：
+
+- 当且仅当 $x=0$ 有 $\ip{ x_i}{ x} = 0$；
+- 任意线性空间中矢量 $x$ 有 $x = \sum_{i = 1}^{k} \ip{ x_i}{ x} x_{i}$
+- Bessel 不等式等号成立，恒有 $\norm{ x}^{2} = \sum_{i = 1}^{k} | \ip{ x_{i}}{ x}|^{2}$
+- Parseval 方程成立，恒有 $\ip{ y}{ x} = \sum_{i = 1}^{k} \ip{ y}{ x_{i}} \ip{ x_{i}}{ x}$
+
+函数集合的正交归一性和矢量定义类似，完备性可以定义为在平方可积函数空间内任意函数 $f(x)$ 可以表示为：
+$$
+f( x ) = \sum_{i = 1}^{\infty} c_if_i( x )
+$$
+或写成平均收敛的形式：
+$$
+\lim_{ n \to \infty } \int_{a}^{b} \abs{ f( x ) - \sum_{i = 1}^{n} c_if_i( x ) }^{2}w( x ) \dd{x} = 0
+$$
+并且可以求得系数：
+$$
+c_i = \ip{ f_i }{ f } \implies \sum_{i = 1}^{\infty} \abs{ c_i }^{2} = \ip{ f }{ f } 
+$$
+我们想找到一个系数 $a_i$ 使得可以最佳逼近 $f(x)$，也就是误差函数最小：
+$$
+\begin{align}
+\norm{ f( x ) - \sum_{i = 1}^{n} a_if_i( x ) }^{2}  & = \ip{ f }{ f } - \sum_{i = 1}^{n} a_i^{*}\ip{ f_i }{ f } - \sum_{i = 1}^{n} a_i\ip{ f }{ f_i } + \sum_{i = 1}^{n} \abs{ a_i }^{2} \\
+ & = \ip{ f }{ f }+ \sum_{i = 1}^{n} \abs{ a_i - c_i }^{2} - \sum_{i = 1}^{n} c_i^{*}c_i
+\end{align}
+$$
+因此对应 $a_i \equiv c_i$ 时误差取到极小值。且总有：
+$$
+\ip{ f }{ f } \geq \sum_{i = 1}^{\infty} \abs{ c_i }^{2}
+$$
+等号即为完备情形。这是 Bessel 不等式。
+
+---
+
+### 自伴算符
+
+伴算符定义为：
+$$
+\mel{ v }{ \hat{A} }{ u } = \mel{ u }{ \hat{A}^{\dagger} }{ v }
+$$
+例如导数算符 $\hat{L}_1 = \dv{   }{ x			 }$ 有：
+$$
+\ip{ v }{ \hat{L}u } = \eval{ v^{*}u( x )}_a^b + \ip{ -\dv{ v }{ x } }{ u }
+$$
+于是对于 $u(a)=u(b)$ 的情况，有伴算符：
+$$
+L_{1}^{\dagger} = -\dv{ x }
+$$
+对于S-L导数算符：
+$$
+\hat{L} = \frac{1}{w( x )}\qty( -\dv{ x }\qty[ p( x )\dv{ x } ]+q( x ) )
+$$
+有分部积分两次：
+$$
+\ip{ v }{ \hat{L}u } = p( x )\eval{ ( ( v^{*} )'u - v^{*}u ) }_a^b + \ip{ \hat{L}v }{ u }
+$$
+因此有伴算符的条件（同时也是自伴算符）为：
+$$
+p( x )\eval{ ( ( v^{*} )'u - v^{*}u ) }_a^b = 0
+$$
+即满足条件：
+$$
+u( a ) = \gamma u( b ) \qc p( a )u'( a ) = \frac{p( b )}{\gamma}u'( b )
+$$
+
+---
+
+自伴算符满足：
+$$
+\hat{L}^{\dagger} = \hat{L}
+$$
+对称算符满足：
+$$
+\ip{ v }{ \hat{L}u } = \ip{ \hat{L}v }{ u }
+$$
+自伴算符一定是对称算符，但是对称算符不一定自伴。
+
+---
+
+### S-L型边值问题
+
+Green函数的定解问题：
+$$
+\hat{L}G( x;x' ) = \frac{1}{w( x )}\delta( x-x' )
+$$

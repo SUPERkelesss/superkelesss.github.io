@@ -1285,7 +1285,7 @@ $$
 $$
 
 $$
-|k,j,m-1\rangle = \frac{1}{\hbar \sqrt{j(j+1)-m(m-1)}} J_+ |k,j,m-1\rangle
+|k,j,m-1\rangle = \frac{1}{\hbar \sqrt{j(j+1)-m(m-1)}} J_- |k,j,m\rangle
 $$
 
 这就是与角动量相关的能级和波函数。
@@ -1775,8 +1775,8 @@ $$
 
 这对应产生了二重峰。以此类推还有多重峰，他们的相对大小为：
 
-| 1    |   2   |    3    |     4     |
-| ---- | :---: | :-----: | :-------: |
+|  1   |   2   |    3    |     4     |
+| :--: | :---: | :-----: | :-------: |
 | $1$  | $1:1$ | $1:2:1$ | $1:3:3:1$ |
 
 需要注意的是，当氢原子环境相等时，也就是 $\sigma_1 = \sigma_2$ 时，不存在峰的裂分。此时对应的状态为：
@@ -1797,10 +1797,13 @@ $$
 $$
 (H_0 - E_n^\circ)\ket{2} + (W-\epsilon_1)\sum_{p\neq n}\frac{\mel{\phi_p}{W}{\phi_n}}{E_n^\circ-E_p^\circ}\ket{\phi_p} - \epsilon_2\ket{\phi_n} = 0
 $$
+
 左乘 $\ket{\phi_n}$ 得到：
+
 $$
 \epsilon_2 = \sum_{p\neq n}\frac{\abs{\mel{\phi_p}{W}{\phi_n}}^2}{E_n^\circ-E_p^\circ}
 $$
+
 这就是二阶微扰的能量，可以看出一阶微扰关注的是一个状态自身的变化，二阶微扰关注的是其他态的影响。
 
 ---
@@ -1808,6 +1811,7 @@ $$
 ### 2.17 含时微扰理论
 
 现在我们尝试解决对时间的微扰问题，写出含时SE：
+
 $$
 i\hbar\dv{t}\ket{\psi(t)}=[H_0+W(t)]\ket{\psi(t)}
 $$
@@ -1849,39 +1853,53 @@ i\hbar \dv{b_n(t)}{t} = \lambda\sum_k \hat W_{kn} e^{i\omega_{kn} t}b_k(t)\qc \o
 $$
 
 这就得到了 $b_n(t)$ 的精确表达式，然而没法精确求出来。我们企图将 $b_n(t)$ 展开成 $\lambda$ 的系数：
+
 $$
 b_n(t) = b_n^0(t) + \lambda b_n^1(t) + \lambda^2 b_n^2(t) + \cdots
 $$
+
 对于0阶项：
+
 $$
 i\hbar \dv{b_n^0(t)}{t} = 0
 $$
+
 也就是 $b_n^0$ 和时间无关。
 
 对于高阶项：
+
 $$
 i\hbar \dv{b_n^r(t)}{t} = \sum_k \hat W_{kn} e^{i\omega_{kn} t}b_k^{r-1}(t)
 $$
+
 我们假设初态是 $\ket{\phi_i}$，这样初始条件就有：
+
 $$
 b_n(t=0) = \delta_{ni}
 $$
+
 这对应每个高阶项 $b_n^r(t=0) = 0$，并且 $b_n^0 = \delta_{ni}$ 由于时间无关。对于一阶项有：
+
 $$
 i\hbar \dv{b_n^1(t)}{t} = \sum_k \hat W_{kn} e^{i\omega_{kn} t}\delta_{ki} = W_{ni} e^{i\omega_{ni} t}
 $$
+
 于是有：
+
 $$
 b^1_n(t) = \frac{1}{i\hbar}\int_0^t e^{i\omega_{ni}t'} \hat W_{ni}(t)\dd{t'}
 $$
 
 忽略高阶项，我们就得到：
+
 $$
 b_f(t) = \frac{1}{i\hbar}\int_0^t e^{i\omega_{fi}t'} W_{fi}(t)\dd{t'}
 $$
+
 这里假设初末态状态不同，也就是 $b_f^0(t)=  0$.
 
 处在某能级的概率：
+
 $$
 P_{if}(t) = \abs{\ip{\phi_f}{\psi(t)}}^2 = \abs{\sum_n c_n(t)\delta_{fn}}^2 = |b_f(t)|^2
 $$
@@ -1897,6 +1915,7 @@ P_{if}(t) &= \frac{\lambda^2}{\hbar^2}\abs{\int_0^t e^{i\omega_{fi}t'} \hat W_{f
 $$
 
 **例子**：假设满足周期关系：
+
 $$
 \hat W_{fi}(t) = \hat W_{fi}\sin\omega t = \frac{\hat W_{fi}}{2i}(e^{i\omega t}-e^{-i\omega t})
 $$
@@ -1928,47 +1947,62 @@ $$
 ---
 
 我们来考虑连续光谱的情况。假设对于 $\ket{\Psi_f}$ 是一个连续能级，此时对应概率变为概率密度：
+
 $$
 |\ip{\phi_f}{\psi(t)}|^2
 $$
+
 此时：
+
 $$
 \var{P(\phi_f,t)} = \int_{p\in D_f} |\ip{p}{\psi(t)}|^2 \dd[3]{\va p} =  \int_{p\in D_f} |\ip{p}{\psi(t)}|^2 p^2\dd{p}\dd{\Omega}
 $$
+
 这里 $D_f$ 代表 $P_f$ 周边的一块区域。
 
  我们把变量转到能量上。设：
+
 $$
 \rho(E) = {p^2}\dv{p}{E} = \frac{p^2m}{p} = m\sqrt{2mE}
 $$
+
 于是：
+
 $$
 \var{P(\phi_f,t)} = \int_{E\in E_f} |\ip{E}{\psi(t)}|^2 \rho(E)\dd{E}\dd{\Omega}
 $$
+
 前面得到：
+
 $$
 P_{if} = \frac{|W_{fi}|^2}{4\hbar^2}F(t,\omega-\omega_{fi})
 $$
+
 于是：
+
 $$
 \abs{\ip{E}{\psi(t)}}^2 = \frac{|\mel{E}{W}{\phi_i}|^2}{4\hbar^2}F(t,\omega-\omega_{fi})
 $$
+
 又因为当 $t\to\infty$ 时，有：
+
 $$
 \lim_{t\to \infty} F(t,\omega-\omega_{fi}) = 2\pi\hbar t\delta(\hbar\omega+E_i-E)
 $$
+
 带入得到：
 
 
 
 这样就可以得到单位时间的变换概率：
+
 $$
 \Gamma_{i\to k} = \frac{\pi}{2\hbar}|\mel{E_f}{W}{\phi_i}|^2\rho(E_f)
 $$
 
 ---
 
- 
+
 
 ---
 

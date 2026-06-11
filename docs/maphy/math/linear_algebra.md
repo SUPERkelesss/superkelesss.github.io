@@ -72,29 +72,33 @@ $$
 
 ### 基本运算
 
-![image-20260406041729480](linear_algebra.assets/image-20260406041729480.png)
+<img src="linear_algebra.assets/image-20260406041729480.png" alt="image-20260406041729480" style="zoom:80%;" />
 
-![image-20260406041646526](linear_algebra.assets/image-20260406041646526.png)
+<img src="linear_algebra.assets/image-20260406041646526.png" alt="image-20260406041646526" style="zoom: 67%;" />
 
-![image-20260406041658188](linear_algebra.assets/image-20260406041658188.png)
+<img src="linear_algebra.assets/image-20260406041658188.png" alt="image-20260406041658188" style="zoom: 67%;" />
 
-![image-20260406041713128](linear_algebra.assets/image-20260406041713128.png)
+<img src="linear_algebra.assets/image-20260406041713128.png" alt="image-20260406041713128" style="zoom: 67%;" />
 
-![image-20260406041831915](linear_algebra.assets/image-20260406041831915.png)
+<img src="linear_algebra.assets/image-20260406041859539.png" alt="image-20260406041859539" style="zoom: 67%;" />
 
-![image-20260406041859539](linear_algebra.assets/image-20260406041859539.png)
+---
+
+### 解空间
+
+<img src="linear_algebra.assets/image-20260406041831915.png" alt="image-20260406041831915" style="zoom:67%;" />
 
 ---
 
 ### 特殊矩阵
 
-![image-20260406041939794](linear_algebra.assets/image-20260406041939794.png)
+<img src="linear_algebra.assets/image-20260406041939794.png" alt="image-20260406041939794" style="zoom:67%;" />
 
-![image-20260406041955967](linear_algebra.assets/image-20260406041955967.png)
+<img src="linear_algebra.assets/image-20260406041955967.png" alt="image-20260406041955967" style="zoom:67%;" />
 
-![image-20260406042012918](linear_algebra.assets/image-20260406042012918.png)
+<img src="linear_algebra.assets/image-20260406042012918.png" alt="image-20260406042012918" style="zoom:67%;" />
 
-![image-20260406042032941](linear_algebra.assets/image-20260406042032941.png)
+<img src="linear_algebra.assets/image-20260406042032941.png" alt="image-20260406042032941" style="zoom:67%;" />
 
 ---
 

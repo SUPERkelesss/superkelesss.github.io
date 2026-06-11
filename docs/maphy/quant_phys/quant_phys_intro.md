@@ -1040,3 +1040,286 @@ $$
 
 ---
 
+## 3. 解一维波函数（略去）
+
+---
+
+## 4. 角动量
+
+### 4.1 角动量的本征值
+
+---
+
+### 4.2 轨道角动量
+
+---
+
+### 4.3 自旋 1/2 体系
+
+自旋向上和自旋向下的两个本征态对应：
+$$
+\ket{\alpha} \leftrightarrow \ket{ \frac{1}{2}, \frac{1}{2}}\qc  \ket{\beta} \leftrightarrow \ket{ \frac{1}{2}, - \frac{1}{2}}
+$$
+用 $\ket{\alpha}$ 和 $\ket{\beta}$ 展开空间时对应矢量表示：
+$$
+\ket{\alpha} = \binom{ 1 }{ 0 }\qc \ket{\beta } = \binom{ 0 }{ 1 } 
+$$
+在该展开下作角动量算符的展开：
+$$
+\mel{ \frac{1}{2} ,m_s}{\hat{S^{2}}}{ \frac{1}{2},m_s'} = \frac{1}{2}( \frac{1}{2}+1 )\hbar ^{2}\delta_{m_s,m_s'} \implies \hat{S^{2}} = \frac{3}{4}\hbar ^{2}\pmqty{
+1 & 0 \\
+0 & 1
+}
+$$
+三个角动量分量对应：
+$$
+\ket{S_{z}} = \frac{1}{2}\hbar \pmqty{
+1 & 0 \\
+0 & -1
+}
+$$
+
+$$
+\begin{align}
+\mel{ \frac{1}{2} ,m_s}{\hat{S_x}}{ \frac{1}{2},m_s'}  & = \frac{1}{2}\mel{ \frac{1}{2} ,m_s}{S_+ + S_-}{ \frac{1}{2},m_s'} \\
+ & = \frac{1}{2} \hbar  \qty[ \pmqty{
+0 & 1 \\
+0 & 0
+}  + \pmqty{
+0 & 0 \\
+1 & 0
+}] \\
+ & = \frac{1}{2}\hbar \pmqty{
+0 & 1 \\
+1 & 0
+}
+\end{align}
+$$
+
+$$
+\begin{align}
+\mel{ \frac{1}{2} ,m_s}{\hat{S_y}}{ \frac{1}{2},m_s'}  & = \frac{1}{2}\mel{ \frac{1}{2i} ,m_s}{S_+ - S_-}{ \frac{1}{2},m_s'} \\
+ & = \frac{1}{2i} \hbar  \qty[ \pmqty{
+0 & 1 \\
+0 & 0
+}  - \pmqty{
+0 & 0 \\
+1 & 0
+}] \\
+ & = \frac{1}{2}\hbar \pmqty{
+0 & -i \\
+i & 0
+}
+\end{align}
+$$
+
+于是分别定义为**Pauli 矩阵**：
+$$
+I = \pmqty{
+1 & 0 \\
+0 & 1
+}\qc \sigma_x =\pmqty{
+0 & 1 \\
+1 & 0
+}\qc \sigma_y = \pmqty{
+0 & i \\
+-i & 0
+}\qc \sigma_z = \pmqty{
+1 & 0 \\
+0 & -1
+}
+$$
+其性质有：
+
+- 对易关系：
+  $$
+  \comm{\sigma_i}{\sigma_j} = 2i\sum_k\varepsilon_{ijk}\sigma_k
+  $$
+
+- 反对易关系：
+  $$
+  \acomm{\sigma_i}{\sigma_j} = 2\delta_{ij}
+  $$
+
+- 神秘恒等式：
+  $$
+  ( \sigma\cdot a )( \sigma\cdot b ) = a\cdot b+i\sigma\cdot ( a\times b )
+  $$
+
+---
+
+### 角动量耦合
+
+假设有两个带自旋的粒子都在同一个体系里，对这两个粒子分别的角动量算符 $J_1^{2},J_{2}^{2},J_{1z},J_{2z}$ 都是彼此对易的，因此可以用 $\ket{j_{1}j_{2}m_{1}m_{2}}\equiv \ket{j_{1}m_{1}}\otimes \ket{j_{2}m_{2}}$ 表示。但是同时也可以认为有一个耦合过的总体角动量：
+$$
+J = J_{1}+J_{2}
+$$
+这对应一个 $\ket{jmj_{1}j_{2}}$ 的表示。它们时同一个空间的两组基。通过幺正变换得到：
+$$
+\ket{jmj_{1}j_{2}} = \sum_{m_{1},m_{2}} \ket{j_{1}j_{2}m_{1}m_{2}}\ip{j_{1}j_{2}m_{1}m_{2}}{jmj_{1}j_{2}}
+$$
+这里 $\ip{j_{1}j_{2}m_{1}m_{2}}{jmj_{1}j_{2}}$ 称为 CG 耦合常数。
+
+只有当满足以下条件时，这个耦合常数才不为0：
+$$
+\begin{gathered}
+m = m_{1}+m_{2} \\
+j_{1}+j_{2} \geq  j \geq  | j_{1}-j_{2} |
+\end{gathered}
+$$
+
+> 第一个式子的证明：
+>
+> 注意到 $(J_z - J_{1z} - J_{2z})\ket{jmj_{1}j_{2}}  = 0$，于是有：
+> $$
+> \mel{j_{1}j_{2}m_{1}m_{2}}{J_z-J_{1z}-J_{2z}}{jmj_{1}j_{2} } = ( m-m_{1}-m_{2} )\ip{j_{1}j_{2}m_{1}m_{2}}{jmj_{1}j_{2}} =0
+> $$
+> 第二个式子可以用矢量方法推得。
+
+考虑一个 $l=1$ 的轨道与电子自旋之间的耦合，对应 $j_1 = 1, j_{2} = \frac{1}{2}$，于是总角动量平方对应 $j = \frac{3}{2}$ 或者 $j=\frac{1}{2}$。先考虑 $j = \frac{3}{2}$ 时，此时 $m=m_{1}+m_{2}$ 对应：
+$$
+\begin{gathered}
+\ket{j = \frac{3}{2}, m=\frac{3}{2}} = \ket{m_{1}=1,m_{2}=\frac{1}{2}} \\
+  \ket{j = \frac{3}{2}, m=-\frac{3}{2}} = \ket{m_{1}=-1,m_{2}=-\frac{1}{2}}
+\end{gathered}
+$$
+作用总下降算符在第一个式子两边 $J_- = J_{1-} + J_{2-}$ 得到：
+$$
+\begin{align}
+LHS & = \sqrt{ \frac{3}{2}( \frac{3}{2}+1 ) - \frac{3}{2}( \frac{3}{2}-1 ) }\hbar  \ket{j=\frac{3}{2},m=\frac{1}{2}} \\
+ & = \sqrt{ 3 }\hbar  \ket{j=\frac{3}{2},m=\frac{1}{2}} \\
+RHS & =\sqrt{ 1( 1 +1)-1( 1-1 ) }\hbar \ket{m_{1}=0,m_{2}=\frac{1}{2}}  \\
+ & \quad + \sqrt{ \frac{1}{2}( \frac{1}{2}+1 )-\frac{1}{2}( \frac{1}{2}-1 )  }\hbar \ket{m_{1}=1,m_{2}=-\frac{1}{2}} 
+\end{align}
+$$
+合并得到：
+$$
+\ket{j=\frac{3}{2},m=\frac{1}{2}} = \sqrt{ \frac{2}{3} }\ket{m_{1}=0,m_{2}=\frac{1}{2}} + \sqrt{ \frac{1}{3} } \ket{m_{1}=1,m_{2}=-\frac{1}{2}} 
+$$
+再考虑对应 $j=\frac{1}{2}$ 的态矢：
+$$
+\ket{j=\frac{1}{2},m=\frac{1}{2}} = c_{1}\ket{m_{1}=0,m_{2}=\frac{1}{2}} +  c_{2}\ket{m_{1}=1,m_{2}=-\frac{1}{2}}
+$$
+然后从正交归一条件可以凑到系数：
+$$
+\ket{j=\frac{1}{2},m=\frac{1}{2}} = \sqrt{ \frac{1}{3} }\ket{m_{1}=0,m_{2}=\frac{1}{2}} -\sqrt{ \frac{2}{3} }\ket{m_{1}=1,m_{2}=-\frac{1}{2}}
+$$
+
+---
+
+### 旋转矩阵
+
+对于三维旋转矩阵的旋转向量分别为：
+$$
+\begin{gathered}
+R_x( \alpha ) = \bmqty{
+1 & 0 & 0 \\
+0 & \cos\alpha & -\sin\alpha \\
+0 & \sin\alpha & \cos\alpha
+} \\
+R_y( \alpha ) = \bmqty{
+\cos\alpha & 0 & \sin\alpha \\
+0 & 1 & 0 \\
+-\sin\alpha & 0 & \cos\alpha
+} \\
+R_z( \alpha ) =\bmqty{
+\cos\alpha & -\sin\alpha & 0 \\
+\sin\alpha & \cos\alpha & 0 \\
+0 & 0 & 1
+}
+\end{gathered}
+$$
+取二阶无穷小量，对应无穷小角度 $\varepsilon$ 旋转为：
+$$
+\begin{gathered}
+R_x( \varepsilon ) = \bmqty{
+1 & 0 & 0 \\
+0 & 1-\frac{\varepsilon}{2} & -\varepsilon \\
+0 & \varepsilon & 1-\frac{\varepsilon}{2}
+} \\
+R_y( \varepsilon ) = \bmqty{
+1-\frac{\varepsilon}{2} & 0 & \varepsilon \\
+0 & 1 & 0 \\
+-\varepsilon & 0 & 1-\frac{\varepsilon}{2}
+} \\
+R_z( \varepsilon ) =\bmqty{
+1-\frac{\varepsilon}{2} & -\varepsilon & 0 \\
+\varepsilon & 1-\frac{\varepsilon}{2} & 0 \\
+0 & 0 & 1
+}
+\end{gathered}
+$$
+从矩阵关系上有：
+$$
+R_x( \varepsilon )R_y( \varepsilon  ) - R_y( \varepsilon  )R_x( \varepsilon ) = R_z( \varepsilon^{2} )-1
+$$
+类似平移算符，对应无穷小角度的旋转必然有形式：
+$$
+R_n( \dd{\alpha}  ) = 1-i\hat{G_n}\dd{\alpha} 
+$$
+对应多次无穷小旋转：
+$$
+R_{n}( \alpha  ) = \lim_{ N \to \infty }\qty( 1-i\hat{G}_n \frac{\alpha}{N} )^{N} = e^{ -i\hat{G}_{n}\alpha }
+$$
+可以推得：
+$$
+R_x( \varepsilon )R_y( \varepsilon  ) - R_y( \varepsilon  )R_x( \varepsilon ) = -\comm{\hat{G}_x}{\hat{G}_y}\varepsilon^{2}
+$$
+对比矩阵形式的结论
+$$
+R_x( \varepsilon )R_y( \varepsilon  ) - R_y( \varepsilon  )R_x( \varepsilon ) = R_z( \varepsilon^{2} )-1 = -i\hat{G}_z \varepsilon^{2}
+$$
+对比发现修正一个系数之后就是角动量算符：
+$$
+R_n( \alpha ) = e^{ -\frac{i}{\hbar }J_n\alpha  }
+$$
+
+---
+
+假设对一个矢量作旋转操作变成另一个矢量，可以写成旋转矩阵作用：
+$$
+\pmqty{
+V_x' \\
+V_y' \\
+V_z'
+} = \mathbf{R}_n( \alpha )\pmqty{
+V_x \\
+V_y \\
+V_z
+}
+$$
+如果定义旋转后的基向量满足 $\va{e}_i' = \hat{R}_n( \alpha)\va{e}_i$，可以把旋转矩阵表达为：
+$$
+R_n(\alpha) =
+\begin{pmatrix}
+\langle e_1 | e'_1 \rangle & \langle e_1 | e'_2 \rangle & \langle e_1 | e'_3 \rangle \\
+\langle e_2 | e'_1 \rangle & \langle e_2 | e'_2 \rangle & \langle e_2 | e'_3 \rangle \\
+\langle e_3 | e'_1 \rangle & \langle e_3 | e'_2 \rangle & \langle e_3 | e'_3 \rangle
+\end{pmatrix}
+$$
+如果时被动旋转（保持矢量不动，而是旋转坐标系），也是相同的表示。只不过把记号改成了 $U_n( @a)$
+
+---
+
+利用欧拉角可以写出任意一个旋转角：
+$$
+R( \phi ,\theta,\chi  ) = R_x( \phi  )R_y( \phi  )R_z( \chi  ) = \exp( -\frac{i}{\hbar}( J_x\phi +J_y\phi +J_z\chi  ) )
+$$
+可以写成：
+$$
+\begin{align}
+R( \phi ,\theta,\chi  ) \ket{jm}  & = \sum_{m'}\ket{jm'}\mel{jm'}{R( \phi ,\theta,\chi  )}{ jm } 
+ \\
+ & = \sum_{m'} D^j_{m,m'}( \phi ,\theta,\chi  )\ket{jm'} 
+\end{align}
+$$
+其中D称为旋转矩阵，并有：
+$$
+D^j_{m,m'}( \phi ,\theta,\chi  ) = e^{ -im'\phi  } d^j_{m,m'}( \theta )e^{ -im\chi  }
+$$
+
+
+
+
+
+
