@@ -1837,7 +1837,238 @@ $$
 
 ---
 
+对于二体束缚态写成：
+$$
+\qty[ \frac{p_{1}^{2}}{2m} + \frac{p_{2}^{2}}{2m}  - g\delta^{( 3 )}( r_{1}-r_{2} )	]\Psi ( r,R ) = E\Psi ( r,R )
+$$
+转化成算符形式：
+$$
+\qty[ -\frac{\hbar ^{2}}{2M}\grad _R^{2} - \frac{\hbar^{2}}{2\mu}\grad_r^{2} - g\delta^{( 3 )}( r )	]\Psi ( r,R ) = E\Psi ( r,R )
+$$
+其中质心质量 $M = 2m$，约化质量 $\mu = m/2$。现在分解波函数：
+$$
+\Psi ( r,R ) = \psi _{CM}( R )\psi ( r )
+$$
+分解得到的质心波函数很容易界的：
+$$
+E_{CM} = \frac{\hbar ^{2}k_{CM}^{2}}{2M}\qc \varepsilon = E - E_{CM}
+$$
+另外一个得到：
+$$
+\qty[ -\frac{\hbar ^{2}}{2\mu }\laplacian _r - g\delta^{( 3 )}( r ) ]\psi ( r ) = \varepsilon\psi ( r )
+$$
+同样的我们假设：
+$$
+\psi _b( r ) = \psi _b( -r ) = \frac{1}{\Omega}\sum_k \phi _k e^{ ik\cdot r }
+$$
+代入得到：
+$$
+\sum_k \frac{\hbar ^{2}k^{2}}{2\mu }\phi _ke^{ ik\cdot r } - \Omega g\delta^{( 3 )}( r )\psi _b( r ) = \varepsilon_b \sum_k \phi _k e^{ ik\cdot r }
+$$
+乘正交基并积分：
+$$
+\frac{\hbar ^{2}k^{2}}{2\mu }\phi _k - g\psi _b( 0 ) = \varepsilon_b \phi _k
+$$
+得到：
+$$
+\phi _k = \frac{ g\psi _b( 0 ) }{\frac{\hbar ^{2}k^{2}}{2\mu }-\varepsilon_b}
+$$
+得到自洽方程：
+$$
+\psi _b( 0 ) = \frac{1}{\Omega}\sum_k\frac{ g\psi _b( 0 ) }{\frac{\hbar ^{2}k^{2}}{2\mu }-\varepsilon_b}
+$$
+对三维得到：
+$$
+1 = \frac{g}{( 2\pi  )^{3}}\int\dd[ 3 ]{k} \frac{1}{\frac{\hbar^{2}k^{2}}{2\mu}-\varepsilon_b}
+$$
+由于电子在费米面附近，束缚态能量又极小，所以不妨设
+$$
+\varepsilon_b = 2\varepsilon_F - 2\Delta
+$$
+设 $\xi( k) \equiv \frac{\hbar ^{2}k^{2}}{ 2\mu }-2\varepsilon_F$，原式化为：
+$$
+1 = \frac{g}{( 2\pi  )^{3}}\int\dd[ 3 ]{k} \frac{1}{\xi ( k )-\varepsilon_b}
+= \frac{4\pi g}{( 2\pi  )^{3}}\int\dd{k}k^{2} \frac{1}{\xi ( k )-\varepsilon_b}
+$$
+由于 $2k\dd{ k} = 2\mu \xi /\hbar ^{2}$ 得到：
+$$
+1 = \frac{g\mu }{2\pi ^{2}\hbar ^{2}}\int_{0}^{\infty}  \dd{\xi } \frac{k}{\xi +2\Delta}
+$$
+再近似：只关注费米波矢附近，并作截断：
+$$
+1 = \frac{gm_ek_F}{4\pi ^{2}\hbar ^{2}}\int_{0}^{2\hbar \omega_C}  \dd{\xi } \frac{1}{\xi +2\Delta} = \frac{1}{2}N( 0 )g\int_{0}^{2\hbar \omega_C}  \dd{\xi } \frac{1}{\xi +2\Delta}
+$$
+这里 $N(0)$ 对应费米能级的态密度。进一步得到：
+$$
+1 = \frac{1}{2}N( 0 )\ln\frac{2\hbar \omega_c+2\Delta}{2\Delta} \simeq \frac{1}{2}N( 0 )g\ln\frac{\hbar \omega_C}{\Delta}
+$$
+得到：
+$$
+\Delta = \hbar \omega_C e^{ -\frac{2}{N( 0 )g} }
+$$
+即任意弱吸引都会形成束缚态，也就对应原来的态不是基态了。换言之非相互作用的费米面不稳定，这称作 Cooper 不稳定性。
 
+---
 
+### 电子-声子作用
+
+为了研究作用，定义一个总的波函数：
+$$
+\Psi = \sum_n C_n \ket{n} + \sum_\mu  D_\mu \ket{\mu } 
+$$
+其中前者代表没有声子耦合的电子态，后者代表又至少一个声子耦合的量子态。写成哈密顿矩阵：
+$$
+\bmqty{
+H^{\alpha\alpha} & H^{\alpha\beta } \\
+H^{\beta\alpha} & H^{\beta\beta }
+}\bmqty{
+\Psi ^{\alpha} \\
+\Psi ^{\beta}
+} = E\Psi 
+$$
+由第二行得到：
+$$
+\Psi ^{\beta } = [ E-H^{\beta\beta} ]^{-1}H^{\beta\alpha }\Psi ^\alpha
+$$
+带入到第一行：
+$$
+[ H^{\alpha\alpha} + H^{\alpha\beta} [ E-H^{\beta\beta} ]^{-1}H^{\beta\alpha }  ]\Psi ^\alpha = H_{eff}\Psi ^{\alpha}=\Psi ^\alpha
+$$
+中间一项可以微扰展开，令 $H_{0}$ 为电子和声子没有耦合的哈密顿量，$H_1$ 为耦合情况，展开：
+
+ 
+$$
+H_{eff} = H_{0}^{\alpha\alpha} + H_{1}^{\alpha\beta}\qty[ \frac{1}{E-H_{0}^{\beta\beta }}+ \frac{1}{E-H_{0}^{\beta\beta}}H_{1}^{\beta\beta}\frac{1}{E-H_{0}^{\beta\beta}}+\cdots ]H_{1}^{\beta\alpha}
+$$
+二次量子化结果：
+$$
+H_{el} = \sum_{k,s} \xi _k c_{k,s}^{\dagger}c_{k,s}
+$$
+简谐结果：
+$$
+H_{ph} = \sum_{q,\lambda}\hbar \omega_{q,\lambda}( a_{q,\lambda}^{\dagger}a_{q,\lambda}+\frac{1}{2} )
+$$
+分别带入：
+$$
+H_0^{\alpha\alpha} = H_{el}^{\alpha\alpha}\qc H_0^{\beta\beta} = H_{el}^{\beta\beta}+H_{el}^{\beta\beta}
+$$
+耦合结果：
+$$
+H_{1}^{\alpha\beta}=H_{el-ph} = \sum_{k,k',s,\lambda} g_{k,k',\lambda}c_{k',s}^{\dagger}c_{k,s}( a_{k'-k,\lambda}+a_{k-k',\lambda}^{\dagger} )
+$$
+其中：前者表示吸收一个声子，后者表示创造一个声子
+
+重新想想：我们要推导一个电子-电子相互作用，因此最终要从 $\alpha$ 空间变到 $\alpha$ 空间，也就是中间经过一个 $\beta$ 空间的声子作用回到自己。
+
+于是我们假设两个电子的变化为：
+$$
+\begin{cases}
+k_{1}' = k_{1} - q \\
+k_{2}' = k_{2}+q
+\end{cases}
+$$
+并把状态改成 $\ket{n} \to \ket{n'}$，这样得到：
+$$
+H_{int} = \sum_{k_{1},k_{2},q;s_{1},s_{2}} V_{k_{1},k_{2},q} c_{k_{1}-q,s_{1}}^{\dagger}c_{k_{2}+q,s_{2}}^{\dagger} c_{k_{2},s_{2}}c_{k_{1},s_{1}}
+$$
+其中：
+$$
+V_{k_{1},k_{2},q} = \mel{ n' }{ H_{1}^{\alpha\beta} \frac{1}{E-H_{0}^{\beta\beta}}H_{1}^{\beta\alpha} }{ n }
+$$
+我们假设有一个中间态，此时声子被发射但还没有被吸收：
+$$
+V_{k_{1}k_{2}q} = \mel{ n' }{ H_{1}^{\alpha\beta} }{ \mu  } \frac{1}{E - \mel{ \mu  }{ H_{0}^{\beta\beta} }{ \mu  }} \mel{ \mu  }{ H_{1}^{\beta\alpha} }{ n  }
+$$
+
+---
+
+现在考虑带有相互作用的电子对：
+$$
+H = \sum_{k,s} \frac{\hbar ^{2}k^{2}}{2m}c_{k,s}^{\dagger}c_{k,s} - \frac{\lambda}{\Omega}\sum_{k_{1},k_{2},q}c_{k_{1}-q,s_{1}}^{\dagger}c_{k_{2}+q,s_{2}}^{\dagger} c_{k_{2},s_{2}}c_{k_{1},s_{1}}
+$$
+认为库伯对是静止的，于是只保留：
+$$
+k_{2} = -k_{1}
+$$
+进一步得到：
+$$
+H = \sum_{k,s} \frac{\hbar ^{2}k^{2}}{2m}c_{k,s}^{\dagger}c_{k,s} - \frac{\lambda}{\Omega}\sum_{k,k'}c_{k',s_{1}}^{\dagger}c_{-k',s_{2}}^{\dagger} c_{-k,s_{2}}c_{k,s_{1}}
+$$
+利用巨正则系综：
+$$
+\hat{K} = H - \mu \hat{N} = \sum_{k,s} \qty( \frac{\hbar ^{2}k^{2}}{2m} - \mu )c_{k,s}^{\dagger}c_{k,s} - \frac{\lambda}{\Omega}\sum_{k,k'}c_{k',s_{1}}^{\dagger}c_{-k',s_{2}}^{\dagger} c_{-k,s_{2}}c_{k,s_{1}}
+$$
+配分函数：
+$$
+Z = \Tr e^{ -\beta \hat{K} }
+$$
+下一步简化四个产生湮灭算符项，利用平均场近似得到：
+$$
+K' = \sum_{k,s} \qty( \frac{\hbar ^{2}k^{2}}{2m} - \mu )c_{k,s}^{\dagger}c_{k,s} - \sum_k ( \Delta ^{*} c_{-k,s_{2}}c_{k,s_{1}}+\Delta c_{k,s_{1}}^{\dagger}c_{-k,s_{2}}^{\dagger} ) + \frac{\Omega}{\lambda}| \Delta( T ) |^{2}
+$$
+其中相互作用项：
+$$
+\Delta( T ) = \frac{\lambda}{\Omega} \ev{ \sum_k c_{-k,s_{2}}c_{k,s_{1}} }
+$$
+注意到前后可以统一成哈密顿矩阵的形式，动能项有：
+$$
+c_{k,s}^{\dagger} c_{k,s} = c_{k,s_{1}}^{\dagger}c_{k,s_{1}}	 - c_{-k,s_{2}}c_{-k,s_{2}}^{\dagger}
+$$
+写成哈密顿矩阵：
+$$
+\hat{K}' = \sum_k ( c_{k,s_{1}}^{\dagger}, c_{-k,s_{2}} )\mathcal{H}\pmqty{
+c_{k,s_{1}} \\
+c_{-k,s_{2}}^{\dagger}
+} + \frac{\Omega}{\lambda}| \Delta( T ) |^{2}
+$$
+其中哈密顿矩阵：
+$$
+\mathcal{H} = \bmqty{
+\frac{\hbar ^{2}k^{2}}{2m}-\mu  & -\Delta \\
+-\Delta ^{*}  & -\qty( \frac{\hbar ^{2}k^{2}}{2m}-\mu )
+}
+$$
+对角化得到：
+$$
+E_k = \pm \sqrt{ \xi ^{2}( k )+| \Delta |^{2} }
+$$
+也就是在费米面附近打开一个 $2\Delta$ 能带。
+
+为了方便，定义空穴算符 $d_{k,s_{2}} = c_{-k,s_{2}}^{\dagger}$，得到：
+$$
+\hat{K}' = \sum_k ( c_{k,s_{1}}^{\dagger}, d_{k,s_{2}}^{\dagger} )\mathcal{H}\pmqty{
+c_{k,s_{1}} \\
+d_{k,s_{2}}
+} + \frac{\Omega}{\lambda}| \Delta( T ) |^{2}
+$$
+定义两个准粒子，把哈密顿矩阵对角化：
+$$
+\begin{gathered}
+\alpha_{k,1} = u_kc_{k,s_{1}} - v_k d_{k,s_{2}} \\
+\alpha_{k,2}^{\dagger} = v_{k}^{*} c_{k,s_{1}} + u_{k}^{*} d_{k,s_{2}}
+\end{gathered}
+$$
+且系数满足：
+$$
+\begin{gathered}
+| u_k |^{2} + | v_k |^{2} = 1 \\
+| u_k |^{2} - | v_k |^{2} = \xi _k / | E_k |
+\end{gathered}
+$$
+我们知道前者对应高能态 $E_+$，后者对易那个低能态 $E_{-}$，那么基态就是所有粒子都在低能态
+$$
+\ket{G} = \prod _k ( \alpha_{k,1}^{\dagger} )^{\dagger}( \alpha_{k,2}^{\dagger} )^{\dagger} \ket{0} = \prod_k \alpha_{k,1}\alpha_{k,2}\ket{0}   
+$$
+代入具体数值：
+$$
+\ket{G} = \prod_k ( u_k  + v_k c_{k,s_{1}}^{\dagger} c_{-k,s_{2}}^{\dagger})\ket{0}
+$$
+
+---
+
+还剩一个能隙没解出来。回到哈密顿量写成：
+$$
+\hat{K}' = \sum_k E_+( k )\alpha_{k,1}^{\dagger} \alpha_{k,1} + \sum_k E_-( k )\alpha_{k,2}\alpha_{k,2}^{\dagger} + const.
+$$
 
 
