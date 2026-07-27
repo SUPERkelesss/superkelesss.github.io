@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "mkdocs serve",
-    "build": "apt-get update && apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev && npm install pngquant && python3 -m mkdocs build -d public"
+    "build": "dnf install -y cairo-devel freetype-devel libffi-devel libjpeg-devel libpng-devel zlib-devel && npm install pngquant && python3 -m mkdocs build -d public"
   }
 }
