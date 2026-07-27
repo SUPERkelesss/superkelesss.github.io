@@ -146,7 +146,8 @@ plugins:
             - lqbz/index.md
             - refs/index.md
             - blog/*
-  - optimize
+  - optimize:
+      optimize_jpg_progressive: false
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
