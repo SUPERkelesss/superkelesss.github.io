@@ -1,5 +1,5 @@
 {
-  "buildCommand": "sudo dnf install -y cairo cairo-devel libjpeg-turbo-devel libpng-devel freetype-devel libffi-devel && sudo ldconfig && pip install --force-reinstall --no-cache-dir mkdocs-material[imaging] && npm install pngquant && python3 -m mkdocs build -d public",
+  "buildCommand": "dnf install -y cairo cairo-devel libjpeg-turbo-devel libpng-devel freetype-devel libffi-devel && ldconfig && pip install --force-reinstall --no-cache-dir mkdocs-material[imaging] && npm install pngquant && python3 -m mkdocs build -d public",
   "headers": [
     {
       "source": "/sw.js",
