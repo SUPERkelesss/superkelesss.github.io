@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "mkdocs serve",
-    "build": "npm install pngquant && python3 -m mkdocs build -d public"
+    "build": "apt-get update && apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev && npm install pngquant && python3 -m mkdocs build -d public"
   }
 }
