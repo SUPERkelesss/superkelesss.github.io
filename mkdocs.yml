@@ -147,7 +147,7 @@ plugins:
             - refs/index.md
             - blog/*
   - optimize:
-      optimize_jpg_progressive: false
+      optimize_jpg: false
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
