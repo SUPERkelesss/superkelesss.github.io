@@ -7,14 +7,14 @@
 
 ---
 
-<img src="imgs/banner.png"  href="https://github.com/SUPERkelesss/Krystals" alt="banner" />  
+<img src="imgs/banner.png" alt="banner" />  
 
 <h3 align="center"> Krystals: Android 平台轻量化 CIF 晶体编辑器 </h3>
   <p align="center">
     像 vesta 一样在移动平台便捷地查看晶体！
     <br />
-    <a href="https://github.com/SUPERkelesss/Krystals/releases"> <strong> 下载发行包 </strong> </a> ·
-    <a href="https://github.com/SUPERkelesss/Krystals/issues"> 报告 Bug </a>
+    <a href="refs/software/krystals.md"> <strong> 查看 Krystals 页面 </strong> </a> ·
+    <a href="lib/krystals-release/krystal_v0.6.4.apk"> 下载测试版 </a>
   </p>
 
 ---

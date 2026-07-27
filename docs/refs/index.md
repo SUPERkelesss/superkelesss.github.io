@@ -24,6 +24,7 @@
 - 资源分享:
   - 化学相关: software/chemsoft
   - 数学相关: software/mathsoft
+  - Krystals: software/krystals
 - 化学竞赛题目:
   - PKU&THU春联/金秋营试题: jsexam/pkuthu
-{{ END_TOC }}
+  {{ END_TOC }}

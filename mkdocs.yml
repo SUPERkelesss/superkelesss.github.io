@@ -81,6 +81,7 @@ nav:
     - 资源分享:
       - 化学相关: refs/software/chemsoft.md
       - 数学相关: refs/software/mathsoft.md
+      - Krystals: refs/software/krystals.md
     - 化学竞赛题目:
       - PKU&THU春联/金秋营试题: refs/jsexam/pkuthu.md
   - 📓日记:
